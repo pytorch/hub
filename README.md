@@ -1,1 +1,1 @@
-# hub
+# PyTorch Hub
