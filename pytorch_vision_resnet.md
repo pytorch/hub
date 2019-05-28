@@ -3,7 +3,7 @@ layout: pytorch_hub_detail
 background-class: pytorch-hub-background
 body-class: pytorch-hub
 title: resnet
-summary: Resnet is convolutional neural network that is trained from ImageNet database. The network can classify images into 1000 categories.
+summary: Deep residual networks that is pre-trained from ImageNet database.
 category: research
 image: pytorch-logo.png
 tags: [CV, image classification, python2, python3]
@@ -16,6 +16,7 @@ featured_image_2:
 
 Resnet models were proposed in "Deep Residual Learning for Image Recognition".
 Here we have the 5 versions of resnet models, which contains 5, 34, 50, 101, 152 layers repspectively.
+Detailed model architectures can be found in Table 1.
 Their 1-crop error rates on imagenet dataset with pretrained models are list below.
 
 | Model structure | Top-1 error | Top-5 error |
