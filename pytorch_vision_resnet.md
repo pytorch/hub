@@ -34,6 +34,11 @@ i.e. mini-batches of 3-channel RGB images of shape `(3 x H x W)`, where `H` and 
 The images have to be loaded in to a range of `[0, 1]` and then normalized using `mean = [0.485, 0.456, 0.406]`
 and `std = [0.229, 0.224, 0.225]`. You can use the following transform to normalize:
 
+```
+normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                 std=[0.229, 0.224, 0.225])
+```
+
 ### Example:
 
 ```python
@@ -47,4 +52,4 @@ model = torch.hub.load('pytorch/vision', 'resnet152', pretrained=True)
 
 ### Resources:
 
- - "Deep Residual Learning for Image Recognition" on arXiv: <https://arxiv.org/abs/1512.03385>.
+ - [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
