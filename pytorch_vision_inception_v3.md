@@ -6,6 +6,7 @@ title: Inception_v3
 summary: 1st Runner Up for image classification in ILSVRC (ImageNet Large Scale Visual Recognition Competition) 2015.
 category: research
 image: pytorch-logo.png
+author: pytorch team
 tags: [CV, image classification, python2, python3]
 github-link: https://github.com/pytorch/vision.git
 featured_image_1: inception_v3.png
