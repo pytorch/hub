@@ -6,7 +6,7 @@ title: resnet
 summary: Deep residual networks that is pre-trained from ImageNet database.
 category: research
 image: pytorch-logo.png
-tags: [CV, image classification, python2, python3]
+tags: [CV, image classification]
 github-link: https://github.com/pytorch/vision.git
 featured_image_1: resnet.png
 featured_image_2:
