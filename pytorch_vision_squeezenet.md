@@ -6,10 +6,11 @@ title: squeezenet
 summary: Alexnet-level accuracy with 50x fewer parameters.
 category: research
 image: pytorch-logo.png
+author: pytorch team
 tags: [CV, image classification]
 github-link: https://github.com/pytorch/vision.git
 featured_image_1: squeezenet.png
-featured_image_2:
+featured_image_2: no-image
 ---
 
 ### Model Description

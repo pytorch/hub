@@ -20,10 +20,11 @@ title: <REQUIRED: short model name>
 summary: <REQUIRED: 1-2 sentences>
 category: research
 image: pytorch-logo.png
+author: [REQUIRED]
 tags: [tag1, tag2]
 github-link: <REQUIRED>
-featured_image_1: <OPTIONAL>
-featured_image_2: <OPTIONAL>
+featured_image_1: <OPTIONAL: use no-image if not applicable>
+featured_image_2: <OPTIONAL: use no-image if not applicable>
 ---
 <!-- Detailed model description below, in markdown format, feel free to add new sections as necessary -->
 ### Model Description

@@ -6,10 +6,11 @@ title: vgg
 summary: Award winning models in ILSVRC challenge 2014.
 category: research
 image: pytorch-logo.png
+author: pytorch team
 tags: [CV, image classification]
 github-link: https://github.com/pytorch/vision.git
 featured_image_1: vgg.png
-featured_image_2:
+featured_image_2: no-image
 ---
 
 ### Model Description
