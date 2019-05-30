@@ -16,7 +16,7 @@ Currently we don't support hosting pretrained weights, users with pretrained wei
 layout: pytorch_hub_detail
 background-class: pytorch-hub-background
 body-class: pytorch-hub
-category: research
+category: researchers
 <!-- Only change fields below -->
 title: <REQUIRED: short model name>
 summary: <REQUIRED: 1-2 sentences>

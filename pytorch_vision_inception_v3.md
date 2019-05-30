@@ -4,7 +4,7 @@ background-class: pytorch-hub-background
 body-class: pytorch-hub
 title: Inception_v3
 summary: 1st Runner Up for image classification in ILSVRC (ImageNet Large Scale Visual Recognition Competition) 2015.
-category: research
+category: researchers
 image: pytorch-logo.png
 author: Pytorch Team
 tags: [CV, image classification]

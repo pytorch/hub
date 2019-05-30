@@ -4,7 +4,7 @@ background-class: pytorch-hub-background
 body-class: pytorch-hub
 title: BERT
 summary: BERT models
-category: research
+category: researchers
 image: huggingface-logo.png
 author: HuggingFace Team
 tags: [NLP, BERT]
