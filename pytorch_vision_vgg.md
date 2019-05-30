@@ -2,11 +2,11 @@
 layout: pytorch_hub_detail
 background-class: pytorch-hub-background
 body-class: pytorch-hub
-title: vgg
+title: VGG
 summary: Award winning models in ILSVRC challenge 2014.
 category: research
 image: pytorch-logo.png
-author: pytorch team
+author: Pytorch Team
 tags: [CV, image classification]
 github-link: https://github.com/pytorch/vision.git
 featured_image_1: vgg.png
