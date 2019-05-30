@@ -86,5 +86,5 @@ predicted_token = tokenizer.convert_ids_to_tokens([predicted_index])[0]
 
 ### Resources:
 
- - [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
- - [pytorch-pretrained-BERT](https://github.com/huggingface/pytorch-pretrained-BERT)
+ - Paper: [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
+ - Initial repository (with detailed examples and documentation): [pytorch-pretrained-BERT](https://github.com/huggingface/pytorch-pretrained-BERT)
