@@ -6,8 +6,8 @@ title: AlexNet
 summary: ImageNet 2012 Winner.
 category: research
 image: pytorch-logo.png
-author: pytorch team
-tags: [CV, image classification, python2, python3]
+author: Pytorch Team
+tags: [CV, image classification]
 github-link: https://github.com/pytorch/vision.git
 featured_image_1: alexnet1.png
 featured_image_2: alexnet2.png

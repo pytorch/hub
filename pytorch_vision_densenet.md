@@ -6,8 +6,8 @@ title: Densenet
 summary: Dense Convolutional Network (DenseNet), connects each layer to every other layer in a feed-forward fashion.
 category: research
 image: pytorch-logo.png
-author: pytorch team
-tags: [CV, image classification, python2, python3]
+author: Pytorch Team
+tags: [CV, image classification]
 github-link: https://github.com/pytorch/vision.git
 featured_image_1: densenet1.png
 featured_image_2: densenet2.png

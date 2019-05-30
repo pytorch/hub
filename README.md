@@ -16,21 +16,26 @@ Currently we don't support hosting pretrained weights, users with pretrained wei
 layout: pytorch_hub_detail
 background-class: pytorch-hub-background
 body-class: pytorch-hub
+category: research
+<!-- Only change fields below -->
 title: <REQUIRED: short model name>
 summary: <REQUIRED: 1-2 sentences>
-category: research
-image: pytorch-logo.png
-author: [REQUIRED]
-tags: [tag1, tag2]
+image: <REQUIRED: use pytorch-logo.png if you don't have a logo>
+author: <REQUIRED>
+tags: <REQUIRED: [tag1, tag2, ...]>
 github-link: <REQUIRED>
 featured_image_1: <OPTIONAL: use no-image if not applicable>
 featured_image_2: <OPTIONAL: use no-image if not applicable>
 ---
-<!-- Detailed model description below, in markdown format, feel free to add new sections as necessary -->
+<!-- REQUIRED: detailed model description below, in markdown format, feel free to add new sections as necessary -->
 ### Model Description
 
 <!-- REQUIRED: provide a working script to demonstrate it works with torch.hub -->
 ### Example
+
+<!-- OPTIONAL: put special requirement of your model here, e.g. only supports Python3 -->
+### Requiresments
+
 ```
 where an example script could be as simple as a `hub.load()` example.
 ```python
