@@ -19,15 +19,15 @@ BERT was released together with the paper [BERT: Pre-training of Deep Bidirectio
 
 Here are 8 models based on BERT with [Google's pre-trained models](https://github.com/google-research/bert) along with the associated Tokenizer.
 It includes:
-- bertTokenizer: perform end-to-end tokenization, i.e. basic tokenization followed by WordPiece tokenization
-- bertModel: raw BERT Transformer model (fully pre-trained)
-- bertForMaskedLM: BERT Transformer with the pre-trained masked language modeling head on top (fully pre-trained)
-- bertForNextSentencePrediction: BERT Transformer with the pre-trained next sentence prediction classifier on top (fully pre-trained)
-- bertForPreTraining: BERT Transformer with masked language modeling head and next sentence prediction classifier on top (fully pre-trained)
-- bertForSequenceClassification: BERT Transformer with a sequence classification head on top (BERT Transformer is pre-trained, the sequence classification head is only initialized and has to be trained)
-- bertForMultipleChoice: BERT Transformer with a multiple choice head on top (used for task like Swag) (BERT Transformer is pre-trained, the multiple choice classification head is only initialized and has to be trained)
-- bertForTokenClassification: BERT Transformer with a token classification head on top (BERT Transformer is pre-trained, the token classification head is only initialized and has to be trained)
-- bertForQuestionAnswering: BERT Transformer with a token classification head on top (BERT Transformer is pre-trained, the token classification head is only initialized and has to be trained)
+- `bertTokenizer`: perform end-to-end tokenization, i.e. basic tokenization followed by WordPiece tokenization
+- `bertModel`: raw BERT Transformer model (fully pre-trained)
+- `bertForMaskedLM`: BERT Transformer with the pre-trained masked language modeling head on top (fully pre-trained)
+- `bertForNextSentencePrediction`: BERT Transformer with the pre-trained next sentence prediction classifier on top (fully pre-trained)
+- `bertForPreTraining`: BERT Transformer with masked language modeling head and next sentence prediction classifier on top (fully pre-trained)
+- `bertForSequenceClassification`: BERT Transformer with a sequence classification head on top (BERT Transformer is pre-trained, the sequence classification head is only initialized and has to be trained)
+- `bertForMultipleChoice`: BERT Transformer with a multiple choice head on top (used for task like Swag) (BERT Transformer is pre-trained, the multiple choice classification head is only initialized and has to be trained)
+- `bertForTokenClassification`: BERT Transformer with a token classification head on top (BERT Transformer is pre-trained, the token classification head is only initialized and has to be trained)
+- `bertForQuestionAnswering`: BERT Transformer with a token classification head on top (BERT Transformer is pre-trained, the token classification head is only initialized and has to be trained)
 
 
 ### Example:
