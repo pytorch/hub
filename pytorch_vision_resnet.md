@@ -18,7 +18,7 @@ featured_image_2: no-image
 Resnet models were proposed in "Deep Residual Learning for Image Recognition".
 Here we have the 5 versions of resnet models, which contains 5, 34, 50, 101, 152 layers repspectively.
 Detailed model architectures can be found in Table 1.
-Their 1-crop error rates on imagenet dataset with pretrained models are list below.
+Their 1-crop error rates on imagenet dataset with pretrained models are listed below.
 
 | Model structure | Top-1 error | Top-5 error |
 | --------------- | ----------- | ----------- |

@@ -15,10 +15,10 @@ featured_image_2: no-image
 
 ### Model Description
 
-FCN-ResNet101 is contructed by a Fully-Covolutional Network model with a ResNet-101 backbone. 
-The pre-trained models have been trained on a subset of COCO train2017, on the 20 categories that are present in the Pascal VOC dataset. 
+FCN-ResNet101 is contructed by a Fully-Covolutional Network model with a ResNet-101 backbone.
+The pre-trained models have been trained on a subset of COCO train2017, on the 20 categories that are present in the Pascal VOC dataset.
 
-Their accuracies of the pre-trained models evaluated on COCO val2017 dataset are list below.
+Their accuracies of the pre-trained models evaluated on COCO val2017 dataset are listed below.
 
 | Model structure |   Mean IOU  | Global Pixelwise Accuracy |
 | --------------- | ----------- | --------------------------|
@@ -45,4 +45,4 @@ model = torch.hub.load('pytorch/vision', 'fcn_resnet101', pretrained=True)
 
 ### Resources:
 
- - [Fully Convolutional Networks for Semantic Segmentation](https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf)
+ - [Fully Convolutional Networks for Semantic Segmentation](https://arxiv.org/abs/1605.06211)

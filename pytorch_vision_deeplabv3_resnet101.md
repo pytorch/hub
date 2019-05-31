@@ -18,7 +18,7 @@ featured_image_2: no-image
 Deeplabv3-ResNet101 is contructed by a Deeplabv3 model with a ResNet-101 backbone. 
 The pre-trained model has been trained on a subset of COCO train2017, on the 20 categories that are present in the Pascal VOC dataset. 
 
-Their accuracies of the pre-trained models evaluated on COCO val2017 dataset are list below.
+Their accuracies of the pre-trained models evaluated on COCO val2017 dataset are listed below.
 
 |    Model structure  |   Mean IOU  | Global Pixelwise Accuracy |
 | ------------------- | ----------- | --------------------------|

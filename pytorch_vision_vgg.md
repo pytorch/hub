@@ -21,7 +21,7 @@ for each configurations and their with bachnorm version.
 For example, configuration `A` presented in the paper is `vgg11`, configuration `B` is `vgg13`, configuration `D` is `vgg16`
 and configuration `E` is `vgg19`. Their batchnorm version are suffixed with `_bn`.
 
-Their 1-crop error rates on imagenet dataset with pretrained models are list below.
+Their 1-crop error rates on imagenet dataset with pretrained models are listed below.
 
 | Model structure | Top-1 error | Top-5 error |
 | --------------- | ----------- | ----------- |

@@ -18,7 +18,7 @@ featured_image_2: no-image
 Resnext models were proposed in [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/abs/1611.05431).
 Here we have the 2 versions of resnet models, which contains 50, 101 layers repspectively.
 A comparison in model archetechure between resnet50 and resnext50 can be found in Table 1.
-Their 1-crop error rates on imagenet dataset with pretrained models are list below.
+Their 1-crop error rates on imagenet dataset with pretrained models are listed below.
 
 |  Model structure  | Top-1 error | Top-5 error |
 | ----------------- | ----------- | ----------- |
