@@ -15,7 +15,7 @@ featured_image_2: densenet2.png
 
 ### Model Description
 
-Model `densenet` is from the [Densely Connected Convolutional Networks](https://arxiv.org/abs/1608.06993) paper
+Dense Convolutional Network (DenseNet), connects each layer to every other layer in a feed-forward fashion. Whereas traditional convolutional networks with L layers have L connections - one between each layer and its subsequent layer - our network has L(L+1)/2 direct connections. For each layer, the feature-maps of all preceding layers are used as inputs, and its own feature-maps are used as inputs into all subsequent layers. DenseNets have several compelling advantages: they alleviate the vanishing-gradient problem, strengthen feature propagation, encourage feature reuse, and substantially reduce the number of parameters. 
 
 The 1-crop error rates on the imagenet dataset with the pretrained model are listed below.
 
