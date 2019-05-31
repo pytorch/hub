@@ -2,7 +2,7 @@
 layout: pytorch_hub_detail
 background-class: pytorch-hub-background
 body-class: pytorch-hub
-title: Resnet
+title: ResNet
 summary: Deep residual networks that is pre-trained from ImageNet database.
 category: researchers
 image: pytorch-logo.png

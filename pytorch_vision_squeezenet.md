@@ -2,7 +2,7 @@
 layout: pytorch_hub_detail
 background-class: pytorch-hub-background
 body-class: pytorch-hub
-title: Squeezenet
+title: SqueezeNet
 summary: Alexnet-level accuracy with 50x fewer parameters.
 category: researchers
 image: pytorch-logo.png
