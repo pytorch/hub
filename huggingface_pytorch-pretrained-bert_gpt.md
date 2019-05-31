@@ -4,7 +4,7 @@ background-class: pytorch-hub-background
 body-class: pytorch-hub
 title: GPT
 summary: GPT models
-category: research
+category: researchers
 image: huggingface-logo.png
 author: HuggingFace Team
 tags: [NLP, GPT]
@@ -25,23 +25,10 @@ It includes:
 
 ### Example:
 
-Here are three examples on how to use `openAIGPTTokenizer`, `openAIGPTModel` and `openAIGPTLMHeadModel`.
-
-First, we prepare the inputs by tokenizing the text.
+Here are an example on how to tokenize the text with `openAIGPTTokenizer`, and then get the hidden states computed by `openAIGPTModel` or predict the next token using `openAIGPTLMHeadModel`.
 
 ```python
-import torch
-tokenizer = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'openAIGPTTokenizer', 'openai-gpt')
-
-text = "Who was Jim Henson ? Jim Henson was a puppeteer"
-tokenized_text = tokenizer.tokenize(text)
-indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
-```
-
-We can get the hidden states computed by `openAIGPTModel`.
-
-```python
-# Load the tokenizer
+### First, tokenize the input
 import torch
 tokenizer = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'openAIGPTTokenizer', 'openai-gpt')
 
@@ -51,39 +38,26 @@ tokenized_text = tokenizer.tokenize(text)
 indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
 tokens_tensor = torch.tensor([indexed_tokens])
 
-# Load openAIGPTModel
+### Get the hidden states computed by `openAIGPTModel`
 model = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'openAIGPTModel', 'openai-gpt')
 model.eval()
 
-# Predict hidden states features for each layer
+# Compute hidden states features for each layer
 with torch.no_grad():
 	hidden_states = model(tokens_tensor)
-```
 
-We can predict the next tokens using `openAIGPTLMHeadModel`.
+### Predict the next token using `openAIGPTLMHeadModel`
+lm_model = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'openAIGPTLMHeadModel', 'openai-gpt')
+lm_model.eval()
 
-```python
-# Load the tokenizer
-import torch
-tokenizer = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'openAIGPTTokenizer', 'openai-gpt')
-
-#  Prepare tokenized input
-text = "Who was Jim Henson ? Jim Henson was a puppeteer"
-tokenized_text = tokenizer.tokenize(text)
-indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
-tokens_tensor = torch.tensor([indexed_tokens])
-
-# Load openAIGPTLMHeadModel
-model = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'openAIGPTLMHeadModel', 'openai-gpt')
-model.eval()
-
-# Predict hidden states features for each layer
+# Predict all tokens
 with torch.no_grad():
-	predictions = model(tokens_tensor)
+	predictions = lm_model(tokens_tensor)
 
-# Get the predicted last token
+# Get the last predicted token
 predicted_index = torch.argmax(predictions[0, -1, :]).item()
 predicted_token = tokenizer.convert_ids_to_tokens([predicted_index])[0]
+assert predicted_token == '.</w>'
 ```
 
 ### Resources:
