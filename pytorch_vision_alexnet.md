@@ -3,7 +3,7 @@ layout: pytorch_hub_detail
 background-class: pytorch-hub-background
 body-class: pytorch-hub
 title: AlexNet
-summary: ImageNet 2012 Winner.
+summary: AlexNet competed in the 2012 ImageNet Large Scale Visual Recognition Challenge. The network achieved a top-5 error of 15.3%, more than 10.8 percentage points lower than that of the runner up.
 category: researchers
 image: pytorch-logo.png
 author: Pytorch Team
@@ -15,7 +15,7 @@ featured_image_2: alexnet2.png
 
 ### Model Description
 
-Model `alexnet` is from the [One weird trick for parallelizing convolutional neural networks](https://arxiv.org/abs/1404.5997) paper
+AlexNet competed in the ImageNet Large Scale Visual Recognition Challenge on September 30, 2012. The network achieved a top-5 error of 15.3%, more than 10.8 percentage points lower than that of the runner up. The original paper's primary result was that the depth of the model was essential for its high performance, which was computationally expensive, but made feasible due to the utilization of graphics processing units (GPUs) during training. 
 
 The 1-crop error rates on the imagenet dataset with the pretrained model are listed below.
 
