@@ -9,7 +9,7 @@ image: pytorch-logo.png
 author: FAIR HDGAN
 tags: [GAN, vision, DCGAN]
 github-link: https://github.com/facebookresearch/pytorch_GAN_zoo
-featured_image_1: no-image
+featured_image_1: dcgan_dtd.jpg
 featured_image_2: no-image
 ---
 
