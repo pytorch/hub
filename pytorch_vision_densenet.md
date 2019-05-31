@@ -4,7 +4,7 @@ background-class: pytorch-hub-background
 body-class: pytorch-hub
 title: Densenet
 summary: Dense Convolutional Network (DenseNet), connects each layer to every other layer in a feed-forward fashion.
-category: research
+category: researchers
 image: pytorch-logo.png
 author: Pytorch Team
 tags: [CV, image classification]
