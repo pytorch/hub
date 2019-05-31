@@ -60,6 +60,9 @@ predicted_token = tokenizer.convert_ids_to_tokens([predicted_index])[0]
 assert predicted_token == '.</w>'
 ```
 
+### Requirement
+The model only support python3.
+
 ### Resources:
 
  - Paper: [Improving Language Understanding by Generative Pre-Training](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf)
