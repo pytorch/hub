@@ -25,7 +25,7 @@ It includes:
 
 ### Example:
 
-Here are an example on how to tokenize the text with `openAIGPTTokenizer`, and then get the hidden states computed by `openAIGPTModel` or predict the next token using `openAIGPTLMHeadModel`.
+Here is an example on how to tokenize the text with `openAIGPTTokenizer`, and then get the hidden states computed by `openAIGPTModel` or predict the next token using `openAIGPTLMHeadModel`.
 
 ```python
 ### First, tokenize the input
@@ -59,6 +59,9 @@ predicted_index = torch.argmax(predictions[0, -1, :]).item()
 predicted_token = tokenizer.convert_ids_to_tokens([predicted_index])[0]
 assert predicted_token == '.</w>'
 ```
+
+### Requirement
+The model only support python3.
 
 ### Resources:
 
