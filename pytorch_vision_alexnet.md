@@ -3,7 +3,7 @@ layout: pytorch_hub_detail
 background-class: pytorch-hub-background
 body-class: pytorch-hub
 title: AlexNet
-summary: AlexNet competed in the 2012 ImageNet Large Scale Visual Recognition Challenge. The network achieved a top-5 error of 15.3%, more than 10.8 percentage points lower than that of the runner up.
+summary: AlexNet: The 2012 ImageNet winner achieved a top-5 error of 15.3%, more than 10.8 percentage points lower than that of the runner up.
 category: researchers
 image: pytorch-logo.png
 author: Pytorch Team
