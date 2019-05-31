@@ -43,5 +43,5 @@ import torch
 torch.hub.load('pytorch/vision', 'resnet18', pretrained=True)
 ```
 
-3. If you have images, place them in `images/` folder and link them correctly in the `[images/featured_image_1/featured_image_2]` fields above.
+4. If you have images, place them in `images/` folder and link them correctly in the `[images/featured_image_1/featured_image_2]` fields above.
 
