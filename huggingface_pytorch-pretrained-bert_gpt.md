@@ -25,7 +25,7 @@ It includes:
 
 ### Example:
 
-Here are an example on how to tokenize the text with `openAIGPTTokenizer`, and then get the hidden states computed by `openAIGPTModel` or predict the next token using `openAIGPTLMHeadModel`.
+Here is an example on how to tokenize the text with `openAIGPTTokenizer`, and then get the hidden states computed by `openAIGPTModel` or predict the next token using `openAIGPTLMHeadModel`.
 
 ```python
 ### First, tokenize the input
