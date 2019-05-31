@@ -2,30 +2,28 @@
 layout: pytorch_hub_detail
 background-class: pytorch-hub-background
 body-class: pytorch-hub
-title: SqueezeNet
-summary: Alexnet-level accuracy with 50x fewer parameters.
+title: ResNext
+summary: Simple, highly modularized network archi-tecture for image classification
 category: researchers
 image: pytorch-logo.png
 author: Pytorch Team
 tags: [CV, image classification]
 github-link: https://github.com/pytorch/vision.git
-featured_image_1: squeezenet.png
+featured_image_1: resnext.png
 featured_image_2: no-image
 ---
 
 ### Model Description
 
-Model `squeezenet1_0` is from the [SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and <0.5MB model size](https://arxiv.org/pdf/1602.07360.pdf) paper
-
-Model `squeezenet1_1` is from the [official squeezenet repo](https://github.com/DeepScale/SqueezeNet/tree/master/SqueezeNet_v1.1).
-It has 2.4x less computation and slightly fewer parameters than `squeezenet1_0`, without sacrificing accuracy.
-
+Resnext models were proposed in [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/abs/1611.05431).
+Here we have the 2 versions of resnet models, which contains 50, 101 layers repspectively.
+A comparison in model archetechure between resnet50 and resnext50 can be found in Table 1.
 Their 1-crop error rates on imagenet dataset with pretrained models are listed below.
 
-| Model structure | Top-1 error | Top-5 error |
-| --------------- | ----------- | ----------- |
-|  squeezenet1_0  | 41.90       | 19.58       |
-|  squeezenet1_1  | 41.81       | 19.38       |
+|  Model structure  | Top-1 error | Top-5 error |
+| ----------------- | ----------- | ----------- |
+|  resnext50_32x4d  | 22.38       | 6.30        |
+|  resnext101_32x8d | 20.69       | 5.47        |
 
 ### Notes on Inputs
 
@@ -43,10 +41,10 @@ normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision', 'squeezenet1_0', pretrained=True)
-model = torch.hub.load('pytorch/vision', 'squeezenet1_1', pretrained=True)
+model = torch.hub.load('pytorch/vision', 'resnext50_32x4d', pretrained=True)
+model = torch.hub.load('pytorch/vision', 'resnext101_32x8d', pretrained=True)
 ```
 
 ### Resources:
 
- - [Squeezenet: Alexnet-level accuracy with 50x fewer parameters and <0.5MB model size](https://arxiv.org/pdf/1602.07360.pdf).
+ - [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/abs/1611.05431)
