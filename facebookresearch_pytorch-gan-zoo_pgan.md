@@ -27,24 +27,24 @@ In order to load and use a model trained on CelebaHQ:
 
 ```python
 import torch
-  import scipy.misc
-  import numpy as np
+import scipy.misc
+import numpy as np
 
-  def saveTensor(data, path):
-      data = (torch.clamp(data, min=-1, max=1) + 1.0) * 255.0 / 2.0
-      scipy.misc.imsave(path, np.array(data.permute(1,2,0).numpy(),
-                                       dtype='uint8'))
+def saveTensor(data, path):
+    data = (torch.clamp(data, min=-1, max=1) + 1.0) * 255.0 / 2.0
+    scipy.misc.imsave(path, np.array(data.permute(1,2,0).numpy(),
+                                     dtype='uint8'))
 
-  model = torch.hub.load('facebookresearch/pytorch_GAN_zoo',
-                         'PGAN',
-                         pretrained=True, model_name="celebAHQ-512")
+model = torch.hub.load('facebookresearch/pytorch_GAN_zoo',
+                       'PGAN',
+                       pretrained=True, model_name="celebAHQ-512")
 
-  batch_size = 4
-  inputRandom, _ = model.buildNoiseData(batch_size)
+batch_size = 4
+inputRandom, _ = model.buildNoiseData(batch_size)
 
-  outImgs = model.test(inputRandom, getAvG=True, toCPU=True)
-  for index in range(batch_size):
-      saveTensor(outImgs[index], f"test_{index}.jpg")
+outImgs = model.test(inputRandom, getAvG=True, toCPU=True)
+for index in range(batch_size):
+    saveTensor(outImgs[index], f"test_{index}.jpg")
 ```
 
 Other model names are available: celebAHQ-256, DTD (https://www.robots.ox.ac.uk/~vgg/data/dtd/) and celeba (res 128).
