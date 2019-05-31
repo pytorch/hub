@@ -3,7 +3,7 @@ layout: pytorch_hub_detail
 background-class: pytorch-hub-background
 body-class: pytorch-hub
 category: researchers
-title: Progressive Growing of GAN (PGAN)
+title: DCGAN
 summary: An implementation of DCGAN, a simple GAN model
 image: pytorch-logo.png
 author: FAIR HDGAN
