@@ -32,11 +32,10 @@ It includes:
 
 ### Example:
 
-Here are three examples on how to use `bertTokenizer`, `bertModel` and `bertForMaskedLM`.
+Here is an example on how to tokenize the input text with `bertTokenizer`, and then get the hidden states computed by `bertModel` or predict masked tokens using `bertForMaskedLM`.
 
-First, we prepare the inputs by tokenizing the text.
 ```python
-# Load pre-trained model tokenizer (vocabulary)
+### First, tokenize the input
 import torch
 tokenizer = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'bertTokenizer', 'bert-base-cased', do_basic_tokenize=False)
 
@@ -44,17 +43,9 @@ tokenizer = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'bertTokenizer
 text = "[CLS] Who was Jim Henson ? [SEP] Jim Henson was a puppeteer [SEP]"
 tokenized_text = tokenizer.tokenize(text)
 indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
-```
 
-We can get the hidden states computed by `bertModel`.
 
-```python
-import torch
-tokenizer = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'bertTokenizer', 'bert-base-cased', do_basic_tokenize=False)
-text = "[CLS] Who was Jim Henson ? [SEP] Jim Henson was a puppeteer [SEP]"
-tokenized_text = tokenizer.tokenize(text)
-indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
-
+### Get the hidden states computed by `bertModel`
 # Define sentence A and B indices associated to 1st and 2nd sentences (see paper)
 segments_ids = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
 
@@ -67,32 +58,25 @@ model.eval()
 
 with torch.no_grad():
     encoded_layers, _ = model(tokens_tensor, segments_tensors)
-```
 
-We can predict masked tokens using `bertForMaskedLM`.
 
-```python
-import torch
-tokenizer = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'bertTokenizer', 'bert-base-cased', do_basic_tokenize=False)
-text = "[CLS] Who was Jim Henson ? [SEP] Jim Henson was a puppeteer [SEP]"
-tokenized_text = tokenizer.tokenize(text)
-indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
-
+### Predict masked tokens using `bertForMaskedLM`
 # Mask a token that we will try to predict back with `BertForMaskedLM`
 masked_index = 8
 tokenized_text[masked_index] = '[MASK]'
 indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
 tokens_tensor = torch.tensor([indexed_tokens])
 
-model = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'bertForMaskedLM', 'bert-base-cased')
-model.eval()
+maskedLM_model = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'bertForMaskedLM', 'bert-base-cased')
+maskedLM_model.eval()
 
 with torch.no_grad():
-    predictions = model(tokens_tensor, segments_tensors)
+    predictions = maskedLM_model(tokens_tensor, segments_tensors)
 
 # Get the predicted token
 predicted_index = torch.argmax(predictions[0, masked_index]).item()
 predicted_token = tokenizer.convert_ids_to_tokens([predicted_index])[0]
+assert predicted_token == 'Jim'
 ```
 
 
