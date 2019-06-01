@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5.1-node
+    steps:
+      - checkout
+      - run:
+          name: Sanity Check
+          command: python scripts/sanity_check.py
+
+workflows:
+  version: 2
+  workflow-build:
+    jobs:
+      - build
