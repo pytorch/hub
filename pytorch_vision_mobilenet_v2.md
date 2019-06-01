@@ -3,7 +3,7 @@ layout: pytorch_hub_detail
 background-class: pytorch-hub-background
 body-class: pytorch-hub
 title: MobileNet v2
-summary: MobileNet v2: based on an inverted residual structure where the input and output of the residual block are thin bottleneck layers.
+summary: An inverted residual structure where the input and output of the residual block are thin bottleneck layers.
 category: researchers
 image: pytorch-logo.png
 author: Pytorch Team
