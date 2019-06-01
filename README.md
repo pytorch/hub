@@ -13,7 +13,7 @@ Currently we don't support hosting pretrained weights, users with pretrained wei
 3. Please use the template below to create new PRs.
 ```
 ---
-layout: pytorch_hub_detail
+layout: hub_detail
 background-class: hub-background
 body-class: hub
 category: researchers

@@ -1,5 +1,5 @@
 ---
-layout: pytorch_hub_detail
+layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: AlexNet
