@@ -3,7 +3,7 @@ layout: pytorch_hub_detail
 background-class: pytorch-hub-background
 body-class: pytorch-hub
 title: Progressive Growing of GAN (PGAN)
-summary: An implementation of NVIDIA's method for generating HD images with GAN https://arxiv.org/abs/1710.10196
+summary: An implementation of NVIDIA's method for generating HD images with GAN
 category: researchers
 image: pytorch-logo.png
 author: FAIR HDGAN

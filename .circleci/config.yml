@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Sanity Check
-          command: python scripts/sanity_check.py
+          command: python3 scripts/sanity_check.py
 
 workflows:
   version: 2

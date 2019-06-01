@@ -34,7 +34,7 @@ i.e. mini-batches of 3-channel RGB images of shape `(3 x H x W)`, where `H` and 
 The images have to be loaded in to a range of `[0, 1]` and then normalized using `mean = [0.485, 0.456, 0.406]`
 and `std = [0.229, 0.224, 0.225]`.
 
-### Example:
+### Example
 
 ```python
 import torch
@@ -42,6 +42,6 @@ model = torch.hub.load('pytorch/vision', 'squeezenet1_0', pretrained=True)
 model = torch.hub.load('pytorch/vision', 'squeezenet1_1', pretrained=True)
 ```
 
-### Resources:
+### Resources
 
  - [Squeezenet: Alexnet-level accuracy with 50x fewer parameters and <0.5MB model size](https://arxiv.org/pdf/1602.07360.pdf).
