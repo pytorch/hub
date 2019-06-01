@@ -1,7 +1,7 @@
 ---
 layout: pytorch_hub_detail
-background-class: pytorch-hub-background
-body-class: pytorch-hub
+background-class: hub-background
+body-class: hub
 title: VGG
 summary: Award winning models in ILSVRC challenge 2014.
 category: researchers

@@ -1,7 +1,7 @@
 ---
 layout: pytorch_hub_detail
-background-class: pytorch-hub-background
-body-class: pytorch-hub
+background-class: hub-background
+body-class: hub
 title: FCN-ResNet101
 summary: Fully-Convolutional Network model with a ResNet-101 backbone
 category: researchers

@@ -20,8 +20,8 @@ class ValidMD:
         self.required_headers_untouched = """
 ---
 layout: pytorch_hub_detail
-background-class: pytorch-hub-background
-body-class: pytorch-hub"""
+background-class: hub-background
+body-class: hub"""
 
         self.required_sections = ['Model Description', 'Example']
 

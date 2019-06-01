@@ -14,8 +14,8 @@ Currently we don't support hosting pretrained weights, users with pretrained wei
 ```
 ---
 layout: pytorch_hub_detail
-background-class: pytorch-hub-background
-body-class: pytorch-hub
+background-class: hub-background
+body-class: hub
 category: researchers
 <!-- Only change fields below -->
 title: <REQUIRED: short model name>

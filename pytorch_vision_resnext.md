@@ -1,7 +1,7 @@
 ---
 layout: pytorch_hub_detail
-background-class: pytorch-hub-background
-body-class: pytorch-hub
+background-class: hub-background
+body-class: hub
 title: ResNext
 summary: Simple, highly modularized network archi-tecture for image classification
 category: researchers

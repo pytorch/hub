@@ -1,7 +1,7 @@
 ---
 layout: pytorch_hub_detail
-background-class: pytorch-hub-background
-body-class: pytorch-hub
+background-class: hub-background
+body-class: hub
 category: researchers
 title: DCGAN
 summary: An implementation of DCGAN, a simple GAN model

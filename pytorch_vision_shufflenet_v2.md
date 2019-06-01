@@ -1,7 +1,7 @@
 ---
 layout: pytorch_hub_detail
-background-class: pytorch-hub-background
-body-class: pytorch-hub
+background-class: hub-background
+body-class: hub
 title: ShuffleNet v2
 summary: Based on a series of controlled experiments, this work derives several practical guidelines for efficient network design.
 category: researchers
