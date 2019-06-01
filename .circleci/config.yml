@@ -6,8 +6,14 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install Deps
+          command: ./scripts/install.sh
+      - run:
           name: Sanity Check
           command: python3 scripts/sanity_check.py
+      - run:
+          name: Run Pytorch scripts
+          command: ./scripts/run_pytorch.sh
 
 workflows:
   version: 2
