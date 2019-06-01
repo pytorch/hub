@@ -23,7 +23,7 @@ It includes:
 - `openAIGPTLMHeadModel`: OpenAI GPT Transformer with the tied language modeling head on top (fully pre-trained)
 - `openAIGPTDoubleHeadsModel`: OpenAI GPT Transformer with the tied language modeling head and a multiple choice classification head on top (OpenAI GPT Transformer is pre-trained, the multiple choice classification head is only initialized and has to be trained)
 
-### Example:
+### Example
 
 Here is an example on how to tokenize the text with `openAIGPTTokenizer`, and then get the hidden states computed by `openAIGPTModel` or predict the next token using `openAIGPTLMHeadModel`.
 
@@ -63,7 +63,7 @@ assert predicted_token == '.</w>'
 ### Requirement
 The model only support python3.
 
-### Resources:
+### Resources
 
  - Paper: [Improving Language Understanding by Generative Pre-Training](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf)
  - [Blogpost from OpenAI](https://openai.com/blog/language-unsupervised/)
