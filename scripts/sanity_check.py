@@ -19,7 +19,7 @@ class ValidMD:
 
         self.required_headers_untouched = """
 ---
-layout: pytorch_hub_detail
+layout: hub_detail
 background-class: hub-background
 body-class: hub"""
 
