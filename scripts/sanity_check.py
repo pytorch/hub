@@ -23,7 +23,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub"""
 
-        self.required_sections = ['Model Description', 'Example']
+        self.required_sections = ['Model Description']
 
 
     def validate_tags(self, tags):
