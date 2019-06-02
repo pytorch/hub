@@ -8,7 +8,7 @@ category: researchers
 image: pytorch-logo.png
 author: Pytorch Team
 tags: [CV, image classification]
-github-link: https://github.com/pytorch/vision.git
+github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/alexnet.py
 featured_image_1: alexnet1.png
 featured_image_2: alexnet2.png
 ---
@@ -43,7 +43,7 @@ output = model(input_batch)
 # Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
 print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
-print(torch.nn.functional.softmax(output[0])
+print(torch.nn.functional.softmax(output[0], dim=0))
 
 ```
 

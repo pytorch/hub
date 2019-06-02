@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: Inception_v3
-summary: 1st Runner Up for image classification in ILSVRC (ImageNet Large Scale Visual Recognition Competition) 2015.
+summary: Also called GoogleNetv3, a famous ConvNet trained on Imagenet from 2015
 category: researchers
 image: pytorch-logo.png
 author: Pytorch Team
@@ -12,6 +12,40 @@ github-link: https://github.com/pytorch/vision.git
 featured_image_1: inception_v3.png
 featured_image_2: no-image
 ---
+
+```python
+import torch
+model = torch.hub.load('pytorch/vision', 'inception_v3', pretrained=True)
+model.eval()
+```
+
+All pre-trained models expect input images normalized in the same way,
+i.e. mini-batches of 3-channel RGB images of shape `(3 x H x W)`, where `H` and `W` are expected to be at least `299`.
+The images have to be loaded in to a range of `[0, 1]` and then normalized using `mean = [0.485, 0.456, 0.406]`
+and `std = [0.229, 0.224, 0.225]`.
+
+Here's a sample execution.
+
+```python
+# sample execution (requires torchvision)
+from PIL import Image
+from torchvision import transforms
+input_image = Image.open('dog.jpg')
+preprocess = transforms.Compose([
+    transforms.Resize(299),
+    transforms.CenterCrop(299),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+])
+input_tensor = preprocess(input_image)
+input_batch = input_tensor.unsqueeze(0) # create a mini-batch as expected by the model
+output = model(input_batch)
+# Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
+print(output[0])
+# The output has unnormalized scores. To get probabilities, you can run a softmax on it.
+print(torch.nn.functional.softmax(output[0], dim=0))
+
+```
 
 ### Model Description
 
@@ -23,20 +57,6 @@ The 1-crop error rates on the imagenet dataset with the pretrained model are lis
 | --------------- | ----------- | ----------- |
 |  inception_v3        | 22.55       | 6.44        |
 
-### Notes on Inputs
-
-All pre-trained models expect input images normalized in the same way,
-i.e. mini-batches of 3-channel RGB images of shape `(3 x H x W)`, where `H` and `W` are expected to be at least `224`.
-The images have to be loaded in to a range of `[0, 1]` and then normalized using `mean = [0.485, 0.456, 0.406]`
-and `std = [0.229, 0.224, 0.225]`.
-
-### Example
-
-```python
-import torch
-model = torch.hub.load('pytorch/vision', 'inception_v3', pretrained=True)
-```
-
-### Resources
+### References
 
  - [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/abs/1512.00567).
