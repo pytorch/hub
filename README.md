@@ -1,4 +1,6 @@
-# hub
+# Pytorch Hub
+
+[![CircleCI](https://circleci.com/gh/pytorch/hub.svg?style=svg)](https://circleci.com/gh/pytorch/hub)
 
 ## Logistics
 
@@ -27,11 +29,11 @@ github-link: <REQUIRED>
 featured_image_1: <OPTIONAL: use no-image if not applicable>
 featured_image_2: <OPTIONAL: use no-image if not applicable>
 ---
-<!-- REQUIRED: detailed model description below, in markdown format, feel free to add new sections as necessary -->
-### Model Description
-
 <!-- REQUIRED: provide a working script to demonstrate it works with torch.hub -->
 ### Example
+
+<!-- REQUIRED: detailed model description below, in markdown format, feel free to add new sections as necessary -->
+### Model Description
 
 <!-- OPTIONAL: put special requirement of your model here, e.g. only supports Python3 -->
 ### Requiresments
