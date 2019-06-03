@@ -2,56 +2,64 @@
 layout: hub_detail
 background-class: hub-background
 body-class: hub
-title: Progressive Growing of GAN (PGAN)
-summary: An implementation of NVIDIA's method for generating HD images with GAN
+title: Progressive Growing of GANs (PGAN)
+summary: High-quality image generation of fashion, celebrity faces
 category: researchers
 image: pytorch-logo.png
 author: FAIR HDGAN
-tags: [GAN, Vision, HD, Celeba, CelebaHQ]
-github-link: https://github.com/facebookresearch/pytorch_GAN_zoo
+tags: [vision, generative]
+github-link: https://github.com/facebookresearch/pytorch_GAN_zoo/blob/master/models/PGAN.py
 featured_image_1: pgan_mix.jpg
 featured_image_2: pgan_celebaHQ.jpg
 ---
 
-<!-- REQUIRED: detailed model description below, in markdown format, feel free to add new sections as necessary -->
+
+```python
+import torch
+use_gpu = True if torch.cuda.is_available() else False
+
+# trained on high-quality celebrity faces "celebA" dataset
+# this model outputs 512 x 512 pixel images
+model = torch.hub.load('facebookresearch/pytorch_GAN_zoo:hub',
+                       'PGAN', model_name='celebAHQ-512',
+                       pretrained=True, useGPU=use_gpu)
+# this model outputs 256 x 256 pixel images
+model = torch.hub.load('facebookresearch/pytorch_GAN_zoo:hub',
+                       'PGAN', model_name='celebAHQ-256',
+                       pretrained=True, useGPU=use_gpu)
+```
+
+The input to the model is a noise vector of shape `(N, 512)` where `N` is the number of images to be generated.
+It can be constructed using the function `.buildNoiseData`.
+The model has a `.test` function that takes in the noise vector and generates images.
+
+```python
+num_images = 4
+noise, _ = model.buildNoiseData(num_images)
+generated_images = model.test(noise)
+
+# let's plot these images using torchvision and matplotlib
+import matplotlib.pyplot as plt
+import torchvision
+grid = torchvision.utils.make_grid(generated_images.clamp(min=-1, max=1), scale_each=True, normalize=True)
+plt.imshow(grid.permute(1, 2, 0).numpy())
+plt.show()
+```
+
+You should see an image similar to the one on the left.
+
+If you want to train your own Progressive GAN and other GANs from scratch, have a look at [PyTorch GAN Zoo](https://github.com/facebookresearch/pytorch_GAN_zoo).
+
 ### Model Description
 
 In computer vision, generative models are networks trained to create images from a given input. In our case, we consider a specific kind of generative networks: GANs (Generative Adversarial Networks) which learn to map a random vector with a realistic image generation.
 
-Progressive Growing of GAN is a method developed by NVIDIA in 2017 allowing to generate high resolution images: https://arxiv.org/abs/1710.10196. To do so, the generative network is trained slice by slice. At first the model is trained to build very low resolution images, once it converges, new layers are added and the output resolution doubles. The process continues until the desired resolution is reached.
+Progressive Growing of GANs is a method developed by Karras et. al. [1] in 2017 allowing generation of high resolution images. To do so, the generative network is trained slice by slice. At first the model is trained to build very low resolution images, once it converges, new layers are added and the output resolution doubles. The process continues until the desired resolution is reached.
 
-<!-- REQUIRED: provide a working script to demonstrate it works with torch.hub -->
-### Example
+### Requirements
 
-In order to load and use a model trained on CelebaHQ:
+- Currently only supports Python 3
 
-```python
-import torch
-import scipy.misc
-import numpy as np
+### References
 
-def saveTensor(data, path):
-    data = (torch.clamp(data, min=-1, max=1) + 1.0) * 255.0 / 2.0
-    scipy.misc.imsave(path, np.array(data.permute(1,2,0).numpy(),
-                                     dtype='uint8'))
-
-model = torch.hub.load('facebookresearch/pytorch_GAN_zoo',
-                       'PGAN',
-                       pretrained=True, model_name="celebAHQ-512")
-
-batch_size = 4
-inputRandom, _ = model.buildNoiseData(batch_size)
-
-outImgs = model.test(inputRandom, getAvG=True, toCPU=True)
-for index in range(batch_size):
-    saveTensor(outImgs[index], f"test_{index}.jpg")
-```
-
-Other model names are available: celebAHQ-256, DTD (https://www.robots.ox.ac.uk/~vgg/data/dtd/) and celeba (res 128).
-If you want to train your own model please have a look at https://github.com/facebookresearch/pytorch_GAN_zoo.
-
-
-<!-- OPTIONAL: put special requirement of your model here, e.g. only supports Python3 -->
-### Requirement
-
-The model only support python3.
+- [Progressive Growing of GANs for Improved Quality, Stability, and Variation](https://arxiv.org/abs/1710.10196)
