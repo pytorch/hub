@@ -12,7 +12,7 @@ class ValidMD:
 
         self.optional_image_fields = ['featured_image_1', 'featured_image_2']
 
-        self.valid_tags = ['vision', 'text', 'audio']
+        self.valid_tags = ['vision', 'nlp', 'audio', 'generative']
 
         self.valid_categories = ['researchers', 'developers']
 
@@ -29,7 +29,7 @@ body-class: hub"""
         Only allow tags in predefined set
         '''
         if tags.startswith('['):
-            tags = tags[1:-1].split(',')
+            tags = [t.strip() for t in tags[1:-1].split(',')]
         elif ',' in tags:
             raise ValueError(
                     'Mulple tags {} must be surrounded by [] in file {}'
@@ -38,11 +38,9 @@ body-class: hub"""
             tags = [tags]
         for t in tags:
             if t not in self.valid_tags:
-                continue
-                # FIXME: Enable this when tags are cleaned up
-                # raise ValueError(
-                # 'Tag {} is not valid in {}. Valid tag set is {}'
-                # .format(t, self.filename, self.valid_tags))
+                raise ValueError(
+                    'Tag {} is not valid in {}. Valid tag set is {}'
+                    .format(t, self.filename, self.valid_tags))
 
     def validate_category(self, category):
         '''
