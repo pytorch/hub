@@ -3,13 +3,13 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: GPT
-summary: GPT models
+summary: Generative Pre-Training (GPT) models for language understanding
 category: researchers
 image: huggingface-logo.png
 author: HuggingFace Team
 tags: [NLP, GPT]
 github-link: https://github.com/huggingface/pytorch-pretrained-BERT.git
-featured_image_1: no-image
+featured_image_1: GPT1.png
 featured_image_2: no-image
 ---
 
