@@ -7,7 +7,7 @@ summary: Also called GoogleNetv3, a famous ConvNet trained on Imagenet from 2015
 category: researchers
 image: pytorch-logo.png
 author: Pytorch Team
-tags: [CV, image classification]
+tags: [vision]
 github-link: https://github.com/pytorch/vision.git
 featured_image_1: inception_v3.png
 featured_image_2: no-image

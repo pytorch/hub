@@ -7,7 +7,7 @@ summary: DeepLabV3 model with a ResNet-50 backbone
 category: researchers
 image: pytorch-logo.png
 author: Pytorch Team
-tags: [CV, sematic image segmentation]
+tags: [vision]
 github-link: https://github.com/pytorch/vision.git
 featured_image_1: no-image
 featured_image_2: no-image

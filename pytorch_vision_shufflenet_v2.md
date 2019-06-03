@@ -7,7 +7,7 @@ summary: An efficient ConvNet optimized for speed and memory, pre-trained on Ima
 category: researchers
 image: pytorch-logo.png
 author: Pytorch Team
-tags: [CV, image classification]
+tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/shufflenetv2.py
 featured_image_1: shufflenet_v2_1.png
 featured_image_2: shufflenet_v2_2.png

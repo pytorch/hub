@@ -7,7 +7,7 @@ summary: Award winning ConvNets from 2014 Imagenet ILSVRC challenge
 category: researchers
 image: pytorch-logo.png
 author: Pytorch Team
-tags: [CV, image classification]
+tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/vgg.py
 featured_image_1: vgg.png
 featured_image_2: no-image

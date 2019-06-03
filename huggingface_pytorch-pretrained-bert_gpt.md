@@ -7,7 +7,7 @@ summary: Generative Pre-Training (GPT) models for language understanding
 category: researchers
 image: huggingface-logo.png
 author: HuggingFace Team
-tags: [NLP, GPT]
+tags: [nlp]
 github-link: https://github.com/huggingface/pytorch-pretrained-BERT.git
 featured_image_1: GPT1.png
 featured_image_2: no-image

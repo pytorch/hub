@@ -7,7 +7,7 @@ summary:  Bidirectional Encoder Representations from Transformers.
 category: researchers
 image: huggingface-logo.png
 author: HuggingFace Team
-tags: [NLP, BERT]
+tags: [nlp]
 github-link: https://github.com/huggingface/pytorch-pretrained-BERT.git
 featured_image_1: bert1.png
 featured_image_2: bert2.png
@@ -43,8 +43,9 @@ tokenizer = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'bertTokenizer
 text = "[CLS] Who was Jim Henson ? [SEP] Jim Henson was a puppeteer [SEP]"
 tokenized_text = tokenizer.tokenize(text)
 indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
+```
 
-
+```python
 ### Get the hidden states computed by `bertModel`
 # Define sentence A and B indices associated to 1st and 2nd sentences (see paper)
 segments_ids = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
@@ -58,8 +59,9 @@ model.eval()
 
 with torch.no_grad():
     encoded_layers, _ = model(tokens_tensor, segments_tensors)
+    ```
 
-
+```python
 ### Predict masked tokens using `bertForMaskedLM`
 # Mask a token that we will try to predict back with `BertForMaskedLM`
 masked_index = 8

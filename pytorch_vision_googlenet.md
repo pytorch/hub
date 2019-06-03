@@ -7,7 +7,7 @@ summary: GoogLeNet was based on a deep convolutional neural network architecture
 category: researchers
 image: pytorch-logo.png
 author: Pytorch Team
-tags: [CV, image classification]
+tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/googlenet.py
 featured_image_1: googlenet1.png
 featured_image_2: googlenet2.png
