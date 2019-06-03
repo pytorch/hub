@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: BERT
-summary: BERT models
+summary:  Bidirectional Encoder Representations from Transformers.
 category: researchers
 image: huggingface-logo.png
 author: HuggingFace Team
