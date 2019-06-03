@@ -9,8 +9,8 @@ image: huggingface-logo.png
 author: HuggingFace Team
 tags: [NLP, BERT]
 github-link: https://github.com/huggingface/pytorch-pretrained-BERT.git
-featured_image_1: no-image
-featured_image_2: no-image
+featured_image_1: bert1.png
+featured_image_2: bert2.png
 ---
 
 ### Model Description
