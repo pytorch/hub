@@ -9,7 +9,7 @@ We accept submission to Pytorch hub through PR in `pytorch/hub` repo. Once the P
 ## Steps to submit to Pytorch hub
 
 1. Add a `hubconf.py` in your repo, following the instruction in [torch.hub doc](https://pytorch.org/docs/master/hub.html#publishing-models). Verify it's working correctly by running `torch.hub.load(...)` locally.
-2. Create a PR in `pytorch/hub` repo. For each new model you have, create a `<repo_owner>_<repo_name>_<title>.md` file using this [template](docs/pull_request_template.md).
+2. Create a PR in `pytorch/hub` repo. For each new model you have, create a `<repo_owner>_<repo_name>_<title>.md` file using this [template](docs/template.md).
 
 ### Notes
 - Currently we don't support hosting pretrained weights, users with pretrained weights need to host them properly themselves.
