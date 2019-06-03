@@ -59,7 +59,7 @@ model.eval()
 
 with torch.no_grad():
     encoded_layers, _ = model(tokens_tensor, segments_tensors)
-    ```
+```
 
 ```python
 ### Predict masked tokens using `bertForMaskedLM`
