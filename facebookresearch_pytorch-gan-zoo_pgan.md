@@ -43,7 +43,7 @@ import matplotlib.pyplot as plt
 import torchvision
 grid = torchvision.utils.make_grid(generated_images.clamp(min=-1, max=1), scale_each=True, normalize=True)
 plt.imshow(grid.permute(1, 2, 0).numpy())
-plt.show()
+# plt.show()
 ```
 
 You should see an image similar to the one on the left.

@@ -33,7 +33,7 @@ generated_images = model.test(noise)
 import matplotlib.pyplot as plt
 import torchvision
 plt.imshow(torchvision.utils.make_grid(generated_images).permute(1, 2, 0).numpy())
-plt.show()
+# plt.show()
 ```
 
 You should see an image similar to the one on the left.
