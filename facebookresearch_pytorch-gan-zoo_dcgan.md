@@ -38,7 +38,7 @@ plt.show()
 
 You should see an image similar to the one on the left.
 
-If you want to train your own DCGAN and other GANs from scratch, have a look at [PyTorch GAN Zoo](https://github.com/soumith/pytorch_GAN_zoo).
+If you want to train your own DCGAN and other GANs from scratch, have a look at [PyTorch GAN Zoo](https://github.com/facebookresearch/pytorch_GAN_zoo).
 
 ### Model Description
 
