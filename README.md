@@ -1,4 +1,4 @@
-# Pytorch Hub
+# PyTorch Hub
 
 [![CircleCI](https://circleci.com/gh/pytorch/hub.svg?style=svg)](https://circleci.com/gh/pytorch/hub)
 
