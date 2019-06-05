@@ -4,9 +4,9 @@
 
 ## Logistics
 
-We accept submission to Pytorch hub through PR in `pytorch/hub` repo. Once the PR is merged into master here, it will show up on [Pytorch website](https://pytorch.org/hub) in 24 hrs.
+We accept submission to PyTorch hub through PR in `/hub` repo. Once the PR is merged into master here, it will show up on [PyTorch website](https://pytorch.org/hub) in 24 hrs.
 
-## Steps to submit to Pytorch hub
+## Steps to submit to PyTorch hub
 
 1. Add a `hubconf.py` in your repo, following the instruction in [torch.hub doc](https://pytorch.org/docs/master/hub.html#publishing-models). Verify it's working correctly by running `torch.hub.load(...)` locally.
 2. Create a PR in `pytorch/hub` repo. For each new model you have, create a `<repo_owner>_<repo_name>_<title>.md` file using this [template](docs/template.md).
