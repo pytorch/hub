@@ -19,5 +19,6 @@ conda install -y pytorch-cpu torchvision-cpu -c pytorch
 
 # Dependencies required to load models
 conda install -y regex pillow tqdm boto3 requests numpy h5py scipy
+conda install -y -c conda-forge librosa
 
 pip install -q visdom
