@@ -2,7 +2,7 @@
 layout: hub_detail
 background-class: hub-background
 body-class: hub
-title: NCF
+title: Tacotron 2
 summary: The Tacotron 2 model for generating mel spectrograms from text
 category: researchers
 image: nvidia_logo.png
