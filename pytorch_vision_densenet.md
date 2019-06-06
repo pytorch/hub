@@ -51,7 +51,14 @@ preprocess = transforms.Compose([
 ])
 input_tensor = preprocess(input_image)
 input_batch = input_tensor.unsqueeze(0) # create a mini-batch as expected by the model
-output = model(input_batch)
+
+# move the input and model to GPU for speed if available
+if torch.cuda.is_available():
+    input_batch = input_batch.to('cuda')
+    model.to('cuda')
+
+with torch.no_grad():
+    output = model(input_batch)
 # Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
 print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.

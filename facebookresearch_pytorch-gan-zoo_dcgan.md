@@ -27,12 +27,13 @@ The model has a `.test` function that takes in the noise vector and generates im
 ```python
 num_images = 64
 noise, _ = model.buildNoiseData(num_images)
-generated_images = model.test(noise)
+with torch.no_grad():
+    generated_images = model.test(noise)
 
 # let's plot these images using torchvision and matplotlib
 import matplotlib.pyplot as plt
 import torchvision
-plt.imshow(torchvision.utils.make_grid(generated_images).permute(1, 2, 0).numpy())
+plt.imshow(torchvision.utils.make_grid(generated_images).permute(1, 2, 0).cpu().numpy())
 # plt.show()
 ```
 
