@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-        - image: circleci/ruby:2.5.1-node
+      - image: circleci/ruby:2.5.1-node
     resource_class: xlarge
     steps:
       - checkout
