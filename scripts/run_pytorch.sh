@@ -14,7 +14,7 @@ do
   if [[ $f = $GANs* ]]; then
     echo "...skipped due to cuda checkpoints."
   else
-    sed -n '/^```/,/^```/ p' < $f | sed '/^```/ d' > $TEMP_PY
+    sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' > $TEMP_PY
     python $TEMP_PY
 
     if [ -f "$TEMP_PY" ]; then
