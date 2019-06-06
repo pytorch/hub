@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
         - image: circleci/ruby:2.5.1-node
-    resource_class: 2xlarge+
+    resource_class: xlarge
     steps:
       - checkout
       - run:
