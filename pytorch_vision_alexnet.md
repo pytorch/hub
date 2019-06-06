@@ -27,10 +27,18 @@ and `std = [0.229, 0.224, 0.225]`.
 Here's a sample execution.
 
 ```python
+# Download an example image from the pytorch website
+import urllib
+url, filename = ("https://github.com/pytorch/hub/raw/master/dog.jpg", "dog.jpg")
+try: urllib.URLopener().retrieve(url, filename)
+except: urllib.request.urlretrieve(url, filename)
+```
+
+```python
 # sample execution (requires torchvision)
 from PIL import Image
 from torchvision import transforms
-input_image = Image.open('dog.jpg')
+input_image = Image.open(filename)
 preprocess = transforms.Compose([
     transforms.Resize(256),
     transforms.CenterCrop(224),

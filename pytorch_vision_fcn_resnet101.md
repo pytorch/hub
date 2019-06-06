@@ -30,10 +30,18 @@ So, `output['out']` is of shape `(N, 21, H, W)`. More documentation can be found
 
 
 ```python
+# Download an example image from the pytorch website
+import urllib
+url, filename = ("https://github.com/pytorch/hub/raw/master/dog.jpg", "dog.jpg")
+try: urllib.URLopener().retrieve(url, filename)
+except: urllib.request.urlretrieve(url, filename)
+```
+
+```python
 # sample execution (requires torchvision)
 from PIL import Image
 from torchvision import transforms
-input_image = Image.open('dog.jpg')
+input_image = Image.open(filename)
 preprocess = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),

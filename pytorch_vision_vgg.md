@@ -16,13 +16,14 @@ featured_image_2: no-image
 ```python
 import torch
 model = torch.hub.load('pytorch/vision', 'vgg11', pretrained=True)
-model = torch.hub.load('pytorch/vision', 'vgg11_bn', pretrained=True)
-model = torch.hub.load('pytorch/vision', 'vgg13', pretrained=True)
-model = torch.hub.load('pytorch/vision', 'vgg13_bn', pretrained=True)
-model = torch.hub.load('pytorch/vision', 'vgg16', pretrained=True)
-model = torch.hub.load('pytorch/vision', 'vgg16_bn', pretrained=True)
-model = torch.hub.load('pytorch/vision', 'vgg19', pretrained=True)
-model = torch.hub.load('pytorch/vision', 'vgg19_bn', pretrained=True)
+# or any of these variants
+# model = torch.hub.load('pytorch/vision', 'vgg11_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision', 'vgg13', pretrained=True)
+# model = torch.hub.load('pytorch/vision', 'vgg13_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision', 'vgg16', pretrained=True)
+# model = torch.hub.load('pytorch/vision', 'vgg16_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision', 'vgg19', pretrained=True)
+# model = torch.hub.load('pytorch/vision', 'vgg19_bn', pretrained=True)
 model.eval()
 ```
 
@@ -34,10 +35,18 @@ and `std = [0.229, 0.224, 0.225]`.
 Here's a sample execution.
 
 ```python
+# Download an example image from the pytorch website
+import urllib
+url, filename = ("https://github.com/pytorch/hub/raw/master/dog.jpg", "dog.jpg")
+try: urllib.URLopener().retrieve(url, filename)
+except: urllib.request.urlretrieve(url, filename)
+```
+
+```python
 # sample execution (requires torchvision)
 from PIL import Image
 from torchvision import transforms
-input_image = Image.open('dog.jpg')
+input_image = Image.open(filename)
 preprocess = transforms.Compose([
     transforms.Resize(256),
     transforms.CenterCrop(224),
