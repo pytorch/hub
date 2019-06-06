@@ -11,6 +11,7 @@ tags: [vision, generative]
 github-link: https://github.com/facebookresearch/pytorch_GAN_zoo/blob/master/models/DCGAN.py
 featured_image_1: dcgan_fashionGen.jpg
 featured_image_2: no-image
+order: 10
 ---
 
 ```python
