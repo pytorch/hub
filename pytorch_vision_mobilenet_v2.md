@@ -5,7 +5,7 @@ body-class: hub
 title: MobileNet v2
 summary: Efficient networks optimized for speed and memory, with residual blocks
 category: researchers
-image: pytorch-logo.png
+image: mobilenet_v2_1.png
 author: Pytorch Team
 tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/mobilenet.py

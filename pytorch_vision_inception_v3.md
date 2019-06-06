@@ -5,10 +5,10 @@ body-class: hub
 title: Inception_v3
 summary: Also called GoogleNetv3, a famous ConvNet trained on Imagenet from 2015
 category: researchers
-image: pytorch-logo.png
+image: inception_v3.png
 author: Pytorch Team
 tags: [vision]
-github-link: https://github.com/pytorch/vision.git
+github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/inception.py
 featured_image_1: inception_v3.png
 featured_image_2: no-image
 ---

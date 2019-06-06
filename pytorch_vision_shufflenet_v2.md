@@ -5,7 +5,7 @@ body-class: hub
 title: ShuffleNet v2
 summary: An efficient ConvNet optimized for speed and memory, pre-trained on Imagenet
 category: researchers
-image: pytorch-logo.png
+image: shufflenet_v2_1.png
 author: Pytorch Team
 tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/shufflenetv2.py

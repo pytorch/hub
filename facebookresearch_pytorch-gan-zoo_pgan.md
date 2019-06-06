@@ -5,7 +5,7 @@ body-class: hub
 title: Progressive Growing of GANs (PGAN)
 summary: High-quality image generation of fashion, celebrity faces
 category: researchers
-image: pytorch-logo.png
+image: pganlogo.png
 author: FAIR HDGAN
 tags: [vision, generative]
 github-link: https://github.com/facebookresearch/pytorch_GAN_zoo/blob/master/models/progressive_gan.py

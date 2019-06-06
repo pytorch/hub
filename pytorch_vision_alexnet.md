@@ -5,7 +5,7 @@ body-class: hub
 title: AlexNet
 summary: The 2012 ImageNet winner achieved a top-5 error of 15.3%, more than 10.8 percentage points lower than that of the runner up.
 category: researchers
-image: pytorch-logo.png
+image: alexnet2.png
 author: Pytorch Team
 tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/alexnet.py

@@ -5,7 +5,7 @@ body-class: hub
 title: GoogLeNet
 summary: GoogLeNet was based on a deep convolutional neural network architecture codenamed "Inception" which won ImageNet 2014.
 category: researchers
-image: pytorch-logo.png
+image: googlenet1.png
 author: Pytorch Team
 tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/googlenet.py

@@ -5,7 +5,7 @@ body-class: hub
 title: DCGAN on FashionGen
 summary: A simple generative image model for 64x64 images
 category: researchers
-image: pytorch-logo.png
+image: dcgan_fashionGen.jpg
 author: FAIR HDGAN
 tags: [vision, generative]
 github-link: https://github.com/facebookresearch/pytorch_GAN_zoo/blob/master/models/DCGAN.py

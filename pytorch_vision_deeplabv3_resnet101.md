@@ -5,7 +5,7 @@ body-class: hub
 title: Deeplabv3-ResNet101
 summary: DeepLabV3 model with a ResNet-50 backbone
 category: researchers
-image: pytorch-logo.png
+image: deeplab2.png
 author: Pytorch Team
 tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/segmentation/deeplabv3.py

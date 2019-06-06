@@ -5,7 +5,7 @@ body-class: hub
 title: ResNext
 summary: Next generation ResNets, more efficient and accurate
 category: researchers
-image: pytorch-logo.png
+image: resnext.png
 author: Pytorch Team
 tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py

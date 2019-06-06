@@ -2,10 +2,10 @@
 layout: hub_detail
 background-class: hub-background
 body-class: hub
-title: VGG
+title: vgg-nets
 summary: Award winning ConvNets from 2014 Imagenet ILSVRC challenge
 category: researchers
-image: pytorch-logo.png
+image: vgg.png
 author: Pytorch Team
 tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/vgg.py

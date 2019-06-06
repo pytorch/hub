@@ -5,7 +5,7 @@ body-class: hub
 title: ResNet
 summary: Deep residual networks pre-trained on ImageNet
 category: researchers
-image: pytorch-logo.png
+image: resnet.png
 author: Pytorch Team
 tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py

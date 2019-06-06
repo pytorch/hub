@@ -5,7 +5,7 @@ body-class: hub
 title: SqueezeNet
 summary: Alexnet-level accuracy with 50x fewer parameters.
 category: researchers
-image: pytorch-logo.png
+image: squeezenet.png
 author: Pytorch Team
 tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/squeezenet.py
