@@ -25,7 +25,11 @@ It includes:
 
 ### Requirements
 
-Unlike most other PyTorch Hub models, GPT requires a few additional Python packages to be installed: `pip install tqdm boto3 requests regex`
+Unlike most other PyTorch Hub models, BERT requires a few additional Python packages to be installed.
+
+```bash
+pip install tqdm boto3 requests regex
+```
 
 ### Example
 
