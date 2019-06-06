@@ -4,7 +4,9 @@
 
 ## Logistics
 
-We accept submission to PyTorch hub through PR in `/hub` repo. Once the PR is merged into master here, it will show up on [PyTorch website](https://pytorch.org/hub) in 24 hrs.
+
+We accept submission to PyTorch hub through PR in `hub` repo. Once the PR is merged into master here, it will show up on [PyTorch website](https://pytorch.org/hub) in 24 hrs.
+
 
 ## Steps to submit to PyTorch hub
 
@@ -17,7 +19,7 @@ We accept submission to PyTorch hub through PR in `/hub` repo. Once the PR is me
 - If you have images, place them in `images/` folder and link them correctly in the `[images/featured_image_1/featured_image_2]` fields above.
 - We only support a pre-defined set of tags, currently they are `{nlp, vision, audio, generative}`. We will expand this set as needed.
 - To test your PR locally, run `python scripts/sanity_check.py` and `./scripts/run_pytorch.sh`.
-- Our CI concatenates all code blocks in one markdown file and runs it agaist the latest Pytorch-cpu release. If your `dependencies` is not installed on our CI machine, add them in [install.sh](scripts/install.sh).
+- Our CI concatenates all code blocks in one markdown file and runs it agaist the latest PyTorch-cpu release. If your `dependencies` is not installed on our CI machine, add them in [install.sh](scripts/install.sh).
 - We provide a way to preview your model webpage through `netlify bot`. This bot builds your PR with latest `pytorch.github.io` repo and comment on your PR with preview link. The preview will be updated as you push more commits to the PR.
 ![Example netlify bot comment](images/netlify.png)
 
