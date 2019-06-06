@@ -6,7 +6,7 @@ category: researchers
 <!-- Only change fields below -->
 title: <REQUIRED: short model name>
 summary: <REQUIRED: 1-2 sentences>
-image: <REQUIRED: use pytorch-logo.png if you don't have a logo>
+image: <REQUIRED: best image to represent your model>
 author: <REQUIRED>
 tags: <REQUIRED: [tag1, tag2, ...]>
 github-link: <REQUIRED>
