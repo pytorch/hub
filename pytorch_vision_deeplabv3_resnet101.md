@@ -61,6 +61,7 @@ r = Image.fromarray(output_predictions.byte().cpu().numpy()).resize(input_image.
 r.putpalette(colors)
 
 import matplotlib.pyplot as plt
+plt.switch_backend('Agg')
 plt.imshow(r)
 # plt.show()
 ```
