@@ -4,7 +4,9 @@
 
 ## Logistics
 
-We accept submission to PyTorch hub through PR in `pytorch/hub` repo. Once the PR is merged into master here, it will show up on [PyTorch website](https://pytorch.org/hub) in 24 hrs.
+
+We accept submission to PyTorch hub through PR in `hub` repo. Once the PR is merged into master here, it will show up on [PyTorch website](https://pytorch.org/hub) in 24 hrs.
+
 
 ## Steps to submit to PyTorch hub
 
