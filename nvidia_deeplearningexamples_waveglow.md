@@ -9,13 +9,13 @@ image: nvidia_logo.png
 author: NVIDIA
 tags: [audio]
 github-link: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/SpeechSynthesis/Tacotron2
-featured_image_1: no-image
+featured_image_1: waveglow_diagram.png
 featured_image_2: no-image
 ---
 
 ```python
 import torch
-hub_model = torch.hub.load(github='nvidia/DeepLearningExamples', model='nvidia_waveglow')
+hub_model = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_waveglow')
 ```
 will load the WaveGlow model pre-trained on [LJ Speech dataset](https://keithito.com/LJ-Speech-Dataset/)
 
@@ -30,7 +30,7 @@ Here's a sample execution on a dummy input:
 ```python
 import torch
 print('\nLoading waveglow model from torch.hub.')
-hub_model = torch.hub.load(github='nvidia/DeepLearningExamples', model='nvidia_waveglow')
+hub_model = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_waveglow')
 hub_model = hub_model.cuda()
 hub_model = hub_model.remove_weightnorm(hub_model)
 hub_model.eval()

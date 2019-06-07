@@ -15,9 +15,16 @@ featured_image_2: no-image
 
 ```python
 import torch
-hub_model = torch.hub.load(github='nvidia/DeepLearningExamples', model='nvidia_ncf')
+hub_model = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_ncf', pretrained=False, nb_users=100, nb_items=100)
 ```
-will load the NCF model pre-trained on [ml-20m dataset](https://grouplens.org/datasets/movielens/20m/)
+
+will create an NCF model with 100 users and 100 items. For more information on how to train it, visit: [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Recommendation/NCF) and/or [NGC](https://ngc.nvidia.com/catalog/model-scripts/nvidia:ncf_for_pytorch)
+
+To play with a model pre-trained on [ml-20m dataset](https://grouplens.org/datasets/movielens/20m/), run:
+```python
+import torch
+hub_model = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_ncf', pretrained=True)
+```
 
 ### Model Description
 
@@ -34,7 +41,7 @@ Here's a sample execution on a dummy input (3 users, 3 items):
 ```python
 import torch
 print('\nLoading NCF model from torch.hub.')
-hub_model = torch.hub.load(github='nvidia/DeepLearningExamples', model='nvidia_ncf')
+hub_model = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_ncf', pretrained=True)
 hub_model = hub_model.cuda()
 hub_model.eval()
 input_users=torch.tensor([0,1,2]).cuda()

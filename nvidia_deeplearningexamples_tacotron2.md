@@ -9,13 +9,13 @@ image: nvidia_logo.png
 author: NVIDIA
 tags: [audio]
 github-link: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/SpeechSynthesis/Tacotron2
-featured_image_1: no-image
+featured_image_1: tacotron2_diagram.png
 featured_image_2: no-image
 ---
 
 ```python
 import torch
-hub_model = torch.hub.load(github='nvidia/DeepLearningExamples', model='nvidia_tacotron2')
+hub_model = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_tacotron2')
 ```
 will load the Tacotron2 model pre-trained on [LJ Speech dataset](https://keithito.com/LJ-Speech-Dataset/)
 
@@ -32,11 +32,10 @@ Here's a sample execution on a dummy input:
 ```python
 import torch
 print('\nLoading tacotron2 model from torch.hub.')
-hub_model = torch.hub.load(github='nvidia/DeepLearningExamples', model='nvidia_tacotron2')
+hub_model = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_tacotron2')
 hub_model = hub_model.cuda()
 hub_model.eval()
-inp = torch.randint(low=0, high=148, size=(1,140), dtype=torch.long)
-inp = torch.autograd.Variable(inp).cuda().long()
+inp = torch.randint(low=0, high=148, size=(1,140), dtype=torch.long).cuda()
 with torch.no_grad():
     _, mel, _, _ = hub_model.infer(inp)
 print('\nTacotron2 model test output:')
