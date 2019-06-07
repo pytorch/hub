@@ -27,19 +27,38 @@ This implementation of Tacotron 2 model differs from the model described in the 
 
 ### Example
 
-Here's a sample execution on a dummy input:
+In the example below:
+- pretrained Tacotron2 and Waveglow models are loaded from torch.hub
+- Tacotron2 generates mel spectrogram given tensor represantation of an input text ("Hello world, I missed you")
+- Waveglow generates sound given the mel spectrogram
+- the output sound is saved in an 'audio.wav' file
+
+To run the example you need the following python packages installed:
+> numpy, scipy, librosa, unidecode, inflect, librosa
 
 ```python
 import torch
-print('\nLoading tacotron2 model from torch.hub.')
-hub_model = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_tacotron2')
-hub_model = hub_model.cuda()
-hub_model.eval()
-inp = torch.randint(low=0, high=148, size=(1,140), dtype=torch.long).cuda()
+import numpy as np
+from scipy.io.wavfile import write
+
+tacotron2 = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_tacotron2')
+tacotron2 = tacotron2.cuda()
+tacotron2.eval()
+
+waveglow = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_waveglow')
+waveglow = waveglow.remove_weightnorm(waveglow)
+waveglow = waveglow.cuda()
+waveglow.eval()
+
+text = "hello world, I missed you"
+sequence = np.array(tacotron2.text_to_sequence(text, ['english_cleaners']))[None, :]
+sequence = torch.from_numpy(sequence).cuda().long()
+
 with torch.no_grad():
-    _, mel, _, _ = hub_model.infer(inp)
-print('\nTacotron2 model test output:')
-print(mel.size())
+    _, mel, _, _ = tacotron2.infer(sequence)
+    audio = waveglow.infer(mel)
+
+write("audio.wav", 22050, audio[0].data.cpu().numpy())
 ```
 
 ### Details

@@ -25,20 +25,38 @@ The Tacotron 2 and WaveGlow model form a text-to-speech system that enables user
 
 ### Example
 
-Here's a sample execution on a dummy input:
+In the example below:
+- pretrained Tacotron2 and Waveglow models are loaded from torch.hub
+- Tacotron2 generates mel spectrogram given tensor represantation of an input text ("Hello world, I missed you")
+- Waveglow generates sound given the mel spectrogram
+- the output sound is saved in an 'audio.wav' file
+
+To run the example you need the following python packages installed:
+> numpy, scipy, librosa, unidecode, inflect, librosa
 
 ```python
 import torch
-print('\nLoading waveglow model from torch.hub.')
-hub_model = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_waveglow')
-hub_model = hub_model.cuda()
-hub_model = hub_model.remove_weightnorm(hub_model)
-hub_model.eval()
-inp = torch.randn([1,80,300], dtype=torch.float32).cuda()
+import numpy as np
+from scipy.io.wavfile import write
+
+tacotron2 = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_tacotron2')
+tacotron2 = tacotron2.cuda()
+tacotron2.eval()
+
+waveglow = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_waveglow')
+waveglow = waveglow.remove_weightnorm(waveglow)
+waveglow = waveglow.cuda()
+waveglow.eval()
+
+text = "hello world, I missed you"
+sequence = np.array(tacotron2.text_to_sequence(text, ['english_cleaners']))[None, :]
+sequence = torch.from_numpy(sequence).cuda().long()
+
 with torch.no_grad():
-    out = hub_model.infer(inp)
-print('\nWaveglow model test output:')
-print(out.size())
+    _, mel, _, _ = tacotron2.infer(sequence)
+    audio = waveglow.infer(mel)
+
+write("audio.wav", 22050, audio[0].data.cpu().numpy())
 ```
 
 ### Details
