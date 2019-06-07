@@ -23,6 +23,14 @@ It includes:
 - `openAIGPTLMHeadModel`: OpenAI GPT Transformer with the tied language modeling head on top (fully pre-trained)
 - `openAIGPTDoubleHeadsModel`: OpenAI GPT Transformer with the tied language modeling head and a multiple choice classification head on top (OpenAI GPT Transformer is pre-trained, the multiple choice classification head is only initialized and has to be trained)
 
+### Requirements
+
+Unlike most other PyTorch Hub models, BERT requires a few additional Python packages to be installed.
+
+```bash
+pip install tqdm boto3 requests regex
+```
+
 ### Example
 
 Here is an example on how to tokenize the text with `openAIGPTTokenizer`, and then get the hidden states computed by `openAIGPTModel` or predict the next token using `openAIGPTLMHeadModel`.

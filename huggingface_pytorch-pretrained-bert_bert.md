@@ -29,6 +29,13 @@ It includes:
 - `bertForTokenClassification`: BERT Transformer with a token classification head on top (BERT Transformer is pre-trained, the token classification head is only initialized and has to be trained)
 - `bertForQuestionAnswering`: BERT Transformer with a token classification head on top (BERT Transformer is pre-trained, the token classification head is only initialized and has to be trained)
 
+### Requirements
+
+Unlike most other PyTorch Hub models, BERT requires a few additional Python packages to be installed.
+
+```bash
+pip install tqdm boto3 requests regex
+```
 
 ### Example
 

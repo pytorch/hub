@@ -5,7 +5,7 @@ body-class: hub
 title: Progressive Growing of GANs (PGAN)
 summary: High-quality image generation of fashion, celebrity faces
 category: researchers
-image: pytorch-logo.png
+image: pganlogo.png
 author: FAIR HDGAN
 tags: [vision, generative]
 github-link: https://github.com/facebookresearch/pytorch_GAN_zoo/blob/master/models/progressive_gan.py
@@ -24,9 +24,9 @@ model = torch.hub.load('facebookresearch/pytorch_GAN_zoo:hub',
                        'PGAN', model_name='celebAHQ-512',
                        pretrained=True, useGPU=use_gpu)
 # this model outputs 256 x 256 pixel images
-model = torch.hub.load('facebookresearch/pytorch_GAN_zoo:hub',
-                       'PGAN', model_name='celebAHQ-256',
-                       pretrained=True, useGPU=use_gpu)
+# model = torch.hub.load('facebookresearch/pytorch_GAN_zoo:hub',
+#                        'PGAN', model_name='celebAHQ-256',
+#                        pretrained=True, useGPU=use_gpu)
 ```
 
 The input to the model is a noise vector of shape `(N, 512)` where `N` is the number of images to be generated.
@@ -36,13 +36,14 @@ The model has a `.test` function that takes in the noise vector and generates im
 ```python
 num_images = 4
 noise, _ = model.buildNoiseData(num_images)
-generated_images = model.test(noise)
+with torch.no_grad():
+    generated_images = model.test(noise)
 
 # let's plot these images using torchvision and matplotlib
 import matplotlib.pyplot as plt
 import torchvision
 grid = torchvision.utils.make_grid(generated_images.clamp(min=-1, max=1), scale_each=True, normalize=True)
-plt.imshow(grid.permute(1, 2, 0).numpy())
+plt.imshow(grid.permute(1, 2, 0).cpu().numpy())
 # plt.show()
 ```
 

@@ -2,6 +2,7 @@ import argparse
 import os
 import glob
 from urllib.request import urlopen, HTTPError
+from tags import valid_tags
 
 
 class ValidMD:
@@ -12,7 +13,7 @@ class ValidMD:
 
         self.optional_image_fields = ['featured_image_1', 'featured_image_2']
 
-        self.valid_tags = ['vision', 'nlp', 'audio', 'generative']
+        self.valid_tags = valid_tags
 
         self.valid_categories = ['researchers', 'developers']
 
@@ -26,13 +27,13 @@ body-class: hub"""
 
     def validate_tags(self, tags):
         '''
-        Only allow tags in predefined set
+        Only allow tags in pre-defined set
         '''
         if tags.startswith('['):
             tags = [t.strip() for t in tags[1:-1].split(',')]
         elif ',' in tags:
             raise ValueError(
-                    'Mulple tags {} must be surrounded by [] in file {}'
+                    'Multiple tags {} must be surrounded by [] in file {}'
                     .format(tags, self.filename))
         else:
             tags = [tags]
