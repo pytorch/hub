@@ -7,7 +7,7 @@ summary: Neural Collaborative Filtering model for providing recommendations
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA
-tags: [recommendations]
+tags: [nlp]
 github-link: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Recommendation/NCF
 featured_image_1: ncf_diagram.png
 featured_image_2: no-image
