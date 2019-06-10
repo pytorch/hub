@@ -16,7 +16,7 @@ order: 10
 
 ```python
 import torch
-hub_model = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_waveglow')
+waveglow = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_waveglow')
 ```
 will load the WaveGlow model pre-trained on [LJ Speech dataset](https://keithito.com/LJ-Speech-Dataset/)
 
@@ -32,32 +32,67 @@ In the example below:
 - Waveglow generates sound given the mel spectrogram
 - the output sound is saved in an 'audio.wav' file
 
-To run the example you need the following python packages installed:
-> numpy, scipy, librosa, unidecode, inflect, librosa
+To run the example you need some extra python packages installed.
+These are needed for preprocessing the text and audio, as well as for display and input / output.
+
+```bash
+pip install numpy scipy librosa unidecode inflect librosa
+```
+
+Now, let's make the model say *"hello world, I missed you"*
 
 ```python
-import torch
+text = "hello world, I missed you"
+```
+
+```python
 import numpy as np
 from scipy.io.wavfile import write
+```
 
-tacotron2 = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_tacotron2')
-tacotron2 = tacotron2.cuda()
-tacotron2.eval()
+Prepare the waveglow model for inference
 
-waveglow = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_waveglow')
+```python
 waveglow = waveglow.remove_weightnorm(waveglow)
-waveglow = waveglow.cuda()
+waveglow = waveglow.to('cuda')
 waveglow.eval()
+```
 
-text = "hello world, I missed you"
+Load tacotron2 from PyTorch Hub
+
+```python
+tacotron2 = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_tacotron2')
+tacotron2 = tacotron2.to('cuda')
+tacotron2.eval()
+```
+
+Now chain pre-processing -> tacotron2 -> waveglow
+
+```python
+# preprocessing
 sequence = np.array(tacotron2.text_to_sequence(text, ['english_cleaners']))[None, :]
-sequence = torch.from_numpy(sequence).cuda().long()
+sequence = torch.from_numpy(sequence).to(device='cuda', dtype=torch.int64)
 
+# run the models
 with torch.no_grad():
     _, mel, _, _ = tacotron2.infer(sequence)
     audio = waveglow.infer(mel)
+audio_numpy = audio[0].data.cpu().numpy()
+rate = 22050
+```
 
-write("audio.wav", 22050, audio[0].data.cpu().numpy())
+You can write it to a file and listen to it
+
+```python
+write("audio.wav", rate, audio_numpy)
+```
+
+
+Alternatively, play it right away in a notebook with IPython widgets
+
+```python
+from IPython.display import Audio
+Audio(audio_numpy, rate=rate)
 ```
 
 ### Details
