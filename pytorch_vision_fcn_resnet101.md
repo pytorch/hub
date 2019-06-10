@@ -11,6 +11,7 @@ tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/segmentation/fcn.py
 featured_image_1: deeplab1.png
 featured_image_2: fcn2.png
+accelerator: cuda-optional
 order: 10
 ---
 

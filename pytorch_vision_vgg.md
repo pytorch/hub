@@ -11,6 +11,7 @@ tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/vgg.py
 featured_image_1: vgg.png
 featured_image_2: no-image
+accelerator: cuda-optional
 order: 10
 ---
 

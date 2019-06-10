@@ -11,6 +11,7 @@ tags: [audio]
 github-link: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/SpeechSynthesis/Tacotron2
 featured_image_1: tacotron2_diagram.png
 featured_image_2: no-image
+accelerator: cuda
 order: 10
 ---
 
@@ -55,7 +56,7 @@ from scipy.io.wavfile import write
 Prepare tacotron2 for inference
 
 ```python
-tacotron2 = tacotron2.cuda()
+tacotron2 = tacotron2.to('cuda')
 tacotron2.eval()
 ```
 
@@ -64,7 +65,7 @@ Load waveglow from PyTorch Hub
 ```python
 waveglow = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_waveglow')
 waveglow = waveglow.remove_weightnorm(waveglow)
-waveglow = waveglow.cuda()
+waveglow = waveglow.to('cuda')
 waveglow.eval()
 ```
 
