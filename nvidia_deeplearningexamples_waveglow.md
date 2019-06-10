@@ -11,6 +11,7 @@ tags: [audio]
 github-link: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/SpeechSynthesis/Tacotron2
 featured_image_1: waveglow_diagram.png
 featured_image_2: no-image
+order: 10
 ---
 
 ```python
