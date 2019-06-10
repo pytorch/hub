@@ -1,17 +1,20 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/ruby:2.5.1-node
+    machine:
+      image: ubuntu-1604:201903-01
     resource_class: gpu.medium
     steps:
       - checkout
+      - run:
+          name: Setup CI environment
+          command: ./scripts/setup_ci.sh
       - run:
           name: Install Deps
           command: ./scripts/install.sh
       - run:
           name: Sanity Check
-          command: python3 scripts/sanity_check.py
+          command: . ~/miniconda3/etc/profile.d/conda.sh; conda activate base; python scripts/sanity_check.py
       - run:
           name: Run Pytorch scripts
           command: ./scripts/run_pytorch.sh

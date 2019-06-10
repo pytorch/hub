@@ -15,7 +15,7 @@ chmod +x "$filename"
 conda activate base
 
 # Install cpu version of pytorch and torchvision
-conda install -y pytorch-cpu torchvision-cpu -c pytorch
+conda install -y pytorch torchvision -c pytorch
 
 # Dependencies required to load models
 conda install -y regex pillow tqdm boto3 requests numpy h5py scipy matplotlib
