@@ -11,6 +11,7 @@ tags: [nlp]
 github-link: https://github.com/huggingface/pytorch-pretrained-BERT.git
 featured_image_1: GPT1.png
 featured_image_2: no-image
+order: 10
 ---
 
 ### Model Description
