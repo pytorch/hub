@@ -22,4 +22,5 @@ conda install -y regex pillow tqdm boto3 requests numpy\
     h5py scipy matplotlib unidecode ipython pyyaml
 conda install -y -c conda-forge librosa inflect
 
+pip install -q fastBPE sacremoses sentencepiece subword_nmt
 pip install -q visdom mistune
