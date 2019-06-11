@@ -14,11 +14,12 @@ chmod +x "$filename"
 . ~/miniconda3/etc/profile.d/conda.sh
 conda activate base
 
-# Install cpu version of pytorch and torchvision
-conda install -y pytorch-cpu torchvision-cpu -c pytorch
+# Install the latest release of pytorch and torchvision
+conda install -y pytorch torchvision -c pytorch
 
 # Dependencies required to load models
-conda install -y regex pillow tqdm boto3 requests numpy h5py scipy matplotlib
-conda install -y -c conda-forge librosa
+conda install -y regex pillow tqdm boto3 requests numpy\
+    h5py scipy matplotlib unidecode ipython
+conda install -y -c conda-forge librosa inflect
 
 pip install -q visdom
