@@ -14,7 +14,7 @@ chmod +x "$filename"
 . ~/miniconda3/etc/profile.d/conda.sh
 conda activate base
 
-# Install cpu version of pytorch and torchvision
+# Install the latest release of pytorch and torchvision
 conda install -y pytorch torchvision -c pytorch
 
 # Dependencies required to load models
