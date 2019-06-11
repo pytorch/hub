@@ -15,7 +15,7 @@ accelerator: "cuda"
 ---
 ```python
 import torch
-model = torch.hub.load('andompesta/ppo2', 'ppo2', reset_param=True, force_reload=True, input_dim=obs_size, hidden_dim=hidden_dim, action_space=action_space)
+model = torch.hub.load('andompesta/ppo2', 'ppo2', reset_param=True, force_reload=True, input_dim=4, hidden_dim=64, action_space=2, dropout=0)
 ```
 <!-- Walkthrough a small example of using your model. Ideally, less than 25 lines of code -->
 
