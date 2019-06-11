@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: Deeplabv3-ResNet101
-summary: DeepLabV3 model with a ResNet-50 backbone
+summary: DeepLabV3 model with a ResNet-101 backbone
 category: researchers
 image: deeplab2.png
 author: Pytorch Team
