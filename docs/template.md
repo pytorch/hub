@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 category: researchers
-<!-- Only change fields below -->
+<!-- Only change fields below(remove this line before submitting a PR) -->
 title: <REQUIRED: short model name>
 summary: <REQUIRED: 1-2 sentences>
 image: <REQUIRED: best image to represent your model>
