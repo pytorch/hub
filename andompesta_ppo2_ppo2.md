@@ -3,7 +3,6 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 category: researchers
-<!-- Only change fields below -->
 title: PPO2
 summary: A simple implementation of the PPO2 model. Hidden state is computed using 2 MLP with Tanh activation function 
 image: ppo_model.png
