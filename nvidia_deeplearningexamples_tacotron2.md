@@ -17,7 +17,7 @@ order: 10
 
 ```python
 import torch
-hub_model = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_tacotron2')
+tacotron2 = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_tacotron2')
 ```
 will load the Tacotron2 model pre-trained on [LJ Speech dataset](https://keithito.com/LJ-Speech-Dataset/)
 
