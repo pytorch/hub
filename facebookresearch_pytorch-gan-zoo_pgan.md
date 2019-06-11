@@ -11,6 +11,8 @@ tags: [vision, generative]
 github-link: https://github.com/facebookresearch/pytorch_GAN_zoo/blob/master/models/progressive_gan.py
 featured_image_1: pgan_mix.jpg
 featured_image_2: pgan_celebaHQ.jpg
+accelerator: cuda-optional
+order: 3
 ---
 
 

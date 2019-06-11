@@ -11,6 +11,8 @@ tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/shufflenetv2.py
 featured_image_1: shufflenet_v2_1.png
 featured_image_2: shufflenet_v2_2.png
+accelerator: cuda-optional
+order: 10
 ---
 
 ```python

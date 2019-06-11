@@ -11,6 +11,8 @@ tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/segmentation/deeplabv3.py
 featured_image_1: deeplab1.png
 featured_image_2: deeplab2.png
+accelerator: cuda-optional
+order: 1
 ---
 
 ```python

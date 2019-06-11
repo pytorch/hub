@@ -11,6 +11,8 @@ tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/densenet.py
 featured_image_1: densenet1.png
 featured_image_2: densenet2.png
+accelerator: cuda-optional
+order: 10
 ---
 
 ```python
