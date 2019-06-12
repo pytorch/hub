@@ -42,12 +42,6 @@ These are needed for preprocessing the text and audio, as well as for display an
 pip install numpy scipy librosa unidecode inflect librosa
 ```
 
-Now, let's make the model say *"hello world, I missed you"*
-
-```python
-text = "hello world, I missed you"
-```
-
 ```python
 import numpy as np
 from scipy.io.wavfile import write
@@ -67,6 +61,12 @@ waveglow = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_waveglow')
 waveglow = waveglow.remove_weightnorm(waveglow)
 waveglow = waveglow.to('cuda')
 waveglow.eval()
+```
+
+Now, let's make the model say *"hello world, I missed you"*
+
+```python
+text = "hello world, I missed you"
 ```
 
 Now chain pre-processing -> tacotron2 -> waveglow
