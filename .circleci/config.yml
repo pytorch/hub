@@ -18,6 +18,7 @@ jobs:
       - run:
           name: Run Pytorch scripts
           command: ./scripts/run_pytorch.sh
+          no_output_timeout: 1h
 
 workflows:
   version: 2
