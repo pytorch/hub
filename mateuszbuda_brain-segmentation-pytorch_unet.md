@@ -38,7 +38,7 @@ It can be transformed to a binary segmentation mask by thresholding as shown in 
 Input images for pre-trained model should have 3 channels and be resized to 256x256 pixels and z-score normalized per volume.
 
 ```python
-# Download an example image from the pytorch website
+# Download an example image
 import urllib
 url, filename = ("https://github.com/mateuszbuda/brain-segmentation-pytorch/raw/master/assets/TCGA_CS_4944.png", "TCGA_CS_4944.png")
 try: urllib.URLopener().retrieve(url, filename)
