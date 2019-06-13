@@ -5,7 +5,7 @@ body-class: hub
 title: Wide ResNet
 summary: Wide Residual Networks
 category: researchers
-image: resnet.png
+image: wide_resnet.png
 author: Pytorch Team
 tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/wide_resnet.py
