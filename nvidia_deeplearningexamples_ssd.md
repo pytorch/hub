@@ -10,7 +10,7 @@ author: NVIDIA
 tags: [vision]
 github-link: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Detection/SSD
 featured_image_1: ssd_diagram.png
-featured_image_2: no-image
+featured_image_2: ssd.png
 accelerator: cuda
 order: 10
 ---
@@ -126,7 +126,7 @@ for image_idx in range(len(best_results_per_input)):
         x, y, w, h = [val * 300 for val in [left, bot, right - left, top - bot]]
         rect = patches.Rectangle((x, y), w, h, linewidth=1, edgecolor='r', facecolor='none')
         ax.add_patch(rect)
-        ax.text(x, y, classes_to_labels[classes[idx] - 1], bbox=dict(facecolor='white', alpha=0.5))
+        ax.text(x, y, "{} {:.0f}%".format(classes_to_labels[classes[idx] - 1], confidences[idx]*100), bbox=dict(facecolor='white', alpha=0.5))
 plt.show()
 ```
 
