@@ -38,7 +38,7 @@ Here is an example on how to tokenize the text with `transformerXLTokenizer`, an
 ### First, tokenize the input
 #############################
 import torch
-tokenizer = torch.hub.load('huggingface/pytorch-pretrained-BERT:finish_torchhub_interfaces', 'transformerXLTokenizer', 'transfo-xl-wt103')
+tokenizer = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'transformerXLTokenizer', 'transfo-xl-wt103')
 
 #  Prepare tokenized input
 text_1 = "Who was Jim Henson ?"
@@ -52,7 +52,7 @@ tokens_tensor_2 = torch.tensor([indexed_tokens_2])
 
 ### Get the hidden states computed by `transformerXLModel`
 ##########################################################
-model = torch.hub.load('huggingface/pytorch-pretrained-BERT:finish_torchhub_interfaces', 'transformerXLModel', 'transfo-xl-wt103')
+model = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'transformerXLModel', 'transfo-xl-wt103')
 model.eval()
 
 # Predict hidden states features for each layer
@@ -63,7 +63,7 @@ with torch.no_grad():
 
 ### Predict the next token using `transformerXLLMHeadModel`
 ###########################################################
-lm_model = torch.hub.load('huggingface/pytorch-pretrained-BERT:finish_torchhub_interfaces', 'transformerXLLMHeadModel', 'transfo-xl-wt103')
+lm_model = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'transformerXLLMHeadModel', 'transfo-xl-wt103')
 lm_model.eval()
 
 # Predict hidden states features for each layer
