@@ -11,6 +11,7 @@ tags: [nlp]
 github-link: https://github.com/huggingface/pytorch-pretrained-BERT.git
 featured_image_1: no-image
 featured_image_2: no-image
+accelerator: cuda-optional
 ---
 
 ### Model Description
