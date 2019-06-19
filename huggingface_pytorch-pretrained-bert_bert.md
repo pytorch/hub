@@ -42,7 +42,6 @@ pip install tqdm boto3 requests regex
 ### Example
 
 Here is an example on how to tokenize the input text with `bertTokenizer`, and then get the hidden states computed by `bertModel` or predict masked tokens using `bertForMaskedLM`. The example also includes snippets showcasing how to use `bertForNextSentencePrediction`, `bertForQuestionAnswering`, `bertForSequenceClassification`, `bertForMultipleChoice`, `bertForTokenClassification`, and `bertForPreTraining`.
-For each of these models, further details can be obtained by calling `torch.hub.help()`.
 
 ```python
 ### First, tokenize the input
