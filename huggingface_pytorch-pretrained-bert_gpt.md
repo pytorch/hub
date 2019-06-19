@@ -83,7 +83,7 @@ double_head_model.eval() # Set the model to train mode if used for training
 text_bis = "Who was Jim Henson ? Jim Henson was a mysterious young man"
 tokenized_text_bis = tokenizer.tokenize(text_bis)
 indexed_tokens_bis = tokenizer.convert_tokens_to_ids(tokenized_text_bis)
-tokens_tensor = torch.tensor([indexed_tokens, indexed_tokens_bis])
+tokens_tensor = torch.tensor([[indexed_tokens, indexed_tokens_bis]])
 mc_token_ids = torch.LongTensor([[len(tokenized_text)-1, len(tokenized_text_bis)-1]])
 
 with torch.no_grad():
