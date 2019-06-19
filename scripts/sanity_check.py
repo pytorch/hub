@@ -3,7 +3,8 @@ import os
 import glob
 from urllib.request import urlopen, HTTPError
 from tags import valid_tags
-
+import yaml
+import mistune
 
 class ValidMD:
     def __init__(self, filename):
@@ -17,26 +18,12 @@ class ValidMD:
 
         self.valid_categories = ['researchers', 'developers']
 
-        self.required_headers_untouched = """
----
-layout: hub_detail
-background-class: hub-background
-body-class: hub"""
-
         self.required_sections = ['Model Description']
 
     def validate_tags(self, tags):
         '''
         Only allow tags in pre-defined set
         '''
-        if tags.startswith('['):
-            tags = [t.strip() for t in tags[1:-1].split(',')]
-        elif ',' in tags:
-            raise ValueError(
-                    'Multiple tags {} must be surrounded by [] in file {}'
-                    .format(tags, self.filename))
-        else:
-            tags = [tags]
         for t in tags:
             if t not in self.valid_tags:
                 raise ValueError(
@@ -72,63 +59,81 @@ body-class: hub"""
             raise ValueError('Image {} referenced in {} not found in images/'
                              .format(image_name, self.filename))
 
-    def validate_required_headers(self, headers):
+    def validate_header(self, header):
         '''
-        Make sure required headers are untouched
+        Make sure the header is in the required format
         '''
-        for h in headers:
-            if h.strip() not in self.required_headers_untouched:
-                raise ValueError(
-                    'File {} must start with these lines untouched:\n {}'
-                    .format(self.filename, self.required_headers_untouched))
+        assert header['layout'] == 'hub_detail'
+        assert header['background-class'] == 'hub-background'
+        assert header['body-class'] == 'hub'
 
-    def no_extra_colon(self, value):
+        for field in self.required_user_fields:
+            header[field] # assert that it exists
+
+        self.validate_tags(header['tags'])
+        self.validate_github_link(header['github-link'])
+        self.validate_image(header['image'])
+        self.validate_category(header['category'])
+
+        for field in self.optional_image_fields:
+            if field in header.keys():
+                self.validate_image(header[field])
+
+        for k in header.keys():
+            if k != 'github-link':
+                self.no_extra_colon(k, header[k])
+
+
+    def no_extra_colon(self, field, value):
         # Jekyll doesn't build with extra colon in these fields
-        if ':' in value:
-            raise ValueError('Remove \':\' in field {} in file {}'
-                             .format(value, self.filename))
+        if ':' in str(value):
+            raise ValueError('Remove extra \':\' in field {} with value {} in file {}'
+                             .format(field, value, self.filename))
+
+    def validate_markdown(self, markdown):
+        m = mistune.Markdown()
+        blocks = m.block(mistune.preprocessing(markdown))
+
+        for block in blocks:
+            if block['type'] == 'heading':
+                # we dont want colon after section names
+                assert not block['text'].endswith(':')
+                if block['text'] in self.required_sections:
+                    self.required_sections.remove(block['text'])
+        try:
+            assert len(self.required_sections) == 0
+        except AssertionError as e:
+            print("Missing required sections: {}".format(self.required_sections))
+            raise e
+
 
     def check_markdown_file(self):
         print('Checking {}...'.format(self.filename))
+
+        # separate header and markdown.
+        # Then, check header and markdown separately
+        header = []
+        markdown = []
+        header_read = False
         with open(self.filename, 'r') as f:
-            len_required = len(self.required_headers_untouched.split('\n')) - 1
-            headers = [next(f) for x in range(len_required)]
-            self.validate_required_headers(headers)
             for line in f:
-                if ':' in line:
-                    field, value = [x.strip() for x in line.split(':', 1)]
-                    if field in self.required_user_fields:
-                        if field == 'tags':
-                            self.validate_tags(value)
-                        elif field == 'github-link':
-                            self.validate_github_link(value)
-                        elif field == 'image':
-                            self.validate_image(value)
-                        elif field == 'category':
-                            self.validate_category(value)
-                        else:
-                            self.no_extra_colon(value)
-                        self.required_user_fields.remove(field)
-                    elif field in self.optional_image_fields:
-                        self.validate_image(value)
+                if line.startswith('---'):
+                    header_read = not header_read
+                    continue
+                if header_read == True:
+                    header += [line]
+                else:
+                    markdown += [line]
 
-                if line.startswith('###'):
-                    # No we don't want colon after section names
-                    self.no_extra_colon(line)
-                    _, section = [x.strip() for x in line.split(' ', 1)]
-                    if section in self.required_sections:
-                        self.required_sections.remove(section)
+        # checks that it's valid yamp
+        header = yaml.load(''.join(header))
+        assert header, "Failed to parse a valid yaml header"
+        self.validate_header(header)
 
-            if len(self.required_user_fields) != 0:
-                raise ValueError(
-                    'Missing required field {} in file {}'
-                    .format(self.required_user_fields, self.filename))
 
-            if len(self.required_sections) != 0:
-                raise ValueError(
-                    'Missing required section {} in file {}'
-                    .format(self.required_sections, self.filename))
-
+        # check markdown
+        markdown = "".join(markdown)
+        self.validate_markdown(markdown)
 
 def sanity_check():
     for f in glob.glob('*.md'):

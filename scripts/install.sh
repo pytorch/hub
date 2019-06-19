@@ -19,7 +19,7 @@ conda install -y pytorch torchvision -c pytorch
 
 # Dependencies required to load models
 conda install -y regex pillow tqdm boto3 requests numpy\
-    h5py scipy matplotlib unidecode ipython
+    h5py scipy matplotlib unidecode ipython pyyaml
 conda install -y -c conda-forge librosa inflect
 
-pip install -q visdom
+pip install -q visdom mistune
