@@ -27,18 +27,19 @@ It includes:
 
 ### Requirements
 
-Unlike most other PyTorch Hub models, BERT requires a few additional Python packages to be installed.
+Unlike most other PyTorch Hub models, GPT requires a few additional Python packages to be installed.
 
 ```bash
-pip install tqdm boto3 requests regex
+pip install tqdm boto3 requests regex ftfy spacy
 ```
 
 ### Example
 
-Here is an example on how to tokenize the text with `openAIGPTTokenizer`, and then get the hidden states computed by `openAIGPTModel` or predict the next token using `openAIGPTLMHeadModel`.
+Here is an example on how to tokenize the text with `openAIGPTTokenizer`, and then get the hidden states computed by `openAIGPTModel` or predict the next token using `openAIGPTLMHeadModel`. Finally, we showcase how to use `openAIGPTDoubleHeadsModel` to combine the language modeling head and a multiple choice classification head.
 
 ```python
 ### First, tokenize the input
+#############################
 import torch
 tokenizer = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'openAIGPTTokenizer', 'openai-gpt')
 
@@ -48,7 +49,9 @@ tokenized_text = tokenizer.tokenize(text)
 indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
 tokens_tensor = torch.tensor([indexed_tokens])
 
+
 ### Get the hidden states computed by `openAIGPTModel`
+######################################################
 model = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'openAIGPTModel', 'openai-gpt')
 model.eval()
 
@@ -56,7 +59,9 @@ model.eval()
 with torch.no_grad():
 	hidden_states = model(tokens_tensor)
 
+
 ### Predict the next token using `openAIGPTLMHeadModel`
+#######################################################
 lm_model = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'openAIGPTLMHeadModel', 'openai-gpt')
 lm_model.eval()
 
@@ -68,6 +73,21 @@ with torch.no_grad():
 predicted_index = torch.argmax(predictions[0, -1, :]).item()
 predicted_token = tokenizer.convert_ids_to_tokens([predicted_index])[0]
 assert predicted_token == '.</w>'
+
+
+### Language modeling and multiple choice classification `openAIGPTDoubleHeadsModel`
+####################################################################################
+double_head_model = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'openAIGPTDoubleHeadsModel', 'openai-gpt')
+double_head_model.eval() # Set the model to train mode if used for training
+
+text_bis = "Who was Jim Henson ? Jim Henson was a mysterious young man"
+tokenized_text_bis = tokenizer.tokenize(text_bis)
+indexed_tokens_bis = tokenizer.convert_tokens_to_ids(tokenized_text_bis)
+tokens_tensor = torch.tensor([indexed_tokens, indexed_tokens_bis])
+mc_token_ids = torch.LongTensor([[len(tokenized_text)-1, len(tokenized_text_bis)-1]])
+
+with torch.no_grad():
+    lm_logits, multiple_choice_logits = double_head_model(tokens_tensor, mc_token_ids)
 ```
 
 ### Requirement
