@@ -77,7 +77,7 @@ ssd_model.eval()
 
 
 Prepare input images for object detection.
-(Example links below correspond to first few test images from the COCO dataset.)
+(Example links below correspond to first few test images from the COCO dataset, but you can also specify paths to your local images here)
 ```python
 uris = [
     'http://images.cocodataset.org/val2017/000000397133.jpg',
@@ -95,7 +95,7 @@ tensor = utils.prepare_tensor(inputs, precision == 'fp16')
 Run the SSD network to perform object detection.
 ```python
 with torch.no_grad():
-    detections_batch = ssd_model.forward(tensor)
+    detections_batch = ssd_model(tensor)
 ```
 By default, raw output from SSD network per input image contains
 8732 boxes with localization and class probability distribution.
