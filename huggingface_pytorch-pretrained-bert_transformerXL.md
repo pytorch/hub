@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: Transformer-XL
-summary:  Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context
+summary: Attentive Language Models Beyond a Fixed-Length Context
 category: researchers
 image: huggingface-logo.png
 author: HuggingFace Team
