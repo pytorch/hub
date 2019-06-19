@@ -92,7 +92,7 @@ double_head_model = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'gpt2D
 double_head_model.eval() # Set the model to train mode if used for training
 
 tokens_tensor = torch.tensor([[indexed_tokens1, indexed_tokens2]])
-mc_token_ids = torch.LongTensor([[len(tokenized_text1)-1, len(tokenized_text2)-1]])
+mc_token_ids = torch.LongTensor([[len(tokenized_text_1) - 1, len(tokenized_text_2) - 1]])
 
 with torch.no_grad():
     lm_logits, multiple_choice_logits, presents = double_head_model(tokens_tensor, mc_token_ids)
