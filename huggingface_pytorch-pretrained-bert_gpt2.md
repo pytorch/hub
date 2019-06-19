@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: GPT-2
-summary: Language Models are Unsupervised Multitask Learners
+summary:  Language Models are Unsupervised Multitask Learners
 category: researchers
 image: huggingface-logo.png
 author: HuggingFace Team
