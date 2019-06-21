@@ -6,7 +6,7 @@ title: ResNext WSL
 summary: ResNext models trained with billion scale weakly-supervised data.
 category: researchers
 image: wsl-image.png
-author: Dhruv Mahajan
+author: Facebook AI
 tags: [vision]
 github-link: https://github.com/facebookresearch/WSL-Images/blob/master/hubconf.py
 featured_image_1: wsl-image.png
