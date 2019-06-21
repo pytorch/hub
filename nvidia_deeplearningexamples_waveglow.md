@@ -12,7 +12,7 @@ github-link: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/
 featured_image_1: waveglow_diagram.png
 featured_image_2: no-image
 accelerator: cuda
-order: 10
+order: 3
 ---
 
 ```python

@@ -12,7 +12,7 @@ github-link: https://github.com/facebookresearch/pytorch_GAN_zoo/blob/master/mod
 featured_image_1: pgan_mix.jpg
 featured_image_2: pgan_celebaHQ.jpg
 accelerator: cuda-optional
-order: 3
+order: 10
 ---
 
 

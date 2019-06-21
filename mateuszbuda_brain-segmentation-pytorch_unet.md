@@ -11,6 +11,7 @@ tags: [vision]
 github-link: https://github.com/mateuszbuda/brain-segmentation-pytorch
 featured_image_1: unet_brain_mri.png
 accelerator: "cuda-optional"
+order: 10
 ---
 
 ```python
