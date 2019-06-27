@@ -8,7 +8,7 @@ category: researchers
 image: wide_resnet.png
 author: Pytorch Team
 tags: [vision]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/wide_resnet.py
+github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
 featured_image_1: wide_resnet.png
 featured_image_2: no-image
 accelerator: cuda-optional
