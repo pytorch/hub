@@ -17,7 +17,7 @@ order: 3
 
 ```python
 import torch
-waveglow = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_waveglow')
+waveglow = torch.hub.load('nvidia/DeepLearningExamples:torchhub', 'nvidia_waveglow')
 ```
 will load the WaveGlow model pre-trained on [LJ Speech dataset](https://keithito.com/LJ-Speech-Dataset/)
 
@@ -56,7 +56,7 @@ waveglow.eval()
 Load tacotron2 from PyTorch Hub
 
 ```python
-tacotron2 = torch.hub.load('nvidia/DeepLearningExamples', 'nvidia_tacotron2')
+tacotron2 = torch.hub.load('nvidia/DeepLearningExamples:torchhub', 'nvidia_tacotron2')
 tacotron2 = tacotron2.to('cuda')
 tacotron2.eval()
 ```

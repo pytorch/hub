@@ -19,7 +19,7 @@ order: 10
 ```python
 import torch 
 precision = 'fp32'
-ssd_model = torch.hub.load('NVIDIA/DeepLearningExamples', 'nvidia_ssd', model_math=precision)
+ssd_model = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_ssd', model_math=precision)
 ```
 
 will load an SSD model pretrained on COCO dataset from Torch Hub.
@@ -66,7 +66,7 @@ pip install numpy scipy scikit-image matplotlib
 
 For convenient and comprehensive formatting of input and output of the model, load a set of utility methods.
 ```python
-utils = torch.hub.load('NVIDIA/DeepLearningExamples', 'nvidia_ssd_processing_utils')
+utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_ssd_processing_utils')
 ```
 
 Now, prepare the loaded model for inference
