@@ -6,7 +6,7 @@ title: Wide ResNet
 summary: Wide Residual Networks
 category: researchers
 image: wide_resnet.png
-author: Pytorch Team
+author: Sergey Zagoruyko
 tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
 featured_image_1: wide_resnet.png
