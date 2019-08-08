@@ -10,7 +10,7 @@ author: Facebook AI (fairseq Team)
 tags: [nlp]
 github-link: https://github.com/pytorch/fairseq/
 accelerator: cuda-optional
-order: 10
+order: 2
 ---
 
 
