@@ -107,16 +107,6 @@ with torch.no_grad():
 ```
 
 ```python
-### Classify next sentence using ``bertForNextSentencePrediction``
-nextSent_model = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'bertForNextSentencePrediction', 'bert-base-cased')
-nextSent_model.eval()
-
-# Predict the next sentence classification logits
-with torch.no_grad():
-    next_sent_classif_logits = nextSent_model(tokens_tensor, segments_tensors)
-```
-
-```python
 ### Question answering using `bertForQuestionAnswering`
 questionAnswering_model = torch.hub.load('huggingface/pytorch-pretrained-BERT', 'bertForQuestionAnswering', 'bert-base-cased')
 questionAnswering_model.eval()
