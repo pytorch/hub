@@ -204,7 +204,7 @@ with torch.no_grad():
     predictions = masked_lm__model(tokens_tensor, token_type_ids=segments_tensors)
 
 # Get the predicted token
-predicted_index = torch.argmax(predictions[0][0], dim=1)[masked_index].item()
+predicted_index = torch.argmax(predictions[0][0, masked_index]).item()
 predicted_token = tokenizer.convert_ids_to_tokens([predicted_index])[0]
 assert predicted_token == 'Jim'
 ```
