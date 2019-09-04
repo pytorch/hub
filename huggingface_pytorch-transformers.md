@@ -81,8 +81,8 @@ The model object is a model instance inheriting from a `nn.Module`. Each model i
 import torch
 model = torch.hub.load('huggingface/pytorch-transformers', 'model', 'bert-base-uncased')    # Download model and configuration from S3 and cache.
 model = torch.hub.load('huggingface/pytorch-transformers', 'model', './test/bert_model/')  # E.g. model was saved using `save_pretrained('./test/saved_model/')`
-model = torch.hub.load('huggingface/pytorch-transformers', 'model', 'bert-base-uncased', output_attention=True)  # Update configuration during loading
-assert model.config.output_attention == True
+model = torch.hub.load('huggingface/pytorch-transformers', 'model', 'bert-base-uncased', output_attentions=True)  # Update configuration during loading
+assert model.config.output_attentions == True
 # Loading from a TF checkpoint file instead of a PyTorch model (slower)
 config = AutoConfig.from_json_file('./tf_model/bert_tf_model_config.json')
 model = torch.hub.load('huggingface/pytorch-transformers', 'model', './tf_model/bert_tf_checkpoint.ckpt.index', from_tf=True, config=config)
@@ -96,8 +96,8 @@ Previously mentioned `model` instance with an additional language modeling head.
 import torch
 model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', 'bert-base-uncased')    # Download model and configuration from S3 and cache.
 model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', './test/bert_model/')  # E.g. model was saved using `save_pretrained('./test/saved_model/')`
-model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', 'bert-base-uncased', output_attention=True)  # Update configuration during loading
-assert model.config.output_attention == True
+model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', 'bert-base-uncased', output_attentions=True)  # Update configuration during loading
+assert model.config.output_attentions == True
 # Loading from a TF checkpoint file instead of a PyTorch model (slower)
 config = AutoConfig.from_json_file('./tf_model/bert_tf_model_config.json')
 model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', './tf_model/bert_tf_checkpoint.ckpt.index', from_tf=True, config=config)
@@ -161,20 +161,22 @@ model = torch.hub.load('huggingface/pytorch-transformers', 'model', 'bert-base-u
 
 Here is an example on how to tokenize the input text to be fed as input to a BERT model, and then get the hidden states computed by such a model or predict masked tokens using language modeling BERT model.
 
+## First, tokenize the input
+
 ```python
-### First, tokenize the input
 import torch
-tokenizer = torch.hub.load('huggingface/pytorch-transformers', 'tokenizer', 'bert-base-cased', do_basic_tokenize=False)
+tokenizer = torch.hub.load('huggingface/pytorch-transformers', 'tokenizer', 'bert-base-cased')
 
 text_1 = "Who was Jim Henson ?"
 text_2 = "Jim Henson was a puppeteer"
 
-# Tokenized input
+# Tokenized input with special tokens around it (for BERT: [CLS] at the beginning and [SEP] at the end)
 indexed_tokens = tokenizer.encode(text_1, text_2, add_special_tokens=True)
 ```
 
+## Using `BertModel` to encode the input sentence in a sequence of last layer hidden-states
+
 ```python
-### Get the hidden states computed by `BertModel`
 # Define sentence A and B indices associated to 1st and 2nd sentences (see paper)
 segments_ids = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
 
@@ -185,50 +187,77 @@ tokens_tensor = torch.tensor([indexed_tokens])
 model = torch.hub.load('huggingface/pytorch-transformers', 'model', 'bert-base-cased')
 
 with torch.no_grad():
-    encoded_layers, _ = model(tokens_tensor, segments_tensors)
+    encoded_layers, _ = model(tokens_tensor, token_type_ids=segments_tensors)
 ```
 
+## Using `modelWithLMHead` to predict a masked token with BERT
+
 ```python
-### Predict masked tokens using `bertForMaskedLM`
 # Mask a token that we will try to predict back with `BertForMaskedLM`
 masked_index = 8
-tokenized_text[masked_index] = '[MASK]'
-indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
+indexed_tokens[masked_index] = tokenizer.mask_token_id
 tokens_tensor = torch.tensor([indexed_tokens])
 
-maskedLM_model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', 'bert-base-cased')
+masked_lm__model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', 'bert-base-cased')
 
 with torch.no_grad():
-    predictions = maskedLM_model(tokens_tensor, segments_tensors)
+    predictions = masked_lm__model(tokens_tensor, token_type_ids=segments_tensors)
 
 # Get the predicted token
-predicted_index = torch.argmax(predictions[0][0], masked_index]).item()
+predicted_index = torch.argmax(predictions[0][0], dim=1)[masked_index].item()
 predicted_token = tokenizer.convert_ids_to_tokens([predicted_index])[0]
 assert predicted_token == 'Jim'
 ```
 
+## Using `modelForQuestionAnswering` to do question answering with BERT
+
 ```python
-### Question answering using `BertForQuestionAnswering`
-questionAnswering_model = torch.hub.load('huggingface/pytorch-transformers', 'modelForQuestionAnswering', 'bert-base-cased')
+question_answering_model = torch.hub.load('huggingface/pytorch-transformers', 'modelForQuestionAnswering', 'bert-large-uncased-whole-word-masking-finetuned-squad')
+question_answering_tokenizer = torch.hub.load('huggingface/pytorch-transformers', 'tokenizer', 'bert-large-uncased-whole-word-masking-finetuned-squad')
+
+# The format is paragraph first and then question
+text_1 = "Jim Henson was a puppeteer"
+text_2 = "Who was Jim Henson ?"
+indexed_tokens = question_answering_tokenizer.encode(text_1, text_2, add_special_tokens=True)
+segments_ids = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+segments_tensors = torch.tensor([segments_ids])
+tokens_tensor = torch.tensor([indexed_tokens])
 
 # Predict the start and end positions logits
 with torch.no_grad():
-    start_logits, end_logits = questionAnswering_model(tokens_tensor, segments_tensors)
+    start_logits, end_logits = question_answering_model(tokens_tensor, token_type_ids=segments_tensors)
+
+# get the highest prediction
+answer = question_answering_tokenizer.decode(indexed_tokens[torch.argmax(start_logits):torch.argmax(end_logits)+1])
+assert answer == "puppeteer"
 
 # Or get the total loss which is the sum of the CrossEntropy loss for the start and end token positions (set model to train mode before if used for training)
 start_positions, end_positions = torch.tensor([12]), torch.tensor([14])
-multiple_choice_loss = questionAnswering_model(tokens_tensor, segments_tensors, start_positions=start_positions, end_positions=end_positions)
+multiple_choice_loss = question_answering_model(tokens_tensor, token_type_ids=segments_tensors, start_positions=start_positions, end_positions=end_positions)
 ```
 
+## Using `modelForSequenceClassification` to do paraphrase classification with BERT
+
 ```python
-### Classify sequence using `BertForSequenceClassification`
-seqClassification_model = torch.hub.load('huggingface/pytorch-transformers', 'modelForSequenceClassification', 'bert-base-cased', num_labels=2
+sequence_classification_model = torch.hub.load('huggingface/pytorch-transformers', 'modelForSequenceClassification', 'bert-base-cased-finetuned-mrpc')
+sequence_classification_tokenizer = torch.hub.load('huggingface/pytorch-transformers', 'tokenizer', 'bert-base-cased-finetuned-mrpc')
+
+text_1 = "Jim Henson was a puppeteer"
+text_2 = "Who was Jim Henson ?"
+indexed_tokens = sequence_classification_tokenizer.encode(text_1, text_2, add_special_tokens=True)
+segments_ids = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+segments_tensors = torch.tensor([segments_ids])
+tokens_tensor = torch.tensor([indexed_tokens])
 
 # Predict the sequence classification logits
 with torch.no_grad():
-    seq_classif_logits = seqClassification_model(tokens_tensor, segments_tensors)
+    seq_classif_logits = sequence_classification_model(tokens_tensor, token_type_ids=segments_tensors)
+
+predicted_labels = torch.argmax(seq_classif_logits[0]).item()
+
+assert predicted_labels == 0  # In MRPC dataset this means the two sentences are not paraphrasing each other
 
 # Or get the sequence classification loss (set model to train mode before if used for training)
 labels = torch.tensor([1])
-seq_classif_loss = seqClassification_model(tokens_tensor, segments_tensors, labels=labels)
+seq_classif_loss = sequence_classification_model(tokens_tensor, token_type_ids=segments_tensors, labels=labels)
 ```
