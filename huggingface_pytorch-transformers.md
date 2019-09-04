@@ -15,7 +15,7 @@ accelerator: cuda-optional
 order: 10
 ---
 
-# Model Descriptions
+# Model Description
 
 
 PyTorch-Transformers (formerly known as `pytorch-pretrained-bert`) is a library of state-of-the-art pre-trained models for Natural Language Processing (NLP).
@@ -152,7 +152,7 @@ assert unused_kwargs == {'foo': False}
 config = torch.hub.load('huggingface/pytorch-transformers', 'config', 'bert-base-uncased')
 config.output_attentions = True
 config.output_hidden_states = True
-model = torch.hub.load('huggingface/pytorch-transformers', 'model', 'bert-base-uncased', config=config)    
+model = torch.hub.load('huggingface/pytorch-transformers', 'model', 'bert-base-uncased', config=config)
 # Model will now output attentions and hidden states as well
 
 ```
