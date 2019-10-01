@@ -14,8 +14,8 @@ chmod +x "$filename"
 . ~/miniconda3/etc/profile.d/conda.sh
 conda activate base
 
-# Install the latest release of pytorch and torchvision
-conda install -y pytorch torchvision -c pytorch
+# Install the nightly release of pytorch and torchvision
+conda install -y pytorch torchvision -c pytorch-nightly
 
 # Dependencies required to load models
 conda install -y regex pillow tqdm boto3 requests numpy\
