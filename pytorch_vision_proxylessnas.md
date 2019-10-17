@@ -5,8 +5,8 @@ body-class: hub
 title: ProxylessNAS
 summary: Proxylessly specialize CNN architectures for different hardware platforms.
 category: researchers
-image: squeezenet.png
-author: Pytorch Team
+image: proxylessnas.png
+author: MIT Han Lab
 tags: [vision]
 github-link: https://github.com/mit-han-lab/ProxylessNAS
 featured_image_1: proxyless_overview.png
@@ -17,7 +17,9 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('mit-han-lab/ProxylessNAS', 'proxyless_cpu', pretrained=True)
+target_platform = "proxyless_cpu"
+# proxyless_gpu, proxyless_mobile, proxyless_mobile14 are also avaliable.
+model = torch.hub.load('mit-han-lab/ProxylessNAS', target_platform, pretrained=True)
 model.eval()
 ```
 
@@ -66,23 +68,9 @@ print(torch.nn.functional.softmax(output[0], dim=0))
 
 ### Model Description
 
-Model `squeezenet1_0` is from the [SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and <0.5MB model size](https://arxiv.org/pdf/1602.07360.pdf) paper
+ProxylessNAS models are from the [ProxylessNAS: Direct Neural Architecture Search on Target Task and Hardware](https://arxiv.org/abs/1812.00332) paper.
 
-Model `squeezenet1_1` is from the [official squeezenet repo](https://github.com/DeepScale/SqueezeNet/tree/master/SqueezeNet_v1.1).
-It has 2.4x less computation and slightly fewer parameters than `squeezenet1_0`, without sacrificing accuracy.
-
-The corresponding top-1 accuracy and speed with pretrained models are listed below.
-
-| Model structure | Top-1 error | 
-| --------------- | ----------- | 
-|  proxylessnas_cpu     |  24.7 | 
-|  proxylessnas_gpu     |  24.9   |
-|  proxylessnas_mobile  |  25.4   |
-|  proxylessnas_mobile_14  |  23.3   |
-
-
-The inference speed on various platforms with provided models are given below.
-
+Conventionally, people tend to design *one efficient model* for *all hardware platforms*. But different hardware has different properties, for example, CPU has higher frequency and GPU is better at parallization. Therefore, instead of generalizing, we need to **specialize** CNN architectures for different hardware platforms. As shown in below, with similar accuracy, specialization offers free yet significant performance boost on all three platforms.
 
 | Model structure |  GPU Latency | CPU Latency | Mobile Latency
 | --------------- | ----------- | ----------- | ----------- | 
@@ -90,8 +78,14 @@ The inference speed on various platforms with provided models are given below.
 |  proxylessnas_cpu     |  7.4ms   | **138.7ms** | 116ms | 
 |  proxylessnas_mobile  |  7.2ms   | 164.1ms | **78ms**  |
 
+The corresponding top-1 accuracy with pretrained models are listed below.
 
-As shown in above, with similar accuracy, specialization leads to significant efficiency boost.
+| Model structure | Top-1 error |
+| --------------- | ----------- | 
+|  proxylessnas_cpu     |  24.7 | 
+|  proxylessnas_gpu     |  24.9   |
+|  proxylessnas_mobile  |  25.4   |
+|  proxylessnas_mobile_14  |  23.3   |
 
 ### References
 
