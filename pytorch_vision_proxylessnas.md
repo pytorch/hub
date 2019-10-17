@@ -9,7 +9,7 @@ image: proxylessnas.png
 author: MIT Han Lab
 tags: [vision]
 github-link: https://github.com/mit-han-lab/ProxylessNAS
-featured_image_1: proxyless_overview.png
+featured_image_1: proxylessnas.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
