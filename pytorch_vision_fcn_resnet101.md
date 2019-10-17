@@ -7,7 +7,7 @@ summary: Fully-Convolutional Network model with a ResNet-101 backbone
 category: researchers
 image: fcn2.png
 author: Pytorch Team
-tags: [vision]
+tags: [vision, scriptable]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/segmentation/fcn.py
 featured_image_1: deeplab1.png
 featured_image_2: fcn2.png

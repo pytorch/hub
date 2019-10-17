@@ -7,7 +7,7 @@ summary: Alexnet-level accuracy with 50x fewer parameters.
 category: researchers
 image: squeezenet.png
 author: Pytorch Team
-tags: [vision]
+tags: [vision, scriptable]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/squeezenet.py
 featured_image_1: squeezenet.png
 featured_image_2: no-image
