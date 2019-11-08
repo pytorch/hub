@@ -17,9 +17,9 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision', 'resnext50_32x4d', pretrained=True)
+model = torch.hub.load('pytorch/vision:0.4.2', pretrained=True)
 # or
-# model = torch.hub.load('pytorch/vision', 'resnext101_32x8d', pretrained=True)
+# model = torch.hub.load('pytorch/vision:0.4.2', pretrained=True)
 model.eval()
 ```
 

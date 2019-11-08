@@ -17,15 +17,15 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision', 'vgg11', pretrained=True)
+model = torch.hub.load('pytorch/vision:0.4.2', pretrained=True)
 # or any of these variants
-# model = torch.hub.load('pytorch/vision', 'vgg11_bn', pretrained=True)
-# model = torch.hub.load('pytorch/vision', 'vgg13', pretrained=True)
-# model = torch.hub.load('pytorch/vision', 'vgg13_bn', pretrained=True)
-# model = torch.hub.load('pytorch/vision', 'vgg16', pretrained=True)
-# model = torch.hub.load('pytorch/vision', 'vgg16_bn', pretrained=True)
-# model = torch.hub.load('pytorch/vision', 'vgg19', pretrained=True)
-# model = torch.hub.load('pytorch/vision', 'vgg19_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision:0.4.2', pretrained=True)
+# model = torch.hub.load('pytorch/vision:0.4.2', pretrained=True)
+# model = torch.hub.load('pytorch/vision:0.4.2', pretrained=True)
+# model = torch.hub.load('pytorch/vision:0.4.2', pretrained=True)
+# model = torch.hub.load('pytorch/vision:0.4.2', pretrained=True)
+# model = torch.hub.load('pytorch/vision:0.4.2', pretrained=True)
+# model = torch.hub.load('pytorch/vision:0.4.2', pretrained=True)
 model.eval()
 ```
 

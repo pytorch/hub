@@ -17,7 +17,7 @@ order: 1
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision', 'deeplabv3_resnet101', pretrained=True)
+model = torch.hub.load('pytorch/vision:0.4.2', pretrained=True)
 model.eval()
 ```
 
