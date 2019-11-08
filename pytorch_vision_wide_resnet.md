@@ -18,9 +18,9 @@ order: 10
 ```python
 import torch
 # load WRN-50-2:
-model = torch.hub.load('pytorch/vision', 'wide_resnet50_2', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.4.2', pretrained=True)
 # or WRN-101-2
-model = torch.hub.load('pytorch/vision', 'wide_resnet101_2', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.4.2', pretrained=True)
 model.eval()
 ```
 

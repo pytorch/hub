@@ -17,9 +17,9 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision', 'squeezenet1_0', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.4.2', pretrained=True)
 # or
-# model = torch.hub.load('pytorch/vision', 'squeezenet1_1', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.4.2', pretrained=True)
 model.eval()
 ```
 

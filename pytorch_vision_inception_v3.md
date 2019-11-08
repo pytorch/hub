@@ -17,7 +17,7 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision', 'inception_v3', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.4.2', pretrained=True)
 model.eval()
 ```
 

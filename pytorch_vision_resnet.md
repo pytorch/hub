@@ -17,12 +17,12 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision', 'resnet18', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.4.2', pretrained=True)
 # or any of these variants
-# model = torch.hub.load('pytorch/vision', 'resnet34', pretrained=True)
-# model = torch.hub.load('pytorch/vision', 'resnet50', pretrained=True)
-# model = torch.hub.load('pytorch/vision', 'resnet101', pretrained=True)
-# model = torch.hub.load('pytorch/vision', 'resnet152', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.4.2', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.4.2', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.4.2', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.4.2', pretrained=True)
 model.eval()
 ```
 
