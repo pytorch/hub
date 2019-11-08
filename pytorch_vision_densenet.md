@@ -7,7 +7,7 @@ summary: Dense Convolutional Network (DenseNet), connects each layer to every ot
 category: researchers
 image: densenet1.png
 author: Pytorch Team
-tags: [vision]
+tags: [vision, scriptable]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/densenet.py
 featured_image_1: densenet1.png
 featured_image_2: densenet2.png

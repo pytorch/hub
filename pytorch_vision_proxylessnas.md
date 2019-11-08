@@ -2,14 +2,14 @@
 layout: hub_detail
 background-class: hub-background
 body-class: hub
-title: ResNext
-summary: Next generation ResNets, more efficient and accurate
+title: ProxylessNAS
+summary: Proxylessly specialize CNN architectures for different hardware platforms.
 category: researchers
-image: resnext.png
-author: Pytorch Team
-tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
-featured_image_1: resnext.png
+image: proxylessnas.png
+author: MIT Han Lab
+tags: [vision]
+github-link: https://github.com/mit-han-lab/ProxylessNAS
+featured_image_1: proxylessnas.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
@@ -17,9 +17,9 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision', 'resnext50_32x4d', pretrained=True)
-# or
-# model = torch.hub.load('pytorch/vision', 'resnext101_32x8d', pretrained=True)
+target_platform = "proxyless_cpu"
+# proxyless_gpu, proxyless_mobile, proxyless_mobile14 are also avaliable.
+model = torch.hub.load('mit-han-lab/ProxylessNAS', target_platform, pretrained=True)
 model.eval()
 ```
 
@@ -68,16 +68,25 @@ print(torch.nn.functional.softmax(output[0], dim=0))
 
 ### Model Description
 
-Resnext models were proposed in [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/abs/1611.05431).
-Here we have the 2 versions of resnet models, which contains 50, 101 layers repspectively.
-A comparison in model archetechure between resnet50 and resnext50 can be found in Table 1.
-Their 1-crop error rates on imagenet dataset with pretrained models are listed below.
+ProxylessNAS models are from the [ProxylessNAS: Direct Neural Architecture Search on Target Task and Hardware](https://arxiv.org/abs/1812.00332) paper.
 
-|  Model structure  | Top-1 error | Top-5 error |
-| ----------------- | ----------- | ----------- |
-|  resnext50_32x4d  | 22.38       | 6.30        |
-|  resnext101_32x8d | 20.69       | 5.47        |
+Conventionally, people tend to design *one efficient model* for *all hardware platforms*. But different hardware has different properties, for example, CPU has higher frequency and GPU is better at parallization. Therefore, instead of generalizing, we need to **specialize** CNN architectures for different hardware platforms. As shown in below, with similar accuracy, specialization offers free yet significant performance boost on all three platforms.
+
+| Model structure |  GPU Latency | CPU Latency | Mobile Latency
+| --------------- | ----------- | ----------- | ----------- | 
+|  proxylessnas_gpu     |  **5.1ms**   | 204.9ms | 124ms |
+|  proxylessnas_cpu     |  7.4ms   | **138.7ms** | 116ms | 
+|  proxylessnas_mobile  |  7.2ms   | 164.1ms | **78ms**  |
+
+The corresponding top-1 accuracy with pretrained models are listed below.
+
+| Model structure | Top-1 error |
+| --------------- | ----------- | 
+|  proxylessnas_cpu     |  24.7 | 
+|  proxylessnas_gpu     |  24.9   |
+|  proxylessnas_mobile  |  25.4   |
+|  proxylessnas_mobile_14  |  23.3   |
 
 ### References
 
- - [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/abs/1611.05431)
+ - [ProxylessNAS: Direct Neural Architecture Search on Target Task and Hardware](https://arxiv.org/abs/1812.00332).

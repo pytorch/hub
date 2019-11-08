@@ -7,7 +7,7 @@ summary: Deep residual networks pre-trained on ImageNet
 category: researchers
 image: resnet.png
 author: Pytorch Team
-tags: [vision]
+tags: [vision, scriptable]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
 featured_image_1: resnet.png
 featured_image_2: no-image
