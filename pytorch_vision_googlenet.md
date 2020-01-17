@@ -17,7 +17,7 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.4.2', 'googlenet', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.5.0', 'googlenet', pretrained=True)
 model.eval()
 ```
 
