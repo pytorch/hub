@@ -137,8 +137,8 @@ class ValidMD:
 
 def sanity_check():
     for f in glob.glob('*.md'):
-        # Skip README
-        if f == 'README.md':
+        # Skip documentation
+        if f in ('README.md', 'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md'):
             continue
         ValidMD(f).check_markdown_file()
 
