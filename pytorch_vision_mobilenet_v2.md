@@ -17,7 +17,7 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.5.0', 'mobilenet_v2', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.6.0', 'mobilenet_v2', pretrained=True)
 model.eval()
 ```
 
