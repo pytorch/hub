@@ -13,8 +13,6 @@ do
   # FIXME: NVIDIA models checkoints are on cuda
   if [[ $f = $CUDAS* ]]; then
     echo "...skipped due to cuda checkpoints."
-  elif [[ $f = "huggingface"* ]]; then
-    echo "...temporarily disabled"
   elif [[ $f = "pytorch_fairseq_translation"* ]]; then
     echo "...temporarily disabled"
   else

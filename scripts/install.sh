@@ -23,4 +23,4 @@ conda install -y regex pillow tqdm boto3 requests numpy\
 conda install -y -c conda-forge librosa inflect
 
 pip install -q fastBPE sacremoses sentencepiece subword_nmt
-pip install -q visdom mistune
+pip install -q visdom mistune filelock tokenizers
