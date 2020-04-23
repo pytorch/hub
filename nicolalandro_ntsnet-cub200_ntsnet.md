@@ -8,7 +8,7 @@ summary: a fine grane model for image classification.
 image: nts-net.png
 author: Moreno Carraffini and Nicola Landro
 tags: [vision]
-github-link: https://github.com/nicolalandro/ntsnet_cub200
+github-link: https://github.com/nicolalandro/hub/archive/master.zip
 featured_image_1: no-image
 featured_image_2: no-image
 accelerator: "cuda-optional"
