@@ -8,7 +8,7 @@ summary: a fine grane model for image classification.
 image: nts-net.png
 author: Moreno Carraffini and Nicola Landro
 tags: [vision]
-github-link: https://github.com/nicolalandro/hub/archive/master.zip
+github-link: https://github.com/nicolalandro/ntsnet-cub200/archive/master.zip
 featured_image_1: no-image
 featured_image_2: no-image
 accelerator: "cuda-optional"
@@ -24,8 +24,8 @@ accelerator: "cuda-optional"
 #     transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
 # ])
 import torch
-mdoel = torch.hub.load('nicolalandro/ntsnet_cub200', 'ntsnet', pretrained=True, **{'topN': 6, 'device':'cpu', 'num_classes': 200})
-top_n_coordinates, concat_out, raw_logits, concat_logits, part_logits, top_n_index, top_n_prob = model(img)
+model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet', pretrained=True, **{'topN': 6, 'device':'cpu', 'num_classes': 200})
+# top_n_coordinates, concat_out, raw_logits, concat_logits, part_logits, top_n_index, top_n_prob = model(img)
 # if you need the output props use "concat_out"
 ```
 
@@ -33,14 +33,14 @@ top_n_coordinates, concat_out, raw_logits, concat_logits, part_logits, top_n_ind
 This is a nts-net pretrained with CUB200 2011 dataset. A fine grane dataset of birds species. 
 It is a particular model and if you want to train it use the follow:
 
-```python
+```
 import torch
 
 PROPOSAL_NUM = 6
 LR = 0.001
 WD = 1e-4
 
-net = torch.hub.load('nicolalandro/ntsnet_cub200', 'ntsnet', pretrained=True, **{'topN': 6, 'device':'cpu', 'num_classes': 200})
+net = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet', pretrained=True, **{'topN': 6, 'device':'cpu', 'num_classes': 200})
 
 creterion = torch.nn.CrossEntropyLoss()
 
