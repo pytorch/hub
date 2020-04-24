@@ -20,6 +20,7 @@ model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet', pretrained=True, 
 ```
 
 ### How to use on bird
+
 ```
 from torchvision import transforms
 import torch
