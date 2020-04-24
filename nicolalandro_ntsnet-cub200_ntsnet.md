@@ -15,22 +15,43 @@ accelerator: "cuda-optional"
 ---
 
 ```python
-# Preprocessing image of cube
-# transform_train = transforms.Compose([
-#     transforms.Resize((600, 600), Image.BILINEAR),
-#     transforms.CenterCrop((448, 448)),
-#     transforms.RandomHorizontalFlip(),  # solo se train
-#     transforms.ToTensor(),
-#     transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
-# ])
 import torch
 model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet', pretrained=True, **{'topN': 6, 'device':'cpu', 'num_classes': 200})
-# top_n_coordinates, concat_out, raw_logits, concat_logits, part_logits, top_n_index, top_n_prob = model(img)
-# if you need the output props use "concat_out"
 ```
 
-### Model Description
-This is a nts-net pretrained with CUB200 2011 dataset. A fine grane dataset of birds species. 
+### How to use on bird
+```python
+from torchvision import transforms
+import torch
+import urllib
+from PIL import Image
+
+transform_test = transforms.Compose([
+    transforms.Resize((600, 600), Image.BILINEAR),
+    transforms.CenterCrop((448, 448)),
+    # transforms.RandomHorizontalFlip(),  # only if train
+    transforms.ToTensor(),
+    transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
+])
+
+
+model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet', pretrained=True, **{'topN': 6, 'device':'cpu', 'num_classes': 200})
+model.eval()
+
+url = 'https://raw.githubusercontent.com/nicolalandro/ntsnet-cub200/master/images/nts-net.png'
+img = Image.open(urllib.request.urlopen(url))
+scaled_img = transform_test(img)
+torch_images = scaled_img.unsqueeze(0)
+
+with torch.no_grad():
+    top_n_coordinates, concat_out, raw_logits, concat_logits, part_logits, top_n_index, top_n_prob = model(torch_images)
+    
+    _, predict = torch.max(concat_logits, 1)
+    pred_id = predict.item()
+    print('bird class:', pred_id)
+```
+
+### How to train
 It is a particular model and if you want to train it use the follow:
 
 ```
@@ -80,6 +101,10 @@ for i, data in enumerate(trainloader):
     concat_optimizer.step()
     partcls_optimizer.step()
 ```
+
+
+### Model Description
+This is a nts-net pretrained with CUB200 2011 dataset. A fine grane dataset of birds species. 
 
 ### References
 You can read the full paper at this [link](http://artelab.dista.uninsubria.it/res/research/papers/2019/2019-IVCNZ-Nawaz-Birds.pdf).
