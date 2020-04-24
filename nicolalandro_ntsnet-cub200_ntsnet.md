@@ -104,7 +104,7 @@ for i, data in enumerate(trainloader):
 
 
 ### Model Description
-This is a nts-net pretrained with CUB200 2011 dataset. A fine grane dataset of birds species. 
+This is a nts-net pretrained with CUB200 2011 dataset. A fine graned dataset of birds species. 
 
 ### References
 You can read the full paper at this [link](http://artelab.dista.uninsubria.it/res/research/papers/2019/2019-IVCNZ-Nawaz-Birds.pdf).
