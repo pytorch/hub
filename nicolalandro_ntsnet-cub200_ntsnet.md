@@ -4,12 +4,12 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: ntsnet
-summary: a fine grane model for image classification.
+summary: a fined grane model for image classification.
 image: nts-net.png
 author: Moreno Carraffini and Nicola Landro
 tags: [vision]
 github-link: https://github.com/nicolalandro/ntsnet-cub200/archive/master.zip
-featured_image_1: no-image
+featured_image_1: Cub200Dataset.png
 featured_image_2: no-image
 accelerator: "cuda-optional"
 ---
@@ -19,9 +19,9 @@ import torch
 model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet', pretrained=True, **{'topN': 6, 'device':'cpu', 'num_classes': 200})
 ```
 
-### How to use on bird
+### Example
 
-```
+```python
 from torchvision import transforms
 import torch
 import urllib
@@ -49,7 +49,7 @@ with torch.no_grad():
     
     _, predict = torch.max(concat_logits, 1)
     pred_id = predict.item()
-    print('bird class:', pred_id)
+    print('bird class:', model.bird_classes[pred_id])
 ```
 
 ### How to train
