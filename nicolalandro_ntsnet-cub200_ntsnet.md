@@ -5,11 +5,11 @@ body-class: hub
 category: researchers
 title: ntsnet
 summary: classify birds using this fine-grained image classifier
-image: nts-net.png
+image: Cub200Dataset.png
 author: Moreno Carraffini and Nicola Landro
 tags: [vision]
 github-link: https://github.com/nicolalandro/ntsnet-cub200
-featured_image_1: Cub200Dataset.png
+featured_image_1: nts-net.png
 featured_image_2: no-image
 accelerator: "cuda-optional"
 ---
@@ -47,23 +47,23 @@ torch_images = scaled_img.unsqueeze(0)
 
 with torch.no_grad():
     top_n_coordinates, concat_out, raw_logits, concat_logits, part_logits, top_n_index, top_n_prob = model(torch_images)
-    
+
     _, predict = torch.max(concat_logits, 1)
     pred_id = predict.item()
     print('bird class:', model.bird_classes[pred_id])
 ```
 
 ### Model Description
-This is an nts-net pretrained with CUB200 2011 dataset, which is a fine grained dataset of birds species. 
+This is an nts-net pretrained with CUB200 2011 dataset, which is a fine grained dataset of birds species.
 
 ### References
 You can read the full paper at this [link](http://artelab.dista.uninsubria.it/res/research/papers/2019/2019-IVCNZ-Nawaz-Birds.pdf).
 ```bibtex
-@INPROCEEDINGS{Gallo:2019:IVCNZ, 
+@INPROCEEDINGS{Gallo:2019:IVCNZ,
   author={Nawaz, Shah and Calefati, Alessandro and Caraffini, Moreno and Landro, Nicola and Gallo, Ignazio},
-  booktitle={2019 International Conference on Image and Vision Computing New Zealand (IVCNZ 2019)}, 
+  booktitle={2019 International Conference on Image and Vision Computing New Zealand (IVCNZ 2019)},
   title={Are These Birds Similar: Learning Branched Networks for Fine-grained Representations},
-  year={2019}, 
+  year={2019},
   month={Dec},
 }
 ```
