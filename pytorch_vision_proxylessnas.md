@@ -9,6 +9,7 @@ image: proxylessnas.png
 author: MIT Han Lab
 tags: [vision]
 github-link: https://github.com/mit-han-lab/ProxylessNAS
+github-id: mit-han-lab/ProxylessNAS
 featured_image_1: proxylessnas.png
 featured_image_2: no-image
 accelerator: cuda-optional
@@ -73,16 +74,16 @@ ProxylessNAS models are from the [ProxylessNAS: Direct Neural Architecture Searc
 Conventionally, people tend to design *one efficient model* for *all hardware platforms*. But different hardware has different properties, for example, CPU has higher frequency and GPU is better at parallization. Therefore, instead of generalizing, we need to **specialize** CNN architectures for different hardware platforms. As shown in below, with similar accuracy, specialization offers free yet significant performance boost on all three platforms.
 
 | Model structure |  GPU Latency | CPU Latency | Mobile Latency
-| --------------- | ----------- | ----------- | ----------- | 
+| --------------- | ----------- | ----------- | ----------- |
 |  proxylessnas_gpu     |  **5.1ms**   | 204.9ms | 124ms |
-|  proxylessnas_cpu     |  7.4ms   | **138.7ms** | 116ms | 
+|  proxylessnas_cpu     |  7.4ms   | **138.7ms** | 116ms |
 |  proxylessnas_mobile  |  7.2ms   | 164.1ms | **78ms**  |
 
 The corresponding top-1 accuracy with pretrained models are listed below.
 
 | Model structure | Top-1 error |
-| --------------- | ----------- | 
-|  proxylessnas_cpu     |  24.7 | 
+| --------------- | ----------- |
+|  proxylessnas_cpu     |  24.7 |
 |  proxylessnas_gpu     |  24.9   |
 |  proxylessnas_mobile  |  25.4   |
 |  proxylessnas_mobile_14  |  23.3   |

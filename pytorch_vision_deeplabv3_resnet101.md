@@ -9,6 +9,7 @@ image: deeplab2.png
 author: Pytorch Team
 tags: [vision, scriptable]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/segmentation/deeplabv3.py
+github-id: pytorch/vision
 featured_image_1: deeplab1.png
 featured_image_2: deeplab2.png
 accelerator: cuda-optional

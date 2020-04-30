@@ -10,6 +10,7 @@ image: <REQUIRED: best image to represent your model>
 author: <REQUIRED>
 tags: <REQUIRED: [tag1, tag2, ...]>
 github-link: <REQUIRED>
+github-id: <REQUIRED: top level of repo>
 featured_image_1: <OPTIONAL: use no-image if not applicable>
 featured_image_2: <OPTIONAL: use no-image if not applicable>
 accelerator: <OPTIONAL: Current supported values: "cuda", "cuda-optional">

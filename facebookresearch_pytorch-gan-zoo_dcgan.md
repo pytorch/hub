@@ -9,6 +9,7 @@ image: dcgan_fashionGen.jpg
 author: FAIR HDGAN
 tags: [vision, generative]
 github-link: https://github.com/facebookresearch/pytorch_GAN_zoo/blob/master/models/DCGAN.py
+github-id: facebookresearch/pytorch_GAN_zoo
 featured_image_1: dcgan_fashionGen.jpg
 featured_image_2: no-image
 accelerator: cuda-optional
