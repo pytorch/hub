@@ -15,8 +15,6 @@ do
     echo "...skipped due to cuda checkpoints."
   elif [[ $f = "pytorch_fairseq_translation"* ]]; then
     echo "...temporarily disabled"
-  elif [[ $f = *"proxylessnas"* ]]; then
-    echo "...temporarily disabled"
   else
     sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' > $TEMP_PY
     python $TEMP_PY
