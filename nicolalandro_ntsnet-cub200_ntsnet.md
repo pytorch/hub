@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: ntsnet
-summary: a fined grane model for image classification.
+summary: a fined graned model for image classification.
 image: nts-net.png
 author: Moreno Carraffini and Nicola Landro
 tags: [vision]
