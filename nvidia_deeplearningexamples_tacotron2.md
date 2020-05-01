@@ -9,6 +9,7 @@ image: nvidia_logo.png
 author: NVIDIA
 tags: [audio]
 github-link: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/SpeechSynthesis/Tacotron2
+github-id: NVIDIA/DeepLearningExamples
 featured_image_1: tacotron2_diagram.png
 featured_image_2: no-image
 accelerator: cuda

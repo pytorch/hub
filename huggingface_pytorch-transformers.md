@@ -9,6 +9,7 @@ image: huggingface-logo.png
 author: HuggingFace Team
 tags: [nlp]
 github-link: https://github.com/huggingface/pytorch-transformers.git
+github-id: huggingface/transformers
 featured_image_1: no-image
 featured_image_2: no-image
 accelerator: cuda-optional

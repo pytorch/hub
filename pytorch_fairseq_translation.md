@@ -9,6 +9,7 @@ image: fairseq_logo.png
 author: Facebook AI (fairseq Team)
 tags: [nlp]
 github-link: https://github.com/pytorch/fairseq/
+github-id: pytorch/fairseq
 accelerator: cuda-optional
 order: 2
 ---

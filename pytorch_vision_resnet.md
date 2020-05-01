@@ -9,6 +9,7 @@ image: resnet.png
 author: Pytorch Team
 tags: [vision, scriptable]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
+github-id: pytorch/vision
 featured_image_1: resnet.png
 featured_image_2: no-image
 accelerator: cuda-optional

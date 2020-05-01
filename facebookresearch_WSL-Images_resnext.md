@@ -9,6 +9,7 @@ image: wsl-image.png
 author: Facebook AI
 tags: [vision]
 github-link: https://github.com/facebookresearch/WSL-Images/blob/master/hubconf.py
+github-id: facebookresearch/WSL-Images
 featured_image_1: wsl-image.png
 featured_image_2: no-image
 accelerator: cuda-optional

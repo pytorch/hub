@@ -9,6 +9,7 @@ image: shufflenet_v2_1.png
 author: Pytorch Team
 tags: [vision, scriptable]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/shufflenetv2.py
+github-id: pytorch/vision
 featured_image_1: shufflenet_v2_1.png
 featured_image_2: shufflenet_v2_2.png
 accelerator: cuda-optional

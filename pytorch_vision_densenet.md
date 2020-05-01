@@ -9,6 +9,7 @@ image: densenet1.png
 author: Pytorch Team
 tags: [vision, scriptable]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/densenet.py
+github-id: pytorch/vision
 featured_image_1: densenet1.png
 featured_image_2: densenet2.png
 accelerator: cuda-optional
