@@ -9,6 +9,7 @@ image: hardnet.png
 author: PingoLH
 tags: [vision]
 github-link: https://github.com/PingoLH/Pytorch-HarDNet
+github-id: PingoLH/Pytorch-HarDNet
 featured_image_1: hardnet.png
 featured_image_2: hardnet_blk.png
 accelerator: cuda-optional

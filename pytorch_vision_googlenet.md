@@ -9,6 +9,7 @@ image: googlenet1.png
 author: Pytorch Team
 tags: [vision]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/googlenet.py
+github-id: pytorch/vision
 featured_image_1: googlenet1.png
 featured_image_2: googlenet2.png
 accelerator: cuda-optional

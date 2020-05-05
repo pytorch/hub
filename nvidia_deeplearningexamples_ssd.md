@@ -9,6 +9,7 @@ image: nvidia_logo.png
 author: NVIDIA
 tags: [vision]
 github-link: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Detection/SSD
+github-id: NVIDIA/DeepLearningExamples
 featured_image_1: ssd_diagram.png
 featured_image_2: ssd.png
 accelerator: cuda
@@ -17,7 +18,7 @@ order: 10
 
 
 ```python
-import torch 
+import torch
 precision = 'fp32'
 ssd_model = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_ssd', model_math=precision)
 ```
@@ -43,7 +44,7 @@ From the
 [Speed/accuracy trade-offs for modern convolutional object detectors](https://arxiv.org/abs/1611.10012)
 paper, the following enhancements were made to the backbone:
 *   The conv5_x, avgpool, fc and softmax layers were removed from the original classification model.
-*   All strides in conv4_x are set to 1x1. 
+*   All strides in conv4_x are set to 1x1.
 
 The backbone is followed by 5 additional convolutional layers.
 In addition to the convolutional layers, we attached 6 detection heads:
@@ -132,9 +133,9 @@ plt.show()
 
 
 ### Details
-For detailed information on model input and output, 
-training recipies, inference and performance visit: 
-[github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Detection/SSD) 
+For detailed information on model input and output,
+training recipies, inference and performance visit:
+[github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Detection/SSD)
 and/or [NGC](https://ngc.nvidia.com/catalog/model-scripts/nvidia:ssd_for_pytorch)
 
 ### References

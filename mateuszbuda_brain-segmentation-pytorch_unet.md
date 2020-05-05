@@ -9,6 +9,7 @@ image: unet_tcga_cs_4944.png
 author: mateuszbuda
 tags: [vision]
 github-link: https://github.com/mateuszbuda/brain-segmentation-pytorch
+github-id: mateuszbuda/brain-segmentation-pytorch
 featured_image_1: unet_brain_mri.png
 accelerator: "cuda-optional"
 order: 10
