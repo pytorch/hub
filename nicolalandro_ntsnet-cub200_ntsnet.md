@@ -6,7 +6,7 @@ category: researchers
 title: ntsnet
 summary: classify birds using this fine-grained image classifier
 image: Cub200Dataset.png
-author: Moreno Carraffini and Nicola Landro
+author: Moreno Caraffini and Nicola Landro
 tags: [vision]
 github-link: https://github.com/nicolalandro/ntsnet-cub200
 featured_image_1: nts-net.png
