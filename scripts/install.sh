@@ -24,3 +24,4 @@ conda install -y -c conda-forge librosa inflect
 
 pip install -q fastBPE sacremoses sentencepiece subword_nmt
 pip install -q visdom mistune filelock tokenizers packaging
+pip install -q scikit-image==0.15.0
