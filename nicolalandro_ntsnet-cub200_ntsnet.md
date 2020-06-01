@@ -9,6 +9,7 @@ image: Cub200Dataset.png
 author: Moreno Carraffini and Nicola Landro
 tags: [vision]
 github-link: https://github.com/nicolalandro/ntsnet-cub200
+github-id: nicolalandro/ntsnet-cub200
 featured_image_1: nts-net.png
 featured_image_2: no-image
 accelerator: "cuda-optional"
