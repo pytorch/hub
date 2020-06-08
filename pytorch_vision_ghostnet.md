@@ -69,6 +69,8 @@ print(torch.nn.functional.softmax(output[0], dim=0))
 
 The GhostNet architecture is based on an Ghost module structure which generate more features from cheap operations. Based on a set of intrinsic feature maps, a series of cheap operations are applied to generate many ghost feature maps that could fully reveal information underlying intrinsic features. Experiments conducted on benchmarks demonstrate that the superiority of GhostNet in terms of speed and accuracy tradeoff.
 
+The corresponding accuracy on ImageNet with pretrained model is listed below.
+
 | Model structure | FLOPs       | Top-1 acc   | Top-5 acc   |
 | --------------- | ----------- | ----------- | ----------- |
 |  GhostNet 1.0x  | 142M        | 73.98       | 91.46       |
