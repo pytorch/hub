@@ -3,7 +3,7 @@ jobs:
   build:
     machine:
       image: ubuntu-1604:201903-01
-    resource_class: gpu.medium
+    resource_class: gpu.small
     steps:
       - checkout
       - run:
