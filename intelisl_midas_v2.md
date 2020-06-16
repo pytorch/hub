@@ -60,7 +60,7 @@ midas.eval()
 Load transforms to resize and normalize the image
 ```python
 from torchvision.transforms import Compose
-from models.transforms import Resize, NormalizeImage, PrepareForNet
+from midas.transforms import Resize, NormalizeImage, PrepareForNet
 
 transform = Compose(
     [
