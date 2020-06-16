@@ -59,34 +59,18 @@ midas.eval()
 
 Load transforms to resize and normalize the image
 ```python
-from torchvision.transforms import Compose
-from midas.transforms import Resize, NormalizeImage, PrepareForNet
-
-transform = Compose(
-    [
-        Resize(
-            384,
-            384,
-            resize_target=None,
-            keep_aspect_ratio=True,
-            ensure_multiple_of=32,
-            resize_method="upper_bound",
-            image_interpolation_method=cv2.INTER_CUBIC,
-        ),
-        NormalizeImage(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-        PrepareForNet(),
-    ]
-)
+midas_transforms = torch.hub.load("intel-isl/MiDaS", "transforms")
+transform = midas_transforms.default_transform
 ```
 
-Prepare the sample
+Load image and apply transforms
 ```python
 img = cv2.imread(filename)
-img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) / 255.0
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-input_image = torch.from_numpy(transform({"image": img})["image"])
-input_batch = input_image.unsqueeze(0).to(device)
+input_batch = transform(img).to(device)
 ```
+
 
 Predict and resize to original resolution
 ```python
