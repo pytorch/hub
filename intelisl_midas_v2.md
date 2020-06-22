@@ -22,8 +22,8 @@ midas.eval()
 ```
 
 will load the MiDaS v2 model. The model expects 3-channel RGB images of shape ```(3 x H x W)```. Images are expected to be normalized using
-```mean=[0.485, 0.456, 0.406]``` and ```std=[0.229, 0.224, 0.225]```. 
-```H``` and ```W``` need to be divisible by ```32```. For optimal results ```H``` and ```W``` should be close to ```384``` (the training resolution). 
+`mean=[0.485, 0.456, 0.406]` and `std=[0.229, 0.224, 0.225]`. 
+`H` and `W` need to be divisible by `32`. For optimal results `H` and `W` should be close to `384` (the training resolution). 
 We provide a custom transformation that performs resizing while maintaining aspect ratio. 
 
 ### Model Description
