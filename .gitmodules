@@ -1,0 +1,3 @@
+[submodule "benchmark/models/attention-is-all-you-need-pytorch"]
+	path = benchmark/models/attention-is-all-you-need-pytorch
+	url = git@github.com:ailzhang/attention-is-all-you-need-pytorch.git
