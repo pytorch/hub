@@ -5,19 +5,19 @@ from utils import workdir, setup, list_models
 
 def run_model(model_class, model_path):
     for device in ('cpu', 'cuda'):
-        m = model_class(device=device)
         print('Running [{}] on device: {}'.format(str(model_path), device))
-        m.get_module()
+        m = model_class(device=device)
+
+        module, example_inputs = m.get_module()
+        module(*example_inputs)
+
         start = time.time()
         m.train()
         print('Finished training on device: {} in {}s.'.format(device, time.time() - start))
+
         start = time.time()
-        try:
-            m.eval()
-        except NotImplementedError:
-            print('Skipped eval since it\'s not implemented for {}'.format(model_path))
-        else:
-            print('Finished eval on device: {} in {}s.'.format(device, time.time() - start))
+        m.eval()
+        print('Finished eval on device: {} in {}s.'.format(device, time.time() - start))
 
 
 def run_models():
