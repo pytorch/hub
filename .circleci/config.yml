@@ -42,10 +42,13 @@ jobs:
           command: ./scripts/install_basics.sh
       - run:
           name: Install PyTorch nightly
-          command: . ~/miniconda3/etc/profile.d/conda.sh; conda activate base; conda install -y pytorch -c pytorch-nightly
+          command: . ~/miniconda3/etc/profile.d/conda.sh; conda activate base; conda install -y pytorch -c pytorch-nightly; pip install -q pytest pytest-benchmark
       - run:
           name: Validate training benchmark suite
           command: . ~/miniconda3/etc/profile.d/conda.sh; conda activate base; python benchmark/test.py
+      - run:
+          name: Validate pytest-benchmark invocation of training suite
+          command: . ~/miniconda3/etc/profile.d/conda.sh; conda activate base; pytest benchmark/test_bench.py
 
 workflows:
   version: 2
