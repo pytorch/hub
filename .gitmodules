@@ -10,3 +10,6 @@
 [submodule "benchmark/models/pytorch-struct"]
 	path = benchmark/models/pytorch-struct
 	url = https://github.com/jamesr66a/pytorch-struct.git
+[submodule "benchmark/models/pytorch-CycleGAN-and-pix2pix"]
+	path = benchmark/models/pytorch-CycleGAN-and-pix2pix
+	url = https://github.com/zdevito/pytorch-CycleGAN-and-pix2pix
