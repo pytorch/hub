@@ -11,13 +11,19 @@ def run_model(model_class, model_path):
         module, example_inputs = m.get_module()
         module(*example_inputs)
 
-        start = time.time()
-        m.train()
-        print('Finished training on device: {} in {}s.'.format(device, time.time() - start))
+        try:
+            start = time.time()
+            m.train()
+            print('Finished training on device: {} in {}s.'.format(device, time.time() - start))
+        except NotImplementedError:
+            print('Method train is not implemented, skipping...')
 
-        start = time.time()
-        m.eval()
-        print('Finished eval on device: {} in {}s.'.format(device, time.time() - start))
+        try:
+            start = time.time()
+            m.eval()
+            print('Finished eval on device: {} in {}s.'.format(device, time.time() - start))
+        except NotImplementedError:
+            print('Method eval is not implemented, skipping...')
 
 
 def run_models():
