@@ -1,7 +1,7 @@
 import os
 import pytest
 import torch
-from utils import workdir, setup, list_model_paths
+from bench_utils import workdir, setup, list_model_paths
 
 def pytest_generate_tests(metafunc, display_len=12):
     # This is where the list of models to test can be configured

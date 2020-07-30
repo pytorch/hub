@@ -1,6 +1,6 @@
 # This file shows how to use the benchmark suite from user end.
 import time
-from utils import workdir, setup, list_models
+from bench_utils import workdir, setup, list_models
 
 
 def run_model(model_class, model_path):

@@ -4,3 +4,6 @@
 [submodule "benchmark/models/BERT-pytorch"]
 	path = benchmark/models/BERT-pytorch
 	url = https://github.com/wconstab/BERT-pytorch
+[submodule "benchmark/models/tacotron2"]
+	path = benchmark/models/tacotron2
+	url = https://github.com/ailzhang/tacotron2.git
