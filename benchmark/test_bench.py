@@ -51,7 +51,13 @@ class TestBenchNetwork:
     by the fixture above, for each device listed in the device parameter.
     """
     def test_train(self, hub_model, benchmark):
-        benchmark(hub_model.train)
+        try:
+            benchmark(hub_model.train)
+        except NotImplementedError:
+            print('Method train is not implemented, skipping...')
 
     def test_eval(self, hub_model, benchmark):
-        benchmark(hub_model.eval)
+        try:
+            benchmark(hub_model.eval)
+        except NotImplementedError:
+            print('Method eval is not implemented, skipping...')
