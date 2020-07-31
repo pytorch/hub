@@ -8,8 +8,11 @@ def run_model(model_class, model_path):
         print('Running [{}] on device: {}'.format(str(model_path), device))
         m = model_class(device=device)
 
-        module, example_inputs = m.get_module()
-        module(*example_inputs)
+        try:
+            module, example_inputs = m.get_module()
+            module(*example_inputs)
+        except NotImplementedError:
+            print('Method get_module is not implemented, skipping...')
 
         try:
             start = time.time()
