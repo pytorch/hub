@@ -7,3 +7,6 @@
 [submodule "benchmark/models/tacotron2"]
 	path = benchmark/models/tacotron2
 	url = https://github.com/ailzhang/tacotron2.git
+[submodule "benchmark/models/pytorch-struct"]
+	path = benchmark/models/pytorch-struct
+	url = https://github.com/jamesr66a/pytorch-struct.git
