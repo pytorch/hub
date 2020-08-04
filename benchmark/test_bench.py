@@ -39,6 +39,10 @@ def hub_model(request, model_path, device):
             raise RuntimeError('Missing class Model in {}/hubconf.py'.format(model_path))
         return Model(device=device)
 
+def cuda_sync(func, device, *args, **kwargs):
+    func(*args, **kwargs)
+    if device == 'cuda':
+        torch.cuda.synchronize()
 
 @pytest.mark.benchmark(
     warmup=True,
@@ -51,14 +55,14 @@ class TestBenchNetwork:
     This test class will get instantiated once for each 'model_stuff' provided
     by the fixture above, for each device listed in the device parameter.
     """
-    def test_train(self, hub_model, benchmark):
+    def test_train(self, hub_model, device, benchmark):
         try:
-            benchmark(hub_model.train)
+            benchmark(cuda_sync, hub_model.train, device)
         except NotImplementedError:
             print('Method train is not implemented, skipping...')
 
-    def test_eval(self, hub_model, benchmark):
+    def test_eval(self, hub_model, device, benchmark):
         try:
-            benchmark(hub_model.eval)
+            benchmark(cuda_sync, hub_model.eval, device)
         except NotImplementedError:
             print('Method eval is not implemented, skipping...')
