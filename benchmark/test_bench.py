@@ -3,7 +3,7 @@ import pytest
 import torch
 from bench_utils import workdir, setup, list_model_paths
 
-def pytest_generate_tests(metafunc, display_len=12):
+def pytest_generate_tests(metafunc, display_len=24):
     # This is where the list of models to test can be configured
     # e.g. by using info in metafunc.config
     all_models = list_model_paths()
