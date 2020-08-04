@@ -48,7 +48,7 @@ jobs:
           command: . ~/miniconda3/etc/profile.d/conda.sh; conda activate base; python benchmark/test.py
       - run:
           name: Validate pytest-benchmark invocation of training suite
-          command: . ~/miniconda3/etc/profile.d/conda.sh; conda activate base; pytest benchmark/test_bench.py
+          command: ./scripts/run_bench_and_upload.sh
 
 workflows:
   version: 2
