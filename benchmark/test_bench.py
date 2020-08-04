@@ -44,6 +44,7 @@ def hub_model(request, model_path, device):
     warmup=True,
     warmup_iterations=3,
     disable_gc=True,
+    group='hub',
 )
 class TestBenchNetwork:
     """

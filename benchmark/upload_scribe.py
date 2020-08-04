@@ -79,6 +79,7 @@ class PytorchBenchmarkUploader(ScribeUploader):
                 'pytorch_commit_id', 'pytorch_branch', 'pytorch_commit_time', 'pytorch_version',
                 'pytorch_git_dirty',
                 'machine_kernel', 'machine_processor', 'machine_hostname',
+                'circle_build_num', 'circle_project_reponame',
             ],
             'float': [
                 'stddev', 'min', 'median', 'max', 'mean',
@@ -105,6 +106,8 @@ class PytorchBenchmarkUploader(ScribeUploader):
                 "machine_kernel": machine_info['release'],
                 "machine_processor": machine_info['processor'],
                 "machine_hostname": machine_info['node'],
+                "circle_build_num": os.environ.get("CIRCLE_BUILD_NUM"),
+                "circle_project_reponame": os.environ.get("CIRCLE_PROJECT_REPONAME"),
                 "stddev": b['stats']['stddev'],
                 "rounds": b['stats']['rounds'],
                 "min": b['stats']['min'],
