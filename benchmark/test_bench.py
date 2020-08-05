@@ -3,7 +3,7 @@ import pytest
 import torch
 from bench_utils import workdir, setup, list_model_paths
 
-def pytest_generate_tests(metafunc, display_len=12):
+def pytest_generate_tests(metafunc, display_len=24):
     # This is where the list of models to test can be configured
     # e.g. by using info in metafunc.config
     all_models = list_model_paths()
@@ -39,25 +39,30 @@ def hub_model(request, model_path, device):
             raise RuntimeError('Missing class Model in {}/hubconf.py'.format(model_path))
         return Model(device=device)
 
+def cuda_sync(func, device, *args, **kwargs):
+    func(*args, **kwargs)
+    if device == 'cuda':
+        torch.cuda.synchronize()
 
 @pytest.mark.benchmark(
     warmup=True,
     warmup_iterations=3,
     disable_gc=True,
+    group='hub',
 )
 class TestBenchNetwork:
     """
     This test class will get instantiated once for each 'model_stuff' provided
     by the fixture above, for each device listed in the device parameter.
     """
-    def test_train(self, hub_model, benchmark):
+    def test_train(self, hub_model, device, benchmark):
         try:
-            benchmark(hub_model.train)
+            benchmark(cuda_sync, hub_model.train, device)
         except NotImplementedError:
             print('Method train is not implemented, skipping...')
 
-    def test_eval(self, hub_model, benchmark):
+    def test_eval(self, hub_model, device, benchmark):
         try:
-            benchmark(hub_model.eval)
+            benchmark(cuda_sync, hub_model.eval, device)
         except NotImplementedError:
             print('Method eval is not implemented, skipping...')
