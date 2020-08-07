@@ -49,6 +49,11 @@ jobs:
       - run:
           name: Validate pytest-benchmark invocation of training suite
           command: ./scripts/run_bench_and_upload.sh
+      - name: Upload Benchmark Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: hub-benchmark-json
+          path: .benchmarks/hub.json
 
 workflows:
   version: 2
