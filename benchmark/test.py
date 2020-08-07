@@ -1,7 +1,7 @@
 # This file shows how to use the benchmark suite from user end.
+import argparse
 import time
 from bench_utils import workdir, setup, list_models
-
 
 def run_model(model_class, model_path):
     for device in ('cpu', 'cuda'):
@@ -36,5 +36,11 @@ def run_models():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--setup_only', action='store_true')
+    args = parser.parse_args()
+
     setup()
-    run_models()
+
+    if not args.setup_only:
+        run_models()

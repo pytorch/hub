@@ -1,7 +1,20 @@
+"""test_bench.py
+Runs hub models in benchmark mode using pytest-benchmark. Run setup separately first.
+
+Usage:
+  python test.py --setup_only
+  pytest test_bench.py
+
+See pytest-benchmark help (pytest test_bench.py -h) for additional options
+e.g. --benchmark-autosave
+     --benchmark-compare
+     -k <filter expression>
+     ...
+"""
 import os
 import pytest
 import torch
-from bench_utils import workdir, setup, list_model_paths
+from bench_utils import workdir, list_model_paths
 
 def pytest_generate_tests(metafunc, display_len=24):
     # This is where the list of models to test can be configured
@@ -15,11 +28,6 @@ def pytest_generate_tests(metafunc, display_len=24):
         short_names.append(short)
     metafunc.parametrize('model_path', all_models, ids=short_names, scope="module")
     metafunc.parametrize('device', ['cpu', 'cuda'], scope='module')
-
-def setup_module(module):
-    """Run setup steps for hub models.
-    """
-    setup()
 
 @pytest.fixture(scope='module')
 def hub_model(request, model_path, device):
