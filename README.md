@@ -23,7 +23,7 @@ We accept submission to PyTorch hub through PR in `hub` repo. Once the PR is mer
 python scripts/sanity_check.py
 ./scripts/run_pytorch.sh
 ```
-- Our CI concatenates all python code blocks in one markdown file and runs it agaist the latest PyTorch release.
+- Our CI concatenates all python code blocks in one markdown file and runs it against the latest PyTorch release.
   - Remember to mark your python code using ```` ```python```` in model markdown file.
   - If your `dependencies` is not installed on our CI machine, add them in [install.sh](scripts/install.sh).
   - If it fails, you can find a new `temp.py` file left in the repo to reproduce the failure.
