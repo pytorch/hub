@@ -13,3 +13,6 @@
 [submodule "benchmark/models/pytorch-CycleGAN-and-pix2pix"]
 	path = benchmark/models/pytorch-CycleGAN-and-pix2pix
 	url = https://github.com/zdevito/pytorch-CycleGAN-and-pix2pix
+[submodule "benchmark/models/moco"]
+	path = benchmark/models/moco
+	url = https://github.com/nickgg/moco.git
