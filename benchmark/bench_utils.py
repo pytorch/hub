@@ -5,8 +5,8 @@ import sys
 import torch
 from urllib import request
 
-git_submodule_suggestion = "Have you run\n`git submodule init` and\n" \
-                           "`git submodule update --recursive`?"
+git_submodule_suggestion = "Have you run\n`" \
+                           "`git submodule update --init --recursive`?"
 proxy_suggestion = "Unable to verify https connectivity, " \
                    "required for setup.\n" \
                    "Do you need to use a proxy?"
