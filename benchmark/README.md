@@ -22,6 +22,10 @@ Some useful options include
 - `-k <filter expression>` (standard pytest filtering)
 - `--collect-only` only show what tests would run, useful to see what models there are or debug your filter expression
 
+## Nightly CI runs
+Currently, hub models run on nightly pytorch builds and push data to scuba.  
+
+See [Unidash](https://www.internalfb.com/intern/unidash/dashboard/pytorch_benchmarks/hub_detail/) (internal only)
 
 ## Adding new models
 Instructions for adding new models are currently under development in a quip.  At a high level, each model exists in its own repository, usually forked from an original open source repository and modified to add `install.py` and `hubconf.py` files which enable the hub scripts to interact with a known API.

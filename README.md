@@ -2,13 +2,6 @@
 
 [![CircleCI](https://circleci.com/gh/pytorch/hub.svg?style=svg)](https://circleci.com/gh/pytorch/hub)
 
-## Running Benchmarks Locally
-See [Benchmarks README.md](benchmark/README.md)
-
-## Nightly CI runs
-Currently, hub models run on nightly pytorch builds and push data to scuba.  
-
-See [Unidash](https://www.internalfb.com/intern/unidash/dashboard/pytorch_benchmarks/hub_detail/) (internal only)
 
 ## Logistics
 
