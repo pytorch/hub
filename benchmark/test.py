@@ -1,3 +1,8 @@
+"""test.py
+Setup and Run hub models.
+
+Make sure to enable an https proxy if necessary, or the setup steps may hang.
+"""
 # This file shows how to use the benchmark suite from user end.
 import argparse
 import time
@@ -36,8 +41,9 @@ def run_models():
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--setup_only', action='store_true')
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--setup_only', action='store_true',
+                        help='run setup steps only, then exit.')
     args = parser.parse_args()
 
     setup()
