@@ -3,11 +3,20 @@ from pathlib import Path
 import subprocess
 import sys
 import torch
+from urllib import request
 
 this_dir = Path(__file__).parent.absolute()
 model_dir = 'models/'
 install_file = 'install.py'
 hubconf_file = 'hubconf.py'
+
+
+def _test_https(test_url='https://github.com', timeout=0.5):
+    try:
+        request.urlopen(test_url, timeout=timeout)
+    except OSError:
+        return False
+    return True
 
 
 def _install_deps(model_path):
@@ -40,6 +49,11 @@ def list_model_paths():
 
 
 def setup():
+    if not _test_https():
+        print("Unable to verify https connectivity, required for setup.\n"
+              "Do you need to use a proxy?")
+        sys.exit(-1)
+
     _install_deps(this_dir)
     for model_path in list_model_paths():
         _install_deps(model_path)
