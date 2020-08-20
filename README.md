@@ -2,8 +2,15 @@
 
 [![CircleCI](https://circleci.com/gh/pytorch/hub.svg?style=svg)](https://circleci.com/gh/pytorch/hub)
 
-## Logistics
+## Running Benchmarks Locally
+See [Benchmarks README.md](benchmark/README.md)
 
+## Nightly CI runs
+Currently, hub models run on nightly pytorch builds and push data to scuba.  
+
+See [Unidash](https://www.internalfb.com/intern/unidash/dashboard/pytorch_benchmarks/hub_detail/) (internal only)
+
+## Logistics
 
 We accept submission to PyTorch hub through PR in `hub` repo. Once the PR is merged into master here, it will show up on [PyTorch website](https://pytorch.org/hub) in 24 hrs.
 
