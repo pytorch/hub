@@ -2,9 +2,9 @@ import os
 from pathlib import Path
 import subprocess
 import sys
-import time
 import torch
 
+this_dir = Path(__file__).parent.absolute()
 model_dir = 'models/'
 install_file = 'install.py'
 hubconf_file = 'hubconf.py'
@@ -40,6 +40,7 @@ def list_model_paths():
 
 
 def setup():
+    _install_deps(this_dir)
     for model_path in list_model_paths():
         _install_deps(model_path)
 
