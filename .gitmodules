@@ -21,4 +21,4 @@
 	url = https://github.com/bwasti/pytorch-mobilenet-v3.git
 [submodule "benchmark/models/Super-SloMo"]
 	path = benchmark/models/Super-SloMo
-	url = https://github.com/ezyang/Super-SloMo.git
+	url = https://github.com/wconstab/Super-SloMo.git
