@@ -2,19 +2,36 @@ import os
 from pathlib import Path
 import subprocess
 import sys
-import time
 import torch
+from urllib import request
 
+git_submodule_suggestion = "Have you run\n`" \
+                           "`git submodule update --init --recursive`?"
+proxy_suggestion = "Unable to verify https connectivity, " \
+                   "required for setup.\n" \
+                   "Do you need to use a proxy?"
+
+this_dir = Path(__file__).parent.absolute()
 model_dir = 'models/'
 install_file = 'install.py'
 hubconf_file = 'hubconf.py'
+
+
+def _test_https(test_url='https://github.com', timeout=0.5):
+    try:
+        request.urlopen(test_url, timeout=timeout)
+    except OSError:
+        return False
+    return True
 
 
 def _install_deps(model_path):
     if os.path.exists(os.path.join(model_path, install_file)):
         subprocess.check_call([sys.executable, install_file], cwd=model_path)
     else:
-        print('skip installing deps and preprocessing since no install.py is found in {}.'.format(model_path))
+        print('No install.py is found in {}.'.format(model_path))
+        print(git_submodule_suggestion)
+        sys.exit(-1)
 
 
 class workdir():
@@ -40,6 +57,11 @@ def list_model_paths():
 
 
 def setup():
+    if not _test_https():
+        print(proxy_suggestion)
+        sys.exit(-1)
+
+    _install_deps(this_dir)
     for model_path in list_model_paths():
         _install_deps(model_path)
 
@@ -48,9 +70,11 @@ def list_models():
     models = []
     for model_path in list_model_paths():
         with workdir(model_path):
-            hub_module = torch.hub.import_module(hubconf_file, hubconf_file)
-            Model = getattr(hub_module, 'Model', None)
-            if not Model:
-                raise RuntimeError('Missing class Model in {}/hubconf.py'.format(model_path))
+            try:
+                hub_module = torch.hub.import_module(hubconf_file, hubconf_file)
+                Model = getattr(hub_module, 'Model', None)
+            except FileNotFoundError:
+                raise RuntimeError(f"Unable to find {hubconf_file} in {model_path}.\n"
+                                   "{git_submodule_suggestion")
             models.append(Model)
     return zip(models, list_model_paths())

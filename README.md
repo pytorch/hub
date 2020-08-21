@@ -2,8 +2,8 @@
 
 [![CircleCI](https://circleci.com/gh/pytorch/hub.svg?style=svg)](https://circleci.com/gh/pytorch/hub)
 
-## Logistics
 
+## Logistics
 
 We accept submission to PyTorch hub through PR in `hub` repo. Once the PR is merged into master here, it will show up on [PyTorch website](https://pytorch.org/hub) in 24 hrs.
 
