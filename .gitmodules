@@ -22,3 +22,6 @@
 [submodule "benchmark/models/Super-SloMo"]
 	path = benchmark/models/Super-SloMo
 	url = https://github.com/wconstab/Super-SloMo.git
+[submodule "benchmark/models/Background-Matting"]
+	path = benchmark/models/Background-Matting
+	url = https://github.com/asuhan/Background-Matting.git
