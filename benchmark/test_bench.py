@@ -13,6 +13,7 @@ e.g. --benchmark-autosave
 """
 import os
 import pytest
+import time
 import torch
 from bench_utils import workdir, list_model_paths
 
@@ -47,15 +48,15 @@ def hub_model(request, model_path, device):
             raise RuntimeError('Missing class Model in {}/hubconf.py'.format(model_path))
         return Model(device=device)
 
-def cuda_sync(func, device, *args, **kwargs):
-    func(*args, **kwargs)
-    if device == 'cuda':
-        torch.cuda.synchronize()
+def cuda_timer():
+    torch.cuda.synchronize()
+    return time.perf_counter()
 
 @pytest.mark.benchmark(
     warmup=True,
     warmup_iterations=3,
     disable_gc=True,
+    timer=cuda_timer if torch.has_cuda and torch.cuda.is_available() else time.perf_counter,
     group='hub',
 )
 class TestBenchNetwork:
@@ -65,12 +66,12 @@ class TestBenchNetwork:
     """
     def test_train(self, hub_model, device, benchmark):
         try:
-            benchmark(cuda_sync, hub_model.train, device)
+            benchmark(hub_model.train)
         except NotImplementedError:
             print('Method train is not implemented, skipping...')
 
     def test_eval(self, hub_model, device, benchmark):
         try:
-            benchmark(cuda_sync, hub_model.eval, device)
+            benchmark(hub_model.eval)
         except NotImplementedError:
             print('Method eval is not implemented, skipping...')
