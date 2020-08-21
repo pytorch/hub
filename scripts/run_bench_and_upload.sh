@@ -5,7 +5,7 @@ conda activate base
 
 BENCHMARK_DATA=".benchmarks"
 mkdir -p ${BENCHMARK_DATA}
-pytest benchmark/test_bench.py --benchmark-sort=Name --benchmark-json=${BENCHMARK_DATA}/hub.json
+pytest benchmark/test_bench.py --setup-show --benchmark-sort=Name --benchmark-json=${BENCHMARK_DATA}/hub.json
 
 # Token is only present for certain jobs, only upload if present
 if [ -z "$SCRIBE_GRAPHQL_ACCESS_TOKEN" ]
