@@ -25,3 +25,6 @@
 [submodule "benchmark/models/Background-Matting"]
 	path = benchmark/models/Background-Matting
 	url = https://github.com/asuhan/Background-Matting.git
+[submodule "benchmark/models/fastNLP"]
+	path = benchmark/models/fastNLP
+	url = https://github.com/bertmaher/fastNLP.git
