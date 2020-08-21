@@ -19,3 +19,6 @@
 [submodule "benchmark/models/pytorch-mobilenet-v3"]
 	path = benchmark/models/pytorch-mobilenet-v3
 	url = https://github.com/bwasti/pytorch-mobilenet-v3.git
+[submodule "benchmark/models/Background-Matting"]
+	path = benchmark/models/Background-Matting
+	url = https://github.com/asuhan/Background-Matting.git
