@@ -28,3 +28,6 @@
 [submodule "benchmark/models/demucs"]
 	path = benchmark/models/demucs
 	url = https://github.com/zheng-xq/demucs.git
+[submodule "benchmark/models/fastNLP"]
+	path = benchmark/models/fastNLP
+	url = https://github.com/bertmaher/fastNLP.git
