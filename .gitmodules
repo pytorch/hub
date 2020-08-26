@@ -24,7 +24,7 @@
 	url = https://github.com/wconstab/Super-SloMo.git
 [submodule "benchmark/models/Background-Matting"]
 	path = benchmark/models/Background-Matting
-	url = https://github.com/asuhan/Background-Matting.git
+	url = https://github.com/bertmaher/Background-Matting.git
 [submodule "benchmark/models/demucs"]
 	path = benchmark/models/demucs
 	url = https://github.com/zheng-xq/demucs.git
