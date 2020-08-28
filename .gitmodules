@@ -31,3 +31,6 @@
 [submodule "benchmark/models/fastNLP"]
 	path = benchmark/models/fastNLP
 	url = https://github.com/bertmaher/fastNLP.git
+[submodule "benchmark/models/LearningToPaint"]
+	path = benchmark/models/LearningToPaint
+	url = https://github.com/nikithamalgifb/LearningToPaint.git
