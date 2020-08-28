@@ -32,7 +32,8 @@ class ScribeUploader:
             else:
 
                 raise ValueError("Field {} is not currently used, "
-                                 "be intentional about adding new fields".format(field))
+                                 "be intentional about adding new fields"
+                                 .format(field))
         return message
 
     def _upload_intern(self, messages):
@@ -46,7 +47,7 @@ class ScribeUploader:
             return self._upload_intern(messages)
         access_token = os.environ.get("SCRIBE_GRAPHQL_ACCESS_TOKEN")
         if not access_token:
-            raise ValueError("Can't find access token from environment variable")
+            raise ValueError("Can't find access token in environment variable")
         url = "https://graph.facebook.com/scribe_logs"
         r = requests.post(
             url,
@@ -67,6 +68,7 @@ class ScribeUploader:
         print(r.text)
         r.raise_for_status()
 
+
 class PytorchBenchmarkUploader(ScribeUploader):
     def __init__(self):
         super().__init__('perfpipe_pytorch_benchmarks')
@@ -75,9 +77,11 @@ class PytorchBenchmarkUploader(ScribeUploader):
                 'time', 'rounds',
             ],
             'normal': [
-                'benchmark_group', 'benchmark_name', 'benchmark_class', 'benchmark_time',
-                'pytorch_commit_id', 'pytorch_branch', 'pytorch_commit_time', 'pytorch_version',
-                'pytorch_git_dirty',
+                'benchmark_group', 'benchmark_name',
+                'benchmark_class', 'benchmark_time',
+                'git_repo', 'git_commit_id', 'git_branch',
+                'git_commit_time', 'git_dirty',
+                'pytorch_version', 'python_version',
                 'machine_kernel', 'machine_processor', 'machine_hostname',
                 'circle_build_num', 'circle_project_reponame',
             ],
@@ -91,6 +95,11 @@ class PytorchBenchmarkUploader(ScribeUploader):
         commit_info = pytest_json['commit_info']
         upload_time = int(time.time())
         messages = []
+        try:
+            import torch
+            torch_version = torch.__version__
+        except ImportError:
+            torch_version = None
         for b in pytest_json['benchmarks']:
             m = self.format_message({
                 "time": upload_time,
@@ -98,16 +107,19 @@ class PytorchBenchmarkUploader(ScribeUploader):
                 "benchmark_name": b['name'],
                 "benchmark_class": b['fullname'],
                 "benchmark_time": pytest_json['datetime'],
-                "pytorch_commit_id": commit_info['id'],
-                "pytorch_branch": commit_info['branch'],
-                "pytorch_commit_time": commit_info['time'],
-                "pytorch_version": None,
-                "pytorch_git_dirty": commit_info['dirty'],
+                "git_repo": commit_info['project'],
+                "git_commit_id": commit_info['id'],
+                "git_branch": commit_info['branch'],
+                "git_commit_time": commit_info['time'],
+                "git_dirty": commit_info['dirty'],
+                "pytorch_version": torch_version,
+                "python_version": machine_info['python_implementation_version'],
                 "machine_kernel": machine_info['release'],
                 "machine_processor": machine_info['processor'],
                 "machine_hostname": machine_info['node'],
                 "circle_build_num": os.environ.get("CIRCLE_BUILD_NUM"),
-                "circle_project_reponame": os.environ.get("CIRCLE_PROJECT_REPONAME"),
+                "circle_project_reponame":
+                    os.environ.get("CIRCLE_PROJECT_REPONAME"),
                 "stddev": b['stats']['stddev'],
                 "rounds": b['stats']['rounds'],
                 "min": b['stats']['min'],
@@ -122,7 +134,8 @@ class PytorchBenchmarkUploader(ScribeUploader):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pytest_bench_json", type=argparse.FileType('r'),
-                        help='Upload json data formatted by pytest-benchmark module')
+                        help="Upload json data formatted "
+                             "by pytest-benchmark module")
     args = parser.parse_args()
     if args.pytest_bench_json:
         benchmark_uploader = PytorchBenchmarkUploader()
