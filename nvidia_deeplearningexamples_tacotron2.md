@@ -16,10 +16,18 @@ accelerator: cuda
 order: 10
 ---
 
+To run the example you need some extra python packages installed.
+These are needed for preprocessing the text and audio, as well as for display and input / output.
+
+```bash
+pip install numpy scipy librosa unidecode inflect librosa
+```
+
 ```python
 import torch
 tacotron2 = torch.hub.load('nvidia/DeepLearningExamples:torchhub', 'nvidia_tacotron2')
 ```
+
 will load the Tacotron2 model pre-trained on [LJ Speech dataset](https://keithito.com/LJ-Speech-Dataset/)
 
 ### Model Description
@@ -35,13 +43,6 @@ In the example below:
 - Tacotron2 generates mel spectrogram given tensor represantation of an input text ("Hello world, I missed you")
 - Waveglow generates sound given the mel spectrogram
 - the output sound is saved in an 'audio.wav' file
-
-To run the example you need some extra python packages installed.
-These are needed for preprocessing the text and audio, as well as for display and input / output.
-
-```bash
-pip install numpy scipy librosa unidecode inflect librosa
-```
 
 ```python
 import numpy as np
