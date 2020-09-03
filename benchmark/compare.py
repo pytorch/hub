@@ -5,11 +5,12 @@ from collections import namedtuple
 Result = namedtuple("Result", ["name", "base_time", "diff_time"])
 
 def get_times(pytest_data):
-    return {b["name"]: b["stats"]["mean"] for b in pytest_data["benchmarks"]}
+    return {b["name"]: b["stats"]["min"] for b in pytest_data["benchmarks"]}
 
 parser = argparse.ArgumentParser("compare two pytest jsons")
-parser.add_argument('base',  help="base json file")
+parser.add_argument('base', help="base json file")
 parser.add_argument('diff', help='diff json file')
+parser.add_argument('--format', default='md', type=str, help='output format (csv, md, json, table)')
 args = parser.parse_args()
 
 with open(args.base, "r") as base:
@@ -23,12 +24,22 @@ results = [
     for name in sorted(all_keys)
 ]
 
-print("{:48s} {:>13s} {:>15s} {:>10s}".format(
-    "name", "base time (s)", "diff time (s)", "% change"))
-for r in results:
-    print("{:48s} {:13.6f} {:15.6f} {:9.1f}%".format(
-        r.name,
-        r.base_time,
-        r.diff_time,
-        (r.diff_time / r.base_time - 1.0) * 100.0
-        ))
+header_fmt = {'table' : '{:48s} {:>13s} {:>15s} {:>10s}',
+              'md'    : '| {:48s} | {:>13s} | {:>15s} | {:>10s} |',
+              'csv'   : '{:s}, {:s}, {:s}, {:s}'}
+data_fmt = {'table' : '{:48s} {:13.6f} {:15.6f} {:9.1f}%',
+            'md'    : '| {:48s} | {:13.6f} | {:15.6f} | {:9.1f}% |',
+            'csv'   : '{:s}, {:.6f}, {:.6f}, {:.2f}%'}
+
+if args.format in ['table', 'md', 'csv']:
+    header_fmt_str = header_fmt[args.format]
+    data_fmt_str = data_fmt[args.format]
+    print(header_fmt_str.format("name", "base time (s)", "diff time (s)", "% change"))
+    if args.format == 'md':
+        print(header_fmt_str.format(":---", "---:", "---:", "---:"))
+    for r in results:
+        print(data_fmt_str.format(r.name, r.base_time, r.diff_time, (r.diff_time / r.base_time - 1.0) * 100.0))
+elif args.format == 'json':
+    print(json.dumps(results))
+else:
+    raise ValueError('Unknown output format: ' + args.format)
