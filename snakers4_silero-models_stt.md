@@ -17,6 +17,7 @@ accelerator: cuda-optional
 
 ```python
 import torch
+import zipfile
 from glob import glob
 from utils import (split_into_batches,
                    read_batch,
@@ -28,7 +29,15 @@ model, decoder = torch.hub.load(github='snakers4/silero-models',
                                 model='silero_stt',
                                 device=device)
 
-test_files = glob('path/to/your/file/*.opus')  # or any format compatible with TorchAudio
+# download a sample validation dataset
+torch.hub.download_url_to_file('http://www.openslr.org/resources/83/midlands_english_female.zip',
+                               dst ='midlands_english_female.zip',
+                               progress=True)
+
+with zipfile.ZipFile('midlands_english_female.zip', 'r') as zip_ref:
+    zip_ref.extractall('midlands_english_female')
+
+test_files = glob('midlands_english_female/*.wav')  # or any format compatible with TorchAudio
 batches = split_into_batches(test_files, batch_size=10)
 
 # batch is just a list of paths
