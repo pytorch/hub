@@ -6,6 +6,8 @@ conda activate base
 
 # Install the latest release of pytorch and torchvision
 conda install -y pytorch torchvision -c pytorch
+# Also install torchaudio
+conda install -c pytorch torchaudio
 
 # Dependencies required to load models
 conda install -y regex pillow tqdm boto3 requests numpy\
