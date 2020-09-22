@@ -15,6 +15,11 @@ featured_image_2: silero_imagenet_moment.png
 accelerator: cuda-optional
 ---
 
+```bash
+# this assumes that you have a proper version of PyTorch already installed
+pip install -q torchaudio omegaconf soundfile
+```
+
 ```python
 import torch
 import zipfile
@@ -25,21 +30,23 @@ from glob import glob
 device = torch.device('cpu')  # gpu also works, but our models are fast enough for CPU
 model, decoder, utils = torch.hub.load(github='snakers4/silero-models',
                                        model='silero_stt',
-                                       device=device,
-                                       force_reload=True)
-(read_batch,
- split_into_batches,
- read_audio,
- prepare_model_input) = utils  # see function signature for details
+                                       device=device, force_reload=True)
+(read_batch, split_into_batches,
+ read_audio, prepare_model_input) = utils  # see function signature for details
 
-torch.hub.download_url_to_file('http://www.openslr.org/resources/83/midlands_english_female.zip',
-                               dst ='midlands_english_female.zip',
-                               progress=True)
+# download a single file, any format compatible with TorchAudio (soundfile backend)
+torch.hub.download_url_to_file('https://opus-codec.org/static/examples/samples/speech_orig.wav',
+                               dst ='speech_orig.wav', progress=True)
+test_files = glob('speech_orig.wav') 
 
-with zipfile.ZipFile('midlands_english_female.zip', 'r') as zip_ref:
-    zip_ref.extractall('midlands_english_female')
-    
-test_files = glob('midlands_english_female/*.wav')  # or any format compatible with TorchAudio
+# or run a test on a whole batch of files
+# torch.hub.download_url_to_file('http://www.openslr.org/resources/83/midlands_english_female.zip',
+#                                dst ='midlands_english_female.zip',
+#                                progress=True)
+# with zipfile.ZipFile('midlands_english_female.zip', 'r') as zip_ref:
+#     zip_ref.extractall('midlands_english_female')
+# test_files = glob('midlands_english_female/*.wav')
+
 batches = split_into_batches(test_files, batch_size=10)
 input = prepare_model_input(read_batch(batches[0]),
                             device=device)
@@ -51,7 +58,7 @@ for example in output:
 
 ### Model Description
 
-Silero Speech-To-Text models provide enterprise grade STT in a compact form-factor for several commonly spoken languages. Unlike conventional ASR models our models are robust to a variety of dialects, codecs, domains, noises, lower sampling rates (for simplicity audio should be resampled to 16 kHz). The models consume a normalized audio in the form of samples (i.e. without any pre-processing except for normalization) and output frames with token probabilities. We provide a decoder utility for simplicity (we could include it into our model itself, but scripted modules had problems with storing model artifacts i.e. labels during certain export scenarios).
+Silero Speech-To-Text models provide enterprise grade STT in a compact form-factor for several commonly spoken languages. Unlike conventional ASR models our models are robust to a variety of dialects, codecs, domains, noises, lower sampling rates (for simplicity audio should be resampled to 16 kHz). The models consume a normalized audio in the form of samples (i.e. without any pre-processing except for normalization to -1 ... 1) and output frames with token probabilities. We provide a decoder utility for simplicity (we could include it into our model itself, but scripted modules had problems with storing model artifacts i.e. labels during certain export scenarios).
 
 We hope that our efforts with Open-STT and Silero Models will bring the ImageNet moment in speech closer.
 
