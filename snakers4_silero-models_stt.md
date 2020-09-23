@@ -25,12 +25,12 @@ import torch
 import zipfile
 import torchaudio
 from glob import glob
-# see https://github.com/snakers4/silero-models for utils and more examples
 
 device = torch.device('cpu')  # gpu also works, but our models are fast enough for CPU
 model, decoder, utils = torch.hub.load(github='snakers4/silero-models',
                                        model='silero_stt',
-                                       device=device, force_reload=True)
+                                       language='en', # also available 'de', 'es'
+                                       device=device)
 (read_batch, split_into_batches,
  read_audio, prepare_model_input) = utils  # see function signature for details
 
@@ -38,15 +38,6 @@ model, decoder, utils = torch.hub.load(github='snakers4/silero-models',
 torch.hub.download_url_to_file('https://opus-codec.org/static/examples/samples/speech_orig.wav',
                                dst ='speech_orig.wav', progress=True)
 test_files = glob('speech_orig.wav') 
-
-# or run a test on a whole batch of files
-# torch.hub.download_url_to_file('http://www.openslr.org/resources/83/midlands_english_female.zip',
-#                                dst ='midlands_english_female.zip',
-#                                progress=True)
-# with zipfile.ZipFile('midlands_english_female.zip', 'r') as zip_ref:
-#     zip_ref.extractall('midlands_english_female')
-# test_files = glob('midlands_english_female/*.wav')
-
 batches = split_into_batches(test_files, batch_size=10)
 input = prepare_model_input(read_batch(batches[0]),
                             device=device)
