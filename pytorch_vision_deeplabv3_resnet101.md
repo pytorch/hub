@@ -63,7 +63,7 @@ with torch.no_grad():
 output_predictions = output.argmax(0)
 ```
 
-The output here is of shape `(21, H, W)`, and at each location, there are unnormalized proababilities corresponding to the prediction of each class.
+The output here is of shape `(21, H, W)`, and at each location, there are unnormalized probabilities corresponding to the prediction of each class.
 To get the maximum prediction of each class, and then use it for a downstream task, you can do `output_predictions = output.argmax(0)`.
 
 Here's a small snippet that plots the predictions, with each color being assigned to each class (see the visualized image on the left).
