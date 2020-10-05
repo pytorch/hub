@@ -85,7 +85,7 @@ plt.imshow(r)
 
 ### Model Description
 
-FCN-ResNet101 is constructed by a Fully-Covolutional Network model with a ResNet-101 backbone.
+FCN-ResNet101 is constructed by a Fully-Convolutional Network model with a ResNet-101 backbone.
 The pre-trained models have been trained on a subset of COCO train2017, on the 20 categories that are present in the Pascal VOC dataset.
 
 Their accuracies of the pre-trained models evaluated on COCO val2017 dataset are listed below.
