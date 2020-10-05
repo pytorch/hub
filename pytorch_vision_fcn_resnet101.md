@@ -35,7 +35,7 @@ So, `output['out']` is of shape `(N, 21, H, W)`. More documentation can be found
 ```python
 # Download an example image from the pytorch website
 import urllib
-url, filename = ("https://github.com/pytorch/hub/raw/master/dog.jpg", "dog.jpg")
+url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
 try: urllib.URLopener().retrieve(url, filename)
 except: urllib.request.urlretrieve(url, filename)
 ```
