@@ -29,7 +29,7 @@ The pre-trained model requires 3 input channels, 1 output channel, and 32 featur
 
 This U-Net model comprises four levels of blocks containing two convolutional layers with batch normalization and ReLU activation function, and one max pooling layer in the encoding part and up-convolutional layers instead in the decoding part.
 The number of convolutional filters in each block is 32, 64, 128, and 256.
-The buttleneck layer has 512 convolutional filters.
+The bottleneck layer has 512 convolutional filters.
 From the encoding layers, skip connections are used to the corresponding layers in the decoding part.
 Input image is a 3-channel brain MRI slice from pre-contrast, FLAIR, and post-contrast sequences, respectively.
 Output is a one-channel probability map of abnormality regions with the same size as the input image.

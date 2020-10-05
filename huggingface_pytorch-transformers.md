@@ -199,10 +199,10 @@ masked_index = 8
 indexed_tokens[masked_index] = tokenizer.mask_token_id
 tokens_tensor = torch.tensor([indexed_tokens])
 
-masked_lm__model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', 'bert-base-cased')
+masked_lm_model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', 'bert-base-cased')
 
 with torch.no_grad():
-    predictions = masked_lm__model(tokens_tensor, token_type_ids=segments_tensors)
+    predictions = masked_lm_model(tokens_tensor, token_type_ids=segments_tensors)
 
 # Get the predicted token
 predicted_index = torch.argmax(predictions[0][0], dim=1)[masked_index].item()
