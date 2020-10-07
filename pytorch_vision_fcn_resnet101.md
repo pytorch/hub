@@ -35,7 +35,7 @@ So, `output['out']` is of shape `(N, 21, H, W)`. More documentation can be found
 ```python
 # Download an example image from the pytorch website
 import urllib
-url, filename = ("https://github.com/pytorch/hub/raw/master/dog.jpg", "dog.jpg")
+url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
 try: urllib.URLopener().retrieve(url, filename)
 except: urllib.request.urlretrieve(url, filename)
 ```
@@ -85,7 +85,7 @@ plt.imshow(r)
 
 ### Model Description
 
-FCN-ResNet101 is contructed by a Fully-Covolutional Network model with a ResNet-101 backbone.
+FCN-ResNet101 is constructed by a Fully-Convolutional Network model with a ResNet-101 backbone.
 The pre-trained models have been trained on a subset of COCO train2017, on the 20 categories that are present in the Pascal VOC dataset.
 
 Their accuracies of the pre-trained models evaluated on COCO val2017 dataset are listed below.

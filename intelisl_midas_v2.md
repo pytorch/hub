@@ -42,7 +42,7 @@ import urllib.request
 
 import matplotlib.pyplot as plt
 
-url, filename = ("https://github.com/pytorch/hub/raw/master/dog.jpg", "dog.jpg")
+url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
 urllib.request.urlretrieve(url, filename)
 ```
 
