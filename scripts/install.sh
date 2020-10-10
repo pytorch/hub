@@ -17,3 +17,4 @@ conda install -y -c conda-forge librosa inflect
 pip install -q fastBPE sacremoses sentencepiece subword_nmt editdistance
 pip install -q visdom mistune filelock tokenizers==0.8.1 packaging
 pip install -q omegaconf
+pip install -q hydra-core
