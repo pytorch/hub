@@ -41,6 +41,7 @@ model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True).fuse().
 model = model.autoshape()  # for autoshaping of PIL/cv2/np inputs and NMS
 
 # Images
+torch.hub.download_url_to_file('https://github.com/ultralytics/yolov5/releases/download/v1.0/zidane.jpg', 'zidane.jpg')
 img = Image.open('zidane.jpg')  # PIL image
 
 # Inference
