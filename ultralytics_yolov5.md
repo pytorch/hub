@@ -5,7 +5,7 @@ body-class: hub
 category: researchers
 title: YOLOv5
 summary: YOLOv5 in PyTorch > ONNX > CoreML > TFLite
-image: images/ultralytics_yolov5_img1.jpg
+image: ultralytics_yolov5_img1.jpg
 author: Ultralytics LLC
 tags: [vision, scriptable]
 github-link: https://github.com/ultralytics/yolov5
