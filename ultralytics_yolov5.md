@@ -87,9 +87,10 @@ for i, (img, pred) in enumerate(zip(imgs, prediction)):
     img.save('results%g.jpg' % i)  # save
     print(str + 'Done.')
 ```
-zidane.jpg | bus.jpg
---|--
-<img src="https://user-images.githubusercontent.com/26833433/96368758-114c3a00-1156-11eb-9ede-a03f9aff42e4.jpg" width="500">|<img src="https://user-images.githubusercontent.com/26833433/97121810-54dc1080-1721-11eb-8c25-451ccb1452e4.jpg" width="320">
+
+<img src="https://user-images.githubusercontent.com/26833433/96368758-114c3a00-1156-11eb-9ede-a03f9aff42e4.jpg" width="550">
+
+<img src="https://user-images.githubusercontent.com/26833433/97121810-54dc1080-1721-11eb-8c25-451ccb1452e4.jpg" width="350">
 
 For all inference options see YOLOv5 [`autoShape()` forward method](https://github.com/ultralytics/yolov5/blob/453acdec67202e15b772370d31eb196d844f2892/models/common.py#L129-L136):
 ```python
