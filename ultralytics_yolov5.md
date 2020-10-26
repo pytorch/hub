@@ -5,13 +5,13 @@ body-class: hub
 category: researchers
 title: YOLOv5
 summary: YOLOv5 in PyTorch > ONNX > CoreML > TFLite
-image: https://user-images.githubusercontent.com/26833433/82944393-f7644d80-9f4f-11ea-8b87-1a5b04f555f1.jpg
+image: images/ultralytics_yolov5_img1.jpg
 author: Ultralytics LLC
 tags: [vision, scriptable]
 github-link: https://github.com/ultralytics/yolov5
 github-id: ultralytics/yolov5
-featured_image_1: https://user-images.githubusercontent.com/26833433/82944393-f7644d80-9f4f-11ea-8b87-1a5b04f555f1.jpg
-featured_image_2: https://user-images.githubusercontent.com/26833433/90187293-6773ba00-dd6e-11ea-8f90-cd94afc0427f.png
+featured_image_1: ultralytics_yolov5_img1.jpg
+featured_image_2: ultralytics_yolov5_img2.jpg
 accelerator: cuda-optional
 ---
 
