@@ -117,7 +117,9 @@ model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True, classes
 In this case the model will be composed of pretrained weights **except for** the output layers, which are no longer the same shape as the pretrained output layers. The output layers will remain initialized by random weights.
 
 
-## Pretrained Checkpoints
+## Model Description
+
+YOLOv5 is an architecture for compound-scaled object detection models trained on the COCO 2017 dataset, and includes built-in functionality for Test Time Augmentation (TTA), Model Ensembling and Rectangular Inference, Hyperparameter Evolution, and export to a variety of common formats such as ONNX, CoreML and TFLite.
 
 | Model | AP<sup>val</sup> | AP<sup>test</sup> | AP<sub>50</sub> | Speed<sub>GPU</sub> | FPS<sub>GPU</sub> || params | FLOPS |
 |---------- |------ |------ |------ | -------- | ------| ------ |------  |  :------: |
