@@ -94,13 +94,12 @@ for i, (img, pred) in enumerate(zip(imgs, prediction)):
 
 For all inference options see YOLOv5 [`autoShape()` forward method](https://github.com/ultralytics/yolov5/blob/453acdec67202e15b772370d31eb196d844f2892/models/common.py#L129-L136):
 ```python
-def forward(self, x, size=640, augment=False, profile=False):
-    # supports inference from various sources. For height=720, width=1280, RGB images example inputs are:
-    #   opencv:     x = cv2.imread('image.jpg')[:,:,::-1]  # HWC BGR to RGB x(720,1280,3)
-    #   PIL:        x = Image.open('image.jpg')  # HWC x(720,1280,3)
-    #   numpy:      x = np.zeros((720,1280,3))  # HWC
-    #   torch:      x = torch.zeros(16,3,720,1280)  # BCHW
-    #   multiple:   x = [Image.open('image1.jpg'), Image.open('image2.jpg'), ...]  # list of images
+# Example inputs for prediction=model(x)
+#   opencv:     x = cv2.imread('image.jpg')[:,:,::-1]  # HWC BGR to RGB x(720,1280,3)
+#   PIL:        x = Image.open('image.jpg')  # HWC x(720,1280,3)
+#   numpy:      x = np.zeros((720,1280,3))  # HWC
+#   torch:      x = torch.zeros(16,3,720,1280)  # BCHW
+#   multiple:   x = [Image.open('image1.jpg'), Image.open('image2.jpg'), ...]  # list of images
 ```
 
 ### Vary Input Channels
@@ -130,9 +129,7 @@ YOLOv5 also features a free **iOS App** that demos real-time 30 FPS inference of
 | [YOLOv5m](https://github.com/ultralytics/yolov5/releases/tag/v3.0)    | 44.3     | 44.3     | 63.2     | 3.4ms     | 294     || 21.8M  | 39.4B
 | [YOLOv5l](https://github.com/ultralytics/yolov5/releases/tag/v3.0)    | 47.7     | 47.7     | 66.5     | 4.4ms     | 227     || 47.8M  | 88.1B
 | [YOLOv5x](https://github.com/ultralytics/yolov5/releases/tag/v3.0)    | **49.2** | **49.2** | **67.7** | 6.9ms     | 145     || 89.0M  | 166.4B
-| | | | | | || |
 | [YOLOv5x](https://github.com/ultralytics/yolov5/releases/tag/v3.0) + TTA|**50.8**| **50.8** | **68.9** | 25.5ms    | 39      || 89.0M  | 354.3B
-| | | | | | || |
 | [YOLOv3-SPP](https://github.com/ultralytics/yolov5/releases/tag/v3.0) | 45.6     | 45.5     | 65.2     | 4.5ms     | 222     || 63.0M  | 118.0B
 
 ** AP<sup>test</sup> denotes COCO [test-dev2017](http://cocodataset.org/#upload) server results, all other AP results in the table denote val2017 accuracy.  
