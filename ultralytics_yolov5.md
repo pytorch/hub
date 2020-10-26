@@ -15,16 +15,16 @@ featured_image_2: ultralytics_yolov5_img2.jpg
 accelerator: cuda-optional
 ---
 
-🚀  This guide explains how to load YOLOv5 from PyTorch Hub https://pytorch.org/hub/
+🚀  This guide explains how to load YOLOv5 from PyTorch Hub [https://pytorch.org/hub/](https://pytorch.org/hub/)
 
 ## Before You Start
 
-You should start from a working python environment with **Python>=3.8** and **PyTorch>=1.6** installed, as well as `pyyaml>=5.3` for reading YOLOv5 configuration files. To install PyTorch see https://pytorch.org/get-started/locally/. To install dependencies:
+You should start from a working python environment with **Python>=3.8** and **PyTorch>=1.6** installed, as well as `pyyaml>=5.3` for reading YOLOv5 configuration files. To install PyTorch see [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/). To install dependencies:
 ```bash
 $ pip install -U opencv-python pillow pyyaml tqdm  # install dependencies
 ```
 
-You do **not** need to clone the https://github.com/ultralytics/yolov5 repository.
+You do **not** need to clone the [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5) repository.
 
 
 ## Load YOLOv5 From PyTorch Hub
@@ -87,10 +87,20 @@ for i, (img, pred) in enumerate(zip(imgs, prediction)):
     img.save('results%g.jpg' % i)  # save
     print(str + 'Done.')
 ```
-<img src="https://user-images.githubusercontent.com/26833433/96368758-114c3a00-1156-11eb-9ede-a03f9aff42e4.jpg" width="480">  <img src="https://user-images.githubusercontent.com/26833433/97121810-54dc1080-1721-11eb-8c25-451ccb1452e4.jpg" width="320">
+zidane.jpg | bus.jpg
+--|--
+<img src="https://user-images.githubusercontent.com/26833433/96368758-114c3a00-1156-11eb-9ede-a03f9aff42e4.jpg" width="500">|<img src="https://user-images.githubusercontent.com/26833433/97121810-54dc1080-1721-11eb-8c25-451ccb1452e4.jpg" width="320">
 
-For all inference options see YOLOv5 `autoShape()` forward method:
-https://github.com/ultralytics/yolov5/blob/3b57cb56412976847b91ef184ca2f2a99491d8ab/models/common.py#L129-L136
+For all inference options see YOLOv5 [`autoShape()` forward method](https://github.com/ultralytics/yolov5/blob/453acdec67202e15b772370d31eb196d844f2892/models/common.py#L129-L136):
+```python
+def forward(self, x, size=640, augment=False, profile=False):
+    # supports inference from various sources. For height=720, width=1280, RGB images example inputs are:
+    #   opencv:     x = cv2.imread('image.jpg')[:,:,::-1]  # HWC BGR to RGB x(720,1280,3)
+    #   PIL:        x = Image.open('image.jpg')  # HWC x(720,1280,3)
+    #   numpy:      x = np.zeros((720,1280,3))  # HWC
+    #   torch:      x = torch.zeros(16,3,720,1280)  # BCHW
+    #   multiple:   x = [Image.open('image1.jpg'), Image.open('image2.jpg'), ...]  # list of images
+```
 
 ### Vary Input Channels
 To load a pretrained YOLOv5s model with 4 input channels rather than the default 3:
@@ -162,4 +172,4 @@ YOLOv5 may be run in any of the following up-to-date verified environments (with
 
 ## Contact
 
-**Issues should be raised directly in the repository.** For business inquiries or professional support requests please visit https://www.ultralytics.com or email Glenn Jocher at glenn.jocher@ultralytics.com. 
+**Issues should be raised directly in the repository.** For business inquiries or professional support requests please visit [https://www.ultralytics.com](https://www.ultralytics.com) or email Glenn Jocher at [glenn.jocher@ultralytics.com](mailto:glenn.jocher@ultralytics.com). 
