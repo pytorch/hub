@@ -178,3 +178,5 @@ YOLOv5 may be run in any of the following up-to-date verified environments (with
 ## Contact
 
 **Issues should be raised directly in the repository.** For business inquiries or professional support requests please visit [https://www.ultralytics.com](https://www.ultralytics.com) or email Glenn Jocher at [glenn.jocher@ultralytics.com](mailto:glenn.jocher@ultralytics.com). 
+
+&nbsp;
