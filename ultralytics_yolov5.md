@@ -19,12 +19,12 @@ accelerator: cuda-optional
 
 ## Before You Start
 
-You should start from a working python environment with **Python>=3.8** and **PyTorch>=1.6** installed, as well as `pyyaml>=5.3` for reading YOLOv5 configuration files. To install PyTorch see [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/). To install dependencies:
+Start from a working python environment with **Python>=3.8** and **PyTorch>=1.6** installed, as well as `pyyaml>=5.3` for reading YOLOv5 configuration files. To install PyTorch see [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/). To install dependencies:
 ```bash
 $ pip install -U opencv-python pillow pyyaml tqdm  # install dependencies
 ```
 
-You do **not** need to clone the [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5) repository.
+Note that cloning the [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5) repository is **not** required.
 
 
 ## Load YOLOv5 From PyTorch Hub
