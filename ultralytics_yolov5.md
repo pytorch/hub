@@ -58,7 +58,7 @@ import torch
 from PIL import Image, ImageDraw
 
 # Model
-model = torch.hub.load(name='yolov5s', pretrained=True, channels=3, classes=80).fuse().eval()  # yolov5s.pt
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True).fuse().eval()  # yolov5s.pt
 model = model.autoshape()  # for autoshaping of PIL/cv2/np inputs and NMS
 
 # Images
