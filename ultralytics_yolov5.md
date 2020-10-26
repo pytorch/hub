@@ -122,7 +122,7 @@ In this case the model will be composed of pretrained weights **except for** the
 
 YOLOv5 is an architecture for compound-scaled object detection models trained on the COCO 2017 dataset, and includes built-in functionality for Test Time Augmentation (TTA), Model Ensembling, Rectangular Inference, Hyperparameter Evolution and export to a variety of common formats such as ONNX, CoreML and TFLite. 
 
-YOLOv5 also features a free **iOS App** that demos real-time 30 FPS inference of all models on iPhones and iPads: [iDetection iOS App](https://apps.apple.com/us/app/idetection/id1452689527).
+YOLOv5 also features a free **iOS App** that demos real-time 30 FPS inference of all models on iPhones and iPads: [iDetection iOS App](https://apps.apple.com/us/app/idetection/id1452689527#?platform=iphone).
 
 | Model | AP<sup>val</sup> | AP<sup>test</sup> | AP<sub>50</sub> | Speed<sub>GPU</sub> | FPS<sub>GPU</sub> || params | FLOPS |
 |---------- |------ |------ |------ | -------- | ------| ------ |------  |  :------: |
