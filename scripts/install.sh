@@ -18,4 +18,5 @@ pip install -q fastBPE sacremoses sentencepiece subword_nmt editdistance
 pip install -q visdom mistune filelock tokenizers packaging
 pip install -q omegaconf
 pip install -q hydra-core
+pip install -q --upgrade google-api-python-client
 pip install -q timm
