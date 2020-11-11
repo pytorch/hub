@@ -43,8 +43,6 @@ YOLOv5 is a family of compound-scaled object detection models trained on COCO 20
 
 ## Load YOLOv5 From PyTorch Hub
 
-### Example
-
 To load YOLOv5 from PyTorch Hub for inference with PIL, OpenCV, Numpy or PyTorch inputs:
 ```python
 import cv2
