@@ -4,8 +4,8 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: MiDaS
-summary: The MiDaS v2 model for computing relative depth from a single image.
-image: intel-logo.jpg
+summary: The MiDaS v2.1 model for computing relative depth from a single image.
+image: intel-logo.png
 author: Intel ISL
 tags: [vision]
 github-link: https://github.com/intel-isl/MiDaS
@@ -21,14 +21,14 @@ midas = torch.hub.load("intel-isl/MiDaS", "MiDaS")
 midas.eval()
 ```
 
-will load the MiDaS v2 model. The model expects 3-channel RGB images of shape ```(3 x H x W)```. Images are expected to be normalized using
+will load the MiDaS v2.1 model. The model expects 3-channel RGB images of shape ```(3 x H x W)```. Images are expected to be normalized using
 `mean=[0.485, 0.456, 0.406]` and `std=[0.229, 0.224, 0.225]`. 
 `H` and `W` need to be divisible by `32`. For optimal results `H` and `W` should be close to `384` (the training resolution). 
 We provide a custom transformation that performs resizing while maintaining aspect ratio. 
 
 ### Model Description
 
-[MiDaS](https://arxiv.org/abs/1907.01341) computes relative inverse depth from a single image. The model has been trained on 5 distinct dataset using 
+[MiDaS](https://arxiv.org/abs/1907.01341) computes relative inverse depth from a single image. The model has been trained on 10 distinct dataset using 
 multi-objective optimization to ensure high quality on a wide range of inputs.
 
 
@@ -46,21 +46,33 @@ url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "do
 urllib.request.urlretrieve(url, filename)
 ```
 
-Load the model
+Load large or small model
 
 ```python
-midas = torch.hub.load("intel-isl/MiDaS", "MiDaS")
+use_large_model = True
 
+if use_large_model:
+    midas = torch.hub.load("intel-isl/MiDaS", "MiDaS")
+else:
+    midas = torch.hub.load("intel-isl/MiDaS", "MiDaS_small")
+```
+
+Move model to GPU if available
+```python
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 midas.to(device)
 midas.eval()
 ```
 
 
-Load transforms to resize and normalize the image
+Load transforms to resize and normalize the image for large or small model
 ```python
 midas_transforms = torch.hub.load("intel-isl/MiDaS", "transforms")
-transform = midas_transforms.default_transform
+
+if use_large_model:
+    transform = midas_transforms.default_transform
+else:
+    transform = midas_transforms.small_transform
 ```
 
 Load image and apply transforms
@@ -98,10 +110,10 @@ plt.imshow(output)
 
 Please cite our paper if you use our model:
 ```bibtex
-@article{Ranftl2019,
+@article{Ranftl2020,
 	author    = {Ren\'{e} Ranftl and Katrin Lasinger and David Hafner and Konrad Schindler and Vladlen Koltun},
 	title     = {Towards Robust Monocular Depth Estimation: Mixing Datasets for Zero-shot Cross-dataset Transfer},
-	journal   = {arXiv:1907.01341},
-	year      = {2019},
+	journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)},
+	year      = {2020},
 }
 ```
