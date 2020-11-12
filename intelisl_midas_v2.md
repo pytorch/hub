@@ -51,7 +51,7 @@ Load large or small model
 ```python
 use_large_model = True
 
-if use_large_model==True:
+if use_large_model:
     midas = torch.hub.load("intel-isl/MiDaS", "MiDaS")
 else:
     midas = torch.hub.load("intel-isl/MiDaS", "MiDaS_small")
@@ -69,7 +69,7 @@ Load transforms to resize and normalize the image for large or small model
 ```python
 midas_transforms = torch.hub.load("intel-isl/MiDaS", "transforms")
 
-if use_large_model==True:
+if use_large_model:
     transform = midas_transforms.default_transform
 else:
     transform = midas_transforms.small_transform
