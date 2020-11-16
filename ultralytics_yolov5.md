@@ -47,24 +47,27 @@ To load YOLOv5 from PyTorch Hub for inference with PIL, OpenCV, Numpy or PyTorch
 ```python
 import cv2
 import torch
-from PIL import Image, ImageDraw
+from PIL import Image
 
 # Model
-model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True).fuse().eval()  # yolov5s.pt
-model = model.autoshape()  # for autoshaping of PIL/cv2/np inputs and NMS
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True).fuse().autoshape()  # for PIL/cv2/np inputs and NMS
 
 # Images
 for f in ['zidane.jpg', 'bus.jpg']:  # download 2 images
+    print(f'Downloading {f}...')
     torch.hub.download_url_to_file('https://github.com/ultralytics/yolov5/releases/download/v1.0/' + f, f)
 img1 = Image.open('zidane.jpg')  # PIL image
 img2 = cv2.imread('bus.jpg')[:, :, ::-1]  # OpenCV image (BGR to RGB)
 imgs = [img1, img2]  # batched list of images
 
 # Inference
-with torch.no_grad():
-    prediction = model(imgs, size=640)  # includes NMS
+results = model(imgs, size=640)  # includes NMS
 
-print(prediction[0])  # print img1 predictions
+# Results
+results.show()  # .show() results, .save() jpgs, or .print() to screen
+
+# Data
+print(results.xyxy[0])  # print img1 predictions
 #          x1 (pixels)  y1 (pixels)  x2 (pixels)  y2 (pixels)   confidence        class
 # tensor([[7.47613e+02, 4.01168e+01, 1.14978e+03, 7.12016e+02, 8.71210e-01, 0.00000e+00],
 #         [1.17464e+02, 1.96875e+02, 1.00145e+03, 7.11802e+02, 8.08795e-01, 0.00000e+00],
@@ -72,23 +75,6 @@ print(prediction[0])  # print img1 predictions
 #         [9.81310e+02, 3.10712e+02, 1.03111e+03, 4.19273e+02, 2.86850e-01, 2.70000e+01]])
 ```
 
-To print/plot results:
-```python
-# Plot
-for i, (img, pred) in enumerate(zip(imgs, prediction)):
-    str = 'Image %g/%g: %gx%g ' % (i + 1, len(imgs), *img.shape[:2])
-    img = Image.fromarray(img.astype(np.uint8)) if isinstance(img, np.ndarray) else img  # from np
-    if pred is not None:
-        for c in pred[:, -1].unique():
-            n = (pred[:, -1] == c).sum()  # detections per class
-            str += '%g %ss, ' % (n, model.names[int(c)])  # add to string
-        for *box, conf, cls in pred:  # xyxy, confidence, class
-            label = model.names[int(cls)] if hasattr(model, 'names') else 'class_%g' % cls
-            # str += '%s %.2f, ' % (label, conf)  # label
-            ImageDraw.Draw(img).rectangle(box, width=3)  # plot
-    img.save('results%g.jpg' % i)  # save
-    print(str + 'Done.')
-```
 
 ## Citation
 
