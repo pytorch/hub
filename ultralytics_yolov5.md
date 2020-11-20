@@ -17,9 +17,9 @@ accelerator: cuda-optional
 
 ## Before You Start
 
-Start from a working python environment with **Python>=3.8** and **PyTorch>=1.6** installed, as well as `pyyaml>=5.3` for reading YOLOv5 configuration files. To install PyTorch see [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/). To install dependencies:
+Start from a working python environment with **Python>=3.8** and **PyTorch>=1.6** installed, as well as `PyYAML>=5.3` for reading YOLOv5 configuration files. To install PyTorch see [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/). To install dependencies:
 ```bash
-$ pip install -U opencv-python pillow pyyaml tqdm  # install dependencies
+pip install -U PyYAML  # install dependencies
 ```
 
 ## Model Description
@@ -41,7 +41,7 @@ YOLOv5 is a family of compound-scaled object detection models trained on COCO 20
 ** GPU Speed measures end-to-end time per image averaged over 5000 COCO val2017 images using a V100 GPU with batch size 32, and includes image preprocessing, PyTorch FP16 inference, postprocessing and NMS. EfficientDet data from [google/automl](https://github.com/google/automl) at batch size 8.
 
 
-## Load YOLOv5 From PyTorch Hub
+## Load From PyTorch Hub
 
 To load YOLOv5 from PyTorch Hub for inference with PIL, OpenCV, Numpy or PyTorch inputs:
 ```python
@@ -64,10 +64,12 @@ imgs = [img1, img2]  # batched list of images
 results = model(imgs, size=640)  # includes NMS
 
 # Results
-results.show()  # .show() results, .save() jpgs, or .print() to screen
+results.print()  # print results to screen
+results.show()  # display results
+results.save()  # save as results1.jpg, results2.jpg... etc.
 
 # Data
-print(results.xyxy[0])  # print img1 predictions
+print('\n', results.xyxy[0])  # print img1 predictions
 #          x1 (pixels)  y1 (pixels)  x2 (pixels)  y2 (pixels)   confidence        class
 # tensor([[7.47613e+02, 4.01168e+01, 1.14978e+03, 7.12016e+02, 8.71210e-01, 0.00000e+00],
 #         [1.17464e+02, 1.96875e+02, 1.00145e+03, 7.11802e+02, 8.08795e-01, 0.00000e+00],
