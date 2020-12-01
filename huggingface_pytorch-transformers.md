@@ -226,10 +226,10 @@ tokens_tensor = torch.tensor([indexed_tokens])
 
 # Predict the start and end positions logits
 with torch.no_grad():
-    start_logits, end_logits = question_answering_model(tokens_tensor, token_type_ids=segments_tensors)
+    out = question_answering_model(tokens_tensor, token_type_ids=segments_tensors)
 
 # get the highest prediction
-answer = question_answering_tokenizer.decode(indexed_tokens[torch.argmax(start_logits):torch.argmax(end_logits)+1])
+answer = question_answering_tokenizer.decode(indexed_tokens[torch.argmax(out.start_logits):torch.argmax(out.end_logits)+1])
 assert answer == "puppeteer"
 
 # Or get the total loss which is the sum of the CrossEntropy loss for the start and end token positions (set model to train mode before if used for training)
