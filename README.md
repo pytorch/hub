@@ -27,6 +27,6 @@ python scripts/sanity_check.py
   - Remember to mark your python code using ```` ```python```` in your model's markdown file.
   - If your `dependencies` are not installed on our CI machine, add them in [install.sh](scripts/install.sh).
   - If it fails, you can find a new `temp.py` file left in the repo to reproduce the failure.
-- We also provide a way to preview your model webpage through `netlify bot`. This bot builds your PR with the latest `pytorch.github.io` repo and comment on your PR with preview link. The preview will be updated as you push more commits to the PR.
+- We also provide a way to preview your model webpage through `netlify bot`. This bot builds your PR with the latest `pytorch.github.io` repo and comments on your PR with a preview link. The preview will be updated as you push more commits to the PR.
 ![Example netlify bot comment](images/netlify.png)
 
