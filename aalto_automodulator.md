@@ -49,7 +49,7 @@ def show(img):
   nrow = max(2, (len(img)+1)//2)
   ncol = min(2, (len(img)+1)//2)
   img = make_grid(img, nrow=nrow, scale_each=True, normalize=True)
-  fig = plt.figure(figsize=(4*nrow,4*ncol))
+  plt.figure(figsize=(4*nrow,4*ncol))
   plt.imshow(img.permute(1, 2, 0).cpu().numpy())  
 ```
 
