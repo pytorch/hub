@@ -46,11 +46,11 @@ import urllib
 from PIL import Image
 
 def show(img):
-  nrow = max(2, (len(img)+1)//2)
-  ncol = min(2, (len(img)+1)//2)
-  img = make_grid(img, nrow=nrow, scale_each=True, normalize=True)
-  plt.figure(figsize=(4*nrow,4*ncol))
-  plt.imshow(img.permute(1, 2, 0).cpu().numpy())  
+    nrow = max(2, (len(img)+1)//2)
+    ncol = min(2, (len(img)+1)//2)
+    img = make_grid(img, nrow=nrow, scale_each=True, normalize=True)
+    plt.figure(figsize=(4*nrow,4*ncol))
+    plt.imshow(img.permute(1, 2, 0).cpu().numpy())  
 ```
 
 Load images and reconstruct (replace URLs with your own):
@@ -62,13 +62,13 @@ simg = ['https://github.com/AaltoVision/automodulator/raw/hub/fig/source-0.png',
 imgs = torch.stack([model.tf()(Image.open(urllib.request.urlopen(simg[0]))),
                     model.tf()(Image.open(urllib.request.urlopen(simg[1])))]).to('cuda')
 
-z = model.encode(imgs)
-
-omgs = model.decode(z).clamp(min=-1, max=1)
+with torch.no_grad():
+    z = model.encode(imgs)
+    omgs = model.decode(z).clamp(min=-1, max=1)
 # OR: omgs = model.reconstruct(imgs).clamp(min=-1, max=1)
 
 for (i,o) in zip(imgs,omgs):
-  show([i, o])
+    show([i, o])
 ```
 Start mixing. For instance, drive the coarse features (4x4 to 8x8) of the bottom-left image BY the top-right:
 
@@ -86,14 +86,16 @@ You can use either the shorthand ```model.zbuilder().hi(z[i])``` etc. or the low
 
 You can also do random sampling:
 ```python
-random_imgs = model.generate(2).cpu()
+with torch.no_grad():
+    random_imgs = model.generate(2).cpu()
 show(random_imgs[0].unsqueeze(0))
 ```
 
 Or, you can generate random samples conditioned on the specific-scale features of your input image:
 
 ```python
-mixed = model.decode(model.zbuilder(batch_size=6).mid(z[1]).lo(z[1]))
+with torch.no_grad():
+    mixed = model.decode(model.zbuilder(batch_size=6).mid(z[1]).lo(z[1]))
 show(mixed)
 ```
 
@@ -107,7 +109,8 @@ smile_delta = torch.load('smile_delta512-16')
 
 z_add_smile = z[0].unsqueeze(0) + 0.5*smile_delta
 z_no_smile = z[0].unsqueeze(0) - 1.5*smile_delta
-mod = model.decode(model.zbuilder().hi(z[0]).mid(z_no_smile).lo(z[0]))
+with torch.no_grad():
+    mod = model.decode(model.zbuilder().hi(z[0]).mid(z_no_smile).lo(z[0]))
 show([imgs[0], mod[0]])
 ```
 
