@@ -20,25 +20,23 @@ order: 10
 ```python
 import torch
 model = torch.hub.load('AaltoVision/automodulator:hub', 'ffhq512', pretrained=True, force_reload=True, source='github')
+model.eval(useLN=False)
 ```
 
 <!-- Walkthrough a small example of using your model. Ideally, less than 25 lines of code -->
 
 Loads the automodulator [1] model for 512x512 faces (trained on FFHQ [2]).
-Now, you just encode images you have with
-```python
-[zA,zB,zC] = model.encode(imgs)
-```
-and there is a special latent builder that makes style-mixing operations a breeze:
-```python
-mixed = model.decode( model.zbuilder().hi(zA)
-                                      .mid(zB)
-                                      .lo(zC))
-```
 
-For a complete example, see below.
+Scale-specific mixing of multiple real input images is now a breeze, see below.
+
+For the basic workflow, you load in N images and encode them into ``[N,512]`` latent vector with ``model.encode(imgs)``.
+To sanity check, you can reconstruct them back into images by ``model.decode(zz)`` where ``zz`` can be a single-image latent or
+an instance of ``model.zbuilder()`` which can mix the original latents in arbitrary ways.
 
 ```python
+
+# Preliminaries
+
 import sys
 sys.argv = ['none'] # For Jupyter/Colab only
 import torch
@@ -50,15 +48,13 @@ from PIL import Image
 def show(img):
   nrow = max(2, (len(img)+1)//2)
   ncol = min(2, (len(img)+1)//2)
-  img = torchvision.utils.make_grid(img, nrow=nrow, scale_each=True, normalize=True)
+  img = make_grid(img, nrow=nrow, scale_each=True, normalize=True)
   fig = plt.figure(figsize=(4*nrow,4*ncol))
   plt.imshow(img.permute(1, 2, 0).cpu().numpy())  
-
-model = torch.hub.load('AaltoVision/automodulator:hub', 'ffhq512', pretrained=True, force_reload=True, source='github')
-model.eval(useLN=False)
 ```
 
-We can start by reconstructing 2 images (replace URLs with your own).
+Load images and reconstruct (replace URLs with your own):
+
 ```python
 simg = ['https://github.com/AaltoVision/automodulator/raw/hub/fig/source-0.png',
         'https://github.com/AaltoVision/automodulator/raw/hub/fig/source-1.png']
@@ -66,17 +62,17 @@ simg = ['https://github.com/AaltoVision/automodulator/raw/hub/fig/source-0.png',
 imgs = torch.stack([model.tf()(Image.open(urllib.request.urlopen(simg[0]))),
                     model.tf()(Image.open(urllib.request.urlopen(simg[1])))]).to('cuda')
 
-omgs = model.reconstruct(imgs).clamp(min=-1, max=1)
+z = model.encode(imgs)
+
+omgs = model.decode(z).clamp(min=-1, max=1)
+# OR: omgs = model.reconstruct(imgs).clamp(min=-1, max=1)
 
 for (i,o) in zip(imgs,omgs):
   show([i, o])
 ```
-We can now proceed to encode and start mixing them, for instance,
-to drive the coarse features (4x4 to 8x8) of the bottom-left image BY the top-right.
+Start mixing. For instance, drive the coarse features (4x4 to 8x8) of the bottom-left image BY the top-right:
 
 ```python
-z = model.encode(imgs)
-
 mixed = model.decode(model.zbuilder().hi(z[1])
                                      .mid(z[0])
                                      .lo(z[0]))
@@ -85,6 +81,8 @@ mixed = model.decode(model.zbuilder().hi(z[1])
 
 show([torch.ones_like(imgs[0]), imgs[1], imgs[0], mixed[0]])
 ```
+
+You can use either the shorthand ```model.zbuilder().hi(z[i])``` etc. or the lower-level ```model.zbuilder().use(z[i], [first_block, last_block])``` where ```last_block = -1``` denotes the rest of the blocks.
 
 You can also do random sampling:
 ```python
@@ -116,10 +114,11 @@ show([imgs[0], mod[0]])
 <!-- REQUIRED: detailed model description below, in markdown format, feel free to add new sections as necessary -->
 ### Model Description
 
-The model incorporates the encoder-decoder architecture of [Deep Automodulators](https://arxiv.org/abs/1912.10321) [1].
+The model incorporates the encoder-decoder architecture of [Deep Automodulators](https://arxiv.org/abs/1912.10321) [1] trained on FFHQ [2] up to 512x512.
 It allows for instant style mixing of real input images, as well as generating random samples such that their properties on certain scales are fixed on a specific input image.
+Input images are expected to be centered and aligned as in FFHQ ([script](https://gist.github.com/heljakka/7163e9f735174bbcdd103c4c13396952)). The ```model.tf()``` then provides the sufficient pre-inference transformations.
 
-The model 'ffhq512' is recommended for all face data modification tasks. The other models in the paper are mostly useful for random sampling.
+The model 'ffhq512' is recommended for all face data modification tasks. The other models in the paper have only been optimized for random sampling.
 
 
 ### References
