@@ -72,6 +72,8 @@ print(probabilities)
 import pandas as pd
 import numpy
 
+!wget https://github.com/Tylersuard/hub/blob/master/imagenet_classes.csv
+
 probabilities = probabilities.cpu()
 probabilities_to_numpy = probabilities.numpy()
 label_indices = numpy.argpartition(probabilities_to_numpy, -10)[-10:]
