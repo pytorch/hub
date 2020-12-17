@@ -63,8 +63,22 @@ with torch.no_grad():
 # Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
 print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
-print(torch.nn.functional.softmax(output[0], dim=0))
+probabilities = torch.nn.functional.softmax(output[0], dim=0)
+print(probabilities)
 
+#add labels:
+import pandas as pd
+import numpy
+
+probabilities = probabilities.cpu()
+probabilities_to_numpy = probabilities.numpy()
+label_indices = numpy.argpartition(probabilities_to_numpy, -10)[-10:]
+
+df = pd.read_csv("/content/imagenet_classes.csv")
+df["Confidence"] = probabilities_to_numpy
+df = df.loc[label_indices,"Label Name":"Confidence"]
+df = df.sort_values(by=['Confidence'], ascending=False)
+df
 ```
 
 ### Model Description
