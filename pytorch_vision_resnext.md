@@ -65,7 +65,9 @@ print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
 print(probabilities)
+```
 
+```
 #add labels:
 import pandas as pd
 import numpy
