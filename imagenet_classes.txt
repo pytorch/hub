@@ -1,7 +1,3 @@
-List of ImageNet class numbers and names as used in Keras' pre-trained models.
-
-Extracted from https://s3.amazonaws.com/deep-learning-models/image-models/imagenet_class_index.json
-
 0, tench
 1, goldfish
 2, great_white_shark
