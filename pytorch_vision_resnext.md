@@ -68,21 +68,24 @@ print(probabilities)
 ```
 
 ```
-#add labels:
-import pandas as pd
-import numpy
+#Download ImageNet labels
+!wget https://raw.githubusercontent.com/Tylersuard/hub/master/imagenet_classes.txt
+```
 
-!wget https://github.com/Tylersuard/hub/blob/master/imagenet_classes.csv
+```
+#Apply labels to the tensor
+with open ("imagenet_classes.txt", "r") as myfile:
+    data=myfile.read()
+    processed = [s.strip() for s in data.splitlines()]
+    #print(processed)
 
 probabilities = probabilities.cpu()
-probabilities_to_numpy = probabilities.numpy()
-label_indices = numpy.argpartition(probabilities_to_numpy, -10)[-10:]
+top5 = torch.topk(probabilities,5)
+top5_list = [a.tolist() for a in top5]
+#print(top5_list)
 
-df = pd.read_csv("/content/imagenet_classes.csv")
-df["Confidence"] = probabilities_to_numpy
-df = df.loc[label_indices,"Label Name":"Confidence"]
-df = df.sort_values(by=['Confidence'], ascending=False)
-df
+for i in range(5):
+  print(processed[top5_list[1][i]],top5_list[0][i])
 ```
 
 ### Model Description
