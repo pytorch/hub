@@ -68,24 +68,20 @@ print(probabilities)
 ```
 
 ```
-#Download ImageNet labels
-!wget https://raw.githubusercontent.com/Tylersuard/hub/master/imagenet_classes.txt
+# Download ImageNet labels
+!wget https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt
 ```
 
 ```
-#Apply labels to the tensor
-with open ("imagenet_classes.txt", "r") as myfile:
-    data=myfile.read()
-    processed = [s.strip() for s in data.splitlines()]
-    #print(processed)
+# Read the categories
+with open("imagenet_classes.txt", "r") as f:
+    categories = [s.strip() for s in f.readlines()]
 
-probabilities = probabilities.cpu()
-top5 = torch.topk(probabilities,5)
-top5_list = [a.tolist() for a in top5]
-#print(top5_list)
+# Show top categories per image
+top5_prob, top5_catid = torch.topk(probabilities, 5)
 
-for i in range(5):
-  print(processed[top5_list[1][i]],top5_list[0][i])
+for i in range(top5_prob.size(0)):
+    print(categories[top5_catid[i]], top5_prob[i].item())
 ```
 
 ### Model Description
