@@ -18,6 +18,7 @@ order: 10
 
 ```python
 import torch
+!pip3 install timm
 # list of models: 'mealv1_resnest50', 'mealv2_resnest50', 'mealv2_resnest50_cutmix', 'mealv2_resnest50_380x380', 'mealv2_mobilenetv3_small_075', 'mealv2_mobilenetv3_small_100', 'mealv2_mobilenet_v3_large_100', 'mealv2_efficientnet_b0'
 # load pretrained models, using "mealv2_resnest50_cutmix" as an example
 model = torch.hub.load('szq0214/MEAL-V2','meal_v2', 'mealv2_resnest50_cutmix', pretrained=True)
@@ -63,8 +64,23 @@ with torch.no_grad():
 # Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
 print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
-print(torch.nn.functional.softmax(output[0], dim=0))
+probabilities = torch.nn.functional.softmax(output[0], dim=0)
+print(probabilities)
+```
 
+```
+# Download ImageNet labels
+!wget https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt
+```
+
+```
+# Read the categories
+with open("imagenet_classes.txt", "r") as f:
+    categories = [s.strip() for s in f.readlines()]
+# Show top categories per image
+top5_prob, top5_catid = torch.topk(probabilities, 5)
+for i in range(top5_prob.size(0)):
+    print(categories[top5_catid[i]], top5_prob[i].item())
 ```
 
 ### Model Description
