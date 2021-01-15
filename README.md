@@ -5,7 +5,7 @@
 
 ## Logistics
 
-We accept submission to PyTorch hub through PR in `hub` repo. Once the PR is merged into master here, it will show up on [PyTorch website](https://pytorch.org/hub) in 24 hrs.
+We accept submission to PyTorch hub through PR in `hub` repo. Once the PR is merged into master here, it will show up on the [PyTorch website](https://pytorch.org/hub) in 24 hrs.
 
 
 ## Steps to submit to PyTorch hub
@@ -24,9 +24,9 @@ python scripts/sanity_check.py
 ./scripts/run_pytorch.sh
 ```
 - Our CI concatenates all python code blocks in one markdown file and runs it against the latest PyTorch release.
-  - Remember to mark your python code using ```` ```python```` in model markdown file.
-  - If your `dependencies` is not installed on our CI machine, add them in [install.sh](scripts/install.sh).
+  - Remember to mark your python code using ```` ```python```` in your model's markdown file.
+  - If your `dependencies` are not installed on our CI machine, add them in [install.sh](scripts/install.sh).
   - If it fails, you can find a new `temp.py` file left in the repo to reproduce the failure.
-- We also provide a way to preview your model webpage through `netlify bot`. This bot builds your PR with latest `pytorch.github.io` repo and comment on your PR with preview link. The preview will be updated as you push more commits to the PR.
+- We also provide a way to preview your model webpage through `netlify bot`. This bot builds your PR with the latest `pytorch.github.io` repo and comments on your PR with a preview link. The preview will be updated as you push more commits to the PR.
 ![Example netlify bot comment](images/netlify.png)
 
