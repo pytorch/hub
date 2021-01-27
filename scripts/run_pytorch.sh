@@ -15,6 +15,9 @@ do
     echo "...skipped due to cuda checkpoints."
   elif [[ $f = "pytorch_fairseq_translation"* ]]; then
     echo "...temporarily disabled"
+  # FIXME: torch.nn.modules.module.ModuleAttributeError: 'autoShape' object has no attribute 'fuse'
+  elif [[ $f = "ultralytics_yolov5"* ]]; then
+    echo "...temporarily disabled"
   else
     sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' > $TEMP_PY
     python $TEMP_PY
