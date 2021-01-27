@@ -37,7 +37,7 @@ YOLOv5 is a family of compound-scaled object detection models trained on the COC
 | [YOLOv5l](https://github.com/ultralytics/yolov5/releases)    |640 |48.1     |48.1     |66.4     |3.8ms     |264     ||47.0M  |115.4
 | [YOLOv5x](https://github.com/ultralytics/yolov5/releases)    |640 |**50.1** |**50.1** |**68.7** |6.0ms     |167     ||87.7M  |218.8
 | [YOLOv5x](https://github.com/ultralytics/yolov5/releases) + TTA |832 |**51.9** |**51.9** |**69.6** |24.9ms |40      ||87.7M  |1005.3
-&nbsp;
+
 <img width="800" alt="YOLOv5 Performance" src="https://user-images.githubusercontent.com/26833433/103594689-455e0e00-4eae-11eb-9cdf-7d753e2ceeeb.png">
 ** GPU Speed measures end-to-end time per image averaged over 5000 COCO val2017 images using a V100 GPU with batch size 32, and includes image preprocessing, PyTorch FP16 inference, postprocessing and NMS. EfficientDet data from [google/automl](https://github.com/google/automl) at batch size 8.
 
@@ -72,7 +72,6 @@ print(results.xyxy[0])  # print img1 predictions
 ```
 
 To load YOLOv5 from PyTorch Hub for inference with PIL, OpenCV, Numpy or PyTorch inputs please see the full [YOLOv5 PyTorch Hub Tutorial](https://github.com/ultralytics/yolov5/issues/36).
-
 
 
 ## Citation
