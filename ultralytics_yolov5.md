@@ -44,7 +44,7 @@ YOLOv5 is a family of compound-scaled object detection models trained on the COC
 
 ## Load From PyTorch Hub
 
-This simple example loads a pretrained YOLOv5s model from PyTorch Hub as `model` and passes two image URLs for batched inference. 
+This simple example loads a pretrained **YOLOv5s** model from PyTorch Hub as `model` and passes two **image URLs** for batched inference. 
 
 ```python
 import torch
@@ -71,7 +71,7 @@ print(results.xyxy[0])  # print img1 predictions (pixels)
 #         [4.24503e+02, 4.29092e+02, 5.16300e+02, 7.16425e+02, 5.68713e-01, 2.70000e+01]])
 ```
 
-To load YOLOv5 from PyTorch Hub for inference with PIL, OpenCV, Numpy or PyTorch inputs please see the full [YOLOv5 PyTorch Hub Tutorial](https://github.com/ultralytics/yolov5/issues/36).
+For YOLOv5 PyTorch Hub inference with **PIL**, **OpenCV**, **Numpy** or **PyTorch** inputs please see the full [YOLOv5 PyTorch Hub Tutorial](https://github.com/ultralytics/yolov5/issues/36).
 
 
 ## Citation
