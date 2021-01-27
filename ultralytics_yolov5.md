@@ -17,65 +17,62 @@ accelerator: cuda-optional
 
 ## Before You Start
 
-Start from a working python environment with **Python>=3.8** and **PyTorch>=1.6** installed, as well as `PyYAML>=5.3` for reading YOLOv5 configuration files. To install PyTorch see [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/). To install dependencies:
+Start from a **Python>=3.8** environment with **PyTorch>=1.7** installed. To install PyTorch see [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/). To install YOLOv5 dependencies:
 ```bash
-pip install -U PyYAML  # install dependencies
+pip install -qr https://raw.githubusercontent.com/ultralytics/yolov5/master/requirements.txt  # install dependencies
 ```
+
 
 ## Model Description
 
-<img width="800" alt="YOLOv5 Models" src="https://user-images.githubusercontent.com/26833433/97808084-edfcb100-1c64-11eb-83eb-ffed43a0859f.png">
+<img width="800" alt="YOLOv5 Models" src="https://user-images.githubusercontent.com/26833433/103595982-ab986000-4eb1-11eb-8c57-4726261b0a88.png">
 &nbsp;
 
-YOLOv5 is a family of compound-scaled object detection models trained on COCO 2017, and includes built-in functionality for Test Time Augmentation (TTA), Model Ensembling, Rectangular Inference, Hyperparameter Evolution.
+YOLOv5 is a family of compound-scaled object detection models trained on the COCO dataset, and includes simple functionality for Test Time Augmentation (TTA), model ensembling, hyperparameter evolution, and export to ONNX, CoreML and TFLite.
 
-| Model | AP<sup>val</sup> | AP<sup>test</sup> | AP<sub>50</sub> | Speed<sub>GPU</sub> | FPS<sub>GPU</sub> || params | FLOPS |
-|---------- |------ |------ |------ | -------- | ------| ------ |------  |  :------: |
-| [YOLOv5s](https://github.com/ultralytics/yolov5/releases/tag/v3.0)    | 37.0     | 37.0     | 56.2     | **2.4ms** | **416** || 7.5M   | 13.2B
-| [YOLOv5m](https://github.com/ultralytics/yolov5/releases/tag/v3.0)    | 44.3     | 44.3     | 63.2     | 3.4ms     | 294     || 21.8M  | 39.4B
-| [YOLOv5l](https://github.com/ultralytics/yolov5/releases/tag/v3.0)    | 47.7     | 47.7     | 66.5     | 4.4ms     | 227     || 47.8M  | 88.1B
-| [YOLOv5x](https://github.com/ultralytics/yolov5/releases/tag/v3.0)    | 49.2 | 49.2 | 67.7 | 6.9ms     | 145     || 89.0M  | 166.4B
-| [YOLOv5x](https://github.com/ultralytics/yolov5/releases/tag/v3.0) + TTA|**50.8**| **50.8** | **68.9** | 25.5ms    | 39      || 89.0M  | 354.3B
-
-<img src="https://user-images.githubusercontent.com/26833433/90187293-6773ba00-dd6e-11ea-8f90-cd94afc0427f.png" width="800">  
+| Model | size | AP<sup>val</sup> | AP<sup>test</sup> | AP<sub>50</sub> | Speed<sub>V100</sub> | FPS<sub>V100</sub> || params | GFLOPS |
+|---------- |------ |------ |------ |------ | -------- | ------| ------ |------  |  :------: |
+| [YOLOv5s](https://github.com/ultralytics/yolov5/releases)    |640 |36.8     |36.8     |55.6     |**2.2ms** |**455** ||7.3M   |17.0
+| [YOLOv5m](https://github.com/ultralytics/yolov5/releases)    |640 |44.5     |44.5     |63.1     |2.9ms     |345     ||21.4M  |51.3
+| [YOLOv5l](https://github.com/ultralytics/yolov5/releases)    |640 |48.1     |48.1     |66.4     |3.8ms     |264     ||47.0M  |115.4
+| [YOLOv5x](https://github.com/ultralytics/yolov5/releases)    |640 |**50.1** |**50.1** |**68.7** |6.0ms     |167     ||87.7M  |218.8
+| [YOLOv5x](https://github.com/ultralytics/yolov5/releases) + TTA |832 |**51.9** |**51.9** |**69.6** |24.9ms |40      ||87.7M  |1005.3
+&nbsp;
+<img width="800" alt="YOLOv5 Performance" src="https://user-images.githubusercontent.com/26833433/103594689-455e0e00-4eae-11eb-9cdf-7d753e2ceeeb.png">
 ** GPU Speed measures end-to-end time per image averaged over 5000 COCO val2017 images using a V100 GPU with batch size 32, and includes image preprocessing, PyTorch FP16 inference, postprocessing and NMS. EfficientDet data from [google/automl](https://github.com/google/automl) at batch size 8.
 
 
 ## Load From PyTorch Hub
 
-To load YOLOv5 from PyTorch Hub for inference with PIL, OpenCV, Numpy or PyTorch inputs:
+This simple example loads a pretrained YOLOv5s model from PyTorch Hub as `model` and passes two image URLs for batched inference. 
+
 ```python
-import cv2
 import torch
-from PIL import Image
 
 # Model
-model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True).fuse().autoshape()  # for PIL/cv2/np inputs and NMS
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
 
 # Images
-for f in ['zidane.jpg', 'bus.jpg']:  # download 2 images
-    print(f'Downloading {f}...')
-    torch.hub.download_url_to_file('https://github.com/ultralytics/yolov5/releases/download/v1.0/' + f, f)
-img1 = Image.open('zidane.jpg')  # PIL image
-img2 = cv2.imread('bus.jpg')[:, :, ::-1]  # OpenCV image (BGR to RGB)
-imgs = [img1, img2]  # batched list of images
+dir = 'https://github.com/ultralytics/yolov5/raw/master/data/images/'
+imgs = [dir + f for f in ('zidane.jpg', 'bus.jpg')]  # batched list of images
 
 # Inference
-results = model(imgs, size=640)  # includes NMS
+results = model(imgs)
 
 # Results
-results.print()  # print results to screen
-results.show()  # display results
-results.save()  # save as results1.jpg, results2.jpg... etc.
+results.print()  
+results.save()  # or .show()
 
 # Data
-print('\n', results.xyxy[0])  # print img1 predictions
+print(results.xyxy[0])  # print img1 predictions
 #          x1 (pixels)  y1 (pixels)  x2 (pixels)  y2 (pixels)   confidence        class
-# tensor([[7.47613e+02, 4.01168e+01, 1.14978e+03, 7.12016e+02, 8.71210e-01, 0.00000e+00],
-#         [1.17464e+02, 1.96875e+02, 1.00145e+03, 7.11802e+02, 8.08795e-01, 0.00000e+00],
-#         [4.23969e+02, 4.30401e+02, 5.16833e+02, 7.20000e+02, 7.77376e-01, 2.70000e+01],
-#         [9.81310e+02, 3.10712e+02, 1.03111e+03, 4.19273e+02, 2.86850e-01, 2.70000e+01]])
+# tensor([[7.50637e+02, 4.37279e+01, 1.15887e+03, 7.08682e+02, 8.18137e-01, 0.00000e+00],
+#         [9.33597e+01, 2.07387e+02, 1.04737e+03, 7.10224e+02, 5.78011e-01, 0.00000e+00],
+#         [4.24503e+02, 4.29092e+02, 5.16300e+02, 7.16425e+02, 5.68713e-01, 2.70000e+01]])
 ```
+
+To load YOLOv5 from PyTorch Hub for inference with PIL, OpenCV, Numpy or PyTorch inputs please see the full [YOLOv5 PyTorch Hub Tutorial](https://github.com/ultralytics/yolov5/issues/36).
+
 
 
 ## Citation
