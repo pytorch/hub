@@ -79,11 +79,11 @@ The corresponding accuracy on ImageNet dataset with pretrained model is listed b
 ### References
 
 You can read the full paper at this [link](https://arxiv.org/abs/1911.11907).
-```
-@inproceedings{han2019ghostnet,
-    title={GhostNet: More Features from Cheap Operations},
-    author={Kai Han and Yunhe Wang and Qi Tian and Jianyuan Guo and Chunjing Xu and Chang Xu},
-    booktitle={CVPR},
-    year={2020},
-}
-```
+
+>@inproceedings{han2019ghostnet,
+>    title={GhostNet: More Features from Cheap Operations},
+>    author={Kai Han and Yunhe Wang and Qi Tian and Jianyuan Guo and Chunjing Xu and Chang Xu},
+>    booktitle={CVPR},
+>    year={2020},
+>}
+
