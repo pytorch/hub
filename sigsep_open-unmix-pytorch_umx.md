@@ -5,7 +5,7 @@ body-class: hub
 category: researchers
 title: Open-Unmix
 summary: Reference implementation for music source separation
-image: sigsep_logo.png
+image: sigsep_logo_inria.png
 author: Inria
 tags: [audio, scriptable]
 github-link: https://github.com/sigsep/open-unmix-pytorch
