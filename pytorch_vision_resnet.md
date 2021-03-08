@@ -88,7 +88,7 @@ for i in range(top5_prob.size(0)):
 ### Model Description
 
 Resnet models were proposed in "Deep Residual Learning for Image Recognition".
-Here we have the 5 versions of resnet models, which contains 5, 34, 50, 101, 152 layers respectively.
+Here we have the 5 versions of resnet models, which contains 18, 34, 50, 101, 152 layers respectively.
 Detailed model architectures can be found in Table 1.
 Their 1-crop error rates on imagenet dataset with pretrained models are listed below.
 
