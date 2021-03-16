@@ -11,9 +11,9 @@ wget "$CONDA"
 chmod +x "$filename"
 ./"$filename" -b -u
 
-# Force to use python3.7
+# Force to use python3.8
 . ~/miniconda3/etc/profile.d/conda.sh
 conda activate base
-conda install -y python=3.7
+conda install -y python=3.8
 
 

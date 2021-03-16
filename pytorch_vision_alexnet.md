@@ -18,7 +18,7 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.6.0', 'alexnet', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.9.0', 'alexnet', pretrained=True)
 model.eval()
 ```
 
