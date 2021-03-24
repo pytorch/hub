@@ -42,7 +42,7 @@ __Open-Unmix__ provides ready-to-use models that allow users to separate pop mus
 
 Each target model is based on a three-layer bidirectional deep LSTM. The model learns to predict the magnitude spectrogram of a target source, like vocals, from the magnitude spectrogram of a mixture input. Internally, the prediction is obtained by applying a mask on the input. The model is optimized in the magnitude domain using mean squared error.
 
-A `Separator` meta-model puts together multiple _Open-unmix_ spectrogram models for each desired target, and combines their output through a multichannel generalized Wiener filter, before application of inverse STFTs using `torchaudio`.
+A `Separator` meta-model (as shown in the code example above) puts together multiple _Open-unmix_ spectrogram models for each desired target, and combines their output through a multichannel generalized Wiener filter, before application of inverse STFTs using `torchaudio`.
 The filtering is differentiable (but parameter-free) version of [norbert](https://github.com/sigsep/norbert).
 
 ### Pre-trained `Separator` models
