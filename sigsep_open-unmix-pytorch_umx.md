@@ -27,13 +27,18 @@ import torch
 # loading umxhq four target separator
 separator = torch.hub.load('sigsep/open-unmix-pytorch', 'umxhq')
 
-# audio shape (nb_samples, nb_channels, nb_timesteps)
-# first resample to the sample rate of the models, separator.sample_rate
-resampler = torchaudio.transforms.Resample(original_sample_rate, separator.sample_rate)
-audio = resampler(audio)
-audio = torch.rand((1, 2, 100000))
+# generate random audio
+# ... with shape (nb_samples, nb_channels, nb_timesteps)
+# ... and with the same sample rate as that of the separator
+audio = torch.rand((1, 2, 100_000))
+original_sample_rate = separator.sample_rate
+
+# make sure to resample the audio to models' sample rate, separator.sample_rate, if the two are different
+# resampler = torchaudio.transforms.Resample(original_sample_rate, separator.sample_rate)
+# audio = resampler(audio)
+
 estimates = separator(audio)
-# estimates.shape = (1, 4, 2, 100000)
+# estimates.shape = (1, 4, 2, 100_000)
 ```
 
 ### Model Description
