@@ -18,12 +18,12 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.6.0', 'resnet18', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.9.0', 'resnet18', pretrained=True)
 # or any of these variants
-# model = torch.hub.load('pytorch/vision:v0.6.0', 'resnet34', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.6.0', 'resnet50', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.6.0', 'resnet101', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.6.0', 'resnet152', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.9.0', 'resnet34', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.9.0', 'resnet50', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.9.0', 'resnet101', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.9.0', 'resnet152', pretrained=True)
 model.eval()
 ```
 
@@ -66,14 +66,29 @@ with torch.no_grad():
 # Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
 print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
-print(torch.nn.functional.softmax(output[0], dim=0))
+probabilities = torch.nn.functional.softmax(output[0], dim=0)
+print(probabilities)
+```
 
+```
+# Download ImageNet labels
+!wget https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt
+```
+
+```
+# Read the categories
+with open("imagenet_classes.txt", "r") as f:
+    categories = [s.strip() for s in f.readlines()]
+# Show top categories per image
+top5_prob, top5_catid = torch.topk(probabilities, 5)
+for i in range(top5_prob.size(0)):
+    print(categories[top5_catid[i]], top5_prob[i].item())
 ```
 
 ### Model Description
 
 Resnet models were proposed in "Deep Residual Learning for Image Recognition".
-Here we have the 5 versions of resnet models, which contains 5, 34, 50, 101, 152 layers respectively.
+Here we have the 5 versions of resnet models, which contains 18, 34, 50, 101, 152 layers respectively.
 Detailed model architectures can be found in Table 1.
 Their 1-crop error rates on imagenet dataset with pretrained models are listed below.
 

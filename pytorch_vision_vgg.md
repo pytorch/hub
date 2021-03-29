@@ -18,15 +18,15 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.6.0', 'vgg11', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg11', pretrained=True)
 # or any of these variants
-# model = torch.hub.load('pytorch/vision:v0.6.0', 'vgg11_bn', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.6.0', 'vgg13', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.6.0', 'vgg13_bn', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.6.0', 'vgg16', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.6.0', 'vgg16_bn', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.6.0', 'vgg19', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.6.0', 'vgg19_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg11_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg13', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg13_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg16', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg16_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg19', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg19_bn', pretrained=True)
 model.eval()
 ```
 
@@ -69,8 +69,23 @@ with torch.no_grad():
 # Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
 print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
-print(torch.nn.functional.softmax(output[0], dim=0))
+probabilities = torch.nn.functional.softmax(output[0], dim=0)
+print(probabilities)
+```
 
+```
+# Download ImageNet labels
+!wget https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt
+```
+
+```
+# Read the categories
+with open("imagenet_classes.txt", "r") as f:
+    categories = [s.strip() for s in f.readlines()]
+# Show top categories per image
+top5_prob, top5_catid = torch.topk(probabilities, 5)
+for i in range(top5_prob.size(0)):
+    print(categories[top5_catid[i]], top5_prob[i].item())
 ```
 
 ### Model Description

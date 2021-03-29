@@ -61,8 +61,23 @@ with torch.no_grad():
 # Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
 print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
-print(torch.nn.functional.softmax(output[0], dim=0))
+probabilities = torch.nn.functional.softmax(output[0], dim=0)
+print(probabilities)
+```
 
+```
+# Download ImageNet labels
+!wget https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt
+```
+
+```
+# Read the categories
+with open("imagenet_classes.txt", "r") as f:
+    categories = [s.strip() for s in f.readlines()]
+# Show top categories per image
+top5_prob, top5_catid = torch.topk(probabilities, 5)
+for i in range(top5_prob.size(0)):
+    print(categories[top5_catid[i]], top5_prob[i].item())
 ```
 
 ### Model Description
@@ -79,11 +94,11 @@ The corresponding accuracy on ImageNet dataset with pretrained model is listed b
 ### References
 
 You can read the full paper at this [link](https://arxiv.org/abs/1911.11907).
-```
-@inproceedings{han2019ghostnet,
-    title={GhostNet: More Features from Cheap Operations},
-    author={Kai Han and Yunhe Wang and Qi Tian and Jianyuan Guo and Chunjing Xu and Chang Xu},
-    booktitle={CVPR},
-    year={2020},
-}
-```
+
+>@inproceedings{han2019ghostnet,
+>    title={GhostNet: More Features from Cheap Operations},
+>    author={Kai Han and Yunhe Wang and Qi Tian and Jianyuan Guo and Chunjing Xu and Chang Xu},
+>    booktitle={CVPR},
+>    year={2020},
+>}
+
