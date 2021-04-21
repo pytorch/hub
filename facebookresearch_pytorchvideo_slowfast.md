@@ -3,18 +3,16 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 category: researchers
-
 title: SlowFast
 summary: SlowFast networks pretrained on the Kinetics 400 dataset  
 image: slowfast.png 
 author: FAIR PyTorchVideo
 tags: [vision]
 github-link: https://github.com/facebookresearch/pytorchvideo
-
 github-id: facebookresearch/pytorchvideo
 featured_image_1: no-image 
 featured_image_2: no-image
-accelerator: “cuda” 
+accelerator: “cuda-optional” 
 ---
 
 ### Example Usage
