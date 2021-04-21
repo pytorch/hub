@@ -19,4 +19,4 @@ pip install -q visdom mistune filelock tokenizers==0.9.4 packaging pandas
 pip install -q omegaconf timm seaborn importlib_metadata
 pip install -q hydra-core opencv-python fvcore
 pip install -q --upgrade google-api-python-client
-
+pip install pytorchvideo
