@@ -13,6 +13,8 @@ github-id: ultralytics/yolov5
 featured_image_1: ultralytics_yolov5_img1.jpg
 featured_image_2: ultralytics_yolov5_img2.png
 accelerator: cuda-optional
+demo-model: true
+demo-model-link: https://colab.research.google.com/drive/1gTvmKK2008QnIqgFr0jn49p4x7fNrvfS?usp=sharing
 ---
 
 ## Before You Start
@@ -44,7 +46,7 @@ YOLOv5 is a family of compound-scaled object detection models trained on the COC
 
 ## Load From PyTorch Hub
 
-This simple example loads a pretrained **YOLOv5s** model from PyTorch Hub as `model` and passes two **image URLs** for batched inference. 
+This simple example loads a pretrained **YOLOv5s** model from PyTorch Hub as `model` and passes two **image URLs** for batched inference.
 
 ```python
 import torch
@@ -60,7 +62,7 @@ imgs = [dir + f for f in ('zidane.jpg', 'bus.jpg')]  # batched list of images
 results = model(imgs)
 
 # Results
-results.print()  
+results.print()
 results.save()  # or .show()
 
 # Data
@@ -81,6 +83,6 @@ For YOLOv5 PyTorch Hub inference with **PIL**, **OpenCV**, **Numpy** or **PyTorc
 
 ## Contact
 
-**Issues should be raised directly in the repository.** For business inquiries or professional support requests please visit [https://www.ultralytics.com](https://www.ultralytics.com) or email Glenn Jocher at [glenn.jocher@ultralytics.com](mailto:glenn.jocher@ultralytics.com). 
+**Issues should be raised directly in the repository.** For business inquiries or professional support requests please visit [https://www.ultralytics.com](https://www.ultralytics.com) or email Glenn Jocher at [glenn.jocher@ultralytics.com](mailto:glenn.jocher@ultralytics.com).
 
 &nbsp;
