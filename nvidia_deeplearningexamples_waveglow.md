@@ -14,6 +14,8 @@ featured_image_1: waveglow_diagram.png
 featured_image_2: no-image
 accelerator: cuda
 order: 3
+demo-model: true
+demo-model-link: https://colab.research.google.com/drive/1ykTxMsdstdPbDFgvjtBlbnG8Q0EVKm1w?usp=sharing#scrollTo=OBd3B1Bed7_d
 ---
 
 ```python

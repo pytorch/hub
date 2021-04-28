@@ -13,6 +13,8 @@ github-id: intel-isl/MiDaS
 featured_image_1: midas_samples.png
 featured_image_2: no-image
 accelerator: cuda-optional
+demo-model: true
+demo-model-link: https://colab.research.google.com/drive/1ky76hYQJvMvup6GAfsVhvExSWWJmxR4Q?usp=sharing#scrollTo=WFnsv2SONMs7
 ---
 
 ```python
@@ -22,13 +24,13 @@ midas.eval()
 ```
 
 will load the MiDaS v2.1 model. The model expects 3-channel RGB images of shape ```(3 x H x W)```. Images are expected to be normalized using
-`mean=[0.485, 0.456, 0.406]` and `std=[0.229, 0.224, 0.225]`. 
-`H` and `W` need to be divisible by `32`. For optimal results `H` and `W` should be close to `384` (the training resolution). 
-We provide a custom transformation that performs resizing while maintaining aspect ratio. 
+`mean=[0.485, 0.456, 0.406]` and `std=[0.229, 0.224, 0.225]`.
+`H` and `W` need to be divisible by `32`. For optimal results `H` and `W` should be close to `384` (the training resolution).
+We provide a custom transformation that performs resizing while maintaining aspect ratio.
 
 ### Model Description
 
-[MiDaS](https://arxiv.org/abs/1907.01341) computes relative inverse depth from a single image. The model has been trained on 10 distinct dataset using 
+[MiDaS](https://arxiv.org/abs/1907.01341) computes relative inverse depth from a single image. The model has been trained on 10 distinct dataset using
 multi-objective optimization to ensure high quality on a wide range of inputs.
 
 
@@ -95,12 +97,12 @@ with torch.no_grad():
         mode="bicubic",
         align_corners=False,
     ).squeeze()
-    
+
 output = prediction.cpu().numpy()
 ```
 
 Show result
-```python 
+```python
 plt.imshow(output)
 # plt.show()
 ```
