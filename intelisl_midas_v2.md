@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: MiDaS
-summary: The MiDaS v2.1 model for computing relative depth from a single image.
+summary: MiDaS models for computing relative depth from a single image.
 image: intel-logo.png
 author: Intel ISL
 tags: [vision]
@@ -15,24 +15,17 @@ featured_image_2: no-image
 accelerator: cuda-optional
 ---
 
-```python
-import torch
-midas = torch.hub.load("intel-isl/MiDaS", "MiDaS")
-midas.eval()
-```
-
-will load the MiDaS v2.1 model. The model expects 3-channel RGB images of shape ```(3 x H x W)```. Images are expected to be normalized using
-`mean=[0.485, 0.456, 0.406]` and `std=[0.229, 0.224, 0.225]`. 
-`H` and `W` need to be divisible by `32`. For optimal results `H` and `W` should be close to `384` (the training resolution). 
-We provide a custom transformation that performs resizing while maintaining aspect ratio. 
-
 ### Model Description
 
-[MiDaS](https://arxiv.org/abs/1907.01341) computes relative inverse depth from a single image. The model has been trained on 10 distinct dataset using 
-multi-objective optimization to ensure high quality on a wide range of inputs.
-
+[MiDaS](https://arxiv.org/abs/1907.01341) computes relative inverse depth from a single image. The repository provides multiple models that cover different use cases ranging from a small, high-speed model to a very large model that provide the highest accuracy. The models have been trained on 10 distinct dataset using 
+multi-objective optimization to ensure high quality on a wide range of inputs. An overview of 
 
 ### Example Usage
+
+Install dependencies:
+```python
+!pip install timm
+```
 
 Download an image from the PyTorch homepage
 ```python
@@ -46,15 +39,14 @@ url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "do
 urllib.request.urlretrieve(url, filename)
 ```
 
-Load large or small model
+Load a model
 
 ```python
-use_large_model = True
+model_type = "DPT_Large"     # MiDaS v3 - Large     (highest accuracy, slowest inference)
+#model_type = "DPT_Hybrid"   # MiDaS v3 - Hybrid    (medium accuracy, medium speed)
+#model_type = "MiDaS_small"  # MiDaS v2.1 - Small   (lowest accuracy, highest inference)
 
-if use_large_model:
-    midas = torch.hub.load("intel-isl/MiDaS", "MiDaS")
-else:
-    midas = torch.hub.load("intel-isl/MiDaS", "MiDaS_small")
+midas = torch.hub.load("intel-isl/MiDaS", model_type)
 ```
 
 Move model to GPU if available
@@ -69,8 +61,8 @@ Load transforms to resize and normalize the image for large or small model
 ```python
 midas_transforms = torch.hub.load("intel-isl/MiDaS", "transforms")
 
-if use_large_model:
-    transform = midas_transforms.default_transform
+if model_type == "DPT_Large" or model_type == "DPT_Hybrid":
+    transform = midas_transforms.dpt_transform
 else:
     transform = midas_transforms.small_transform
 ```
@@ -105,15 +97,24 @@ plt.imshow(output)
 # plt.show()
 ```
 
-### Reference
+### References
 [Towards Robust Monocular Depth Estimation: Mixing Datasets for Zero-shot Cross-dataset Transfer](https://arxiv.org/abs/1907.01341)
+[Vision Transformers for Dense Prediction](https://arxiv.org/abs/2103.13413)
 
-Please cite our paper if you use our model:
+Please cite our papers if you use our models:
 ```bibtex
 @article{Ranftl2020,
 	author    = {Ren\'{e} Ranftl and Katrin Lasinger and David Hafner and Konrad Schindler and Vladlen Koltun},
 	title     = {Towards Robust Monocular Depth Estimation: Mixing Datasets for Zero-shot Cross-dataset Transfer},
 	journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)},
 	year      = {2020},
+}
+```
+```bibtex
+@article{Ranftl2021,
+	author    = {Ren\'{e} Ranftl and Alexey Bochkovskiy and Vladlen Koltun},
+	title     = {Vision Transformers for Dense Prediction},
+	journal   = {ArXiv preprint},
+	year      = {2021},
 }
 ```
