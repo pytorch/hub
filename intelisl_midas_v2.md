@@ -99,6 +99,7 @@ plt.imshow(output)
 
 ### References
 [Towards Robust Monocular Depth Estimation: Mixing Datasets for Zero-shot Cross-dataset Transfer](https://arxiv.org/abs/1907.01341)
+
 [Vision Transformers for Dense Prediction](https://arxiv.org/abs/2103.13413)
 
 Please cite our papers if you use our models:
