@@ -39,7 +39,7 @@ url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "do
 urllib.request.urlretrieve(url, filename)
 ```
 
-Load a model
+Load a model (see https://github.com/intel-isl/MiDaS/#Accuracy for an overview)
 
 ```python
 model_type = "DPT_Large"     # MiDaS v3 - Large     (highest accuracy, slowest inference)
@@ -48,6 +48,7 @@ model_type = "DPT_Large"     # MiDaS v3 - Large     (highest accuracy, slowest i
 
 midas = torch.hub.load("intel-isl/MiDaS", model_type)
 ```
+
 
 Move model to GPU if available
 ```python
