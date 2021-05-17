@@ -22,7 +22,7 @@ multi-objective optimization to ensure high quality on a wide range of inputs. A
 
 ### Example Usage
 
-Install dependencies:
+Install dependencies
 ```python
 !pip install timm
 ```
