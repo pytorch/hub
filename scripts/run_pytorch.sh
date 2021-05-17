@@ -18,6 +18,9 @@ do
   # FIXME: torch.nn.modules.module.ModuleAttributeError: 'autoShape' object has no attribute 'fuse'
   elif [[ $f = "ultralytics_yolov5"* ]]; then
     echo "...temporarily disabled"
+  # FIXME: cannot download https://s3.us-west-1.wasabisys.com/resnest/torch/resnest50-528c19ca.pth
+  elif [[ $f = "pytorch_vision_resnest"* ]]; then
+    echo "...temporarily disabled"
   else
     sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' > $TEMP_PY
     python $TEMP_PY
