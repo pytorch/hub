@@ -48,7 +48,7 @@ The available methods are the following:
 - `config`: returns a configuration item corresponding to the specified model or pth.
 - `tokenizer`: returns a tokenizer corresponding to the specified model or path
 - `model`: returns a model corresponding to the specified model or path
-- `modelWithLMHead`: returns a model with a language modeling head corresponding to the specified model or path
+- `modelForCausalLM`: returns a model with a language modeling head corresponding to the specified model or path
 - `modelForSequenceClassification`: returns a model with a sequence classifier corresponding to the specified model or path
 - `modelForQuestionAnswering`: returns a model with  a question answering head corresponding to the specified model or path
 
@@ -95,13 +95,13 @@ Previously mentioned `model` instance with an additional language modeling head.
 
 ```py
 import torch
-model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', 'bert-base-uncased')    # Download model and configuration from S3 and cache.
-model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', './test/bert_model/')  # E.g. model was saved using `save_pretrained('./test/saved_model/')`
-model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', 'bert-base-uncased', output_attentions=True)  # Update configuration during loading
+model = torch.hub.load('huggingface/transformers', 'modelForCausalLM', 'gpt2')    # Download model and configuration from huggingface.co and cache.
+model = torch.hub.load('huggingface/transformers', 'modelForCausalLM', './test/saved_model/')  # E.g. model was saved using `save_pretrained('./test/saved_model/')`
+model = torch.hub.load('huggingface/transformers', 'modelForCausalLM', 'gpt2', output_attentions=True)  # Update configuration during loading
 assert model.config.output_attentions == True
 # Loading from a TF checkpoint file instead of a PyTorch model (slower)
-config = AutoConfig.from_json_file('./tf_model/bert_tf_model_config.json')
-model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', './tf_model/bert_tf_checkpoint.ckpt.index', from_tf=True, config=config)
+config = AutoConfig.from_pretrained('./tf_model/gpt_tf_model_config.json')
+model = torch.hub.load('huggingface/transformers', 'modelForCausalLM', './tf_model/gpt_tf_checkpoint.ckpt.index', from_tf=True, config=config)
 ```
 
 ## Models with a sequence classification head
@@ -191,7 +191,7 @@ with torch.no_grad():
     encoded_layers, _ = model(tokens_tensor, token_type_ids=segments_tensors)
 ```
 
-## Using `modelWithLMHead` to predict a masked token with BERT
+## Using `modelForMaskedLM` to predict a masked token with BERT
 
 ```python
 # Mask a token that we will try to predict back with `BertForMaskedLM`
@@ -199,7 +199,7 @@ masked_index = 8
 indexed_tokens[masked_index] = tokenizer.mask_token_id
 tokens_tensor = torch.tensor([indexed_tokens])
 
-masked_lm_model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', 'bert-base-cased')
+masked_lm_model = torch.hub.load('huggingface/pytorch-transformers', 'modelForMaskedLM', 'bert-base-cased')
 
 with torch.no_grad():
     predictions = masked_lm_model(tokens_tensor, token_type_ids=segments_tensors)
