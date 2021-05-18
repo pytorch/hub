@@ -17,15 +17,17 @@ accelerator: cuda-optional
 
 ### Model Description
 
-[MiDaS](https://arxiv.org/abs/1907.01341) computes relative inverse depth from a single image. The repository provides multiple models that cover different use cases ranging from a small, high-speed model to a very large model that provide the highest accuracy. The models have been trained on 10 distinct dataset using 
-multi-objective optimization to ensure high quality on a wide range of inputs. An overview of 
+[MiDaS](https://arxiv.org/abs/1907.01341) computes relative inverse depth from a single image. The repository provides multiple models that cover different use cases ranging from a small, high-speed model to a very large model that provide the highest accuracy. The models have been trained on 10 distinct datasets using 
+multi-objective optimization to ensure high quality on a wide range of inputs. 
+
+### Dependencies 
+
+MiDaS depends on [timm](https://github.com/rwightman/pytorch-image-models). Install with
+```shell
+pip install timm
+```
 
 ### Example Usage
-
-Install dependencies
-```python
-!pip install timm
-```
 
 Download an image from the PyTorch homepage
 ```python
@@ -40,7 +42,6 @@ urllib.request.urlretrieve(url, filename)
 ```
 
 Load a model (see https://github.com/intel-isl/MiDaS/#Accuracy for an overview)
-
 ```python
 model_type = "DPT_Large"     # MiDaS v3 - Large     (highest accuracy, slowest inference speed)
 #model_type = "DPT_Hybrid"   # MiDaS v3 - Hybrid    (medium accuracy, medium inference speed)
@@ -48,7 +49,6 @@ model_type = "DPT_Large"     # MiDaS v3 - Large     (highest accuracy, slowest i
 
 midas = torch.hub.load("intel-isl/MiDaS", model_type)
 ```
-
 
 Move model to GPU if available
 ```python
