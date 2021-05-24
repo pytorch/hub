@@ -38,7 +38,6 @@ Model |size<br><sup>(pixels) |mAP<sup>val<br>0.5:0.95 |mAP<sup>test<br>0.5:0.95 
 [YOLOv5m6][assets]   |1280 |50.5     |50.5     |68.7     |8.4     | |35.9  |52.4
 [YOLOv5l6][assets]   |1280 |53.4     |53.4     |71.1     |12.3    | |77.2  |117.7
 [YOLOv5x6][assets]   |1280 |**54.4** |**54.4** |**72.0** |22.4    | |141.8 |222.9
-| | | | | | || |
 [YOLOv5x6][assets] TTA |1280 |**55.0** |**55.0** |**72.0** |70.8 | |-  |-
 
 <details>
@@ -51,7 +50,7 @@ Model |size<br><sup>(pixels) |mAP<sup>val<br>0.5:0.95 |mAP<sup>test<br>0.5:0.95 
   * Test Time Augmentation ([TTA](https://github.com/ultralytics/yolov5/issues/303)) includes reflection and scale augmentation. **Reproduce TTA** by `python test.py --data coco.yaml --img 1536 --iou 0.7 --augment`
 </details>
 
-<p align="left"><img width="800" src="https://user-images.githubusercontent.com/26833433/114313216-f0a5e100-9af5-11eb-8445-c682b60da2e3.png"></p>
+<p align="left"><img width="800" src="https://github.com/ultralytics/yolov5/releases/download/v1.0/model_plot.png"></p>
 
 <details>
   <summary>Figure Notes (click to expand)</summary>
@@ -63,7 +62,7 @@ Model |size<br><sup>(pixels) |mAP<sup>val<br>0.5:0.95 |mAP<sup>test<br>0.5:0.95 
 
 ## Load From PyTorch Hub
 
-This example loads a pretrained **YOLOv5s** `model` and passes an image for inference. YOLOv5 accepts **URL**, **Filename**, **PIL**, **OpenCV**, **Numpy** and **PyTorch** inputs, and returns detections in `torch`, `pandas`, and **JSON** output formats. See our [YOLOv5 PyTorch Hub Tutorial](https://github.com/ultralytics/yolov5/issues/36) for details.
+This example loads a pretrained **YOLOv5s** model and passes an image for inference. YOLOv5 accepts **URL**, **Filename**, **PIL**, **OpenCV**, **Numpy** and **PyTorch** inputs, and returns detections in **torch**, **pandas**, and **JSON** output formats. See our [YOLOv5 PyTorch Hub Tutorial](https://github.com/ultralytics/yolov5/issues/36) for details.
 
 ```python
 import torch
