@@ -13,6 +13,8 @@ github-id: ultralytics/yolov5
 featured_image_1: ultralytics_yolov5_img1.jpg
 featured_image_2: ultralytics_yolov5_img2.png
 accelerator: cuda-optional
+demo-model: true
+demo-model-link: https://colab.research.google.com/drive/1gTvmKK2008QnIqgFr0jn49p4x7fNrvfS?usp=sharing
 ---
 
 ## Before You Start
@@ -62,7 +64,9 @@ pip install -qr https://raw.githubusercontent.com/ultralytics/yolov5/master/requ
 
 ## Load From PyTorch Hub
 
+
 This example loads a pretrained **YOLOv5s** model and passes an image for inference. YOLOv5 accepts **URL**, **Filename**, **PIL**, **OpenCV**, **Numpy** and **PyTorch** inputs, and returns detections in **torch**, **pandas**, and **JSON** output formats. See our [YOLOv5 PyTorch Hub Tutorial](https://github.com/ultralytics/yolov5/issues/36) for details.
+
 
 ```python
 import torch
@@ -77,7 +81,7 @@ imgs = ['https://ultralytics.com/images/zidane.jpg']  # batch of images
 results = model(imgs)
 
 # Results
-results.print()  
+results.print()
 results.save()  # or .show()
 
 results.xyxy[0]  # img1 predictions (tensor)
@@ -97,6 +101,8 @@ results.pandas().xyxy[0]  # img1 predictions (pandas)
 
 ## Contact
 
+
 **Issues should be raised directly in https://github.com/ultralytics/yolov5.** For business inquiries or professional support requests please visit [https://ultralytics.com](https://ultralytics.com) or email Glenn Jocher at [glenn.jocher@ultralytics.com](mailto:glenn.jocher@ultralytics.com). 
+
 
 &nbsp;
