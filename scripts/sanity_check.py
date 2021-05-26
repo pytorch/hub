@@ -20,6 +20,8 @@ class ValidMD:
 
         self.required_sections = ['Model Description']
 
+        self.optional_demo_link = ['demo-model-link']
+
     def validate_tags(self, tags):
         '''
         Only allow tags in pre-defined set
@@ -39,7 +41,7 @@ class ValidMD:
                     'Category {} is not valid in {}. Choose from {}'
                     .format(category, self.filename, self.valid_categories))
 
-    def validate_github_link(self, link):
+    def validate_link(self, link):
         '''
         Make sure the github repo exists
         '''
@@ -68,19 +70,23 @@ class ValidMD:
         assert header['body-class'] == 'hub'
 
         for field in self.required_user_fields:
-            header[field] # assert that it exists
+            header[field]  # assert that it exists
 
         self.validate_tags(header['tags'])
-        self.validate_github_link(header['github-link'])
+        self.validate_link(header['github-link'])
         self.validate_image(header['image'])
         self.validate_category(header['category'])
+
+        for field in self.optional_demo_link:
+            if field in header.keys():
+                self.validate_link(header[field])
 
         for field in self.optional_image_fields:
             if field in header.keys():
                 self.validate_image(header[field])
 
         for k in header.keys():
-            if k != 'github-link':
+            if not k.endswith('-link'):
                 self.no_extra_colon(k, header[k])
 
 
