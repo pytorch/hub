@@ -14,6 +14,7 @@ featured_image_1: no-image
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 2
+demo-model-link: https://colab.research.google.com/drive/1C5fmU5vecWy3oTf5NsJUlwfI6m9i8-x0?usp=sharing
 ---
 
 

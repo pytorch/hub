@@ -13,6 +13,7 @@ github-id: snakers4/silero-vad
 featured_image_1: no-image
 featured_image_2: no-image
 accelerator: cuda-optional
+demo-model-link: https://colab.research.google.com/drive/1QSiUv_3hZzC_7EEN4rY_VDUvD4F-8ofQ#scrollTo=3kWsxeMn_q1c
 ---
 
 
