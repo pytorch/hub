@@ -13,6 +13,7 @@ github-id: nicolalandro/ntsnet-cub200
 featured_image_1: nts-net.png
 featured_image_2: no-image
 accelerator: "cuda-optional"
+demo-model-link: https://colab.research.google.com/drive/1hbZ4Fd23I0u_uVgIadeF2zqivIdCG5Zn?usp=sharing
 ---
 
 ```python

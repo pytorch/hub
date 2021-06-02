@@ -14,6 +14,7 @@ featured_image_1: pgan_mix.jpg
 featured_image_2: pgan_celebaHQ.jpg
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://colab.research.google.com/drive/19NTYFNUT9js78UZ0g_3IsnnUW9AsR0fD?usp=sharing
 ---
 
 
