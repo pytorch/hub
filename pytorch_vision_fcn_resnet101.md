@@ -29,7 +29,7 @@ and `std = [0.229, 0.224, 0.225]`.
 
 The model returns an `OrderedDict` with two Tensors that are of the same height and width as the input Tensor, but with 21 classes.
 `output['out']` contains the semantic masks, and `output['aux']` contains the auxillary loss values per-pixel. In inference mode, `output['aux']` is not useful.
-So, `output['out']` is of shape `(N, 21, H, W)`. More documentation can be found [here](https://pytorch.org/docs/stable/torchvision/models.html#object-detection-instance-segmentation-and-person-keypoint-detection).
+So, `output['out']` is of shape `(N, 21, H, W)`. More documentation can be found [here](https://pytorch.org/vision/stable/models.html#object-detection-instance-segmentation-and-person-keypoint-detection).
 
 
 ```python
