@@ -17,19 +17,6 @@ order: 10
 ---
 
 
-```python
-import torch
-precision = 'fp32'
-ssd_model = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_ssd', model_math=precision)
-```
-
-will load an SSD model pretrained on COCO dataset from Torch Hub.
-
-Setting precision='fp16' will load a checkpoint trained with [mixed precision](https://arxiv.org/abs/1710.03740) into architecture enabling execution on [Tensor Cores](https://developer.nvidia.com/tensor-cores).
-Handling mixed precision data requires [Apex](https://github.com/NVIDIA/apex) library.
-
-
-
 ### Model Description
 
 This SSD300 model is based on the
@@ -56,17 +43,17 @@ they are enhanced by additional BatchNorm layers after each convolution.
 
 ### Example
 
-In the example below we will use the pretrained SSD model loaded from Torch Hub to detect objects in sample images and visualize the result.
+In the example below we will use the pretrained SSD model to detect objects in sample images and visualize the result.
 
-To run the example you need some extra python packages installed.
-These are needed for preprocessing images and visualization.
-
+To run the example you need some extra python packages installed. These are needed for preprocessing images and visualization.
 ```bash
 pip install numpy scipy scikit-image matplotlib
 ```
 
-For convenient and comprehensive formatting of input and output of the model, load a set of utility methods.
+Load an SSD model pretrained on COCO dataset, as well as a set of utility methods for convenient and comprehensive formatting of input and output of the model.
 ```python
+import torch
+ssd_model = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_ssd')
 utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_ssd_processing_utils')
 ```
 
@@ -75,7 +62,6 @@ Now, prepare the loaded model for inference
 ssd_model.to('cuda')
 ssd_model.eval()
 ```
-
 
 Prepare input images for object detection.
 (Example links below correspond to first few test images from the COCO dataset, but you can also specify paths to your local images here)
@@ -86,18 +72,19 @@ uris = [
     'http://images.cocodataset.org/val2017/000000252219.jpg'
 ]
 ```
+
 Format the images to comply with the network input and convert them to tensor.
 ```python
 inputs = [utils.prepare_input(uri) for uri in uris]
-tensor = utils.prepare_tensor(inputs, precision == 'fp16')
+tensor = utils.prepare_tensor(inputs)
 ```
-
 
 Run the SSD network to perform object detection.
 ```python
 with torch.no_grad():
     detections_batch = ssd_model(tensor)
 ```
+
 By default, raw output from SSD network per input image contains
 8732 boxes with localization and class probability distribution.
 Let's filter this output to only get reasonable detections (confidence>40%) in a more comprehensive format.
@@ -105,11 +92,13 @@ Let's filter this output to only get reasonable detections (confidence>40%) in a
 results_per_input = utils.decode_results(detections_batch)
 best_results_per_input = [utils.pick_best(results, 0.40) for results in results_per_input]
 ```
+
 The model was trained on COCO dataset, which we need to access in order to translate class IDs into object names.
 For the first time, downloading annotations may take a while.
 ```python
 classes_to_labels = utils.get_coco_object_dictionary()
 ```
+
 Finally, let's visualize our detections
 ```python
 from matplotlib import pyplot as plt
@@ -131,16 +120,15 @@ for image_idx in range(len(best_results_per_input)):
 plt.show()
 ```
 
-
 ### Details
 For detailed information on model input and output,
 training recipies, inference and performance visit:
 [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Detection/SSD)
-and/or [NGC](https://ngc.nvidia.com/catalog/model-scripts/nvidia:ssd_for_pytorch)
+and/or [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:ssd_for_pytorch)
 
 ### References
 
  - [SSD: Single Shot MultiBox Detector](https://arxiv.org/abs/1512.02325) paper
  - [Speed/accuracy trade-offs for modern convolutional object detectors](https://arxiv.org/abs/1611.10012) paper
- - [SSD on NGC](https://ngc.nvidia.com/catalog/model-scripts/nvidia:ssd_for_pytorch)
+ - [SSD on NGC](https://ngc.nvidia.com/catalog/resources/nvidia:ssd_for_pytorch)
  - [SSD on github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Detection/SSD)

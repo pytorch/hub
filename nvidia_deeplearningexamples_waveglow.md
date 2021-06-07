@@ -13,16 +13,9 @@ github-id: NVIDIA/DeepLearningExamples
 featured_image_1: waveglow_diagram.png
 featured_image_2: no-image
 accelerator: cuda
-order: 3
-demo-model: true
-demo-model-link: https://colab.research.google.com/drive/1ykTxMsdstdPbDFgvjtBlbnG8Q0EVKm1w?usp=sharing#scrollTo=OBd3B1Bed7_d
+order: 10
 ---
 
-```python
-import torch
-waveglow = torch.hub.load('nvidia/DeepLearningExamples:torchhub', 'nvidia_waveglow')
-```
-will load the WaveGlow model pre-trained on [LJ Speech dataset](https://keithito.com/LJ-Speech-Dataset/)
 
 ### Model Description
 
@@ -32,79 +25,76 @@ The Tacotron 2 and WaveGlow model form a text-to-speech system that enables user
 
 In the example below:
 - pretrained Tacotron2 and Waveglow models are loaded from torch.hub
-- Tacotron2 generates mel spectrogram given tensor represantation of an input text ("Hello world, I missed you")
+- Tacotron2 generates mel spectrogram given tensor represantation of an input text ("Hello world, I missed you so much")
 - Waveglow generates sound given the mel spectrogram
 - the output sound is saved in an 'audio.wav' file
 
 To run the example you need some extra python packages installed.
 These are needed for preprocessing the text and audio, as well as for display and input / output.
-
 ```bash
 pip install numpy scipy librosa unidecode inflect librosa
+apt-get update
+apt-get install -y libsndfile1
 ```
 
+Load the WaveGlow model pre-trained on [LJ Speech dataset](https://keithito.com/LJ-Speech-Dataset/)
 ```python
-import numpy as np
-from scipy.io.wavfile import write
+import torch
+waveglow = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_waveglow', model_math='fp32')
 ```
 
-Prepare the waveglow model for inference
-
+Prepare the WaveGlow model for inference
 ```python
 waveglow = waveglow.remove_weightnorm(waveglow)
 waveglow = waveglow.to('cuda')
 waveglow.eval()
 ```
 
-Load tacotron2 from PyTorch Hub
-
+Load a pretrained Tacotron2 model
 ```python
-tacotron2 = torch.hub.load('nvidia/DeepLearningExamples:torchhub', 'nvidia_tacotron2')
+tacotron2 = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_tacotron2', model_math='fp32')
 tacotron2 = tacotron2.to('cuda')
 tacotron2.eval()
 ```
 
-Now, let's make the model say *"hello world, I missed you"*
-
+Now, let's make the model say:
 ```python
-text = "hello world, I missed you"
+text = "hello world, I missed you so much"
 ```
 
-Now chain pre-processing -> tacotron2 -> waveglow
-
+Format the input using utility methods
 ```python
-# preprocessing
-sequence = np.array(tacotron2.text_to_sequence(text, ['english_cleaners']))[None, :]
-sequence = torch.from_numpy(sequence).to(device='cuda', dtype=torch.int64)
+utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_tts_utils')
+sequences, lengths = utils.prepare_input_sequence([text])
+```
 
-# run the models
+Run the chained models
+```python
 with torch.no_grad():
-    _, mel, _, _ = tacotron2.infer(sequence)
+    mel, _, _ = tacotron2.infer(sequences, lengths)
     audio = waveglow.infer(mel)
 audio_numpy = audio[0].data.cpu().numpy()
 rate = 22050
 ```
 
 You can write it to a file and listen to it
-
 ```python
+from scipy.io.wavfile import write
 write("audio.wav", rate, audio_numpy)
 ```
 
-
 Alternatively, play it right away in a notebook with IPython widgets
-
 ```python
 from IPython.display import Audio
 Audio(audio_numpy, rate=rate)
 ```
 
 ### Details
-For detailed information on model input and output, training recipies, inference and performance visit: [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/SpeechSynthesis/Tacotron2) and/or [NGC](https://ngc.nvidia.com/catalog/model-scripts/nvidia:tacotron_2_and_waveglow_for_pytorch)
+For detailed information on model input and output, training recipies, inference and performance visit: [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/SpeechSynthesis/Tacotron2) and/or [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:tacotron_2_and_waveglow_for_pytorch)
 
 ### References
 
  - [Natural TTS Synthesis by Conditioning WaveNet on Mel Spectrogram Predictions](https://arxiv.org/abs/1712.05884)
  - [WaveGlow: A Flow-based Generative Network for Speech Synthesis](https://arxiv.org/abs/1811.00002)
- - [Tacotron2 and WaveGlow on NGC](https://ngc.nvidia.com/catalog/model-scripts/nvidia:tacotron_2_and_waveglow_for_pytorch)
+ - [Tacotron2 and WaveGlow on NGC](https://ngc.nvidia.com/catalog/resources/nvidia:tacotron_2_and_waveglow_for_pytorch)
  - [Tacotron2 and Waveglow on github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/SpeechSynthesis/Tacotron2)
