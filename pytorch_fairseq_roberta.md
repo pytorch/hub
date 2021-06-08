@@ -37,7 +37,7 @@ better to downstream tasks compared to BERT.
 We require a few additional Python dependencies for preprocessing:
 
 ```bash
-pip install regex requests
+pip install regex requests hydra-core omegaconf
 ```
 
 
