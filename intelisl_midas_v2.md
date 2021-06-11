@@ -13,16 +13,15 @@ github-id: intel-isl/MiDaS
 featured_image_1: midas_samples.png
 featured_image_2: no-image
 accelerator: cuda-optional
-demo-model: true
-demo-model-link: https://colab.research.google.com/drive/1ky76hYQJvMvup6GAfsVhvExSWWJmxR4Q?usp=sharing#scrollTo=WFnsv2SONMs7
+demo-model-link: https://colab.research.google.com/drive/12uRtndAmIQVvI8JZk_qsAJvc3WGVnbYf?authuser=0#scrollTo=wacHQxxjOCCl
 ---
 
 ### Model Description
 
-[MiDaS](https://arxiv.org/abs/1907.01341) computes relative inverse depth from a single image. The repository provides multiple models that cover different use cases ranging from a small, high-speed model to a very large model that provide the highest accuracy. The models have been trained on 10 distinct datasets using 
-multi-objective optimization to ensure high quality on a wide range of inputs. 
+[MiDaS](https://arxiv.org/abs/1907.01341) computes relative inverse depth from a single image. The repository provides multiple models that cover different use cases ranging from a small, high-speed model to a very large model that provide the highest accuracy. The models have been trained on 10 distinct datasets using
+multi-objective optimization to ensure high quality on a wide range of inputs.
 
-### Dependencies 
+### Dependencies
 
 MiDaS depends on [timm](https://github.com/rwightman/pytorch-image-models). Install with
 ```shell

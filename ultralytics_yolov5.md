@@ -13,8 +13,7 @@ github-id: ultralytics/yolov5
 featured_image_1: ultralytics_yolov5_img1.jpg
 featured_image_2: ultralytics_yolov5_img2.png
 accelerator: cuda-optional
-demo-model: true
-demo-model-link: https://colab.research.google.com/drive/1gTvmKK2008QnIqgFr0jn49p4x7fNrvfS?usp=sharing
+demo-model-link: https://colab.research.google.com/drive/1AiuBDleOUM5Vyq3Itq3edCjg5J8I719p?usp=sharing
 ---
 
 ## Before You Start
@@ -42,11 +41,11 @@ pip install -qr https://raw.githubusercontent.com/ultralytics/yolov5/master/requ
 
 <details>
   <summary>Table Notes (click to expand)</summary>
-  
-  * AP<sup>test</sup> denotes COCO [test-dev2017](http://cocodataset.org/#upload) server results, all other AP results denote val2017 accuracy.  
-  * AP values are for single-model single-scale unless otherwise noted. **Reproduce mAP** by `python test.py --data coco.yaml --img 640 --conf 0.001 --iou 0.65`  
-  * Speed<sub>GPU</sub> averaged over 5000 COCO val2017 images using a GCP [n1-standard-16](https://cloud.google.com/compute/docs/machine-types#n1_standard_machine_types) V100 instance, and includes FP16 inference, postprocessing and NMS. **Reproduce speed** by `python test.py --data coco.yaml --img 640 --conf 0.25 --iou 0.45`  
-  * All checkpoints are trained to 300 epochs with default settings and hyperparameters (no autoaugmentation). 
+
+  * AP<sup>test</sup> denotes COCO [test-dev2017](http://cocodataset.org/#upload) server results, all other AP results denote val2017 accuracy.
+  * AP values are for single-model single-scale unless otherwise noted. **Reproduce mAP** by `python test.py --data coco.yaml --img 640 --conf 0.001 --iou 0.65`
+  * Speed<sub>GPU</sub> averaged over 5000 COCO val2017 images using a GCP [n1-standard-16](https://cloud.google.com/compute/docs/machine-types#n1_standard_machine_types) V100 instance, and includes FP16 inference, postprocessing and NMS. **Reproduce speed** by `python test.py --data coco.yaml --img 640 --conf 0.25 --iou 0.45`
+  * All checkpoints are trained to 300 epochs with default settings and hyperparameters (no autoaugmentation).
   * Test Time Augmentation ([TTA](https://github.com/ultralytics/yolov5/issues/303)) includes reflection and scale augmentation. **Reproduce TTA** by `python test.py --data coco.yaml --img 1536 --iou 0.7 --augment`
 
 </details>
@@ -55,8 +54,8 @@ pip install -qr https://raw.githubusercontent.com/ultralytics/yolov5/master/requ
 
 <details>
   <summary>Figure Notes (click to expand)</summary>
-  
-  * GPU Speed measures end-to-end time per image averaged over 5000 COCO val2017 images using a V100 GPU with batch size 32, and includes image preprocessing, PyTorch FP16 inference, postprocessing and NMS. 
+
+  * GPU Speed measures end-to-end time per image averaged over 5000 COCO val2017 images using a V100 GPU with batch size 32, and includes image preprocessing, PyTorch FP16 inference, postprocessing and NMS.
   * EfficientDet data from [google/automl](https://github.com/google/automl) at batch size 8.
   * **Reproduce** by `python test.py --task study --data coco.yaml --iou 0.7 --weights yolov5s6.pt yolov5m6.pt yolov5l6.pt yolov5x6.pt`
 
@@ -102,7 +101,7 @@ results.pandas().xyxy[0]  # img1 predictions (pandas)
 ## Contact
 
 
-**Issues should be raised directly in https://github.com/ultralytics/yolov5.** For business inquiries or professional support requests please visit [https://ultralytics.com](https://ultralytics.com) or email Glenn Jocher at [glenn.jocher@ultralytics.com](mailto:glenn.jocher@ultralytics.com). 
+**Issues should be raised directly in https://github.com/ultralytics/yolov5.** For business inquiries or professional support requests please visit [https://ultralytics.com](https://ultralytics.com) or email Glenn Jocher at [glenn.jocher@ultralytics.com](mailto:glenn.jocher@ultralytics.com).
 
 
 &nbsp;

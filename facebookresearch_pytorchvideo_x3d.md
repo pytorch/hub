@@ -4,26 +4,27 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: X3D
-summary: X3D networks pretrained on the Kinetics 400 dataset  
-image: x3d.png 
+summary: X3D networks pretrained on the Kinetics 400 dataset
+image: x3d.png
 author: FAIR PyTorchVideo
 tags: [vision]
 github-link: https://github.com/facebookresearch/pytorchvideo
 github-id: facebookresearch/pytorchvideo
-featured_image_1: no-image 
+featured_image_1: no-image
 featured_image_2: no-image
-accelerator: “cuda-optional” 
+accelerator: “cuda-optional”
+demo-model-link: https://colab.research.google.com/drive/1k6wG3gHFnFpC-hAMpL_s0B3Xj_ahsa19#scrollTo=-BkJOZgxK0pe
 ---
 
 ### Example Usage
 
 #### Imports
 
-Load the model: 
+Load the model:
 
 ```python
 import torch
-# Choose the `x3d_s` model 
+# Choose the `x3d_s` model
 model_name = 'x3d_s'
 model = torch.hub.load('facebookresearch/pytorchvideo', model_name, pretrained=True)
 ```
@@ -51,7 +52,7 @@ from pytorchvideo.transforms import (
 
 Set the model to eval mode and move to desired device.
 
-```python 
+```python
 # Set to GPU or CPU
 device = "cpu"
 model = model.eval()
@@ -177,13 +178,13 @@ print("Top 5 predicted labels: %s" % ", ".join(pred_class_names))
 ```
 
 ### Model Description
-X3D model architectures are based on [1] pretrained on the Kinetics dataset. 
+X3D model architectures are based on [1] pretrained on the Kinetics dataset.
 
 | arch | depth | frame length x sample rate | top 1 | top 5 | Flops (G) | Params (M) |
 | --------------- | ----------- | ----------- | ----------- | ----------- | ----------- |  ----------- | ----------- |
 | X3D      | XS    | 4x12                       | 69.12 | 88.63 | 0.91      | 3.79     |
 | X3D      | S     | 13x6                       | 73.33 | 91.27 | 2.96      | 3.79     |
-| X3D      | M     | 16x5                       | 75.94 | 92.72 | 6.72      | 3.79     | 
+| X3D      | M     | 16x5                       | 75.94 | 92.72 | 6.72      | 3.79     |
 
 
 ### References
