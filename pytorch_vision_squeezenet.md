@@ -14,6 +14,7 @@ featured_image_1: squeezenet.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://colab.research.google.com/drive/1ew6BWenc9omDBTliy0TJsiKvvb9BQXNR
 ---
 
 ```python

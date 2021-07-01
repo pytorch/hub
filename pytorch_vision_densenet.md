@@ -14,6 +14,7 @@ featured_image_1: densenet1.png
 featured_image_2: densenet2.png
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://colab.research.google.com/drive/1zZGSyJUchpeIfMDgyzFTLRQF-uyX9sQN
 ---
 
 ```python

@@ -14,6 +14,7 @@ featured_image_1: alexnet1.png
 featured_image_2: alexnet2.png
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://colab.research.google.com/drive/1avee9yGqxf2cSE3AaYctXPilfibhXo3M
 ---
 
 ```python
