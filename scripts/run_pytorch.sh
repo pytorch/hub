@@ -18,6 +18,9 @@ do
   # FIXME: torch.nn.modules.module.ModuleAttributeError: 'autoShape' object has no attribute 'fuse'
   elif [[ $f = "ultralytics_yolov5"* ]]; then
     echo "...temporarily disabled"
+  elif [[ $f = "huggingface_pytorch-transformers"* ]]; then
+    echo "...temporarily disabled"
+  # FIXME: rate limiting
   else
     sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' > $TEMP_PY
     python $TEMP_PY
