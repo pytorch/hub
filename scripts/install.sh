@@ -17,6 +17,6 @@ conda install -y -c conda-forge librosa inflect
 pip install -q fastBPE sacremoses sentencepiece subword_nmt editdistance
 pip install -q visdom mistune filelock tokenizers packaging pandas
 pip install -q omegaconf timm seaborn importlib_metadata huggingface_hub
-pip install -q hydra-core opencv-python fvcore
+pip install -q hydra-core==1.0 opencv-python fvcore
 pip install -q --upgrade google-api-python-client
 pip install pytorchvideo
