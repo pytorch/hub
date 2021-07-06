@@ -14,6 +14,7 @@ featured_image_1: tacotron2_diagram.png
 featured_image_2: no-image
 accelerator: cuda
 order: 10
+demo-model-link: https://colab.research.google.com/drive/1OgWtMVvjMvV0_ujexBhgqQfZpnnfBOMy#scrollTo=dinuhyj_5zNC
 ---
 
 

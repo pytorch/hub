@@ -14,6 +14,7 @@ featured_image_1: inception_v3.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://colab.research.google.com/drive/1KPpTEcUa6KECkNfq1pYbBK8xBaMt1Eek
 ---
 
 ```python
