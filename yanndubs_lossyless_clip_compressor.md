@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 category: researchers
-title: CLIP Loassyless Compressor
+title: CLIP Compressor
 summary: Generic image compressor for classification tasks.
 image: clip_compressor_logo.png
 author: Yann Dubois
