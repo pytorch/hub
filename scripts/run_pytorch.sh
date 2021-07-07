@@ -21,6 +21,9 @@ do
   elif [[ $f = "huggingface_pytorch-transformers"* ]]; then
     echo "...temporarily disabled"
   # FIXME: rate limiting
+  elif [[ $f = "yanndubs_lossyless_clip_compressor"* ]]; then
+    echo "...skipped to avoid downloading a dataset"
+  # FIXME: avoid downloading dataset
   else
     sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' > $TEMP_PY
     python $TEMP_PY
