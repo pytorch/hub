@@ -19,15 +19,15 @@ demo-model-link: https://colab.research.google.com/drive/1j1mEt6VzgmLfSPrKZfwUTk
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg11', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg11', pretrained=True)
 # or any of these variants
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg11_bn', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg13', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg13_bn', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg16', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg16_bn', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg19', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg19_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg11_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg13', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg13_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg16', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg16_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg19', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg19_bn', pretrained=True)
 model.eval()
 ```
 

@@ -19,9 +19,9 @@ demo-model-link: https://colab.research.google.com/drive/1ew6BWenc9omDBTliy0TJsi
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'squeezenet1_0', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'squeezenet1_0', pretrained=True)
 # or
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'squeezenet1_1', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'squeezenet1_1', pretrained=True)
 model.eval()
 ```
 

@@ -19,7 +19,7 @@ demo-model-link: https://colab.research.google.com/drive/1KPpTEcUa6KECkNfq1pYbBK
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'inception_v3', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'inception_v3', pretrained=True)
 model.eval()
 ```
 
