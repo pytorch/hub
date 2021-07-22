@@ -19,7 +19,7 @@ demo-model-link: https://colab.research.google.com/drive/1p8lWqa2q0xxMccFGgGExoZ
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'shufflenet_v2_x1_0', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'shufflenet_v2_x1_0', pretrained=True)
 model.eval()
 ```
 

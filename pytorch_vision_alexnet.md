@@ -19,7 +19,7 @@ demo-model-link: https://colab.research.google.com/drive/1avee9yGqxf2cSE3AaYctXP
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'alexnet', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=True)
 model.eval()
 ```
 
