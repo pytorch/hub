@@ -6,6 +6,8 @@ ALL_FILE=$(find *.md ! -name README.md)
 TEMP_PY="temp.py"
 CUDAS="nvidia"
 
+declare -i error_code=0
+
 for f in $ALL_FILE
 do
   echo "Running pytorch example in $f"
@@ -23,9 +25,12 @@ do
   else
     sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' > $TEMP_PY
     python $TEMP_PY
+    error_code+=$?
 
     if [ -f "$TEMP_PY" ]; then
       rm $TEMP_PY
     fi
   fi
 done
+
+exit $error_code
