@@ -4,9 +4,7 @@ set -e
 conda activate base
 
 ALL_FILES=$(find *.md ! -name README.md)
-TEMP_PY="temp.py"
 PYTHON_CODE_DIR="python_code"
-CUDAS="nvidia"
 
 mkdir $PYTHON_CODE_DIR
 
