@@ -25,6 +25,9 @@ jobs:
           name: Run Pytorch scripts
           command: ./scripts/run_pytorch.sh
           no_output_timeout: 1h
+      - store_test_results:
+          path: test-results
+
 
 workflows:
   version: 2
