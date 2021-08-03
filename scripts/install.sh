@@ -9,6 +9,8 @@ conda install -y pytorch torchvision -c pytorch
 # Also install torchaudio
 conda install -y -c pytorch torchaudio
 
+conda install pytest
+
 # Dependencies required to load models
 conda install -y regex pillow tqdm boto3 requests numpy\
     h5py scipy matplotlib unidecode ipython pyyaml

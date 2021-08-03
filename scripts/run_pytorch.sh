@@ -3,30 +3,20 @@ set -e
 . ~/miniconda3/etc/profile.d/conda.sh
 conda activate base
 
-ALL_FILE=$(find *.md ! -name README.md)
+ALL_FILES=$(find *.md ! -name README.md)
 TEMP_PY="temp.py"
+PYTHON_CODE_DIR="python_code"
 CUDAS="nvidia"
 
-for f in $ALL_FILE
-do
-  echo "Running pytorch example in $f"
-  # FIXME: NVIDIA models checkoints are on cuda
-  if [[ $f = $CUDAS* ]]; then
-    echo "...skipped due to cuda checkpoints."
-  elif [[ $f = "pytorch_fairseq_translation"* ]]; then
-    echo "...temporarily disabled"
-  # FIXME: torch.nn.modules.module.ModuleAttributeError: 'autoShape' object has no attribute 'fuse'
-  elif [[ $f = "ultralytics_yolov5"* ]]; then
-    echo "...temporarily disabled"
-  elif [[ $f = "huggingface_pytorch-transformers"* ]]; then
-    echo "...temporarily disabled"
-  # FIXME: rate limiting
-  else
-    sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' > $TEMP_PY
-    python $TEMP_PY
+mkdir $PYTHON_CODE_DIR
 
-    if [ -f "$TEMP_PY" ]; then
-      rm $TEMP_PY
-    fi
-  fi
+for f in $ALL_FILES
+do
+  f_no_ext=${f%.md}  # remove .md extension
+  out_py=$PYTHON_CODE_DIR/$f_no_ext.py
+  echo "Extracting Python code from $f into $out_py"
+  sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' > $out_py
 done
+
+pytest -v -s test_run_python_code.py
+rm -r $PYTHON_CODE_DIR
