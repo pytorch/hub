@@ -10,6 +10,9 @@ CUDAS="nvidia"
 
 mkdir $PYTHON_CODE_DIR
 
+# Quick rundown: for each file we extract the python code that's within
+# the ``` markers and we put that code in a corresponding .py file in $PYTHON_CODE_DIR
+# Then we execute each of these python files with pytest in test_run_python_code.py
 for f in $ALL_FILES
 do
   f_no_ext=${f%.md}  # remove .md extension
