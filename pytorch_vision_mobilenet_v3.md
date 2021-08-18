@@ -2,24 +2,25 @@
 layout: hub_detail
 background-class: hub-background
 body-class: hub
-title: MobileNet v2
-summary: Efficient networks optimized for speed and memory, with residual blocks
+title: MobileNet v3
+summary: Highly Efficient networks optimized for speed and memory, with residual blocks
 category: researchers
-image: mobilenet_v2_1.png
+image: mobilenet_v3_1.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/mobilenetv2.py
+github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/mobilenetv3.py
 github-id: pytorch/vision
-featured_image_1: mobilenet_v2_1.png
-featured_image_2: mobilenet_v2_2.png
+featured_image_1: mobilenet_v3_1.png
+featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
-demo-model-link: https://colab.research.google.com/drive/1zjsamXNjQBsbvuR0y5-dDZgTO8XXun4A
 ---
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.10.0', 'mobilenet_v2', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'mobilenet_v3_small', pretrained=True)
+# or
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'mobilenet_v3_large', pretrained=True)
 model.eval()
 ```
 
@@ -83,13 +84,14 @@ for i in range(top5_prob.size(0)):
 
 ### Model Description
 
-The MobileNet v2 architecture is based on an inverted residual structure where the input and output of the residual block are thin bottleneck layers opposite to traditional residual models which use expanded representations in the input. MobileNet v2 uses lightweight depthwise convolutions to filter features in the intermediate expansion layer. Additionally, non-linearities in the narrow layers were removed in order to maintain representational power.
+The MobileNet v3 architecture is based some stuff.
 
-| Model structure | Top-1 error | Top-5 error |
-| --------------- | ----------- | ----------- |
-|  mobilenet_v2       | 28.12       | 9.71       |
+|  Model structure          | Top-1 error | Top-5 error |
+|  ------------------       | ----------- | ----------- |
+|  mobilenet_v3_large       | 25.95       | 8.66        |
+|  mobilenet_v3_small       | 32.33       | 12.59       |
 
 
 ### References
 
- - [MobileNetV2: Inverted Residuals and Linear Bottlenecks](https://arxiv.org/abs/1801.04381)
+ - [Searching for MobileNetV3](https://arxiv.org/abs/1905.02244)

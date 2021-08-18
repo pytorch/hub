@@ -2,23 +2,25 @@
 layout: hub_detail
 background-class: hub-background
 body-class: hub
-title: Deeplabv3-ResNet101
-summary: DeepLabV3 model with a ResNet-101 backbone
+title: FCN
+summary: Fully-Convolutional Network model with a ResNet-50 and ResNet-101 backbones
 category: researchers
-image: deeplab2.png
+image: fcn2.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/segmentation/deeplabv3.py
+github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/segmentation/fcn.py
 github-id: pytorch/vision
 featured_image_1: deeplab1.png
-featured_image_2: deeplab2.png
+featured_image_2: fcn2.png
 accelerator: cuda-optional
-order: 1
+order: 10
 ---
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.10.0', 'deeplabv3_resnet101', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'fcn_resnet50', pretrained=True)
+# or
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'fcn_resnet101', pretrained=True)
 model.eval()
 ```
 
@@ -29,7 +31,7 @@ and `std = [0.229, 0.224, 0.225]`.
 
 The model returns an `OrderedDict` with two Tensors that are of the same height and width as the input Tensor, but with 21 classes.
 `output['out']` contains the semantic masks, and `output['aux']` contains the auxillary loss values per-pixel. In inference mode, `output['aux']` is not useful.
-So, `output['out']` is of shape `(N, 21, H, W)`. More documentation can be found [here](https://pytorch.org/docs/stable/torchvision/models.html#object-detection-instance-segmentation-and-person-keypoint-detection).
+So, `output['out']` is of shape `(N, 21, H, W)`. More documentation can be found [here](https://pytorch.org/vision/stable/models.html#object-detection-instance-segmentation-and-person-keypoint-detection).
 
 
 ```python
@@ -83,18 +85,18 @@ plt.imshow(r)
 # plt.show()
 ```
 
-
 ### Model Description
 
-Deeplabv3-ResNet101 is constructed by a Deeplabv3 model with a ResNet-101 backbone.
-The pre-trained model has been trained on a subset of COCO train2017, on the 20 categories that are present in the Pascal VOC dataset.
+FCN-ResNet is constructed by a Fully-Convolutional Network model using respective ResNet-50 or ResNet-101 backbone.
+The pre-trained models have been trained on a subset of COCO train2017, on the 20 categories that are present in the Pascal VOC dataset.
 
 Their accuracies of the pre-trained models evaluated on COCO val2017 dataset are listed below.
 
-|    Model structure  |   Mean IOU  | Global Pixelwise Accuracy |
-| ------------------- | ----------- | --------------------------|
-| deeplabv3_resnet101 |   67.4      |   92.4                    |
+| Model structure |   Mean IOU  | Global Pixelwise Accuracy |
+| --------------- | ----------- | --------------------------|
+|  fcn_resnet50   |   60.5      |   91.4                    |
+|  fcn_resnet101  |   63.7      |   91.9                    |
 
 ### Resources
 
- - [Rethinking Atrous Convolution for Semantic Image Segmentation](https://arxiv.org/abs/1706.05587)
+ - [Fully Convolutional Networks for Semantic Segmentation](https://arxiv.org/abs/1605.06211)
