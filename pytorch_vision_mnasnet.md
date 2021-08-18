@@ -84,7 +84,7 @@ for i in range(top5_prob.size(0)):
 
 ### Model Description
 
-The MobileNet v3 architecture is based some stuff.
+The MnasNet v3 architecture is based on some stuff.
 
 |  Model structure  | Top-1 error | Top-5 error |
 |  ---------------  | ----------- | ----------- |

@@ -85,8 +85,7 @@ plt.imshow(r)
 
 ### Model Description
 
-FCN-ResNet is constructed by a Fully-Convolutional Network model using respective ResNet-50 or ResNet-101 backbone.
-The pre-trained models have been trained on a subset of COCO train2017, on the 20 categories that are present in the Pascal VOC dataset.
+LR-ASPP description here.
 
 Their accuracies of the pre-trained models evaluated on COCO val2017 dataset are listed below.
 
