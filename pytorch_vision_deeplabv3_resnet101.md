@@ -38,7 +38,7 @@ So, `output['out']` is of shape `(N, 21, H, W)`. More documentation can be found
 ```python
 # Download an example image from the pytorch website
 import urllib
-url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
+url, filename = ("https://github.com/pytorch/hub/raw/master/images/deeplab1.png", "deeplab1.png")
 try: urllib.URLopener().retrieve(url, filename)
 except: urllib.request.urlretrieve(url, filename)
 ```
@@ -48,6 +48,7 @@ except: urllib.request.urlretrieve(url, filename)
 from PIL import Image
 from torchvision import transforms
 input_image = Image.open(filename)
+input_image = input_image.convert("RGB")
 preprocess = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
@@ -89,7 +90,7 @@ plt.imshow(r)
 
 ### Model Description
 
-Deeplabv3-ResNet is constructed by a Deeplabv3 model using respective ResNet-50 or ResNet-101 backbone.
+Deeplabv3-ResNet is constructed by a Deeplabv3 model using a ResNet-50 or ResNet-101 backbone.
 Deeplabv3-MobileNetV3-Large is constructed by a Deeplabv3 model using the MobileNetV3 large backbone.
 The pre-trained model has been trained on a subset of COCO train2017, on the 20 categories that are present in the Pascal VOC dataset.
 

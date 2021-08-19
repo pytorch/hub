@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: FCN
-summary: Fully-Convolutional Network model with a ResNet-50 and ResNet-101 backbones
+summary: Fully-Convolutional Network model with ResNet-50 and ResNet-101 backbones
 category: researchers
 image: fcn2.png
 author: Pytorch Team
@@ -37,7 +37,7 @@ So, `output['out']` is of shape `(N, 21, H, W)`. More documentation can be found
 ```python
 # Download an example image from the pytorch website
 import urllib
-url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
+url, filename = ("https://github.com/pytorch/hub/raw/master/images/deeplab1.png", "deeplab1.png")
 try: urllib.URLopener().retrieve(url, filename)
 except: urllib.request.urlretrieve(url, filename)
 ```
@@ -47,6 +47,7 @@ except: urllib.request.urlretrieve(url, filename)
 from PIL import Image
 from torchvision import transforms
 input_image = Image.open(filename)
+input_image = input_image.convert("RGB")
 preprocess = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),

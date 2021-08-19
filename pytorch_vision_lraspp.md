@@ -11,7 +11,7 @@ tags: [vision, scriptable]
 github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/segmentation/lraspp.py
 github-id: pytorch/vision
 featured_image_1: deeplab1.png
-featured_image_2: no-image
+featured_image_2: lrsapp2.png
 accelerator: cuda-optional
 order: 10
 ---
@@ -35,7 +35,7 @@ So, `output['out']` is of shape `(N, 21, H, W)`. More documentation can be found
 ```python
 # Download an example image from the pytorch website
 import urllib
-url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
+url, filename = ("https://github.com/pytorch/hub/raw/master/images/deeplab1.png", "deeplab1.png")
 try: urllib.URLopener().retrieve(url, filename)
 except: urllib.request.urlretrieve(url, filename)
 ```
@@ -45,6 +45,7 @@ except: urllib.request.urlretrieve(url, filename)
 from PIL import Image
 from torchvision import transforms
 input_image = Image.open(filename)
+input_image = input_image.convert("RGB")
 preprocess = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
