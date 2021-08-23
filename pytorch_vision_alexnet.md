@@ -8,7 +8,7 @@ category: researchers
 image: alexnet2.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/alexnet.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/alexnet.py
 github-id: pytorch/vision
 featured_image_1: alexnet1.png
 featured_image_2: alexnet2.png
