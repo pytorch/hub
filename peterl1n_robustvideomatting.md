@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 category: researchers
-title: Robust Video Matting (RVM)
+title: Robust Video Matting
 summary: RVM is a matting network for background replacement tasks. It is trained on human subjects and supports high resolutions such as 4K/HD.
 image: rvm_logo.gif
 author: Peter Lin
