@@ -41,7 +41,7 @@ We recommend using the `mobilenetv3` backbone for most cases. We also provide a 
 We provide a simple inference function `convert_video`. You can use it to apply our model on your videos.
 
 ```sh
-$ pip install av pims tqdm
+pip install av pims tqdm
 ```
 
 ```python
