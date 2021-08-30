@@ -21,6 +21,8 @@ do
     echo "...temporarily disabled"
   elif [[ $f = "huggingface_pytorch-transformers"* ]]; then
     echo "...temporarily disabled"
+  elif [[ $f = "peterl1n_robustvideomatting"* ]]; then
+    echo "...temporarily disabled"
   # FIXME: TypeError: compose() got an unexpected keyword argument 'strict'
   elif [[ $f = "pytorch_fairseq_roberta"* ]]; then
     echo "...temporarily disabled"
