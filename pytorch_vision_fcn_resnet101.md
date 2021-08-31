@@ -8,7 +8,7 @@ category: researchers
 image: fcn2.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/segmentation/fcn.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/segmentation/fcn.py
 github-id: pytorch/vision
 featured_image_1: deeplab1.png
 featured_image_2: fcn2.png
