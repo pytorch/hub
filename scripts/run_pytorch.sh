@@ -19,4 +19,3 @@ do
 done
 
 pytest --junitxml=test-results/junit.xml -v -s test_run_python_code.py
-rm -r $PYTHON_CODE_DIR
