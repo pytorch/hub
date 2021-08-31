@@ -4,10 +4,7 @@ set -e
 . ~/miniconda3/etc/profile.d/conda.sh
 conda activate base
 
-# Install the latest release of pytorch and torchvision
-conda install -y pytorch torchvision -c pytorch
-# Also install torchaudio
-conda install -y -c pytorch torchaudio
+conda install -y pytorch torchvision torchaudio -c pytorch-nightly
 
 conda install -y pytest
 
