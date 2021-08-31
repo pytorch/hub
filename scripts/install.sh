@@ -6,6 +6,8 @@ conda activate base
 
 conda install -y pytorch torchvision torchaudio -c pytorch-nightly
 
+conda install -y pytest
+
 # Dependencies required to load models
 conda install -y regex pillow tqdm boto3 requests numpy\
     h5py scipy matplotlib unidecode ipython pyyaml
