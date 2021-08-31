@@ -1,8 +1,10 @@
+import importlib
 import pytest
 import glob
 
 
-ALL_FILES = glob.glob("python_code/*.py")
+PYTHON_CODE_DIR = "python_code"
+ALL_FILES = glob.glob(PYTHON_CODE_DIR + "/*.py")
 
 
 @pytest.mark.parametrize('file_path', ALL_FILES)
@@ -21,4 +23,5 @@ def test_run_file(file_path):
     if 'pytorch_fairseq_roberta' in file_path:
         pytest.skip("temporarily disabled")
 
-    exec(open(file_path).read())
+    module = file_path[:-3].replace('/', '.')  # :-3 to remove the .py extension
+    importlib.import_module(module)
