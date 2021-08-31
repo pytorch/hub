@@ -4,9 +4,7 @@ set -e
 . ~/miniconda3/etc/profile.d/conda.sh
 conda activate base
 
-conda install -y pytorch torchvision -c pytorch-nightly
-# Also install torchaudio
-conda install -y -c pytorch-nightly torchaudio
+conda install -y pytorch torchvision torchaudio -c pytorch-nightly
 
 # Dependencies required to load models
 conda install -y regex pillow tqdm boto3 requests numpy\
