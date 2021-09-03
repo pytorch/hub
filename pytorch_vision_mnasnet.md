@@ -8,7 +8,7 @@ category: researchers
 image: mnasnet_1.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/mnasnet.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/mnasnet.py
 github-id: pytorch/vision
 featured_image_1: mnasnet_1.png
 featured_image_2: no-image
