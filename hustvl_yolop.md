@@ -1,4 +1,3 @@
-```
 ---
 layout: hub_detail
 background-class: hub-background
@@ -13,8 +12,8 @@ github-link: https://github.com/hustvl/YOLOP
 github-id: hustvl/YOLOP
 featured_image_1: no-image
 featured_image_2: no-image
-accelerator: cuda-optional
-```
+accelerator: cuda, tensorRT
+---
 
 ### You Only 👀 Once for Panoptic 🚗 Perception
 
