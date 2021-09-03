@@ -16,18 +16,12 @@ accelerator: cuda, tensorRT
 ---
 
 ### You Only 👀 Once for Panoptic 🚗 Perception
+**by [hustvl](https://github.com/hustvl)**
 
-> [**You Only Look at Once for Panoptic  driving Perception**](https://arxiv.org/abs/2108.11250)
->
-> by Dong Wu, Manwen Liao, Weitian Zhang, [Xinggang Wang](https://xinggangw.info/) 📧 [*School of EIC, HUST*](http://eic.hust.edu.cn/English/Home.htm)
->
-> (📧) corresponding author.
->
-> *arXiv technical report ([arXiv 2108.11250](https://arxiv.org/abs/2108.11250))*
->
-> github code([arXiv 2108.11250](https://arxiv.org/abs/2108.11250))
+**arXiv technical report ([arXiv 2108.11250](https://arxiv.org/abs/2108.11250))**
 
-------
+**github code([hustvl/YOLOP](https://arxiv.org/abs/2108.11250))**
+
 
 #### The Illustration of YOLOP
 
@@ -92,7 +86,6 @@ accelerator: cuda, tensorRT
 
 - In table 4, E, D, S and W refer to Encoder, Detect head, two Segment heads and whole network. So the Algorithm (First, we only train Encoder and Detect head. Then we freeze the Encoder and Detect head as well as train two Segmentation heads. Finally, the entire network is trained jointly for all three tasks.) can be marked as ED-S-W, and the same for others.
 
-------
 
 #### Visualization
 
@@ -115,7 +108,6 @@ accelerator: cuda, tensorRT
 
 - The visualization of lane detection result has been post processed by quadratic fitting.
 
-------
 
 #### Demonstration
 
@@ -134,7 +126,7 @@ See for more detail in [github code](https://github.com/hustvl/YOLOP) and [arxiv
 
 If you find our paper and code useful for your research, please consider giving a star ⭐ and citation 📝 :
 
-```
+```BibTeX
 @misc{2108.11250,
 Author = {Dong Wu and Manwen Liao and Weitian Zhang and Xinggang Wang},
 Title = {YOLOP: You Only Look Once for Panoptic Driving Perception},
