@@ -31,7 +31,8 @@ accelerator: cuda, tensorRT
 
 #### The Illustration of YOLOP
 
-[![yolop](https://github.com/hustvl/YOLOP/raw/main/pictures/yolop.png)](https://github.com/hustvl/YOLOP/blob/main/pictures/yolop.png)
+<img width="800" alt="YOLOP Model" src="https://github.com/hustvl/YOLOP/raw/main/pictures/yolop.png">
+&nbsp;
 
 #### Contributions
 
@@ -97,15 +98,18 @@ accelerator: cuda, tensorRT
 
 ##### Traffic Object Detection Result
 
-[![detect result](https://github.com/hustvl/YOLOP/raw/main/pictures/detect.png)](https://github.com/hustvl/YOLOP/blob/main/pictures/detect.png)
+<img width="800" alt="Traffic Object Detection Result" src="https://github.com/hustvl/YOLOP/blob/main/pictures/detect.png">
+&nbsp;
 
 ##### Drivable Area Segmentation Result
 
-[![img](https://github.com/hustvl/YOLOP/raw/main/pictures/da.png)](https://github.com/hustvl/YOLOP/blob/main/pictures/da.png)
+<img width="800" alt="Drivable Area Segmentation Result" src="https://github.com/hustvl/YOLOP/raw/main/pictures/da.png">
+&nbsp;
 
 ##### Lane Detection Result
 
-[![img](https://github.com/hustvl/YOLOP/raw/main/pictures/ll.png)](https://github.com/hustvl/YOLOP/blob/main/pictures/ll.png)
+<img width="800" alt="Lane Detection Result" src="https://github.com/hustvl/YOLOP/blob/main/pictures/ll.png">
+&nbsp;
 
 **Notes**:
 
@@ -117,8 +121,8 @@ accelerator: cuda, tensorRT
 
 | input                                                        | output                                                       |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [![img](https://github.com/hustvl/YOLOP/raw/main/pictures/input1.gif/)](https://github.com/hustvl/YOLOP/blob/main/pictures/input1.gif/) | [![img](https://github.com/hustvl/YOLOP/raw/main/pictures/output1.gif/)](https://github.com/hustvl/YOLOP/blob/main/pictures/output1.gif/) |
-| [![img](https://github.com/hustvl/YOLOP/raw/main/pictures/input2.gif/)](https://github.com/hustvl/YOLOP/blob/main/pictures/input2.gif/) | [![img](https://github.com/hustvl/YOLOP/raw/main/pictures/output2.gif/)](https://github.com/hustvl/YOLOP/blob/main/pictures/output2.gif/) |
+| <img width="400" alt="input1" src="https://github.com/hustvl/YOLOP/blob/main/pictures/input1.gif">| <img width="400" alt="output1" src="https://github.com/hustvl/YOLOP/blob/main/pictures/output1.gif"> |
+| <img width="400" alt="input2" src="https://github.com/hustvl/YOLOP/blob/main/pictures/input2.gif">| <img width="400" alt="output2" src="https://github.com/hustvl/YOLOP/blob/main/pictures/output2.gif"> |
 
 #### Deployment
 
