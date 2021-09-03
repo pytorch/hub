@@ -15,7 +15,7 @@ featured_image_2: no-image
 accelerator: cuda-optional
 ---
 
-### You Only 👀 Once for Panoptic 🚗 Perception
+### You Only Look Once for Panoptic driving Perception
 **by [hustvl](https://github.com/hustvl)**
 
 **arXiv technical report ([arXiv 2108.11250](https://arxiv.org/abs/2108.11250))**
@@ -124,7 +124,7 @@ Our model can reason in real-time on `Jetson Tx2`, with `Zed Camera` to capture 
 
 See for more detail in [github code](https://github.com/hustvl/YOLOP) and [arxiv paper](https://arxiv.org/abs/2108.11250).
 
-If you find our paper and code useful for your research, please consider giving a star ⭐ and citation 📝 :
+If you find our paper and code useful for your research, please consider giving a star and citation:
 
 ### References
 
