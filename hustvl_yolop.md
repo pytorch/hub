@@ -7,7 +7,7 @@ title: YOLOP
 summary: YOLOP pretrained on the BDD100K dataset
 image: yolop.png
 author: hustvl
-tags: [vision, scriptable]
+tags: [vision]
 github-link: https://github.com/hustvl/YOLOP
 github-id: hustvl/YOLOP
 featured_image_1: no-image
