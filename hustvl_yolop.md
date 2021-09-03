@@ -12,7 +12,7 @@ github-link: https://github.com/hustvl/YOLOP
 github-id: hustvl/YOLOP
 featured_image_1: no-image
 featured_image_2: no-image
-accelerator: cuda, tensorRT
+accelerator: cuda-optional
 ---
 
 ### You Only 👀 Once for Panoptic 🚗 Perception
@@ -125,17 +125,6 @@ Our model can reason in real-time on `Jetson Tx2`, with `Zed Camera` to capture 
 See for more detail in [github code](https://github.com/hustvl/YOLOP) and [arxiv paper](https://arxiv.org/abs/2108.11250).
 
 If you find our paper and code useful for your research, please consider giving a star ⭐ and citation 📝 :
-
-```BibTeX
-@misc{2108.11250,
-Author = {Dong Wu and Manwen Liao and Weitian Zhang and Xinggang Wang},
-Title = {YOLOP: You Only Look Once for Panoptic Driving Perception},
-Year = {2021},
-Eprint = {arXiv:2108.11250},
-}
-```
-
-
 
 ### References
 
