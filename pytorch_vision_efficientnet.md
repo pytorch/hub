@@ -5,12 +5,12 @@ body-class: hub
 title: EfficientNet
 summary: Memory and Performance Efficient Networks with 8 configurations.
 category: researchers
-image: mobilenet_v3_1.png
+image: efficientnet1.png
 author: Pytorch Team
 tags: [vision, scriptable]
 github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/efficientnet.py
 github-id: pytorch/vision
-featured_image_1: mobilenet_v3_1.png
+featured_image_1: efficientnet1.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
@@ -90,7 +90,7 @@ for i in range(top5_prob.size(0)):
 
 ### Model Description
 
-The MobileNet v3 architecture is based some stuff.
+The EfficientNet architecture description.
 
 |  Model structure          | Top-1 error | Top-5 error |
 |  ------------------       | ----------- | ----------- |
@@ -107,3 +107,4 @@ The MobileNet v3 architecture is based some stuff.
 ### References
 
  - [EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks](https://arxiv.org/abs/1905.11946)
+ - [EfficientNet Blog by Google Research](https://ai.googleblog.com/2019/05/efficientnet-improving-accuracy-and.html)

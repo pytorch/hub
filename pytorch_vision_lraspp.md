@@ -5,10 +5,10 @@ body-class: hub
 title: LR-ASPP
 summary: Lite Reduced Atrous Spatial Pyramid Pooling model with MobileNetV3-Large backbone.
 category: researchers
-image: deeplab2.png
+image: lrsapp2.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/segmentation/lraspp.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/segmentation/lraspp.py
 github-id: pytorch/vision
 featured_image_1: deeplab1.png
 featured_image_2: lrsapp2.png
@@ -97,3 +97,4 @@ Their accuracies of the pre-trained models evaluated on COCO val2017 dataset are
 ### Resources
 
  - [Searching for MobileNetV3](https://arxiv.org/abs/1905.02244)
+ - [PyTorch Blog on Training LRSAPP Model](https://pytorch.org/blog/torchvision-mobilenet-v3-implementation)

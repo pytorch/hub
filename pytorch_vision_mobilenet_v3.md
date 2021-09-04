@@ -95,3 +95,4 @@ The MobileNet v3 architecture is based some stuff.
 ### References
 
  - [Searching for MobileNetV3](https://arxiv.org/abs/1905.02244)
+ - [PyTorch Blog on Training MobileNetV3](https://pytorch.org/blog/torchvision-mobilenet-v3-implementation)
