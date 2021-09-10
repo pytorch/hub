@@ -14,13 +14,8 @@ featured_image_1: no-image
 featured_image_2: no-image
 accelerator: cuda-optional
 ---
-### You Only Look Once for Panoptic driving Perception
-**by [hustvl](https://github.com/hustvl)**
-
-**arXiv technical report ([arXiv 2108.11250](https://arxiv.org/abs/2108.11250))**
-
-**github code([hustvl/YOLOP](https://arxiv.org/abs/2108.11250))**
-
+### YOLOP: You Only Look Once for Panoptic driving Perception
+**By [hustvl](https://github.com/hustvl)**
 
 #### The Illustration of YOLOP
 
