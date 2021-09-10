@@ -14,7 +14,6 @@ featured_image_1: no-image
 featured_image_2: no-image
 accelerator: cuda-optional
 ---
-
 ### You Only Look Once for Panoptic driving Perception
 **by [hustvl](https://github.com/hustvl)**
 
@@ -28,10 +27,8 @@ accelerator: cuda-optional
 <img width="800" alt="YOLOP Model" src="https://github.com/hustvl/YOLOP/raw/main/pictures/yolop.png">
 &nbsp;
 
-#### Contributions
+- YOLOP is an efficient multi-task network that can jointly handle three crucial tasks in autonomous driving: object detection, drivable area segmentation and lane detection. And it is also the first to reach real-time on embedded devices while maintaining state-of-the-art level performance on the `BDD100K `dataset.
 
-- We put forward an efficient multi-task network that can jointly handle three crucial tasks in autonomous driving: object detection, drivable area segmentation and lane detection to save computational costs, reduce inference time as well as improve the performance of each task. Our work is the first to reach real-time on embedded devices while maintaining state-of-the-art level performance on the `BDD100K `dataset.
-- We design the ablative experiments to verify the effectiveness of our multi-tasking scheme. It is proved that the three tasks can be learned jointly without tedious alternating optimization.
 
 #### Results
 
@@ -86,7 +83,6 @@ accelerator: cuda-optional
 
 - In table 4, E, D, S and W refer to Encoder, Detect head, two Segment heads and whole network. So the Algorithm (First, we only train Encoder and Detect head. Then we freeze the Encoder and Detect head as well as train two Segmentation heads. Finally, the entire network is trained jointly for all three tasks.) can be marked as ED-S-W, and the same for others.
 
-
 #### Visualization
 
 ##### Traffic Object Detection Result
@@ -108,14 +104,6 @@ accelerator: cuda-optional
 
 - The visualization of lane detection result has been post processed by quadratic fitting.
 
-
-#### Demonstration
-
-| input                                                        | output                                                       |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img width="400" alt="input1" src="https://github.com/hustvl/YOLOP/blob/main/pictures/input1.gif">| <img width="400" alt="output1" src="https://github.com/hustvl/YOLOP/blob/main/pictures/output1.gif"> |
-| <img width="400" alt="input2" src="https://github.com/hustvl/YOLOP/blob/main/pictures/input2.gif">| <img width="400" alt="output2" src="https://github.com/hustvl/YOLOP/blob/main/pictures/output2.gif"> |
-
 #### Deployment
 
 Our model can reason in real-time on `Jetson Tx2`, with `Zed Camera` to capture image. We use `TensorRT` tool for speeding up. We provide code for deployment and reasoning of model in [github code](https://github.com/hustvl/YOLOP/tree/main/toolkits/deploy).
@@ -125,7 +113,3 @@ Our model can reason in real-time on `Jetson Tx2`, with `Zed Camera` to capture 
 See for more detail in [github code](https://github.com/hustvl/YOLOP) and [arxiv paper](https://arxiv.org/abs/2108.11250).
 
 If you find our paper and code useful for your research, please consider giving a star and citation:
-
-### References
-
-The works we has use for reference including `Multinet` ([paper](https://arxiv.org/pdf/1612.07695.pdf?utm_campaign=affiliate-ir-Optimise media( South East Asia) Pte. ltd._156_-99_national_R_all_ACQ_cpa_en&utm_content=&utm_source= 388939),[code](https://github.com/MarvinTeichmann/MultiNet)）,`DLT-Net` ([paper](https://ieeexplore.ieee.org/abstract/document/8937825)）,`Faster R-CNN` ([paper](https://proceedings.neurips.cc/paper/2015/file/14bfa6bb14875e45bba028a21ed38046-Paper.pdf),[code](https://github.com/ShaoqingRen/faster_rcnn)）,`YOLOv5s`（[code](https://github.com/ultralytics/yolov5)) ,`PSPNet`([paper](https://openaccess.thecvf.com/content_cvpr_2017/papers/Zhao_Pyramid_Scene_Parsing_CVPR_2017_paper.pdf),[code](https://github.com/hszhao/PSPNet)) ,`ENet`([paper](https://arxiv.org/pdf/1606.02147.pdf),[code](https://github.com/osmr/imgclsmob)) `SCNN`([paper](https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/download/16802/16322),[code](https://github.com/XingangPan/SCNN)) `SAD-ENet`([paper](https://openaccess.thecvf.com/content_ICCV_2019/papers/Hou_Learning_Lightweight_Lane_Detection_CNNs_by_Self_Attention_Distillation_ICCV_2019_paper.pdf),[code](https://github.com/cardwing/Codes-for-Lane-Detection)). Thanks for their wonderful works.
