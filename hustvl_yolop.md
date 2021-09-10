@@ -17,8 +17,12 @@ accelerator: cuda-optional
 ## Before You Start
 Start from a **Python>=3.8** environment with **PyTorch>=1.7** installed. To install PyTorch see [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/). To install YOLOv5 dependencies:
 ```bash
-pip install -qr https://raw.githubusercontent.com/ultralytics/yolov5/master/requirements.txt  # install dependencies
-
+conda install pytorch==1.7.0 torchvision==0.8.0 cudatoolkit=10.2 -c pytorchconda install pytorch==1.7.0 torchvision==0.8.0 cudatoolkit=10.2 -c pytorch
+```
+To install YOLOP dependencies:
+```bash
+pip install -qr https://github.com/hustvl/YOLOP/blob/main/requirements.txt  # install dependencies
+```
 
 
 ## YOLOP: You Only Look Once for Panoptic driving Perception
