@@ -14,9 +14,9 @@ featured_image_1: no-image
 featured_image_2: no-image
 accelerator: cuda-optional
 ---
-### YOLOP: You Only Look Once for Panoptic driving Perception
+## YOLOP: You Only Look Once for Panoptic driving Perception
 
-#### The Illustration of YOLOP
+### The Illustration of YOLOP
 
 <img width="800" alt="YOLOP Model" src="https://github.com/hustvl/YOLOP/raw/main/pictures/yolop.png">
 &nbsp;
@@ -24,9 +24,9 @@ accelerator: cuda-optional
 - YOLOP is an efficient multi-task network that can jointly handle three crucial tasks in autonomous driving: object detection, drivable area segmentation and lane detection. And it is also the first to reach real-time on embedded devices while maintaining state-of-the-art level performance on the `BDD100K `dataset.
 
 
-#### Results
+### Results
 
-##### Traffic Object Detection Result
+#### Traffic Object Detection Result
 
 | Model          | Recall(%) | mAP50(%) | Speed(fps) |
 | -------------- | --------- | -------- | ---------- |
@@ -36,7 +36,7 @@ accelerator: cuda-optional
 | `YOLOv5s`      | 86.8      | 77.2     | 82         |
 | `YOLOP(ours)`  | 89.2      | 76.5     | 41         |
 
-##### Drivable Area Segmentation Result
+#### Drivable Area Segmentation Result
 
 | Model         | mIOU(%) | Speed(fps) |
 | ------------- | ------- | ---------- |
@@ -45,7 +45,7 @@ accelerator: cuda-optional
 | `PSPNet`      | 89.6    | 11.1       |
 | `YOLOP(ours)` | 91.5    | 41         |
 
-##### Lane Detection Result:
+#### Lane Detection Result:
 
 | Model         | mIOU(%) | IOU(%) |
 | ------------- | ------- | ------ |
@@ -54,7 +54,7 @@ accelerator: cuda-optional
 | `ENet-SAD`    | 36.56   | 16.02  |
 | `YOLOP(ours)` | 70.50   | 26.20  |
 
-##### Ablation Studies 1: End-to-end v.s. Step-by-step:
+#### Ablation Studies 1: End-to-end v.s. Step-by-step:
 
 | Training_method | Recall(%) | AP(%) | mIoU(%) | Accuracy(%) | IoU(%) |
 | --------------- | --------- | ----- | ------- | ----------- | ------ |
@@ -64,7 +64,7 @@ accelerator: cuda-optional
 | `ED-S-W`        | 87.5      | 76.1  | 91.6    | 68.0        | 26.8   |
 | `End-to-end`    | 89.2      | 76.5  | 91.5    | 70.5        | 26.2   |
 
-##### Ablation Studies 2: Multi-task v.s. Single task:
+#### Ablation Studies 2: Multi-task v.s. Single task:
 
 | Training_method | Recall(%) | AP(%) | mIoU(%) | Accuracy(%) | IoU(%) | Speed(ms/frame) |
 | --------------- | --------- | ----- | ------- | ----------- | ------ | --------------- |
@@ -77,19 +77,19 @@ accelerator: cuda-optional
 
 - In table 4, E, D, S and W refer to Encoder, Detect head, two Segment heads and whole network. So the Algorithm (First, we only train Encoder and Detect head. Then we freeze the Encoder and Detect head as well as train two Segmentation heads. Finally, the entire network is trained jointly for all three tasks.) can be marked as ED-S-W, and the same for others.
 
-#### Visualization
+### Visualization
 
-##### Traffic Object Detection Result
+#### Traffic Object Detection Result
 
 <img width="800" alt="Traffic Object Detection Result" src="https://github.com/hustvl/YOLOP/blob/main/pictures/detect.png">
 &nbsp;
 
-##### Drivable Area Segmentation Result
+#### Drivable Area Segmentation Result
 
 <img width="800" alt="Drivable Area Segmentation Result" src="https://github.com/hustvl/YOLOP/raw/main/pictures/da.png">
 &nbsp;
 
-##### Lane Detection Result
+#### Lane Detection Result
 
 <img width="800" alt="Lane Detection Result" src="https://github.com/hustvl/YOLOP/blob/main/pictures/ll.png">
 &nbsp;
@@ -98,11 +98,11 @@ accelerator: cuda-optional
 
 - The visualization of lane detection result has been post processed by quadratic fitting.
 
-#### Deployment
+### Deployment
 
 Our model can reason in real-time on `Jetson Tx2`, with `Zed Camera` to capture image. We use `TensorRT` tool for speeding up. We provide code for deployment and reasoning of model in [github code](https://github.com/hustvl/YOLOP/tree/main/toolkits/deploy).
 
-#### Citation
+### Citation
 
 See for more detail in [github code](https://github.com/hustvl/YOLOP) and [arxiv paper](https://arxiv.org/abs/2108.11250).
 
