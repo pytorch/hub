@@ -27,7 +27,7 @@ pip install -qr https://github.com/hustvl/YOLOP/blob/main/requirements.txt  # in
 
 ## YOLOP: You Only Look Once for Panoptic driving Perception
 
-### The Illustration of YOLOP
+### Model Description
 
 <img width="800" alt="YOLOP Model" src="https://github.com/hustvl/YOLOP/raw/main/pictures/yolop.png">
 &nbsp;
@@ -56,7 +56,7 @@ pip install -qr https://github.com/hustvl/YOLOP/blob/main/requirements.txt  # in
 | `PSPNet`      | 89.6    | 11.1       |
 | `YOLOP(ours)` | 91.5    | 41         |
 
-#### Lane Detection Result:
+#### Lane Detection Result
 
 | Model         | mIOU(%) | IOU(%) |
 | ------------- | ------- | ------ |
@@ -65,7 +65,7 @@ pip install -qr https://github.com/hustvl/YOLOP/blob/main/requirements.txt  # in
 | `ENet-SAD`    | 36.56   | 16.02  |
 | `YOLOP(ours)` | 70.50   | 26.20  |
 
-#### Ablation Studies 1: End-to-end v.s. Step-by-step:
+#### Ablation Studies 1: End-to-end v.s. Step-by-step
 
 | Training_method | Recall(%) | AP(%) | mIoU(%) | Accuracy(%) | IoU(%) |
 | --------------- | --------- | ----- | ------- | ----------- | ------ |
@@ -75,7 +75,7 @@ pip install -qr https://github.com/hustvl/YOLOP/blob/main/requirements.txt  # in
 | `ED-S-W`        | 87.5      | 76.1  | 91.6    | 68.0        | 26.8   |
 | `End-to-end`    | 89.2      | 76.5  | 91.5    | 70.5        | 26.2   |
 
-#### Ablation Studies 2: Multi-task v.s. Single task:
+#### Ablation Studies 2: Multi-task v.s. Single task
 
 | Training_method | Recall(%) | AP(%) | mIoU(%) | Accuracy(%) | IoU(%) | Speed(ms/frame) |
 | --------------- | --------- | ----- | ------- | ----------- | ------ | --------------- |
