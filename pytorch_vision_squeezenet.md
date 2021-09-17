@@ -8,7 +8,7 @@ category: researchers
 image: squeezenet.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/squeezenet.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/squeezenet.py
 github-id: pytorch/vision
 featured_image_1: squeezenet.png
 featured_image_2: no-image
