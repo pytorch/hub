@@ -19,4 +19,3 @@ pip install -q omegaconf timm seaborn importlib_metadata huggingface_hub
 pip install -q hydra-core opencv-python fvcore
 pip install -q --upgrade google-api-python-client
 pip install pytorchvideo
-pip install cython bitarray fastBPE hydra-core omegaconf regex requests sacremoses subword_nmt  # for fairseq_translation
