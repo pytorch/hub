@@ -34,7 +34,7 @@ over the original model. More details can be found in [this blog post][2].
 We require a few additional Python dependencies for preprocessing:
 
 ```bash
-pip install fastBPE regex requests sacremoses subword_nmt
+pip install bitarray fastBPE hydra-core omegaconf regex requests sacremoses subword_nmt
 ```
 
 
