@@ -3,12 +3,12 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 category: researchers
-<!-- Only change fields below(remove this line before submitting a PR) -->
+<!-- Only change fields below(remove this line before submitting a PR). Take inspiration e.g. from pytorch_vision_fcn_resnet101.md -->
 title: <REQUIRED: short model name>
 summary: <REQUIRED: 1-2 sentences>
 image: <REQUIRED: best image to represent your model>
 author: <REQUIRED>
-tags: <REQUIRED: [tag1, tag2, ...]>
+tags: <REQUIRED: [tag1, tag2, ...]. Allowed tags are vision, nlp, generative, audio, scriptable>
 github-link: <REQUIRED>
 github-id: <REQUIRED: top level of repo>
 featured_image_1: <OPTIONAL: use no-image if not applicable>
