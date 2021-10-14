@@ -6,7 +6,7 @@ category: researchers
 title: YOLOP
 summary: YOLOP pretrained on the BDD100K dataset
 image: yolop.png
-author: hustvl
+author: Hust Visual Learning Team
 tags: [vision]
 github-link: https://github.com/hustvl/YOLOP
 github-id: hustvl/YOLOP
@@ -112,6 +112,19 @@ pip install -qr https://github.com/hustvl/YOLOP/blob/main/requirements.txt  # in
 ### Deployment
 
 Our model can reason in real-time on **Jetson Tx2**, with **Zed Camera** to capture image. We use **TensorRT** tool for speeding up. We provide code for deployment and reasoning of model in [github code](https://github.com/hustvl/YOLOP/tree/main/toolkits/deploy).
+
+### Load From PyTorch Hub
+This example loads a pretrained **YOLOP** model and passes an image for inference.
+```python
+import torch
+
+# load model
+model = torch.hub.load('hustvl/yolop', 'yolov5s', pretrained=True)
+
+#inference
+img = torch.randn([1,3,640,640])
+det_out, da_seg_out,ll_seg_out = model(img)
+```
 
 ### Citation
 
