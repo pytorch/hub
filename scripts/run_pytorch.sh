@@ -16,7 +16,7 @@ do
   out_py=$PYTHON_CODE_DIR/$f_no_ext.py
   echo "Extracting Python code from $f into $out_py"
   echo "import lol_hub" > $out_py
-  sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' | sed 's/torch.hub/lol_hub/g' >> $out_py
+  sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' | sed 's/torch\.hub/lol_hub/g' >> $out_py
 done
 
 mv lol_hub.py $PYTHON_CODE_DIR/lol_hub.py
