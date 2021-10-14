@@ -113,6 +113,7 @@ pip install -qr https://github.com/hustvl/YOLOP/blob/main/requirements.txt  # in
 
 Our model can reason in real-time on **Jetson Tx2**, with **Zed Camera** to capture image. We use **TensorRT** tool for speeding up. We provide code for deployment and reasoning of model in [github code](https://github.com/hustvl/YOLOP/tree/main/toolkits/deploy).
 
+
 ### Load From PyTorch Hub
 This example loads a pretrained **YOLOP** model and passes an image for inference.
 ```python
