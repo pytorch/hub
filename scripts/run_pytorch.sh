@@ -20,5 +20,4 @@ do
 done
 
 mv lol_hub.py $PYTHON_CODE_DIR/lol_hub.py
-
 pytest --junitxml=test-results/junit.xml test_run_python_code.py -vv

@@ -282,6 +282,7 @@ def set_dir(d):
     _hub_dir = d
 
 
+@_restore_import_cache
 def list(github, force_reload=False, skip_validation=False):
     r"""
     List all callable entrypoints available in the repo specified by ``github``.
@@ -318,6 +319,7 @@ def list(github, force_reload=False, skip_validation=False):
     return entrypoints
 
 
+@_restore_import_cache
 def help(github, model, force_reload=False, skip_validation=False):
     r"""
     Show the docstring of entrypoint ``model``.
