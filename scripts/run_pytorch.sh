@@ -15,7 +15,8 @@ do
   f_no_ext=${f%.md}  # remove .md extension
   out_py=$PYTHON_CODE_DIR/$f_no_ext.py
   echo "Extracting Python code from $f into $out_py"
-  sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' > $out_py
+  echo "import lol_hub" > $out_py
+  sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' | sed 's/torch.hub/lol_hub/g' >> $out_py
 done
 
 pytest --junitxml=test-results/junit.xml test_run_python_code.py -vv
