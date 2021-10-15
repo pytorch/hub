@@ -17,7 +17,7 @@ accelerator: cuda-optional
 
 
 ```bash
-# assuming you have a PyTorch >=1.9.0 installed
+# assuming you have a PyTorch >=1.6.0 installed
 pip install -q torchaudio
 ```
 
