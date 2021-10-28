@@ -115,7 +115,7 @@ Our model can reason in real-time on **Jetson Tx2**, with **Zed Camera** to capt
 
 
 ### Load From PyTorch Hub
-This example loads  pretrained **YOLOP** model and passes an image for inference.
+This example loads the pretrained **YOLOP** model and passes an image for inference.
 ```python
 import torch
 
