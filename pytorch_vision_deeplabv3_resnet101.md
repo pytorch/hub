@@ -2,8 +2,8 @@
 layout: hub_detail
 background-class: hub-background
 body-class: hub
-title: Deeplabv3-ResNet101
-summary: DeepLabV3 model with a ResNet-101 backbone
+title: Deeplabv3
+summary: DeepLabV3 models with ResNet-50, ResNet-101 and MobileNet-V3 backbones
 category: researchers
 image: deeplab2.png
 author: Pytorch Team
@@ -18,7 +18,10 @@ order: 1
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.10.0', 'deeplabv3_resnet101', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'deeplabv3_resnet50', pretrained=True)
+# or any of these variants
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'deeplabv3_resnet101', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'deeplabv3_mobilenet_v3_large', pretrained=True)
 model.eval()
 ```
 
@@ -28,14 +31,14 @@ The images have to be loaded in to a range of `[0, 1]` and then normalized using
 and `std = [0.229, 0.224, 0.225]`.
 
 The model returns an `OrderedDict` with two Tensors that are of the same height and width as the input Tensor, but with 21 classes.
-`output['out']` contains the semantic masks, and `output['aux']` contains the auxillary loss values per-pixel. In inference mode, `output['aux']` is not useful.
+`output['out']` contains the semantic masks, and `output['aux']` contains the auxiliary loss values per-pixel. In inference mode, `output['aux']` is not useful.
 So, `output['out']` is of shape `(N, 21, H, W)`. More documentation can be found [here](https://pytorch.org/docs/stable/torchvision/models.html#object-detection-instance-segmentation-and-person-keypoint-detection).
 
 
 ```python
 # Download an example image from the pytorch website
 import urllib
-url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
+url, filename = ("https://github.com/pytorch/hub/raw/master/images/deeplab1.png", "deeplab1.png")
 try: urllib.URLopener().retrieve(url, filename)
 except: urllib.request.urlretrieve(url, filename)
 ```
@@ -45,6 +48,7 @@ except: urllib.request.urlretrieve(url, filename)
 from PIL import Image
 from torchvision import transforms
 input_image = Image.open(filename)
+input_image = input_image.convert("RGB")
 preprocess = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
@@ -86,14 +90,17 @@ plt.imshow(r)
 
 ### Model Description
 
-Deeplabv3-ResNet101 is constructed by a Deeplabv3 model with a ResNet-101 backbone.
+Deeplabv3-ResNet is constructed by a Deeplabv3 model using a ResNet-50 or ResNet-101 backbone.
+Deeplabv3-MobileNetV3-Large is constructed by a Deeplabv3 model using the MobileNetV3 large backbone.
 The pre-trained model has been trained on a subset of COCO train2017, on the 20 categories that are present in the Pascal VOC dataset.
 
 Their accuracies of the pre-trained models evaluated on COCO val2017 dataset are listed below.
 
-|    Model structure  |   Mean IOU  | Global Pixelwise Accuracy |
-| ------------------- | ----------- | --------------------------|
-| deeplabv3_resnet101 |   67.4      |   92.4                    |
+|    Model structure           |   Mean IOU  | Global Pixelwise Accuracy |
+| ---------------------------- | ----------- | --------------------------|
+| deeplabv3_resnet50           |   66.4      |   92.4                    |
+| deeplabv3_resnet101          |   67.4      |   92.4                    |
+| deeplabv3_mobilenet_v3_large |   60.3      |   91.2                    |
 
 ### Resources
 
