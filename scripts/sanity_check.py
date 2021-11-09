@@ -132,7 +132,7 @@ class ValidMD:
                     markdown += [line]
 
         # checks that it's valid yamp
-        header = yaml.load(''.join(header))
+        header = yaml.safe_load(''.join(header))
         assert header, "Failed to parse a valid yaml header"
         self.validate_header(header)
 
