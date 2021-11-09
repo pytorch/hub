@@ -7,7 +7,7 @@ summary: EfficientNets are a family of image classification models, which achiev
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA
-tags: [classification, images, convnet]
+tags: [vision]
 github-link: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/efficientnet
 github-id: NVIDIA/DeepLearningExamples
 featured_image_1: classification.jpg

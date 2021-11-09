@@ -7,7 +7,7 @@ summary: ResNet with bottleneck 3x3 Convolutions substituted by 3x3 Grouped Conv
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA
-tags: [classification, images, convnet]
+tags: [vision]
 github-link: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnext101-32x4d
 github-id: NVIDIA/DeepLearningExamples
 featured_image_1: ResNeXtArch.png

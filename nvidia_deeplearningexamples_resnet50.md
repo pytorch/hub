@@ -7,7 +7,7 @@ summary: Image classification neural network based on convolution layers
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA
-tags: [classification, images, convnet]
+tags: [vision]
 github-link: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5
 github-id: NVIDIA/DeepLearningExamples
 featured_image_1: classification.jpg
