@@ -31,7 +31,7 @@ Note that the ResNeXt101-32x4d model can be deployed for inference on the [NVIDI
 
 #### Model architecture
 
-![ResNextArch](./images/ResNeXtArch.png)
+![ResNextArch](ResNeXtArch.png)
 
 _Image source: [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/pdf/1611.05431.pdf)_
 
