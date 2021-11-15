@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: ResNet50
-summary: Image classification neural network based on convolution layers
+summary: ResNet50 model trained with mixed precision using Tensor Cores.
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA

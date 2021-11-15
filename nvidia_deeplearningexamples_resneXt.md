@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: ResNeXt101_32x4d
-summary: ResNet with bottleneck 3x3 Convolutions substituted by 3x3 Grouped Convolutions.
+summary: ResNet with bottleneck 3x3 Convolutions substituted by 3x3 Grouped Convolutions, trained with mixed precision using Tensor Cores.
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA
