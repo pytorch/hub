@@ -11,7 +11,7 @@ tags: [vision]
 github-link: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/efficientnet
 github-id: NVIDIA/DeepLearningExamples
 featured_image_1: classification.jpg
-featured_image_2: none
+featured_image_2: no-image
 accelerator: cuda
 order: 10
 ---
