@@ -2,7 +2,7 @@
 layout: hub_detail
 background-class: hub-background
 body-class: hub
-title: ResNeXt101_32x4d
+title: ResNeXt101
 summary: ResNet with bottleneck 3x3 Convolutions substituted by 3x3 Grouped Convolutions, trained with mixed precision using Tensor Cores.
 category: researchers
 image: nvidia_logo.png
@@ -113,6 +113,3 @@ and/or [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnext_for_pytorch
  - [model on NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnext_for_pytorch)
  - [pretrained model on NGC](https://ngc.nvidia.com/catalog/models/nvidia:resnext101_32x4d_pyt_amp)
 
-```python
-
-```

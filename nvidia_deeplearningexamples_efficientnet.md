@@ -118,6 +118,3 @@ and/or [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:efficientnet_for_py
  - [pretrained, quantized model on NGC (efficientnet-widese-b0)](https://ngc.nvidia.com/catalog/models/nvidia:efficientnet_widese_b0_pyt_amp)
  - [pretrained, quantized model on NGC (efficientnet-widese-b4)](https://ngc.nvidia.com/catalog/models/nvidia:efficientnet_widese_b4_pyt_amp)
  
-```python
-
-```
