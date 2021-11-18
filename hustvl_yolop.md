@@ -15,10 +15,6 @@ featured_image_2: no-image
 accelerator: cuda-optional
 ---
 ## Before You Start
-Start from a **Python>=3.7** environment with **PyTorch>=1.7** and **torchvision>=0.8** installed. To install YOLOP dependencies:
-```bash
-conda install pytorch==1.7.0 torchvision==0.8.0 cudatoolkit=10.2 -c pytorchconda install pytorch==1.7.0 torchvision==0.8.0 cudatoolkit=10.2 -c pytorch
-```
 To install YOLOP dependencies:
 ```bash
 pip install -qr https://github.com/hustvl/YOLOP/blob/main/requirements.txt  # install dependencies
