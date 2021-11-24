@@ -88,7 +88,7 @@ pip install -qr https://github.com/hustvl/YOLOP/blob/main/requirements.txt  # in
 
 #### Traffic Object Detection Result
 
-<img width="800" alt="Traffic Object Detection Result" src="https://github.com/hustvl/YOLOP/blob/main/pictures/detect.png">
+<img width="800" alt="Traffic Object Detection Result" src="https://github.com/hustvl/YOLOP/raw/main/pictures/detect.png">
 &nbsp;
 
 #### Drivable Area Segmentation Result
@@ -98,7 +98,7 @@ pip install -qr https://github.com/hustvl/YOLOP/blob/main/requirements.txt  # in
 
 #### Lane Detection Result
 
-<img width="800" alt="Lane Detection Result" src="https://github.com/hustvl/YOLOP/blob/main/pictures/ll.png">
+<img width="800" alt="Lane Detection Result" src="https://github.com/hustvl/YOLOP/raw/main/pictures/ll.png">
 &nbsp;
 
 **Notes**:
