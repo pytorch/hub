@@ -35,7 +35,7 @@ In the example below we will use the pretrained ***EfficientNet*** model to perf
 
 To run the example you need some extra python packages installed. These are needed for preprocessing images and visualization.
 ```python
-!pip install validators
+!pip install validators matplotlib
 ```
 
 ```python
@@ -45,6 +45,10 @@ import torchvision.transforms as transforms
 import numpy as np
 import json
 import requests
+import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 print(f'Using {device} for inference')
@@ -52,18 +56,18 @@ print(f'Using {device} for inference')
 
 Load the model pretrained on IMAGENET dataset.
 
-By setting *type* parameter you can choose among the following models:
+You can choose among the following models:
 
-| Type | Description |
+| TorchHub entrypoint | Description |
 | :----- | :----- |
-| `efficientnet-b0` | baseline EfficientNet |
-| `efficientnet-b4` | scaled EfficientNet|
-| `efficientnet-widese-b0` | model with Squeeze-and-Excitation layers wider than baseline EfficientNet model |
-| `efficientnet-widese-b4` | model with Squeeze-and-Excitation layers wider than scaled EfficientNet model |
+| `nvidia_efficientnet_b0` | baseline EfficientNet |
+| `nvidia_efficientnet_b4` | scaled EfficientNet|
+| `nvidia_efficientnet_widese_b0` | model with Squeeze-and-Excitation layers wider than baseline EfficientNet model |
+| `nvidia_efficientnet_widese_b4` | model with Squeeze-and-Excitation layers wider than scaled EfficientNet model |
 
 There are also quantized version of the models, but they require nvidia container. See [quantized models](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/efficientnet#quantization)
 ```python
-efficientnet = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_efficientnet', type='efficientnet-widese-b0')
+efficientnet = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_efficientnet_b0', pretrained=True)
 utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_convnets_processing_utils')
 
 efficientnet.eval().to(device)
@@ -97,7 +101,8 @@ Display the result.
 for uri, result in zip(uris, results):
     img = Image.open(requests.get(uri, stream=True).raw)
     img.thumbnail((256,256), Image.ANTIALIAS)
-    img.show()
+    plt.imshow(img)
+    plt.show()
     print(result)
 ```
 
