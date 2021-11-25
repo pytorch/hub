@@ -31,7 +31,7 @@ Note that the ResNeXt101-32x4d model can be deployed for inference on the [NVIDI
 
 #### Model architecture
 
-![ResNextArch](ResNeXtArch.png)
+![ResNextArch](https://pytorch.org/assets/images/ResNeXtArch.png)
 
 _Image source: [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/pdf/1611.05431.pdf)_
 
@@ -44,7 +44,7 @@ In the example below we will use the pretrained ***ResNeXt101-32x4d*** model to 
 
 To run the example you need some extra python packages installed. These are needed for preprocessing images and visualization.
 ```python
-!pip install validators
+!pip install validators matplotlib
 ```
 
 ```python
@@ -54,6 +54,10 @@ import torchvision.transforms as transforms
 import numpy as np
 import json
 import requests
+import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 print(f'Using {device} for inference')
@@ -95,7 +99,8 @@ Display the result.
 for uri, result in zip(uris, results):
     img = Image.open(requests.get(uri, stream=True).raw)
     img.thumbnail((256,256), Image.ANTIALIAS)
-    img.show()
+    plt.imshow(img)
+    plt.show()
     print(result)
 
 ```
@@ -112,4 +117,3 @@ and/or [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnext_for_pytorch
  - [model on github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnext101-32x4d)
  - [model on NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnext_for_pytorch)
  - [pretrained model on NGC](https://ngc.nvidia.com/catalog/models/nvidia:resnext101_32x4d_pyt_amp)
-

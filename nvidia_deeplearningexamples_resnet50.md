@@ -39,7 +39,7 @@ In the example below we will use the pretrained ***ResNet50 v1.5*** model to per
 
 To run the example you need some extra python packages installed. These are needed for preprocessing images and visualization.
 ```python
-!pip install validators
+!pip install validators matplotlib
 ```
 
 ```python
@@ -49,6 +49,10 @@ import torchvision.transforms as transforms
 import numpy as np
 import json
 import requests
+import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings('ignore')
+%matplotlib inline
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 print(f'Using {device} for inference')
@@ -56,7 +60,7 @@ print(f'Using {device} for inference')
 
 Load the model pretrained on IMAGENET dataset.
 ```python
-resnet50 = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_resnet50')
+resnet50 = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_resnet50', pretrained=True)
 utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_convnets_processing_utils')
 
 resnet50.eval().to(device)
@@ -89,7 +93,8 @@ Display the result.
 for uri, result in zip(uris, results):
     img = Image.open(requests.get(uri, stream=True).raw)
     img.thumbnail((256,256), Image.ANTIALIAS)
-    img.show()
+    plt.imshow(img)
+    plt.show()
     print(result)
 
 ```
@@ -106,4 +111,4 @@ and/or [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_50_v1_5_for_
  - [model on github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)
  - [model on NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_50_v1_5_for_pytorch)
  - [pretrained model on NGC](https://ngc.nvidia.com/catalog/models/nvidia:resnet50_pyt_amp)
-
+ 
