@@ -21,7 +21,7 @@ order: 10
 
 The ***SE-ResNeXt101-32x4d*** is a [ResNeXt101-32x4d](https://arxiv.org/pdf/1611.05431.pdf)
 model with added Squeeze-and-Excitation module introduced
-in [Squeeze-and-Excitation Networks](https://arxiv.org/pdf/1709.01507.pdf) paper.
+in the [Squeeze-and-Excitation Networks](https://arxiv.org/pdf/1709.01507.pdf) paper.
 
 This model is trained with mixed precision using Tensor Cores on Volta, Turing, and the NVIDIA Ampere GPU architectures. Therefore, researchers can get results 3x faster than training without Tensor Cores, while experiencing the benefits of mixed precision training. This model is tested against each NGC monthly container release to ensure consistent accuracy and performance over time.
 
@@ -36,7 +36,7 @@ _Image source: [Squeeze-and-Excitation Networks](https://arxiv.org/pdf/1709.0150
 Image shows the architecture of SE block and where is it placed in ResNet bottleneck block.
 
 
-Note that the SE-ResNeXt101-32x4d model can be deployed for inference on the [NVIDIA Triton Inference Server](https://github.com/NVIDIA/trtis-inference-server) using TorchScript, ONNX Runtime or TensorRT as an execution backend. For details check [NGC](https://catalog.ngc.nvidia.com/orgs/nvidia/resources/se_resnext_for_triton_from_pytorch)
+Note that the SE-ResNeXt101-32x4d model can be deployed for inference on the [NVIDIA Triton Inference Server](https://github.com/NVIDIA/trtis-inference-server) using TorchScript, ONNX Runtime or TensorRT as an execution backend. For details check [NGC](https://catalog.ngc.nvidia.com/orgs/nvidia/resources/se_resnext_for_triton_from_pytorch).
 
 ### Example
 
@@ -86,7 +86,7 @@ batch = torch.cat(
 ).to(device)
 ```
 
-Run inference. Use `pick_n_best(predictions=output, n=topN)` helepr function to pick N most probably hypothesis according to the model.
+Run inference. Use `pick_n_best(predictions=output, n=topN)` helper function to pick N most probable hypotheses according to the model.
 ```python
 with torch.no_grad():
     output = torch.nn.functional.softmax(resneXt(batch), dim=1)
@@ -108,7 +108,7 @@ for uri, result in zip(uris, results):
 ### Details
 For detailed information on model input and output, training recipies, inference and performance visit:
 [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/se-resnext101-32x4d)
-and/or [NGC](https://catalog.ngc.nvidia.com/orgs/nvidia/resources/se_resnext_for_pytorch)
+and/or [NGC](https://catalog.ngc.nvidia.com/orgs/nvidia/resources/se_resnext_for_pytorch).
 
 
 ### References
