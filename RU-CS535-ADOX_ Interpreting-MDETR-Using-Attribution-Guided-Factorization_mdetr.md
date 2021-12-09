@@ -15,3 +15,5 @@ accelerator: CUDA
 ### References
 https://ashkamath.github.io/mdetr_page/
 https://arxiv.org/abs/2012.02166
+
+## Signed Meta Confidentiality Agreement
