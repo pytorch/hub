@@ -54,7 +54,7 @@ The filtering is differentiable (but parameter-free) version of [norbert](https:
 
 * __`umxhq` (default)__  trained on [MUSDB18-HQ](https://sigsep.github.io/datasets/musdb.html#uncompressed-wav) which comprises the same tracks as in MUSDB18 but un-compressed which yield in a full bandwidth of 22050 Hz.
 
-* __`umx`__ is trained on the regular [MUSDB18](https://sigsep.github.io/datasets/musdb.html#compressed-stems) which is bandwidth limited to 16 kHz do to AAC compression. This model should be used for comparison with other (older) methods for evaluation in [SiSEC18](sisec18.unmix.app).
+* __`umx`__ is trained on the regular [MUSDB18](https://sigsep.github.io/datasets/musdb.html#compressed-stems) which is bandwidth limited to 16 kHz due to AAC compression. This model should be used for comparison with other (older) methods for evaluation in [SiSEC18](sisec18.unmix.app).
 
 Furthermore, we provide a model for speech enhancement trained by [Sony Corporation](link)
 
@@ -67,7 +67,7 @@ These models can be loaded using `umxhq_spec`, `umx_spec` and `umxse_spec`.
 
 For additional examples, documentation and usage examples,  please visit this [the github repo](https://github.com/sigsep/open-unmix-pytorch).
 
-Furthermore, the models and all utility function to preprocess, read and save audio stems, are available in a python package that can be intalled via 
+Furthermore, the models and all utility function to preprocess, read and save audio stems, are available in a python package that can be installed via 
 
 ```bash
 pip install openunmix
