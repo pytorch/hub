@@ -39,8 +39,8 @@ model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
 files_dir = torch.hub.get_dir() + '/snakers4_silero-vad_master/files'
 
 sampling_rate = 16000  # also accepts 8000
-wav = read_audio(f'{files_dir}/en.wav', sampling_rate=SAMPLE_RATE)
-speech_timestamps = get_speech_timestamps(wav, model, sampling_rate=SAMPLE_RATE)  # see docstring for other sampling rates
+wav = read_audio(f'{files_dir}/en.wav', sampling_rate=sampling_rate)
+speech_timestamps = get_speech_timestamps(wav, model, sampling_rate=sampling_rate)  # see docstring for other sampling rates
 
 pprint(speech_timestamps)
 ```
