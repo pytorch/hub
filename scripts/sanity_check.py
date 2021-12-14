@@ -97,15 +97,16 @@ class ValidMD:
                              .format(field, value, self.filename))
 
     def validate_markdown(self, markdown):
-        m = mistune.Markdown()
-        blocks = m.block(mistune.preprocessing(markdown))
+        m = mistune.create_markdown(renderer=mistune.AstRenderer())
 
-        for block in blocks:
+        for block in m(markdown):
             if block['type'] == 'heading':
                 # we dont want colon after section names
-                assert not block['text'].endswith(':')
-                if block['text'] in self.required_sections:
-                    self.required_sections.remove(block['text'])
+                text_children = [c for c in block['children'] if c['type'] == 'text']
+                for c in text_children:
+                    assert not c['text'].endswith(':')
+                    if c['text'] in self.required_sections:
+                        self.required_sections.remove(c['text'])
         try:
             assert len(self.required_sections) == 0
         except AssertionError as e:
