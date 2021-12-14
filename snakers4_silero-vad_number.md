@@ -32,7 +32,7 @@ model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
 
 (get_number_ts,
  _, read_audio,
- _, _) = utils
+ *_) = utils
 
 files_dir = torch.hub.get_dir() + '/snakers4_silero-vad_master/files'
 

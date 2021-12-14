@@ -31,7 +31,7 @@ model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
                               model='silero_lang_detector',
                               force_reload=True)
 
-get_language, read_audio = utils
+get_language, read_audio, *_ = utils
 
 files_dir = torch.hub.get_dir() + '/snakers4_silero-vad_master/files'
 
