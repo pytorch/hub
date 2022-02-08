@@ -25,6 +25,7 @@ pip install -q torchaudio soundfile
 import torch
 torch.set_num_threads(1)
 from pprint import pprint
+torch.hub.download_url_to_file('https://models.silero.ai/vad_models/en_num.wav', 'en_number_example.wav')
 
 model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
                               model='silero_number_detector',
@@ -36,7 +37,7 @@ model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
 
 files_dir = torch.hub.get_dir() + '/snakers4_silero-vad_master/files'
 
-wav = read_audio(f'{files_dir}/en_num.wav')
+wav = read_audio(f'en_number_example.wav')
 # full audio
 # get number timestamps from full audio file
 number_timestamps = get_number_ts(wav, model)
