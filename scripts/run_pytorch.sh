@@ -20,4 +20,4 @@ do
 done
 
 mv lol_hub.py $PYTHON_CODE_DIR/lol_hub.py
-DEFAULT_SECURITY=check pytest --junitxml=test-results/junit.xml test_run_python_code.py -vv
+DEFAULT_SECURITY=True pytest --junitxml=test-results/junit.xml test_run_python_code.py -vv
