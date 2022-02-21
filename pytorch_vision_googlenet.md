@@ -13,6 +13,7 @@ github-id: pytorch/vision
 featured_image_1: googlenet1.png
 featured_image_2: googlenet2.png
 accelerator: cuda-optional
+demo-model-link: https://huggingface.co/spaces/pytorch/GoogleNet
 order: 10
 ---
 
