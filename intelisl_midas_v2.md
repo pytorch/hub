@@ -13,7 +13,7 @@ github-id: intel-isl/MiDaS
 featured_image_1: midas_samples.png
 featured_image_2: no-image
 accelerator: cuda-optional
-demo-model-link: https://colab.research.google.com/drive/12uRtndAmIQVvI8JZk_qsAJvc3WGVnbYf?authuser=0#scrollTo=wacHQxxjOCCl
+demo-model-link: https://huggingface.co/spaces/pytorch/MiDaS
 ---
 
 ### Model Description

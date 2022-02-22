@@ -13,7 +13,7 @@ github-id: facebookresearch/pytorchvideo
 featured_image_1: no-image
 featured_image_2: no-image
 accelerator: “cuda-optional”
-demo-model-link: https://colab.research.google.com/drive/1k6wG3gHFnFpC-hAMpL_s0B3Xj_ahsa19#scrollTo=-BkJOZgxK0pe
+demo-model-link: https://huggingface.co/spaces/pytorch/X3D
 ---
 
 ### Example Usage
