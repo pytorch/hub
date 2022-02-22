@@ -13,6 +13,7 @@ github-id: sigsep/open-unmix-pytorch
 featured_image_1: sigsep_umx-diagram.png
 featured_image_2: no-image
 accelerator: cuda-optional
+demo-model-link: https://huggingface.co/spaces/pytorch/open-unmix
 ---
 
 
