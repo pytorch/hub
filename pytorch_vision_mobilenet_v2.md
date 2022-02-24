@@ -14,7 +14,7 @@ featured_image_1: mobilenet_v2_1.png
 featured_image_2: mobilenet_v2_2.png
 accelerator: cuda-optional
 order: 10
-demo-model-link: https://colab.research.google.com/drive/1zjsamXNjQBsbvuR0y5-dDZgTO8XXun4A
+demo-model-link: https://huggingface.co/spaces/pytorch/MobileNet_v2
 ---
 
 ```python
