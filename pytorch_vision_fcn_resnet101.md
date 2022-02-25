@@ -14,6 +14,7 @@ featured_image_1: deeplab1.png
 featured_image_2: fcn2.png
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/FCN
 ---
 
 ```python
