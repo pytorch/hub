@@ -14,7 +14,7 @@ featured_image_1: shufflenet_v2_1.png
 featured_image_2: shufflenet_v2_2.png
 accelerator: cuda-optional
 order: 10
-demo-model-link: https://colab.research.google.com/drive/1p8lWqa2q0xxMccFGgGExoZpvnAeTFDNb
+demo-model-link: https://huggingface.co/spaces/pytorch/ShuffleNet_v2
 ---
 
 ```python

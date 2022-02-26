@@ -14,6 +14,7 @@ featured_image_1: SEArch.png
 featured_image_2: classification.jpg
 accelerator: cuda
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/SE-ResNeXt101
 ---
 
 
