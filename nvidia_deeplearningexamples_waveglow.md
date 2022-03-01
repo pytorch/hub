@@ -14,6 +14,7 @@ featured_image_1: waveglow_diagram.png
 featured_image_2: no-image
 accelerator: cuda
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/WaveGlow
 ---
 
 

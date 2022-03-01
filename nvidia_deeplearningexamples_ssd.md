@@ -14,7 +14,7 @@ featured_image_1: ssd_diagram.png
 featured_image_2: ssd.png
 accelerator: cuda
 order: 10
-demo-model-link: https://colab.research.google.com/drive/19G612KDFbZArK4dKFDd8CskaJpQrdfPp#scrollTo=54szZ5JAiinp
+demo-model-link: https://huggingface.co/spaces/pytorch/SSD
 ---
 
 
