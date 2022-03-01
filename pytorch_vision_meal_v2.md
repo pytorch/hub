@@ -14,6 +14,7 @@ featured_image_1: MEALV2_method.png
 featured_image_2: MEALV2_results.png
 accelerator: cuda
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/MEAL-V2
 ---
 
 We require one additional Python dependency

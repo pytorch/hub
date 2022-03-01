@@ -14,6 +14,7 @@ featured_image_1: classification.jpg
 featured_image_2: no-image
 accelerator: cuda
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/EfficientNet
 ---
 
 

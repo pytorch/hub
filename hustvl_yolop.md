@@ -13,6 +13,7 @@ github-id: hustvl/YOLOP
 featured_image_1: no-image
 featured_image_2: no-image
 accelerator: cuda-optional
+demo-model-link: https://huggingface.co/spaces/pytorch/YOLOP
 ---
 ## Before You Start
 To install YOLOP dependencies:

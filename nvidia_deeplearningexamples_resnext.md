@@ -14,6 +14,7 @@ featured_image_1: ResNeXtArch.png
 featured_image_2: classification.jpg
 accelerator: cuda
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/ResNeXt101
 ---
 
 
