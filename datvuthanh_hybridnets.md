@@ -26,7 +26,7 @@ pip install -qr https://raw.githubusercontent.com/datvuthanh/HybridNets/main/req
 
 <div align="center">
  
-![logo](images/hybridnets.jpg)  
+![logo](https://github.com/datvuthanh/HybridNets/raw/main/images/hybridnets.jpg)  
 **HybridNets Network Architecture.**  
  
 </div>
@@ -36,10 +36,6 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 ### Results
 
 ### Traffic Object Detection
- 
-<table>
-<tr><th>Result </th><th>Visualization</th></tr>
-<tr><td>
 
 |        Model       |  Recall (%)  |   mAP@0.5 (%)   |
 |:------------------:|:------------:|:---------------:|
@@ -50,17 +46,9 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 |       `YOLOP`      |     89.2     |       76.5      |
 |  **`HybridNets`**  |   **92.8**   |     **77.3**    |
 
-</td><td>
-
 <img src="https://github.com/datvuthanh/HybridNets/raw/main/images/det1.jpg" width="50%" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/det2.jpg" width="50%" />
-
-</td></tr> </table>
  
 ### Drivable Area Segmentation
- 
-<table>
-<tr><th>Result </th><th>Visualization</th></tr>
-<tr><td>
 
 |       Model      | Drivable mIoU (%) |
 |:----------------:|:-----------------:|
@@ -70,17 +58,9 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 |      `YOLOP`     |        91.5       |
 | **`HybridNets`** |      **90.5**     |
 
-</td><td>
-
 <img src="https://github.com/datvuthanh/HybridNets/raw/main/images/road1.jpg" width="50%" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/road2.jpg" width="50%" />
-
-</td></tr> </table>
  
 ### Lane Line Detection
- 
-<table>
-<tr><th>Result </th><th>Visualization</th></tr>
-<tr><td>
 
 |      Model       | Accuracy (%) | Lane Line IoU (%) |
 |:----------------:|:------------:|:-----------------:|
@@ -90,12 +70,7 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 |      `YOLOP`     |     70.5     |        26.2       |
 | **`HybridNets`** |   **85.4**   |      **31.6**     |
 
-</td><td>
-
 <img src="https://github.com/datvuthanh/HybridNets/raw/main/images/lane1.jpg" width="50%" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/lane2.jpg" width="50%" />
-
-</td></tr> </table>
-
  
 <div align="center">
  
