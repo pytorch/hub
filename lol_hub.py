@@ -22,6 +22,8 @@ if _DEFAULT_SECURITY == "False":
     _DEFAULT_SECURITY = False
 if _DEFAULT_SECURITY == "None":
     _DEFAULT_SECURITY = None
+if _DEFAULT_SECURITY == "check":
+    _DEFAULT_SECURITY = "check"
 try:
     from tqdm.auto import tqdm  # automatically select proper tqdm submodule if available
 except ImportError:
