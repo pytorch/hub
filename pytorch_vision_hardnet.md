@@ -14,6 +14,7 @@ featured_image_1: hardnet.png
 featured_image_2: hardnet_blk.png
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/HardNet
 ---
 
 ```python

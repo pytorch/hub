@@ -12,6 +12,7 @@ github-link: https://github.com/pytorch/fairseq/
 github-id: pytorch/fairseq
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/RoBERTa
 ---
 
 

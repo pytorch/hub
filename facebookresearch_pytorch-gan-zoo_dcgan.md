@@ -13,6 +13,7 @@ github-id: facebookresearch/pytorch_GAN_zoo
 featured_image_1: dcgan_fashionGen.jpg
 featured_image_2: no-image
 accelerator: cuda-optional
+demo-model-link: https://huggingface.co/spaces/pytorch/DCGAN_on_fashiongen
 order: 10
 ---
 

@@ -13,6 +13,7 @@ github-id: snakers4/silero-vad
 featured_image_1: no-image
 featured_image_2: no-image
 accelerator: cuda-optional
+demo-model-link: https://huggingface.co/spaces/pytorch/Silero_Number_Detector
 ---
 
 

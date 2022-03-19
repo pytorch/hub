@@ -14,6 +14,7 @@ featured_image_1: proxylessnas.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/ProxylessNAS
 ---
 
 ```python

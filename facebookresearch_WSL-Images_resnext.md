@@ -14,6 +14,7 @@ featured_image_1: wsl-image.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/ResNext_WSL
 ---
 
 ```python

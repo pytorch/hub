@@ -13,6 +13,7 @@ github-id: snakers4/silero-models
 featured_image_1: no-image
 featured_image_1: no-image
 accelerator: cuda-optional
+demo-model-link: https://huggingface.co/spaces/pytorch/silero_tts
 ---
 
 ```bash

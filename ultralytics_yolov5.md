@@ -13,7 +13,7 @@ github-id: ultralytics/yolov5
 featured_image_1: ultralytics_yolov5_img1.jpg
 featured_image_2: ultralytics_yolov5_img2.png
 accelerator: cuda-optional
-demo-model-link: https://colab.research.google.com/drive/1AiuBDleOUM5Vyq3Itq3edCjg5J8I719p?usp=sharing
+demo-model-link: https://huggingface.co/spaces/pytorch/YOLOv5
 ---
 
 ## Before You Start
