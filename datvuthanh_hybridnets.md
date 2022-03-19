@@ -17,7 +17,7 @@ demo-model-link: https://colab.research.google.com/drive/1Uc1ZPoPeh-lAhPQ1CloiVU
 ---
 ## Before You Start
 
-Start from a **Python>=3.8** environment with **PyTorch>=1.10** installed. To install PyTorch see [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/). To install HybridNets dependencies:
+Start from a **Python>=3.7** environment with **PyTorch>=1.10** installed. To install PyTorch see [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/). To install HybridNets dependencies:
 ```bash
 pip install -qr https://raw.githubusercontent.com/datvuthanh/HybridNets/main/requirements.txt  # install dependencies
 ```
