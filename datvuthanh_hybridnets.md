@@ -13,7 +13,7 @@ github-id: datvuthanh/HybridNets
 featured_image_1: no-image
 featured_image_2: no-image
 accelerator: cuda-optional
-demo-model-link: https://colab.research.google.com/drive/1Uc1ZPoPeh-lAhPQ1CloiVUsOIRAVOGWA?usp=sharing
+demo-model-link: https://colab.research.google.com/drive/1Uc1ZPoPeh-lAhPQ1CloiVUsOIRAVOGWA
 ---
 ## Before You Start
 
