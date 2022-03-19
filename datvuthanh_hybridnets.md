@@ -71,6 +71,7 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
  
  
 ### Load From PyTorch Hub
+
 This example loads the pretrained **HybridNets** model and passes an image for inference.
 ```python
 import torch
