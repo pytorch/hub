@@ -85,7 +85,7 @@ features, regression, classification, anchors, segmentation = model(img)
 
 ### Citation
 
-If you find our [paper](https://arxiv.org/abs/2203.09035) and [code](https://github.com/datvuthanh/HybridNets) useful for your research, please consider giving a star :star:   and citation :pencil: :
+If you find our [paper](https://arxiv.org/abs/2203.09035) and [code](https://github.com/datvuthanh/HybridNets) useful for your research, please consider giving a star :star: and citation :pencil: :
 
 ```BibTeX
 @misc{vu2022hybridnets,
