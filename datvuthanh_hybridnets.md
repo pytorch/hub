@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: HybridNets
-summary: HybridNets: End2End Perception Network
+summary: HybridNets - End2End Perception Network
 image: hybridnets.jpg
 author: Dat Vu Thanh
 tags: [vision]
