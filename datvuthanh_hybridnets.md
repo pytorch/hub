@@ -41,7 +41,7 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 |       `YOLOP`      |     89.2     |       76.5      |
 |  **`HybridNets`**  |   **92.8**   |     **77.3**    |
 
-<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/det1.jpg" width="400" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/det2.jpg" width="400" />
+<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/det1.jpg" width="50%" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/det2.jpg" width="50%" />
  
 ### Drivable Area Segmentation
 
@@ -53,7 +53,7 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 |      `YOLOP`     |        91.5       |
 | **`HybridNets`** |      **90.5**     |
 
-<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/road1.jpg" width="400" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/road2.jpg" width="400" />
+<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/road1.jpg" width="50%" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/road2.jpg" width="50%" />
  
 ### Lane Line Detection
 
@@ -65,7 +65,7 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 |      `YOLOP`     |     70.5     |        26.2       |
 | **`HybridNets`** |   **85.4**   |      **31.6**     |
 
-<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/lane1.jpg" width="400" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/lane2.jpg" width="400" />
+<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/lane1.jpg" width="50%" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/lane2.jpg" width="50%" />
   
 <img width="800" src="https://github.com/datvuthanh/HybridNets/raw/main/images/full_video.gif">
  
