@@ -24,7 +24,7 @@ pip install -qr https://raw.githubusercontent.com/datvuthanh/HybridNets/main/req
 
 ## Model Description
  
-<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/hybridnets.jpg">  
+<img width="800" src="https://github.com/datvuthanh/HybridNets/raw/main/images/hybridnets.jpg">  
 
 HybridNets is an end2end perception network for multi-tasks. Our work focused on traffic object detection, drivable area segmentation and lane detection.  HybridNets can run real-time on embedded systems, and obtains SOTA Object Detection, Lane Detection on BDD100K Dataset.
 
@@ -41,7 +41,7 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 |       `YOLOP`      |     89.2     |       76.5      |
 |  **`HybridNets`**  |   **92.8**   |     **77.3**    |
 
-<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/det1.jpg" width="50%" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/det2.jpg" width="50%" />
+<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/det1.jpg" width="400" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/det2.jpg" width="400" />
  
 ### Drivable Area Segmentation
 
@@ -53,7 +53,7 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 |      `YOLOP`     |        91.5       |
 | **`HybridNets`** |      **90.5**     |
 
-<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/road1.jpg" width="50%" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/road2.jpg" width="50%" />
+<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/road1.jpg" width="400" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/road2.jpg" width="400" />
  
 ### Lane Line Detection
 
@@ -65,9 +65,9 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 |      `YOLOP`     |     70.5     |        26.2       |
 | **`HybridNets`** |   **85.4**   |      **31.6**     |
 
-<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/lane1.jpg" width="50%" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/lane2.jpg" width="50%" />
+<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/lane1.jpg" width="400" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/lane2.jpg" width="400" />
   
-<img src="https://github.com/datvuthanh/HybridNets/raw/main/images/full_video.gif">
+<img width="800" src="https://github.com/datvuthanh/HybridNets/raw/main/images/full_video.gif">
  
  
 ### Load From PyTorch Hub
@@ -86,7 +86,7 @@ features, regression, classification, anchors, segmentation = model(img)
 
 ### Citation
 
-If you find our [paper](https://arxiv.org/abs/2203.09035) and [code](https://github.com/datvuthanh/HybridNets) useful for your research, please consider giving a star :star: and citation :pencil: :
+If you find our [paper](https://arxiv.org/abs/2203.09035) and [code](https://github.com/datvuthanh/HybridNets) useful for your research, please consider giving a star and citation:
 
 ```BibTeX
 @misc{vu2022hybridnets,
