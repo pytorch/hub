@@ -24,7 +24,7 @@ pip install -qr https://raw.githubusercontent.com/datvuthanh/HybridNets/main/req
 
 ## Model Description
  
-<img width="800" src="https://github.com/datvuthanh/HybridNets/raw/main/images/hybridnets.jpg">  
+<img width="100%" src="https://github.com/datvuthanh/HybridNets/raw/main/images/hybridnets.jpg">  
 
 HybridNets is an end2end perception network for multi-tasks. Our work focused on traffic object detection, drivable area segmentation and lane detection.  HybridNets can run real-time on embedded systems, and obtains SOTA Object Detection, Lane Detection on BDD100K Dataset.
 
@@ -67,7 +67,7 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 
 <img src="https://github.com/datvuthanh/HybridNets/raw/main/images/lane1.jpg" width="50%" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/lane2.jpg" width="50%" />
   
-<img width="800" src="https://github.com/datvuthanh/HybridNets/raw/main/images/full_video.gif">
+<img width="100%" src="https://github.com/datvuthanh/HybridNets/raw/main/images/full_video.gif">
  
  
 ### Load From PyTorch Hub
