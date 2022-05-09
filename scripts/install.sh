@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 . ~/miniconda3/etc/profile.d/conda.sh
 conda activate base
