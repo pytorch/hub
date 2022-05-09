@@ -14,7 +14,7 @@ conda install -y regex pillow tqdm boto3 requests numpy\
     h5py scipy matplotlib unidecode ipython pyyaml
 conda install -y -c conda-forge librosa inflect
 
-pip install -q fastBPE sacremoses sentencepiece subword_nmt editdistance
+# pip install -q fastBPE sacremoses sentencepiece subword_nmt editdistance
 pip install -q visdom mistune filelock tokenizers packaging pandas
 pip install -q omegaconf timm seaborn importlib_metadata huggingface_hub
 pip install -q hydra-core opencv-python fvcore
