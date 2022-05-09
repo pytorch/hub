@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 # Install basics
 sudo apt-get install vim
