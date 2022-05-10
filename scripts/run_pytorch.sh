@@ -18,4 +18,4 @@ do
   sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' > $out_py
 done
 
-pytest --junitxml=test-results/junit.xml test_run_python_code.py -vv
+pytest --junitxml=test-results/junit.xml test_run_python_code.py -vv -r all -s
