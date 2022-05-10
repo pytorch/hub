@@ -30,7 +30,8 @@ torch.hub.download_url_to_file('https://models.silero.ai/vad_models/en_num.wav',
 
 model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
                               model='silero_number_detector',
-                              force_reload=True)
+                              force_reload=True,
+                              trust_repo=True)
 
 (get_number_ts,
  _, read_audio,
