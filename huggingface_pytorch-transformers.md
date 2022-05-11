@@ -71,7 +71,7 @@ The tokenizer object allows the conversion from character strings to tokens unde
 
 ```py
 import torch
-tokenizer = torch.hub.load('huggingface/pytorch-transformers', 'tokenizer', 'bert-base-uncased')    # Download vocabulary from S3 and cache.
+tokenizer = torch.hub.load('huggingface/pytorch-transformers', trust_repo=True, 'tokenizer', 'bert-base-uncased')    # Download vocabulary from S3 and cache.
 tokenizer = torch.hub.load('huggingface/pytorch-transformers', 'tokenizer', './test/bert_saved_model/')  # E.g. tokenizer was saved using `save_pretrained('./test/saved_model/')`
 ```
 

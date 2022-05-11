@@ -18,7 +18,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/U-NET-for-brain-MRI
 
 ```python
 import torch
-model = torch.hub.load('mateuszbuda/brain-segmentation-pytorch', 'unet',
+model = torch.hub.load('mateuszbuda/brain-segmentation-pytorch', 'unet', trust_repo=True,
     in_channels=3, out_channels=1, init_features=32, pretrained=True)
 
 ```

@@ -117,7 +117,7 @@ This example loads the pretrained **YOLOP** model and passes an image for infere
 import torch
 
 # load model
-model = torch.hub.load('hustvl/yolop', 'yolop', pretrained=True)
+model = torch.hub.load('hustvl/yolop', 'yolop', trust_repo=True, pretrained=True)
 
 #inference
 img = torch.randn(1,3,640,640)
