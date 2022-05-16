@@ -26,7 +26,7 @@ pip install -q torchaudio
 import torch
 
 # loading umxhq four target separator
-separator = torch.hub.load('sigsep/open-unmix-pytorch', 'umxhq', trust_repo=True)
+separator = torch.hub.load('sigsep/open-unmix-pytorch', 'umxhq')
 
 # generate random audio
 # ... with shape (nb_samples, nb_channels, nb_timesteps)

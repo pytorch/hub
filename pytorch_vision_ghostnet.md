@@ -19,7 +19,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/GhostNet
 
 ```python
 import torch
-model = torch.hub.load('huawei-noah/ghostnet', 'ghostnet_1x', pretrained=True, trust_repo=True)
+model = torch.hub.load('huawei-noah/ghostnet', 'ghostnet_1x', pretrained=True)
 model.eval()
 ```
 
