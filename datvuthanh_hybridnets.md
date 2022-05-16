@@ -77,7 +77,7 @@ This example loads the pretrained **HybridNets** model and passes an image for i
 import torch
 
 # load model
-model = torch.hub.load('datvuthanh/hybridnets', 'hybridnets', pretrained=True)
+model = torch.hub.load('datvuthanh/hybridnets', 'hybridnets', pretrained=True, trust_repo=True)
 
 #inference
 img = torch.randn(1,3,640,384)
