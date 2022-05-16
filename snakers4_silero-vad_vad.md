@@ -33,8 +33,7 @@ torch.hub.download_url_to_file('https://models.silero.ai/vad_models/en.wav', 'en
 
 model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
                               model='silero_vad',
-                              force_reload=True,
-                              trust_repo=True)
+                              force_reload=True)
 
 (get_speech_timestamps,
  _, read_audio,

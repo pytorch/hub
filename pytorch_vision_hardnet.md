@@ -19,7 +19,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/HardNet
 
 ```python
 import torch
-model = torch.hub.load('PingoLH/Pytorch-HarDNet', 'hardnet68', pretrained=True, trust_repo=True)
+model = torch.hub.load('PingoLH/Pytorch-HarDNet', 'hardnet68', pretrained=True)
 # or any of these variants
 # model = torch.hub.load('PingoLH/Pytorch-HarDNet', 'hardnet85', pretrained=True)
 # model = torch.hub.load('PingoLH/Pytorch-HarDNet', 'hardnet68ds', pretrained=True)

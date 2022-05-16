@@ -31,7 +31,6 @@ device = torch.device('cpu')  # gpu also works, but our models are fast enough f
 
 model, decoder, utils = torch.hub.load(repo_or_dir='snakers4/silero-models',
                                        model='silero_stt',
-                                       trust_repo=True,
                                        language='en', # also available 'de', 'es'
                                        device=device)
 (read_batch, split_into_batches,

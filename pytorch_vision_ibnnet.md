@@ -19,7 +19,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/IBN-Net
 
 ```python
 import torch
-model = torch.hub.load('XingangPan/IBN-Net', 'resnet50_ibn_a', pretrained=True, trust_repo=True)
+model = torch.hub.load('XingangPan/IBN-Net', 'resnet50_ibn_a', pretrained=True)
 model.eval()
 ```
 

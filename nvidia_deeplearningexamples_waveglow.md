@@ -41,7 +41,7 @@ apt-get install -y libsndfile1
 Load the WaveGlow model pre-trained on [LJ Speech dataset](https://keithito.com/LJ-Speech-Dataset/)
 ```python
 import torch
-waveglow = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_waveglow', trust_repo=True, model_math='fp32')
+waveglow = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_waveglow', model_math='fp32')
 ```
 
 Prepare the WaveGlow model for inference
