@@ -72,7 +72,7 @@ Please pick and choose one of the following pre-trained models:
 
 ```python
 model_type = "GPUNet-0" # select one from above
-precision = "fp16" # select either fp16 or fp32
+precision = "fp32" # select either fp32 of fp16 (for better performance on GPU)
 
 gpunet = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_gpunet', pretrained=True, model_type=model_type, model_math=precision)
 utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_convnets_processing_utils')
