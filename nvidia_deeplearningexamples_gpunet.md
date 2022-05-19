@@ -43,19 +43,20 @@ import warnings
 warnings.filterwarnings('ignore')
 %matplotlib inline
 
-device = torch.device("cuda") 
-print(f'Using {device} for inference')
 
 if torch.cuda.is_available():
+    device = torch.device("cuda") 
     !nvidia-smi
 else:
     torch.device("cpu")
+
+print(f'Using {device} for inference')
 ```
 
 ### Load Pretrained model
 Loads NVIDIA GPUNet-0 model by default pre-trained on IMAGENET dataset. You can switch the default pre-trained model loading from GPUNet-0 to one of the following models listed below. 
 
-The model architecture is visible as output of the loaded model. For details architecture and latency info please refer to Figure#[6](https://drive.google.com/file/d/1pLA0OopYVRpYreIhQQKPdNauaaBEGITe/view) and Table#[3](https://drive.google.com/file/d/1pLA0OopYVRpYreIhQQKPdNauaaBEGITe/view) in the CVPR-2022 paper. 
+The model architecture is visible as output of the loaded model. For details architecture and latency info please refer to [architecture section](https://github.com/NVIDIA/DeepLearningExamples/tree/torchhub/PyTorch/Classification/GPUNet#model-architecture) in the original repo and Table#[3](https://arxiv.org/pdf/2205.00841.pdf) in the CVPR-2022 paper, respectively. 
 
 Please pick and choose one of the following pre-trained models:
 
@@ -69,13 +70,15 @@ Please pick and choose one of the following pre-trained models:
 | `GPUNet-D1` | GPUNet-D1 has the second highest accuracy amongst all GPUNets|
 | `GPUNet-D2` | GPUNet-D2 has the highest accuracy amongst all GPUNets |
 
-***Note***: Loaded model defaults to fp32 weights. To switch to fp16 gpunet model weights, set parameter ***model_math='fp16'***.
 ```python
-gpunet = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_gpunet', pretrained=True, model_type='GPUNet-0')
+model_type = "GPUNet-0" # select one from above
+precision = "fp16" # select either fp16 or fp32
+
+gpunet = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_gpunet', pretrained=True, model_type=model_type, model_math=precision)
 utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_convnets_processing_utils')
 
-gpunet.eval().to(device)
-
+gpunet.to(device)
+gpunet.eval()
 ```
 
 ### Prepare inference data
@@ -92,13 +95,15 @@ batch = torch.cat(
     [utils.prepare_input_from_uri(uri) for uri in uris]
 ).to(device)
 
+if precision == "fp16":
+    batch = batch.half()
+    
 print("Ready to run inference...")
 ```
 
 ### Run inference
 Use `pick_n_best(predictions=output, n=topN)` helper function to pick N most probable hypotheses according to the model.
 
-***Note***: If using fp16 gpunet model weights replace gpunet(batch) with ***gpunet(batch.half())***.
 ```python
 with torch.no_grad():
     output = torch.nn.functional.softmax(gpunet(batch), dim=1)
@@ -118,7 +123,7 @@ for uri, result in zip(uris, results):
 
 ### Details
 For detailed information on model input and output, training recipies, inference and performance visit:
-[github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/GPUNets)
+[github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/GPUNet)
 
 ### References
 
