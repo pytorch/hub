@@ -48,7 +48,7 @@ if torch.cuda.is_available():
     device = torch.device("cuda") 
     !nvidia-smi
 else:
-    torch.device("cpu")
+    device = torch.device("cpu")
 
 print(f'Using {device} for inference')
 ```
