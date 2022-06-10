@@ -128,6 +128,7 @@ Conventional approaches either manually design or use neural architecture search
 
 ### References
 
+```
 @inproceedings{
   cai2020once,
   title={Once for All: Train One Network and Specialize it for Efficient Deployment},
@@ -136,4 +137,4 @@ Conventional approaches either manually design or use neural architecture search
   year={2020},
   url={https://arxiv.org/pdf/1908.09791.pdf}
 }
-
+```
