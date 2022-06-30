@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 . ~/miniconda3/etc/profile.d/conda.sh
 conda activate base
@@ -20,3 +21,4 @@ pip install -q hydra-core opencv-python fvcore
 pip install -q --upgrade google-api-python-client
 pip install pytorchvideo
 pip install -q prefetch_generator  # yolop
+pip install -q pretrainedmodels efficientnet_pytorch  # hybridnets
