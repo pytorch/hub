@@ -79,7 +79,7 @@ model = ofa_specialized_get("flops@595M_top1@80.0_finetune@75", pretrained=True)
 
 The model's prediction can be evalutaed by 
 ```
-# Download an example image from the pytorch website
+# Download an example image from pytorch website
 import urllib
 url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
 try: 
