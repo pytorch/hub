@@ -3,7 +3,6 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 category: researchers
-<!-- Only change fields below(remove this line before submitting a PR). Take inspiration e.g. from pytorch_vision_fcn_resnet101.md -->
 title: Once for All: Train One Network and Specialize it for Efficient Deployment
 summary: We propose to train a once-for-all (OFA) network that supports diverse architectural settings by decoupling training and search, thus achieving efficient inference across many devices and resource constraints, especially on edge devices.
 image: https://github.com/mit-han-lab/once-for-all/raw/master/figures/overview.png
@@ -71,14 +70,14 @@ specialized_net = torch.hub.load('mit-han-lab/once-for-all', net_config, pretrai
 ```
 
 More models and configurations can be found in [once-for-all/model-zoo](https://github.com/mit-han-lab/once-for-all#evaluate-1)
-and obtained through following scripts
+and obtained through the following scripts
 
 ```
 ofa_specialized_get = torch.hub.load('mit-han-lab/once-for-all', "ofa_specialized_get")
 model = ofa_specialized_get("flops@595M_top1@80.0_finetune@75", pretrained=True)
 ```
 
-The model's prediction can evalutaed by 
+The model's prediction can be evalutaed by 
 ```
 # Download an example image from the pytorch website
 import urllib
