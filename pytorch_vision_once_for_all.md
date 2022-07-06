@@ -2,10 +2,10 @@
 layout: hub_detail
 background-class: hub-background
 body-class: hub
-title: "Once for All: Train One Network and Specialize it for Efficient Deployment"
+title: "Once-for-All"
 category: researchers
 summary: Once-for-all (OFA) decouples training and search, and achieves efficient inference across various edge devices and resource constraints.
-image: https://github.com/mit-han-lab/once-for-all/raw/master/figures/overview.png
+image: once_for_all_overview.png
 author: MIT Han Lab
 tags: [vision, scriptable]
 github-link: https://github.com/mit-han-lab/once-for-all
@@ -31,12 +31,14 @@ super_net_name = "ofa_supernet_resnet50"
 
 super_net = torch.hub.load('mit-han-lab/once-for-all', super_net_name, pretrained=True).eval()
 ```
+
 | OFA Network         | Design Space | Resolution | Width Multiplier |  Depth |  Expand Ratio |  kernel Size | 
-|----------------------|:----------:|:----------:|:---------:|:------------:|:---------:|:------------:|
+|----------------------|----------|----------|---------|------------|---------|------------|
 | ofa_resnet50 | ResNet50D | 128 - 224 | 0.65, 0.8, 1.0 | 0, 1, 2 | 0.2, 0.25, 0.35 | 3 |
 | ofa_mbv3_d234_e346_k357_w1.0 | MobileNetV3 | 128 - 224 | 1.0 | 2, 3, 4 | 3, 4, 6 | 3, 5, 7 |
 | ofa_mbv3_d234_e346_k357_w1.2 | MobileNetV3 | 160 - 224 | 1.2 | 2, 3, 4 | 3, 4, 6 | 3, 5, 7 |
 | ofa_proxyless_d234_e346_k357_w1.3 | ProxylessNAS | 128 - 224 | 1.3 | 2, 3, 4 | 3, 4, 6 | 3, 5, 7 |
+
 
 Below are the usage of sampling / selecting a subnet from the supernet 
 
@@ -125,7 +127,9 @@ Once-for-all models are from [Once for All: Train One Network and Specialize it 
 
 Conventional approaches either manually design or use neural architecture search (NAS) to find a specialized neural network and train it from scratch for each case, which is computationally prohibitive (causing CO2 emission as much as 5 cars' lifetime) thus unscalable. In this work, we propose to train a once-for-all (OFA) network that supports diverse architectural settings by decoupling training and search. Across diverse edge devices, OFA consistently outperforms state-of-the-art (SOTA) NAS methods (up to 4.0% ImageNet top1 accuracy improvement over MobileNetV3, or same accuracy but 1.5x faster than MobileNetV3, 2.6x faster than EfficientNet w.r.t measured latency) while reducing many orders of magnitude GPU hours and CO2 emission. In particular, OFA achieves a new SOTA 80.0% ImageNet top-1 accuracy under the mobile setting (<600M MACs).
 
-![](https://github.com/mit-han-lab/once-for-all/raw/master/figures/cnn_imagenet_new.png)
+<!-- ![](images/ofa_imagenet_results.png) -->
+<img src="images/ofa_imagenet_results.png"  width="100%"/>
+
 
 ### References
 
