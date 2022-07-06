@@ -76,13 +76,13 @@ specialized_net = torch.hub.load('mit-han-lab/once-for-all', net_config, pretrai
 More models and configurations can be found in [once-for-all/model-zoo](https://github.com/mit-han-lab/once-for-all#evaluate-1)
 and obtained through the following scripts
 
-```
+```python
 ofa_specialized_get = torch.hub.load('mit-han-lab/once-for-all', "ofa_specialized_get")
 model = ofa_specialized_get("flops@595M_top1@80.0_finetune@75", pretrained=True)
 ```
 
 The model's prediction can be evalutaed by 
-```
+```python
 # Download an example image from pytorch website
 import urllib
 url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
