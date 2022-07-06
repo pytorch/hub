@@ -4,13 +4,13 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: Once for All: Train One Network and Specialize it for Efficient Deployment
-summary: We propose to train a once-for-all (OFA) network that supports diverse architectural settings by decoupling training and search, thus achieving efficient inference across many devices and resource constraints, especially on edge devices.
+summary: Once-for-all (OFA) decouples training and search, and achieves efficient inference across various edge devices and resource constraints.
 image: https://github.com/mit-han-lab/once-for-all/raw/master/figures/overview.png
 author: MIT Han Lab
 tags: [vision]
 github-link: https://github.com/mit-han-lab/once-for-all
-github-id: https://github.com/mit-han-lab
-featured_image_1: https://github.com/mit-han-lab/once-for-all/raw/master/figures/cnn_imagenet_new.png
+github-id: mit-han-lab/once-for-all
+featured_image_1: once_for_all_overview.png
 featured_image_2: no-image
 accelerator: cuda-optional
 ---
