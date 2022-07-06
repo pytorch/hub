@@ -125,7 +125,7 @@ print(probabilities)
 Once-for-all models are from [Once for All: Train One Network and Specialize it for Efficient Deployment](https://arxiv.org/abs/1908.09791). Conventional approaches either manually design or use neural architecture search (NAS) to find a specialized neural network and train it from scratch for each case, which is computationally prohibitive (causing CO2 emission as much as 5 cars' lifetime) thus unscalable. In this work, we propose to train a once-for-all (OFA) network that supports diverse architectural settings by decoupling training and search. Across diverse edge devices, OFA consistently outperforms state-of-the-art (SOTA) NAS methods (up to 4.0% ImageNet top1 accuracy improvement over MobileNetV3, or same accuracy but 1.5x faster than MobileNetV3, 2.6x faster than EfficientNet w.r.t measured latency) while reducing many orders of magnitude GPU hours and CO2 emission. In particular, OFA achieves a new SOTA 80.0% ImageNet top-1 accuracy under the mobile setting (<600M MACs).
 
 <!-- ![](images/ofa_imagenet_results.png) -->
-<img src="images/ofa_imagenet_results.png"  width="100%"/>
+<img src="https://github.com/mit-han-lab/once-for-all/raw/master/figures/cnn_imagenet_new.png"  width="100%"/>
 
 
 ### References
