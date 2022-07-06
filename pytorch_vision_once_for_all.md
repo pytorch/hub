@@ -15,6 +15,26 @@ featured_image_2: no-image
 accelerator: cuda-optional
 ---
 
+---
+layout: hub_detail
+background-class: hub-background
+body-class: hub
+title: AlexNet
+summary: The 2012 ImageNet winner achieved a top-5 error of 15.3%, more than 10.8 percentage points lower than that of the runner up.
+category: researchers
+image: alexnet2.png
+author: Pytorch Team
+tags: [vision, scriptable]
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/alexnet.py
+github-id: pytorch/vision
+featured_image_1: alexnet1.png
+featured_image_2: alexnet2.png
+accelerator: cuda-optional
+order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/AlexNet
+---
+
+
 ### Get supernet
 
 You can quickly load a supernet as following
