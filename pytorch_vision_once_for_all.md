@@ -2,12 +2,12 @@
 layout: hub_detail
 background-class: hub-background
 body-class: hub
+title: "Once for All: Train One Network and Specialize it for Efficient Deployment"
 category: researchers
-title: Once for All: Train One Network and Specialize it for Efficient Deployment
 summary: Once-for-all (OFA) decouples training and search, and achieves efficient inference across various edge devices and resource constraints.
 image: https://github.com/mit-han-lab/once-for-all/raw/master/figures/overview.png
 author: MIT Han Lab
-tags: [vision]
+tags: [vision, scriptable]
 github-link: https://github.com/mit-han-lab/once-for-all
 github-id: mit-han-lab/once-for-all
 featured_image_1: once_for_all_overview.png
@@ -15,24 +15,6 @@ featured_image_2: no-image
 accelerator: cuda-optional
 ---
 
----
-layout: hub_detail
-background-class: hub-background
-body-class: hub
-title: AlexNet
-summary: The 2012 ImageNet winner achieved a top-5 error of 15.3%, more than 10.8 percentage points lower than that of the runner up.
-category: researchers
-image: alexnet2.png
-author: Pytorch Team
-tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/alexnet.py
-github-id: pytorch/vision
-featured_image_1: alexnet1.png
-featured_image_2: alexnet2.png
-accelerator: cuda-optional
-order: 10
-demo-model-link: https://huggingface.co/spaces/pytorch/AlexNet
----
 
 
 ### Get supernet
