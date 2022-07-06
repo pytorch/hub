@@ -42,7 +42,7 @@ super_net = torch.hub.load('mit-han-lab/once-for-all', super_net_name, pretraine
 
 Below are the usage of sampling / selecting a subnet from the supernet 
 
-```
+```python
 # Randomly sample sub-networks from OFA network
 super_net.sample_active_subnet()
 random_subnet = super_net.get_active_subnet(preserve_weight=True)
@@ -55,7 +55,7 @@ manual_subnet = super_net.get_active_subnet(preserve_weight=True)
 
 ### Get Specialized Architecture
 
-```
+```python
 import torch
 
 # or load a architecture specialized for certain platform
