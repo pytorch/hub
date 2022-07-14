@@ -13,7 +13,6 @@ github-id: snakers4/silero-vad
 featured_image_1: silero_vad_performance.png
 featured_image_2: no-image
 accelerator: cuda-optional
-demo-model-link: https://huggingface.co/spaces/pytorch/silero_vad
 ---
 
 
@@ -33,8 +32,7 @@ torch.hub.download_url_to_file('https://models.silero.ai/vad_models/en.wav', 'en
 
 model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
                               model='silero_vad',
-                              force_reload=True,
-                              trust_repo=True)
+                              force_reload=True)
 
 (get_speech_timestamps,
  _, read_audio,

@@ -13,7 +13,6 @@ github-id: snakers4/silero-models
 featured_image_1: no-image
 featured_image_1: no-image
 accelerator: cuda-optional
-demo-model-link: https://huggingface.co/spaces/pytorch/silero_tts
 ---
 
 ```bash
@@ -29,7 +28,6 @@ speaker = 'lj_16khz'
 device = torch.device('cpu')
 model, symbols, sample_rate, example_text, apply_tts = torch.hub.load(repo_or_dir='snakers4/silero-models',
                                                                       model='silero_tts',
-                                                                      trust_repo=True,
                                                                       language=language,
                                                                       speaker=speaker)
 model = model.to(device)  # gpu or cpu

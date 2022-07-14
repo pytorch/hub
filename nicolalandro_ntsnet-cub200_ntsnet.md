@@ -18,7 +18,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/NTSNET
 
 ```python
 import torch
-model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet', trust_repo=True, pretrained=True,
+model = torch.hub.load('nicolalandro/ntsnet-cub200', 'ntsnet', pretrained=True,
                        **{'topN': 6, 'device':'cpu', 'num_classes': 200})
 ```
 

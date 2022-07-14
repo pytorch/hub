@@ -71,7 +71,7 @@ This example loads a pretrained **YOLOv5s** model and passes an image for infere
 import torch
 
 # Model
-model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True, trust_repo=True)
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
 
 # Images
 imgs = ['https://ultralytics.com/images/zidane.jpg']  # batch of images
