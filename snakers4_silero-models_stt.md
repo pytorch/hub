@@ -13,7 +13,6 @@ github-id: snakers4/silero-models
 featured_image_1: silero_stt_model.jpg
 featured_image_2: silero_imagenet_moment.png
 accelerator: cuda-optional
-demo-model-link: https://huggingface.co/spaces/pytorch/silero_stt
 ---
 
 ```bash

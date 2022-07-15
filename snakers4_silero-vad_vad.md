@@ -13,7 +13,6 @@ github-id: snakers4/silero-vad
 featured_image_1: silero_vad_performance.png
 featured_image_2: no-image
 accelerator: cuda-optional
-demo-model-link: https://huggingface.co/spaces/pytorch/silero_vad
 ---
 
 
