@@ -19,9 +19,9 @@ demo-model-link: https://huggingface.co/spaces/pytorch/SqueezeNet
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.10.0', 'squeezenet1_0', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.13.0', 'squeezenet1_0', weights="IMAGENET1K_V1")
 # or
-# model = torch.hub.load('pytorch/vision:v0.10.0', 'squeezenet1_1', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.13.0', 'squeezenet1_1', weights="IMAGENET1K_V1")
 model.eval()
 ```
 

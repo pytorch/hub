@@ -20,9 +20,9 @@ demo-model-link: https://huggingface.co/spaces/pytorch/Wide_Resnet
 ```python
 import torch
 # load WRN-50-2:
-model = torch.hub.load('pytorch/vision:v0.10.0', 'wide_resnet50_2', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.13.0', 'wide_resnet50_2', weights="IMAGENET1K_V1")
 # or WRN-101-2
-model = torch.hub.load('pytorch/vision:v0.10.0', 'wide_resnet101_2', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.13.0', 'wide_resnet101_2', weights="IMAGENET1K_V1")
 model.eval()
 ```
 

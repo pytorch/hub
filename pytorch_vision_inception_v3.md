@@ -19,7 +19,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/Inception_v3
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.10.0', 'inception_v3', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.13.0', 'inception_v3', weights="IMAGENET1K_V1")
 model.eval()
 ```
 

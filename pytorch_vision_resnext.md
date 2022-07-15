@@ -19,9 +19,9 @@ demo-model-link: https://huggingface.co/spaces/pytorch/ResNext
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.10.0', 'resnext50_32x4d', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.13.0', 'resnext50_32x4d', weights="IMAGENET1K_V1")
 # or
-# model = torch.hub.load('pytorch/vision:v0.10.0', 'resnext101_32x8d', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.13.0', 'resnext101_32x8d', weights="IMAGENET1K_V1")
 model.eval()
 ```
 

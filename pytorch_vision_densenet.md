@@ -19,11 +19,11 @@ demo-model-link: https://huggingface.co/spaces/pytorch/Densenet
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.10.0', 'densenet121', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.13.0', 'densenet121', weights="IMAGENET1K_V1")
 # or any of these variants
-# model = torch.hub.load('pytorch/vision:v0.10.0', 'densenet169', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.10.0', 'densenet201', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.10.0', 'densenet161', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.13.0', 'densenet169', weights="IMAGENET1K_V1")
+# model = torch.hub.load('pytorch/vision:v0.13.0', 'densenet201', weights="IMAGENET1K_V1")
+# model = torch.hub.load('pytorch/vision:v0.13.0', 'densenet161', weights="IMAGENET1K_V1")
 model.eval()
 ```
 

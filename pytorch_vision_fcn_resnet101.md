@@ -19,9 +19,9 @@ demo-model-link: https://huggingface.co/spaces/pytorch/FCN
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.10.0', 'fcn_resnet50', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.13.0', 'fcn_resnet50', weights="COCO_WITH_VOC_LABELS_V1")
 # or
-# model = torch.hub.load('pytorch/vision:v0.10.0', 'fcn_resnet101', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.13.0', 'fcn_resnet101', weights="COCO_WITH_VOC_LABELS_V1")
 model.eval()
 ```
 
