@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 set -ex -o pipefail
 
-# Set up NVIDIA docker repo
-curl -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
-echo "deb https://nvidia.github.io/libnvidia-container/ubuntu16.04/amd64 /" | sudo tee -a /etc/apt/sources.list.d/nvidia-docker.list
-echo "deb https://nvidia.github.io/nvidia-container-runtime/ubuntu16.04/amd64 /" | sudo tee -a /etc/apt/sources.list.d/nvidia-docker.list
-echo "deb https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64 /" | sudo tee -a /etc/apt/sources.list.d/nvidia-docker.list
+# Set up NVIDIA docker repo. See https://nvidia.github.io/libnvidia-container/
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+         && curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+         && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
+               sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+               sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+# curl -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+# echo "deb https://nvidia.github.io/libnvidia-container/$ubuntu/amd64 /" | sudo tee -a /etc/apt/sources.list.d/nvidia-docker.list
+# echo "deb https://nvidia.github.io/nvidia-container-runtime/$ubuntu/amd64 /" | sudo tee -a /etc/apt/sources.list.d/nvidia-docker.list
+# echo "deb https://nvidia.github.io/nvidia-docker/$ubuntu/amd64 /" | sudo tee -a /etc/apt/sources.list.d/nvidia-docker.list
+
 
 # Remove unnecessary sources
 sudo rm -f /etc/apt/sources.list.d/google-chrome.list
