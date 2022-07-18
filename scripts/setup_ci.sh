@@ -7,8 +7,7 @@ set -ex -o pipefail
 #          && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
 #                sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
 #                sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
-curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
-  sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
   sudo tee /etc/apt/sources.list.d/nvidia-docker.list
@@ -31,9 +30,9 @@ sudo apt-get -y install \
   linux-headers-$(uname -r) \
   linux-image-generic \
   moreutils \
-  docker-ce=5:18.09.4~3-0~ubuntu-xenial \
-  nvidia-container-runtime=2.0.0+docker18.09.4-1 \
-  nvidia-docker2=2.0.3+docker18.09.4-1 \
+  docker-ce \
+  nvidia-container-runtime \
+  nvidia-docker2 \
   expect-dev
 
 sudo pkill -SIGHUP dockerd
