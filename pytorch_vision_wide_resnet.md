@@ -14,7 +14,9 @@ featured_image_1: wide_resnet.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
-demo-model-link: https://huggingface.co/spaces/pytorch/Wide_Resnet
+demo-model-links: 
+    - https://huggingface.co/spaces/pytorch/Wide_Resnet
+    - https://console.tiyaro.ai/explore/wide_resnet101_2/demo
 ---
 
 ```python

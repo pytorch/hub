@@ -14,7 +14,9 @@ featured_image_1: inception_v3.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
-demo-model-link: https://huggingface.co/spaces/pytorch/Inception_v3
+demo-model-links: 
+    - https://huggingface.co/spaces/pytorch/Inception_v3
+    - https://console.tiyaro.ai/explore/inception_v3/demo
 ---
 
 ```python

@@ -14,7 +14,9 @@ featured_image_1: shufflenet_v2_1.png
 featured_image_2: shufflenet_v2_2.png
 accelerator: cuda-optional
 order: 10
-demo-model-link: https://huggingface.co/spaces/pytorch/ShuffleNet_v2
+demo-model-links: 
+    - https://huggingface.co/spaces/pytorch/ShuffleNet_v2
+    - https://console.tiyaro.ai/explore/shufflenet_v2_x1_0/demo
 ---
 
 ```python

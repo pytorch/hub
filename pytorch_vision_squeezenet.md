@@ -14,7 +14,9 @@ featured_image_1: squeezenet.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
-demo-model-link: https://huggingface.co/spaces/pytorch/SqueezeNet
+demo-model-links: 
+    - https://huggingface.co/spaces/pytorch/SqueezeNet
+    - https://console.tiyaro.ai/explore/squeezenet1_0/demo
 ---
 
 ```python

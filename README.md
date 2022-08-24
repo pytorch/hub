@@ -30,3 +30,7 @@ python scripts/sanity_check.py
 - We also provide a way to preview your model webpage through `netlify bot`. This bot builds your PR with the latest `pytorch.github.io` repo and comments on your PR with a preview link. The preview will be updated as you push more commits to the PR.
 ![Example netlify bot comment](images/netlify.png)
 
+## Live Demos
+
+<a href="https://console.tiyaro.ai/explore?q=resnet&pub=torchserve"> <img src="https://tiyaro-public-docs.s3.us-west-2.amazonaws.com/assets/try_on_tiyaro_badge.svg"></a>
+

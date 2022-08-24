@@ -13,7 +13,9 @@ github-id: pytorch/vision
 featured_image_1: deeplab1.png
 featured_image_2: deeplab2.png
 accelerator: cuda-optional
-demo-model-link: https://huggingface.co/spaces/pytorch/DeepLabV3
+demo-model-links: 
+    - https://huggingface.co/spaces/pytorch/DeepLabV3
+    - https://console.tiyaro.ai/explore/resnet101/demo
 order: 1
 ---
 

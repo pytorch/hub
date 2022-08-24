@@ -14,7 +14,9 @@ featured_image_1: vgg.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
-demo-model-link: https://huggingface.co/spaces/pytorch/vgg-nets
+demo-model-links: 
+    - https://huggingface.co/spaces/pytorch/vgg-nets
+    - https://console.tiyaro.ai/explore/vgg19/demo
 ---
 
 ```python

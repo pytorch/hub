@@ -14,7 +14,9 @@ featured_image_1: resnext.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
-demo-model-link: https://huggingface.co/spaces/pytorch/ResNext
+demo-model-links: 
+    - https://huggingface.co/spaces/pytorch/ResNext
+    - https://console.tiyaro.ai/explore/resnext101_32x8d/demo
 ---
 
 ```python

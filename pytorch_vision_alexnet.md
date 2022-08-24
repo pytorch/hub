@@ -14,7 +14,9 @@ featured_image_1: alexnet1.png
 featured_image_2: alexnet2.png
 accelerator: cuda-optional
 order: 10
-demo-model-link: https://huggingface.co/spaces/pytorch/AlexNet
+demo-model-links: 
+    - https://huggingface.co/spaces/pytorch/AlexNet
+    - https://console.tiyaro.ai/explore/alexnet/demo
 ---
 
 ```python
