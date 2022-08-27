@@ -160,6 +160,7 @@ print("Top 5 predicted labels: %s" % ", ".join(pred_class_names))
 ### Model Description
 The model architecture is based on [1] with pretrained weights using the 8x8 setting
 on the Kinetics dataset. 
+
 | arch | depth | frame length x sample rate | top 1 | top 5 | Flops (G) | Params (M) |
 | --------------- | ----------- | ----------- | ----------- | ----------- | ----------- |  ----------- |
 | Slow     | R50   | 8x8                        | 74.58 | 91.63 | 54.52     | 32.45     |
