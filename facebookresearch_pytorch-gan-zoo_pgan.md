@@ -67,4 +67,4 @@ Progressive Growing of GANs is a method developed by Karras et. al. [1] in 2017 
 
 ### References
 
-- [Progressive Growing of GANs for Improved Quality, Stability, and Variation](https://arxiv.org/abs/1710.10196)
+[1] Tero Karras et al, "Progressive Growing of GANs for Improved Quality, Stability, and Variation" https://arxiv.org/abs/1710.10196
