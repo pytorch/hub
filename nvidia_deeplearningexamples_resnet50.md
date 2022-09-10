@@ -81,7 +81,7 @@ batch = torch.cat(
 ).to(device)
 ```
 
-Run inference. Use `pick_n_best(predictions=output, n=topN)` helepr function to pick N most probably hypothesis according to the model.
+Run inference. Use `pick_n_best(predictions=output, n=topN)` helper function to pick N most probably hypothesis according to the model.
 ```python
 with torch.no_grad():
     output = torch.nn.functional.softmax(resnet50(batch), dim=1)
