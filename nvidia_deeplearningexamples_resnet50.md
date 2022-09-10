@@ -25,7 +25,7 @@ The ***ResNet50 v1.5*** model is a modified version of the [original ResNet50 v1
 The difference between v1 and v1.5 is that, in the bottleneck blocks which requires
 downsampling, v1 has stride = 2 in the first 1x1 convolution, whereas v1.5 has stride = 2 in the 3x3 convolution.
 
-This difference makes ResNet50 v1.5 slightly more accurate (\~0.5% top1) than v1, but comes with a smallperformance drawback (\~5% imgs/sec).
+This difference makes ResNet50 v1.5 slightly more accurate (\~0.5% top1) than v1, but comes with a small performance drawback (\~5% imgs/sec).
 
 The model is initialized as described in [Delving deep into rectifiers: Surpassing human-level performance on ImageNet classification](https://arxiv.org/pdf/1502.01852.pdf)
 
