@@ -26,7 +26,7 @@ The Tacotron 2 and WaveGlow model form a text-to-speech system that enables user
 
 In the example below:
 - pretrained Tacotron2 and Waveglow models are loaded from torch.hub
-- Tacotron2 generates mel spectrogram given tensor represantation of an input text ("Hello world, I missed you so much")
+- Given a tensor representation of the input text ("Hello world, I missed you so much"), Tacotron2 generates a Mel spectrogram as shown on the left.
 - Waveglow generates sound given the mel spectrogram
 - the output sound is saved in an 'audio.wav' file
 
