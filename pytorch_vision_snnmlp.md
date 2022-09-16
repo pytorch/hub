@@ -71,7 +71,7 @@ print(torch.nn.functional.softmax(output[0], dim=0))
 
 ### Model Description
 
-SNNMLP incorporates the machanism of LIF neurons into the MLP models, to achieve better accuracy without extra FLOPs. We propose a full-precision LIF operation to communicate between patches, including horizontal LIF and vertical LIF in different directions. We also propose to use group LIF to extract better local features. With LIF modules, our SNNMLP model achieves 81.9%, 83.3% and 83.6% top-1 accuracy on ImageNet dataset with only 4.4G, 8.5G and 15.2G FLOPs, respectively.
+SNNMLP incorporates the mechanism of LIF neurons into the MLP models, to achieve better accuracy without extra FLOPs. We propose a full-precision LIF operation to communicate between patches, including horizontal LIF and vertical LIF in different directions. We also propose to use group LIF to extract better local features. With LIF modules, our SNNMLP model achieves 81.9%, 83.3% and 83.6% top-1 accuracy on ImageNet dataset with only 4.4G, 8.5G and 15.2G FLOPs, respectively.
 
 The corresponding accuracy on ImageNet dataset with pretrained model is listed below.
 
@@ -84,7 +84,7 @@ The corresponding accuracy on ImageNet dataset with pretrained model is listed b
 
 ### References
 
-You can read the full paper at this [link](https://arxiv.org/abs/2203.14679).
+You can read the full paper [here](https://arxiv.org/abs/2203.14679).
 ```
 @inproceedings{li2022brain,
   title={Brain-inspired multilayer perceptron with spiking neurons},
