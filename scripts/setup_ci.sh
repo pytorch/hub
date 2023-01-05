@@ -39,7 +39,6 @@ sudo apt-get -y install \
   linux-headers-$(uname -r) \
   linux-image-generic \
   moreutils \
-#   docker-ce \
   nvidia-container-runtime \
   nvidia-docker2 \
   expect-dev
