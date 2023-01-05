@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-set -ex -o pipefail
+# set -ex -o pipefail
+set -x
 
 # Set up NVIDIA docker repo. See https://nvidia.github.io/libnvidia-container/
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
@@ -45,7 +46,7 @@ sudo apt-get -y install \
   nvidia-docker2 \
   expect-dev
 
-sudo systemctl start docker
+sudo systemctl status docker
 sudo pkill -SIGHUP dockerd
 
 DRIVER_FN="NVIDIA-Linux-x86_64-450.51.06.run"
