@@ -20,6 +20,8 @@ distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
 # echo "deb https://nvidia.github.io/nvidia-docker/$ubuntu/amd64 /" | sudo tee -a /etc/apt/sources.list.d/nvidia-docker.list
 
 
+
+
 # Remove unnecessary sources
 sudo rm -f /etc/apt/sources.list.d/google-chrome.list
 sudo rm -f /etc/apt/heroku.list
@@ -28,6 +30,8 @@ sudo rm -f /etc/apt/partner.list
 sudo rm -f /etc/apt/sources.list.d/nvidia-container-runtime.list*
 sudo rm -f /etc/apt/sources.list.d/nvidia-docker.list*
 
+curl https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
+
 sudo apt-get -y update
 # sudo apt-get -y remove linux-image-generic linux-headers-generic linux-generic docker-ce
 sudo apt-get -y remove --force-yes linux-image-generic linux-headers-generic linux-generic docker-ce
@@ -35,7 +39,7 @@ sudo apt-get -y install \
   linux-headers-$(uname -r) \
   linux-image-generic \
   moreutils \
-  docker-ce \
+#   docker-ce \
   nvidia-container-runtime \
   nvidia-docker2 \
   expect-dev
