@@ -25,6 +25,8 @@ sudo rm -f /etc/apt/sources.list.d/google-chrome.list
 sudo rm -f /etc/apt/heroku.list
 sudo rm -f /etc/apt/openjdk-r-ubuntu-ppa-xenial.list
 sudo rm -f /etc/apt/partner.list
+sudo rm -f /etc/apt/sources.list.d/nvidia-container-runtime.list*
+sudo rm -f /etc/apt/sources.list.d/nvidia-docker.list*
 
 sudo apt-get -y update
 # sudo apt-get -y remove linux-image-generic linux-headers-generic linux-generic docker-ce
