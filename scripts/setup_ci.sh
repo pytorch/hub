@@ -46,7 +46,7 @@ sudo apt-get -y install \
   nvidia-docker2 \
   expect-dev
 
-sudo systemctl status docker
+# sudo systemctl status docker
 sudo pkill -SIGHUP dockerd
 
 DRIVER_FN="NVIDIA-Linux-x86_64-450.51.06.run"
