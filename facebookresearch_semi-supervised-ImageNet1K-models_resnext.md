@@ -20,7 +20,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/semi-supervised-ImageNet1
 ```python
 import torch
 
-# === SEMI-WEAKLY SUPERVISED MODELSP RETRAINED WITH 940 HASHTAGGED PUBLIC CONTENT ===
+# === SEMI-WEAKLY SUPERVISED MODELS PRETRAINED WITH 940 HASHTAGGED PUBLIC CONTENT ===
 model = torch.hub.load('facebookresearch/semi-supervised-ImageNet1K-models', 'resnet18_swsl')
 # model = torch.hub.load('facebookresearch/semi-supervised-ImageNet1K-models', 'resnet50_swsl')
 # model = torch.hub.load('facebookresearch/semi-supervised-ImageNet1K-models', 'resnext50_32x4d_swsl')
