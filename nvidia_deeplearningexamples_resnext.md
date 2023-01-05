@@ -28,7 +28,7 @@ This model is trained with mixed precision using Tensor Cores on Volta, Turing, 
 
 We use [NHWC data layout](https://pytorch.org/tutorials/intermediate/memory_format_tutorial.html) when training using Mixed Precision.
 
-Note that the ResNeXt101-32x4d model can be deployed for inference on the [NVIDIA Triton Inference Server](https://github.com/NVIDIA/trtis-inference-server) using TorchScript, ONNX Runtime or TensorRT as an execution backend. For details check [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnext_for_triton_from_pytorch)
+Note that the ResNeXt101-32x4d model can be deployed for inference on the [NVIDIA Triton Inference Server](https://github.com/triton-inference-server/server) using TorchScript, ONNX Runtime or TensorRT as an execution backend. For details check [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnext_for_triton_from_pytorch)
 
 #### Model architecture
 
@@ -87,7 +87,7 @@ batch = torch.cat(
 ).to(device)
 ```
 
-Run inference. Use `pick_n_best(predictions=output, n=topN)` helepr function to pick N most probably hypothesis according to the model.
+Run inference. Use `pick_n_best(predictions=output, n=topN)` helper function to pick N most probably hypothesis according to the model.
 ```python
 with torch.no_grad():
     output = torch.nn.functional.softmax(resneXt(batch), dim=1)
