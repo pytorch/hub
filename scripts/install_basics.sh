@@ -3,7 +3,7 @@ set -e
 set -x
 
 # Install basics
-sudo apt-get install vim
+# sudo apt-get install vim
 
 # Install miniconda
 CONDA=https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
