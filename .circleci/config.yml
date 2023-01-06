@@ -8,16 +8,13 @@ update_submodule: &update_submodule
 jobs:
   run_torchhub:
     machine:
-      image: ubuntu-1604:201903-01
+      image: ubuntu-2004-cuda-11.4:202110-01
     resource_class: gpu.nvidia.small
     steps:
       - checkout
       - run:
-          name: Setup CI environment
-          command: ./scripts/setup_ci.sh
-      - run:
           name: Install Deps
-          command: ./scripts/install_basics.sh; ./scripts/install.sh
+          command: ./scripts/install_conda.sh; ./scripts/install_deps.sh
       - run:
           name: Sanity Check
           command: . ~/miniconda3/etc/profile.d/conda.sh; conda activate base; python scripts/sanity_check.py
