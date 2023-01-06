@@ -18,7 +18,7 @@ jobs:
       - run:
           name: Install Deps
           command: ./scripts/install_basics.sh; ./scripts/install.sh
-      - run:
+      # - run:
       #     name: Sanity Check
       #     command: . ~/miniconda3/etc/profile.d/conda.sh; conda activate base; python scripts/sanity_check.py
       # - run:
