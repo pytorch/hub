@@ -14,7 +14,7 @@ jobs:
       - checkout
       - run:
           name: Install Deps
-          command: ./scripts/install_conda.sh; ./scripts/install.sh
+          command: ./scripts/install_conda.sh; ./scripts/install_deps.sh
       - run:
           name: Sanity Check
           command: . ~/miniconda3/etc/profile.d/conda.sh; conda activate base; python scripts/sanity_check.py
