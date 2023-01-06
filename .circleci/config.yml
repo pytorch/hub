@@ -13,18 +13,15 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Setup CI environment
-          command: ./scripts/setup_ci.sh
-      - run:
           name: Install Deps
-          command: ./scripts/install_basics.sh; ./scripts/install.sh
-      # - run:
-      #     name: Sanity Check
-      #     command: . ~/miniconda3/etc/profile.d/conda.sh; conda activate base; python scripts/sanity_check.py
-      # - run:
-      #     name: Run Pytorch scripts
-      #     command: ./scripts/run_pytorch.sh
-      #     no_output_timeout: 1h
+          command: ./scripts/install_conda.sh; ./scripts/install.sh
+      - run:
+          name: Sanity Check
+          command: . ~/miniconda3/etc/profile.d/conda.sh; conda activate base; python scripts/sanity_check.py
+      - run:
+          name: Run Pytorch scripts
+          command: ./scripts/run_pytorch.sh
+          no_output_timeout: 1h
       - store_test_results:
           path: test-results
 
