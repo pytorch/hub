@@ -23,11 +23,12 @@ You can quickly load a supernet as following
 
 ```python
 import torch
-super_net_name = "ofa_supernet_resnet50" 
+super_net_name = "ofa_supernet_mbv3_w10" 
 # other options: 
-#    ofa_mbv3_d234_e346_k357_w1.0 / 
-#    ofa_mbv3_d234_e346_k357_w1.2 / 
-#    ofa_proxyless_d234_e346_k357_w1.3
+#    ofa_supernet_mbv3_w10 /
+#    ofa_supernet_mbv3_w12 / 
+#    ofa_supernet_proxyless / 
+#    ofa_supernet_resnet50
 
 super_net = torch.hub.load('mit-han-lab/once-for-all', super_net_name, pretrained=True).eval()
 ```
@@ -61,16 +62,16 @@ import torch
 # or load a architecture specialized for certain platform
 net_config = "resnet50D_MAC_4_1B"
 # other options
-#    resnet50D_MAC@4.1B_top1@79.8
-#    resnet50D_MAC@3.7B_top1@79.7
-#    resnet50D_MAC@3.0B_top1@79.3
-#    resnet50D_MAC@2.4B_top1@79.0
-#    resnet50D_MAC@1.8B_top1@78.3
-#    resnet50D_MAC@1.2B_top1@77.1_finetune@25
-#    resnet50D_MAC@0.9B_top1@76.3_finetune@25
-#    resnet50D_MAC@0.6B_top1@75.0_finetune@25
+#    resnet50D_MAC_4_1B
+#    resnet50D_MAC_3_7B
+#    resnet50D_MAC_3_0B
+#    resnet50D_MAC_2_4B
+#    resnet50D_MAC_1_8B
+#    resnet50D_MAC_1_2B
+#    resnet50D_MAC_0_9B
+#    resnet50D_MAC_0_6B
 
-specialized_net = torch.hub.load('mit-han-lab/once-for-all', net_config, pretrained=True).eval()
+specialized_net, image_size = torch.hub.load('mit-han-lab/once-for-all', net_config, pretrained=True)
 ```
 
 More models and configurations can be found in [once-for-all/model-zoo](https://github.com/mit-han-lab/once-for-all#evaluate-1)
@@ -78,7 +79,7 @@ and obtained through the following scripts
 
 ```python
 ofa_specialized_get = torch.hub.load('mit-han-lab/once-for-all', "ofa_specialized_get")
-model = ofa_specialized_get("flops@595M_top1@80.0_finetune@75", pretrained=True)
+model, image_size = ofa_specialized_get("flops@595M_top1@80.0_finetune@75", pretrained=True)
 ```
 
 The model's prediction can be evalutaed by 
@@ -95,10 +96,11 @@ except:
 # sample execution (requires torchvision)
 from PIL import Image
 from torchvision import transforms
+import math
 input_image = Image.open(filename)
 preprocess = transforms.Compose([
-    transforms.Resize(256),
-    transforms.CenterCrop(224),
+    transforms.Resize(math.ceil(image_size / 0.875)),
+    transforms.CenterCrop(image_size),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
@@ -110,6 +112,7 @@ if torch.cuda.is_available():
     input_batch = input_batch.to('cuda')
     model.to('cuda')
 
+model.eval()
 with torch.no_grad():
     output = model(input_batch)
 # Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
