@@ -1,17 +1,14 @@
 #!/bin/bash
-set -e
-set -x
+set -ex
 
 . ~/miniconda3/etc/profile.d/conda.sh
 conda activate base
 
-conda install -y pytorch torchvision torchaudio -c pytorch-nightly
-
+conda install -y pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch-nightly -c nvidia
 conda install -y pytest
 
 # Dependencies required to load models
-conda install -y regex pillow tqdm boto3 requests numpy\
-    h5py scipy matplotlib unidecode ipython pyyaml
+conda install -y regex pillow tqdm boto3 requests numpy h5py scipy matplotlib unidecode ipython pyyaml
 conda install -y -c conda-forge librosa inflect
 
 pip install -q fastBPE sacremoses sentencepiece subword_nmt editdistance
