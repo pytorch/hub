@@ -18,11 +18,11 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('huawei-noah/SNNMLP', 'snnmlp_t', pretrained=True)
+model = torch.hub.load('huawei-noah/Efficient-AI-Backbones', 'snnmlp_t', pretrained=True)
 # or
-# model = torch.hub.load('huawei-noah/SNNMLP', 'snnmlp_s', pretrained=True)
+# model = torch.hub.load('huawei-noah/Efficient-AI-Backbones', 'snnmlp_s', pretrained=True)
 # or
-# model = torch.hub.load('huawei-noah/SNNMLP', 'snnmlp_b', pretrained=True)
+# model = torch.hub.load('huawei-noah/Efficient-AI-Backbones', 'snnmlp_b', pretrained=True)
 model.eval()
 ```
 
