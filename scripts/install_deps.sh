@@ -18,4 +18,4 @@ pip install -q hydra-core opencv-python fvcore
 pip install -q --upgrade google-api-python-client
 pip install pytorchvideo
 pip install -q prefetch_generator  # yolop
-pip install -q pretrainedmodels efficientnet_pytorch  # hybridnets
+pip install -q pretrainedmodels efficientnet_pytorch webcolors # hybridnets
