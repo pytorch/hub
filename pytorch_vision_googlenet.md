@@ -19,7 +19,7 @@ order: 10
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.13.0', 'googlenet', weights="IMAGENET1K_V1")
+model = torch.hub.load('pytorch/vision:v0.14.1', 'googlenet', weights="IMAGENET1K_V1")
 model.eval()
 ```
 

@@ -19,7 +19,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/MobileNet_v2
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.13.0', 'mobilenet_v2', weights="IMAGENET1K_V1")
+model = torch.hub.load('pytorch/vision:v0.14.1', 'mobilenet_v2', weights="IMAGENET1K_V1")
 model.eval()
 ```
 

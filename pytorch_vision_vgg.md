@@ -19,15 +19,15 @@ demo-model-link: https://huggingface.co/spaces/pytorch/vgg-nets
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.13.0', 'vgg11', weights="IMAGENET1K_V1")
+model = torch.hub.load('pytorch/vision:v0.14.1', 'vgg11', weights="IMAGENET1K_V1")
 # or any of these variants
-# model = torch.hub.load('pytorch/vision:v0.13.0', 'vgg11_bn', weights="IMAGENET1K_V1")
-# model = torch.hub.load('pytorch/vision:v0.13.0', 'vgg13', weights="IMAGENET1K_V1")
-# model = torch.hub.load('pytorch/vision:v0.13.0', 'vgg13_bn', weights="IMAGENET1K_V1")
-# model = torch.hub.load('pytorch/vision:v0.13.0', 'vgg16', weights="IMAGENET1K_V1")
-# model = torch.hub.load('pytorch/vision:v0.13.0', 'vgg16_bn', weights="IMAGENET1K_V1")
-# model = torch.hub.load('pytorch/vision:v0.13.0', 'vgg19', weights="IMAGENET1K_V1")
-# model = torch.hub.load('pytorch/vision:v0.13.0', 'vgg19_bn', weights="IMAGENET1K_V1")
+# model = torch.hub.load('pytorch/vision:v0.14.1', 'vgg11_bn', weights="IMAGENET1K_V1")
+# model = torch.hub.load('pytorch/vision:v0.14.1', 'vgg13', weights="IMAGENET1K_V1")
+# model = torch.hub.load('pytorch/vision:v0.14.1', 'vgg13_bn', weights="IMAGENET1K_V1")
+# model = torch.hub.load('pytorch/vision:v0.14.1', 'vgg16', weights="IMAGENET1K_V1")
+# model = torch.hub.load('pytorch/vision:v0.14.1', 'vgg16_bn', weights="IMAGENET1K_V1")
+# model = torch.hub.load('pytorch/vision:v0.14.1', 'vgg19', weights="IMAGENET1K_V1")
+# model = torch.hub.load('pytorch/vision:v0.14.1', 'vgg19_bn', weights="IMAGENET1K_V1")
 model.eval()
 ```
 

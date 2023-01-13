@@ -19,10 +19,10 @@ order: 1
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.13.0', 'deeplabv3_resnet50', weights="COCO_WITH_VOC_LABELS_V1")
+model = torch.hub.load('pytorch/vision:v0.14.1', 'deeplabv3_resnet50', weights="COCO_WITH_VOC_LABELS_V1")
 # or any of these variants
-# model = torch.hub.load('pytorch/vision:v0.13.0', 'deeplabv3_resnet101', weights="COCO_WITH_VOC_LABELS_V1")
-# model = torch.hub.load('pytorch/vision:v0.13.0', 'deeplabv3_mobilenet_v3_large', weights="COCO_WITH_VOC_LABELS_V1")
+# model = torch.hub.load('pytorch/vision:v0.14.1', 'deeplabv3_resnet101', weights="COCO_WITH_VOC_LABELS_V1")
+# model = torch.hub.load('pytorch/vision:v0.14.1', 'deeplabv3_mobilenet_v3_large', weights="COCO_WITH_VOC_LABELS_V1")
 model.eval()
 ```
 
