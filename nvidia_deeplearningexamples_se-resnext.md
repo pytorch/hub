@@ -37,7 +37,7 @@ _Image source: [Squeeze-and-Excitation Networks](https://arxiv.org/pdf/1709.0150
 Image shows the architecture of SE block and where is it placed in ResNet bottleneck block.
 
 
-Note that the SE-ResNeXt101-32x4d model can be deployed for inference on the [NVIDIA Triton Inference Server](https://github.com/NVIDIA/trtis-inference-server) using TorchScript, ONNX Runtime or TensorRT as an execution backend. For details check [NGC](https://catalog.ngc.nvidia.com/orgs/nvidia/resources/se_resnext_for_triton_from_pytorch).
+Note that the SE-ResNeXt101-32x4d model can be deployed for inference on the [NVIDIA Triton Inference Server](https://github.com/triton-inference-server/server) using TorchScript, ONNX Runtime or TensorRT as an execution backend. For details check [NGC](https://catalog.ngc.nvidia.com/orgs/nvidia/resources/se_resnext_for_triton_from_pytorch).
 
 ### Example
 
