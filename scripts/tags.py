@@ -3,4 +3,5 @@ valid_tags = ['vision',
               'generative',
               'audio',
               'scriptable',
+              'forecasting'
               ]
