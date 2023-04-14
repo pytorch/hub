@@ -4,7 +4,7 @@ set -ex
 . ~/miniconda3/etc/profile.d/conda.sh
 conda activate base
 
-conda install -y pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch-nightly -c nvidia
+conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch-nightly -c nvidia
 conda install -y pytest
 
 # Dependencies required to load models
