@@ -93,10 +93,10 @@ for i in range(top5_prob.size(0)):
 
 SimpleNet models were proposed in "Lets Keep it simple, Using simple architectures to outperform deeper and more complex architectures".  
 Here we have the 8 versions of simplenet models, which contains 1.5m, 3.2m, 5.7m and 9.5m parameters respectively.  
-Detailed model architectures can be found in Table 1.  
+Detailed model architectures can be found in Table 1 and Table 2.  
 Their 1-crop errors on imagenet dataset with pretrained models are listed below.  
 
-### m2 variants:  
+The m2 variants    
 
 |      Model structure       | Top-1 errors   | Top-5 errors |
 | :------------------------- | :-----------:  | :-----------:|
@@ -105,7 +105,7 @@ Their 1-crop errors on imagenet dataset with pretrained models are listed below.
 |  simplenetv1_5m_m2         |     27.97      |     9.676    |
 |  simplenetv1_9m_m2         |     25.77      |     8.252    |
 
-### m1 variants:  
+The m1 variants   
 
 |      Model structure       | Top-1 errors   | Top-5 errors |
 | :------------------------- | :-----------:  | :-----------:|
