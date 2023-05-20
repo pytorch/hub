@@ -10,7 +10,7 @@ author: Ultralytics
 tags: [vision, scriptable]
 github-link: https://github.com/ultralytics/yolov5
 github-id: ultralytics/yolov5
-featured_image_1: ultralytics_yolov5_img1.jpg
+featured_image_1: ultralytics_yolov5_img1.png
 featured_image_2: ultralytics_yolov5_img2.png
 accelerator: cuda-optional
 demo-model-link: https://hub.ultralytics.com/projects/DnIqQCdlI37oliWBAoQJ
