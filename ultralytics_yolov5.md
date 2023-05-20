@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: YOLOv5
-summary: Ultralytics YOLOv5 🚀
+summary: Ultralytics YOLOv5 🚀for object detection, instance segmentation and image classification.
 image: ultralytics_yolov5_img0.jpg
 author: Ultralytics
 tags: [vision, scriptable]
