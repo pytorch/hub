@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: YOLOv5
-summary: Ultralytics YOLOv5 🚀for object detection, instance segmentation and image classification.
+summary: Ultralytics YOLOv5 🚀 for object detection, instance segmentation and image classification.
 image: ultralytics_yolov5_img0.jpg
 author: Ultralytics
 tags: [vision, scriptable]
@@ -27,11 +27,10 @@ pip install -U ultralytics
 ## Model Description
 
 <img width="800" alt="YOLO Model Comparison" src="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/yolo-comparison-plots.png">
-&nbsp;
 
 Ultralytics YOLOv5 🚀 is a cutting-edge, state-of-the-art (SOTA) model that builds upon the success of previous YOLO versions and introduces new features and improvements to further boost performance and flexibility. YOLOv5 is designed to be fast, accurate, and easy to use, making it an excellent choice for a wide range of object detection, instance segmentation and image classification tasks.
 
-We hope that the resources here will help you get the most out of YOLOv5. Please browse the YOLOv5 <a href="https://docs.ultralytics.com/yolov5">Docs</a> for details, raise an issue on <a href="https://github.com/ultralytics/yolov5/issues/new/choose">GitHub</a> for support, and join our <a href="https://discord.gg/n6cFeSPZdD">Discord</a> community for questions and discussions!
+We hope that the resources here will help you get the most out of YOLOv5. Please browse the YOLOv5 [Docs](https://docs.ultralytics.com/yolov5) for details, raise an issue on [GitHub](https://github.com/ultralytics/yolov5/issues/new/choose) for support, and join our [Discord](https://discord.gg/n6cFeSPZdD) community for questions and discussions!
 
 | Model                                                                                           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | mAP<sup>val<br>50 | Speed<br><sup>CPU b1<br>(ms) | Speed<br><sup>V100 b1<br>(ms) | Speed<br><sup>V100 b32<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>@640 (B) |
 |-------------------------------------------------------------------------------------------------|-----------------------|----------------------|-------------------|------------------------------|-------------------------------|--------------------------------|--------------------|------------------------|
@@ -65,7 +64,7 @@ This example loads a pretrained **YOLOv5s** model and passes an image for infere
 import torch
 
 # Model
-model = torch.hub.load('ultralytics/yolov5', 'yolov5s', trust_repo=True)
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
 
 # Images
 imgs = ['https://ultralytics.com/images/zidane.jpg']  # batch of images
@@ -88,7 +87,22 @@ results.pandas().xyxy[0]  # img1 predictions (pandas)
 
 ## Citation
 
+If you use YOLOv5 or YOLOv5u in your research, please cite the Ultralytics YOLOv5 repository as follows:
+
 [![DOI](https://zenodo.org/badge/264818686.svg)](https://zenodo.org/badge/latestdoi/264818686)
+
+```bibtex
+@software{yolov5,
+  title = {YOLOv5 by Ultralytics},
+  author = {Glenn Jocher},
+  year = {2020},
+  version = {7.0},
+  license = {AGPL-3.0},
+  url = {https://github.com/ultralytics/yolov5},
+  doi = {10.5281/zenodo.3908559},
+  orcid = {0000-0001-5950-6979}
+}
+```
 
 ## Contact
 
