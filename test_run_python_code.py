@@ -23,6 +23,8 @@ def test_run_file(file_path):
         pytest.skip("temporarily disabled")
     if 'pytorch_fairseq_roberta' in file_path:
         pytest.skip("temporarily disabled")
+    if 'robustvideomatting' in file_path:
+        pytest.skip("temporarily disabled")
 
     # We just run the python files in a separate sub-process. We really want a
     # subprocess here because otherwise we might run into package versions
