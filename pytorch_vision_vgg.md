@@ -92,12 +92,12 @@ for i in range(top5_prob.size(0)):
 ### Model Description
 
 Here we have implementations for the models proposed in [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556),
-for each configurations and their with bachnorm version.
+for each configurations and their with batchnorm version.
 
 For example, configuration `A` presented in the paper is `vgg11`, configuration `B` is `vgg13`, configuration `D` is `vgg16`
 and configuration `E` is `vgg19`. Their batchnorm version are suffixed with `_bn`.
 
-Their 1-crop error rates on imagenet dataset with pretrained models are listed below.
+Their Top-1 error rates on ImageNet dataset with pretrained models are listed below.
 
 | Model structure | Top-1 error | Top-5 error |
 | --------------- | ----------- | ----------- |
