@@ -12,7 +12,8 @@ conda install -y regex pillow tqdm boto3 requests numpy h5py scipy matplotlib un
 conda install -y -c conda-forge librosa inflect
 
 pip install -q fastBPE sacremoses sentencepiece subword_nmt editdistance
-pip install -q visdom mistune filelock tokenizers packaging pandas
+pip install -q visdom filelock tokenizers packaging pandas
+pip install -q mistune==2.0.5
 pip install -q omegaconf timm seaborn importlib_metadata huggingface_hub
 pip install -q hydra-core opencv-python fvcore
 pip install -q --upgrade google-api-python-client
