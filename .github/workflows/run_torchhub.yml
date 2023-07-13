@@ -30,7 +30,7 @@ jobs:
         
         ## Install Deps
         ./scripts/install_conda.sh
-        ./scripts/install_conda.sh
+        ./scripts/install_deps.sh
 
         ## Sanity Check
         . ~/miniconda3/etc/profile.d/conda.sh
