@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: Inception_v3
-summary: Also called GoogleNetv3, a famous ConvNet trained on Imagenet from 2015
+summary: Also called GoogleNetv3, a famous ConvNet trained on ImageNet from 2015
 category: researchers
 image: inception_v3.png
 author: Pytorch Team
@@ -59,7 +59,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
   output = model(input_batch)
-# Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
+# Tensor of shape 1000, with confidence scores over ImageNet's 1000 classes
 print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
@@ -85,7 +85,7 @@ for i in range(top5_prob.size(0)):
 
 Inception v3: Based on the exploration of ways to scale up networks in ways that aim at utilizing the added computation as efficiently as possible by suitably factorized convolutions and aggressive regularization. We benchmark our methods on the ILSVRC 2012 classification challenge validation set demonstrate substantial gains over the state of the art: 21.2% top-1 and 5.6% top-5 error for single frame evaluation using a network with a computational cost of 5 billion multiply-adds per inference and with using less than 25 million parameters. With an ensemble of 4 models and multi-crop evaluation, we report 3.5% top-5 error on the validation set (3.6% error on the test set) and 17.3% top-1 error on the validation set.
 
-The 1-crop error rates on the imagenet dataset with the pretrained model are listed below.
+The 1-crop error rates on the ImageNet dataset with the pretrained model are listed below.
 
 | Model structure | Top-1 error | Top-5 error |
 | --------------- | ----------- | ----------- |

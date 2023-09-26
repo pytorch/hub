@@ -63,7 +63,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
+# Tensor of shape 1000, with confidence scores over ImageNet's 1000 classes
 print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
@@ -95,7 +95,7 @@ were designed for comparing with MobileNet).
 
 Here we have the 4 versions of hardnet models, which contains 39, 68, 85 layers
 w/ or w/o Depthwise Separable Conv respectively.
-Their 1-crop error rates on imagenet dataset with pretrained models are listed below.
+Their 1-crop error rates on ImageNet dataset with pretrained models are listed below.
 
 | Model structure | Top-1 error | Top-5 error |
 | --------------- | ----------- | ----------- |

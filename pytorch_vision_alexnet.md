@@ -59,7 +59,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
+# Tensor of shape 1000, with confidence scores over ImageNet's 1000 classes
 print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
@@ -85,11 +85,11 @@ for i in range(top5_prob.size(0)):
 
 AlexNet competed in the ImageNet Large Scale Visual Recognition Challenge on September 30, 2012. The network achieved a top-5 error of 15.3%, more than 10.8 percentage points lower than that of the runner up. The original paper's primary result was that the depth of the model was essential for its high performance, which was computationally expensive, but made feasible due to the utilization of graphics processing units (GPUs) during training.
 
-The 1-crop error rates on the imagenet dataset with the pretrained model are listed below.
+The 1-crop error rates on the ImageNet dataset with the pretrained model are listed below.
 
 | Model structure | Top-1 error | Top-5 error |
 | --------------- | ----------- | ----------- |
-|  alexnet        | 43.45       | 20.91       |
+|  AlexNet        | 43.45       | 20.91       |
 
 ### References
 

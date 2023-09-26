@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: ShuffleNet v2
-summary: An efficient ConvNet optimized for speed and memory, pre-trained on Imagenet
+summary: An efficient ConvNet optimized for speed and memory, pre-trained on ImageNet
 category: researchers
 image: shufflenet_v2_1.png
 author: Pytorch Team
@@ -59,7 +59,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
+# Tensor of shape 1000, with confidence scores over ImageNet's 1000 classes
 print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
