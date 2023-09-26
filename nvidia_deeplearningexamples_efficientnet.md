@@ -55,7 +55,7 @@ device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cp
 print(f'Using {device} for inference')
 ```
 
-Load the model pretrained on IMAGENET dataset.
+Load the model pretrained on ImageNet dataset.
 
 You can choose among the following models:
 

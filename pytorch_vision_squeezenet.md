@@ -61,7 +61,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
+# Tensor of shape 1000, with confidence scores over ImageNet's 1000 classes
 print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
@@ -90,7 +90,7 @@ Model `squeezenet1_0` is from the [SqueezeNet: AlexNet-level accuracy with 50x f
 Model `squeezenet1_1` is from the [official squeezenet repo](https://github.com/DeepScale/SqueezeNet/tree/master/SqueezeNet_v1.1).
 It has 2.4x less computation and slightly fewer parameters than `squeezenet1_0`, without sacrificing accuracy.
 
-Their 1-crop error rates on imagenet dataset with pretrained models are listed below.
+Their 1-crop error rates on ImageNet dataset with pretrained models are listed below.
 
 | Model structure | Top-1 error | Top-5 error |
 | --------------- | ----------- | ----------- |

@@ -67,7 +67,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
+# Tensor of shape 1000, with confidence scores over ImageNet's 1000 classes
 print(output[0])
 # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
@@ -94,7 +94,7 @@ for i in range(top5_prob.size(0)):
 SimpleNet models were proposed in "Lets Keep it simple, Using simple architectures to outperform deeper and more complex architectures".  
 Here we have the 8 versions of simplenet models, which contains 1.5m, 3.2m, 5.7m and 9.5m parameters respectively.  
 Detailed model architectures can be found in Table 1 and Table 2.  
-Their 1-crop errors on imagenet dataset with pretrained models are listed below.  
+Their 1-crop errors on ImageNet dataset with pretrained models are listed below.  
 
 The m2 variants    
 

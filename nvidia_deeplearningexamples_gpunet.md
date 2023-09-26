@@ -54,7 +54,7 @@ print(f'Using {device} for inference')
 ```
 
 ### Load Pretrained model
-Loads NVIDIA GPUNet-0 model by default pre-trained on IMAGENET dataset. You can switch the default pre-trained model loading from GPUNet-0 to one of the following models listed below. 
+Loads NVIDIA GPUNet-0 model by default pre-trained on ImageNet dataset. You can switch the default pre-trained model loading from GPUNet-0 to one of the following models listed below. 
 
 The model architecture is visible as output of the loaded model. For details architecture and latency info please refer to [architecture section](https://github.com/NVIDIA/DeepLearningExamples/tree/torchhub/PyTorch/Classification/GPUNet#model-architecture) in the original repo and Table#[3](https://arxiv.org/pdf/2205.00841.pdf) in the CVPR-2022 paper, respectively. 
 
