@@ -31,7 +31,7 @@ The library currently contains PyTorch implementations, pre-trained model weight
 5. **[XLNet](https://github.com/zihangdai/xlnet/)** (from Google/CMU) released with the paper [​XLNet: Generalized Autoregressive Pretraining for Language Understanding](https://arxiv.org/abs/1906.08237) by Zhilin Yang*, Zihang Dai*, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le.
 6. **[XLM](https://github.com/facebookresearch/XLM/)** (from Facebook) released together with the paper [Cross-lingual Language Model Pretraining](https://arxiv.org/abs/1901.07291) by Guillaume Lample and Alexis Conneau.
 7. **[RoBERTa](https://github.com/pytorch/fairseq/tree/master/examples/roberta)** (from Facebook), released together with the paper a [Robustly Optimized BERT Pretraining Approach](https://arxiv.org/abs/1907.11692) by Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, Veselin Stoyanov.
-8. **[DistilBERT](https://github.com/huggingface/pytorch-transformers/tree/master/examples/distillation)** (from HuggingFace), released together with the blogpost [Smaller, faster, cheaper, lighter: Introducing DistilBERT, a distilled version of BERT](https://medium.com/huggingface/distilbert-8cf3380435b) by Victor Sanh, Lysandre Debut and Thomas Wolf.
+8. **[DistilBERT](https://github.com/huggingface/transformers/tree/main/examples/research_projects/distillation)** (from HuggingFace), released together with the blogpost [Smaller, faster, cheaper, lighter: Introducing DistilBERT, a distilled version of BERT](https://medium.com/huggingface/distilbert-8cf3380435b5) by Victor Sanh, Lysandre Debut and Thomas Wolf.
 
 The components available here are based on the `AutoModel` and `AutoTokenizer` classes of the `pytorch-transformers` library.
 
@@ -58,7 +58,7 @@ All these methods share the following argument: `pretrained_model_or_path`, whic
 
 
 
-The available models are listed on the [pytorch-transformers documentation, pre-trained models section](https://huggingface.co/pytorch-transformers/pretrained_models.html).
+The available models are listed on the [transformers documentation, models page](https://huggingface.co/models).
 
 # Documentation
 
@@ -67,7 +67,7 @@ Here are a few examples detailing the usage of each available method.
 
 ## Tokenizer
 
-The tokenizer object allows the conversion from character strings to tokens understood by the different models. Each model has its own tokenizer, and some tokenizing methods are different across tokenizers. The complete documentation can be found [here](https://huggingface.co/pytorch-transformers/main_classes/tokenizer.html).
+The tokenizer object allows the conversion from character strings to tokens understood by the different models. Each model has its own tokenizer, and some tokenizing methods are different across tokenizers. The complete documentation can be found [here](https://huggingface.co/docs/transformers/main_classes/tokenizer).
 
 ```py
 import torch
@@ -77,7 +77,7 @@ tokenizer = torch.hub.load('huggingface/pytorch-transformers', 'tokenizer', './t
 
 ## Models
 
-The model object is a model instance inheriting from a `nn.Module`. Each model is accompanied by their saving/loading methods, either from a local file or directory, or from a pre-trained configuration (see previously described `config`). Each model works differently, a complete overview of the different models can be found in the [documentation](https://huggingface.co/pytorch-transformers/pretrained_models.html).
+The model object is a model instance inheriting from a `nn.Module`. Each model is accompanied by their saving/loading methods, either from a local file or directory, or from a pre-trained configuration (see previously described `config`). Each model works differently, a complete overview of the different models can be found in the [documentation](https://huggingface.co/docs/transformers/main_classes/model).
 
 ```py
 import torch
@@ -137,7 +137,7 @@ model = torch.hub.load('huggingface/pytorch-transformers', 'modelForQuestionAnsw
 
 ## Configuration
 
-The configuration is optional. The configuration object holds information concerning the model, such as the number of heads/layers, if the model should output attentions or hidden states, or if it should be adapted for TorchScript. Many parameters are available, some specific to each model. The complete documentation can be found [here](https://huggingface.co/pytorch-transformers/main_classes/configuration.html).
+The configuration is optional. The configuration object holds information concerning the model, such as the number of heads/layers, if the model should output attentions or hidden states, or if it should be adapted for TorchScript. Many parameters are available, some specific to each model. The complete documentation can be found [here](https://huggingface.co/docs/transformers/main_classes/configuration).
 
 ```py
 import torch
