@@ -19,7 +19,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/AlexNet
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.14.1', 'alexnet', weights="IMAGENET1K_V1")
 model.eval()
 ```
 

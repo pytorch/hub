@@ -19,7 +19,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/ShuffleNet_v2
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.10.0', 'shufflenet_v2_x1_0', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.14.1', 'shufflenet_v2_x1_0', weights="IMAGENET1K_V1")
 model.eval()
 ```
 

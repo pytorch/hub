@@ -18,7 +18,7 @@ accelerator: <OPTIONAL: Current supported values: "cuda", "cuda-optional">
 <!-- REQUIRED: provide a working script to demonstrate it works with torch.hub, example below -->
 ```python
 import torch
-torch.hub.load('pytorch/vision', 'resnet18', pretrained=True)
+torch.hub.load('pytorch/vision', 'resnet18', weights="DEFAULT")
 ```
 <!-- Walkthrough a small example of using your model. Ideally, less than 25 lines of code -->
 
