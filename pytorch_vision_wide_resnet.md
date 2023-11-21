@@ -91,7 +91,7 @@ Otherwise the architecture is the same. Deeper ImageNet models with bottleneck
 block have increased number of channels in the inner 3x3 convolution.
 
 The `wide_resnet50_2` and `wide_resnet101_2` models were trained in FP16 with
-mixed precision training using SGD with warm restarts. Checkpoints have weights in
+mixed precision training using [SGD with warm restarts(SGDR)](https://arxiv.org/abs/1608.03983). Checkpoints have weights in
 half precision (except batch norm) for smaller size, and can be used in FP32 models too.
 
 | Model structure   | Top-1 error | Top-5 error | # parameters |
