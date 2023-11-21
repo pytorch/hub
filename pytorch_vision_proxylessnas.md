@@ -21,7 +21,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/ProxylessNAS
 import torch
 target_platform = "proxyless_cpu"
 # proxyless_gpu, proxyless_mobile, proxyless_mobile14 are also avaliable.
-model = torch.hub.load('mit-han-lab/ProxylessNAS', target_platform, pretrained=True)
+model = torch.hub.load('mit-han-lab/ProxylessNAS', target_platform, pretrained=True, trust_repo=True)
 model.eval()
 ```
 
