@@ -1,8 +1,4 @@
 import torch
-import torch.nn as nn
-import torch.optim as optim
-from torchvision.transforms import transforms
-
 from src.ToqiNet import ToqiNet
 
 dependencies = ['torch']
