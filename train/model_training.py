@@ -4,8 +4,8 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 from collections import defaultdict
-from ToqiNet import ToqiNet
-from CustomDataset import CustomDataset
+from src.ToqiNet import ToqiNet
+from src.CustomDataset import CustomDataset
        
 """
 in here i have set the condition to set GPU for default for training approch 
