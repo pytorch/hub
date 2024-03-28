@@ -1,0 +1,7 @@
+torch_version: 2.2.1
+entry_points:
+  model: ToqiNet
+  class: ToqiNet
+  script: model-training.py
+dependencies:
+  - torch
