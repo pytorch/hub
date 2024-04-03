@@ -50,32 +50,50 @@
 <p>Initialize the ToqiNet model, set up the device (GPU if available), and define other necessary configurations.</p>
 
 <pre><code>import torch
+import torch
 import torch.nn as nn
 import torch.optim as optim
+from torchvision.transforms import transforms
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from collections import defaultdict
-from ToqiNet import ToqiNet
-from CustomDataset import CustomDataset
+from src.ToqiNet import ToqiNet, ToqiDataset
 
-# Set device (GPU if available, otherwise CPU)
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Define input shape and number of classes
-input_shape = (3, 256, 256)  
-num_classes = 2 
+"""
+In here we are transforming the image for its comapatibility befor testing.
 
-# Initialize ToqiNet model
-model = ToqiNet(num_classes=2)
-model.to(device)
+"""
+train_transform = transforms.Compose([
+    transforms.Resize((256, 256)),
+    transforms.RandomHorizontalFlip(),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+])
 
-# Load datasets
-train_dataset = CustomDataset(root_dir='dataset/training_set', transform=model.transform)
-test_dataset = CustomDataset(root_dir='dataset/test_set', transform=model.transform)
+test_transform = transforms.Compose([
+    transforms.Resize((256, 256)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+])
 
-# Define data loaders
+"""
+There we are defining the training directory and lso the testing through directory for checking the accurecy.
+ToqiDataset is optimazie for handeling the dataset and preprocess the data before sending it for training
+
+"""
+train_dataset = ToqiDataset(root_dir='your training dataset path', transform=train_transform)
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+
+test_dataset = ToqiDataset(root_dir='your training dataset path', transform=test_transform)
 test_loader = DataLoader(test_dataset, batch_size=32)
+
+"""
+in here the dataset for training path must be given into the model 
+
+"""
+model = ToqiNet(num_classes=train_dataset.num_classes)
+model.set_dataset_root('your training dataset path')
+model.to(model.device)
 </code></pre>
 
 <h3>Training the Model</h3>
@@ -86,9 +104,41 @@ test_loader = DataLoader(test_dataset, batch_size=32)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
 
-# Define training parameters
-num_epochs = 100
-print_every = 5
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model.to(model.device)
+
+"""
+for test purpose i have taken a small size of epochs it can be customaizeable
+
+"""
+num_epochs = 25
+print_every = 5  
+
+"""
+Looping through  all the inputed and preprocess value
+
+"""
+def evaluate_model(model, test_loader, criterion):
+    model.eval()
+    correct = 0
+    total = 0
+    test_loss = 0.0
+    with torch.no_grad():
+        for images, labels in test_loader:
+            images, labels = images.to(device), labels.to(device)
+            outputs = model(images)
+            loss = criterion(outputs, labels)
+            test_loss += loss.item()
+            _, predicted = torch.max(outputs.data, 1)
+            total += labels.size(0)
+            correct += (predicted == labels).sum().item()
+
+    accuracy = correct / total
+    avg_test_loss = test_loss / len(test_loader)
+    print(f'Test Loss: {avg_test_loss:.4f}, Accuracy: {accuracy * 100:.2f}%')
+
+
 
 # Training loop
 for epoch in range(num_epochs):
@@ -96,7 +146,7 @@ for epoch in range(num_epochs):
     running_loss = 0.0
     pbar = tqdm(enumerate(train_loader), total=len(train_loader))
     for i, (inputs, labels) in pbar:
-        inputs, labels = inputs.to(device), labels.to(device)
+        inputs, labels = inputs.to(model.device), labels.to(model.device)
         optimizer.zero_grad()
         outputs = model(inputs)
         loss = criterion(outputs, labels)
@@ -107,6 +157,10 @@ for epoch in range(num_epochs):
 
     if (epoch + 1) % print_every == 0:
         print(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {running_loss / len(train_loader):.4f}")
+
+# Evaluate the model on the test dataset
+evaluate_model(model, test_loader, criterion)
+
 </code></pre>
 
 <h3>Saving the Model</h3>
@@ -114,15 +168,17 @@ for epoch in range(num_epochs):
 <p>Save the trained model and class labels to files for future use.</p>
 
 <pre><code># Save the trained model
-torch.save({
-    'model_state_dict': model.state_dict(),
-    'class_labels': train_dataset.data.class_to_idx
-}, 'ToqiNet.pt')
+"""
+in here i have tried to save the model and save the class along with it through "class_to_idx". this can be done by creating a separate .txt file to store the class
 
-# Save class labels to a file
-with open('class_labels.txt', 'w') as f:
-    for class_name, class_idx in train_dataset.data.class_to_idx.items():
-        f.write(f'{class_name}: {class_idx}\n')
+
+"""
+torch.save({
+    'model_state_dict': model.state_dict(),  # Save model parameters
+    'class_to_idx': train_dataset.class_to_idx,  # Save class to index mapping
+    'similarity_threshold': model.similarity_threshold  # Save similarity threshold
+}, 'your output directory to save the file and also the file name ')
+
 </code></pre>
 
 <h3>Evaluating Model Performance</h3>
@@ -183,7 +239,7 @@ for class_name, class_idx in test_dataset.data.class_to_idx.items():
     <tr>
       <td>ToqiNet</td>
       <td>8000</td>
-      <td>91.60%</td>
+      <td>92.65%</td>
       <td>71M</td>
     </tr>
   </tbody>
