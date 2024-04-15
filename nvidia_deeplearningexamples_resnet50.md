@@ -17,10 +17,9 @@ order: 10
 demo-model-link: https://huggingface.co/spaces/pytorch/ResNet50
 ---
 
-
 ### Model Description
 
-The ***ResNet50 v1.5*** model is a modified version of the [original ResNet50 v1 model](https://arxiv.org/abs/1512.03385).
+The **_ResNet50 v1.5_** model is a modified version of the [original ResNet50 v1 model](https://arxiv.org/abs/1512.03385).
 
 The difference between v1 and v1.5 is that, in the bottleneck blocks which requires
 downsampling, v1 has stride = 2 in the first 1x1 convolution, whereas v1.5 has stride = 2 in the 3x3 convolution.
@@ -33,12 +32,12 @@ This model is trained with mixed precision using Tensor Cores on Volta, Turing, 
 
 Note that the ResNet50 v1.5 model can be deployed for inference on the [NVIDIA Triton Inference Server](https://github.com/triton-inference-server/server) using TorchScript, ONNX Runtime or TensorRT as an execution backend. For details check [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_for_triton_from_pytorch)
 
-
 ### Example
 
-In the example below we will use the pretrained ***ResNet50 v1.5*** model to perform inference on ***image*** and present the result.
+In the example below we will use the pretrained **_ResNet50 v1.5_** model to perform inference on **_image_** and present the result.
 
 To run the example you need some extra python packages installed. These are needed for preprocessing images and visualization.
+
 ```python
 !pip install validators matplotlib
 ```
@@ -60,6 +59,7 @@ print(f'Using {device} for inference')
 ```
 
 Load the model pretrained on ImageNet dataset.
+
 ```python
 resnet50 = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_resnet50', pretrained=True)
 utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_convnets_processing_utils')
@@ -68,6 +68,7 @@ resnet50.eval().to(device)
 ```
 
 Prepare sample input data.
+
 ```python
 uris = [
     'http://images.cocodataset.org/test-stuff2017/000000024309.jpg',
@@ -82,18 +83,20 @@ batch = torch.cat(
 ```
 
 Run inference. Use `pick_n_best(predictions=output, n=topN)` helper function to pick N most probably hypothesis according to the model.
+
 ```python
 with torch.no_grad():
     output = torch.nn.functional.softmax(resnet50(batch), dim=1)
-    
+
 results = utils.pick_n_best(predictions=output, n=5)
 ```
 
 Display the result.
+
 ```python
 for uri, result in zip(uris, results):
     img = Image.open(requests.get(uri, stream=True).raw)
-    img.thumbnail((256,256), Image.ANTIALIAS)
+    img.thumbnail((256,256), Image.LANCZOS)
     plt.imshow(img)
     plt.show()
     print(result)
@@ -101,15 +104,15 @@ for uri, result in zip(uris, results):
 ```
 
 ### Details
+
 For detailed information on model input and output, training recipies, inference and performance visit:
 [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)
 and/or [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_50_v1_5_for_pytorch)
 
 ### References
 
- - [Original ResNet50 v1 paper](https://arxiv.org/abs/1512.03385)
- - [Delving deep into rectifiers: Surpassing human-level performance on ImageNet classification](https://arxiv.org/pdf/1502.01852.pdf)
- - [model on github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)
- - [model on NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_50_v1_5_for_pytorch)
- - [pretrained model on NGC](https://ngc.nvidia.com/catalog/models/nvidia:resnet50_pyt_amp)
- 
+- [Original ResNet50 v1 paper](https://arxiv.org/abs/1512.03385)
+- [Delving deep into rectifiers: Surpassing human-level performance on ImageNet classification](https://arxiv.org/pdf/1502.01852.pdf)
+- [model on github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)
+- [model on NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_50_v1_5_for_pytorch)
+- [pretrained model on NGC](https://ngc.nvidia.com/catalog/models/nvidia:resnet50_pyt_amp)
