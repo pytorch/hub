@@ -101,14 +101,14 @@ Their Top-1 error rates on ImageNet dataset with pretrained models are listed be
 
 | Model structure | Top-1 error | Top-5 error |
 | --------------- | ----------- | ----------- |
-|  vgg11          | 30.98       | 11.37       |
-|  vgg11_bn       | 26.70       | 8.58        |
-|  vgg13          | 30.07       | 10.75       |
-|  vgg13_bn       | 28.45       | 9.63        |
-|  vgg16          | 28.41       | 9.62        |
-|  vgg16_bn       | 26.63       | 8.50        |
-|  vgg19          | 27.62       | 9.12        |
-|  vgg19_bn       | 25.76       | 8.15        |
+|  vgg11          | 30.98       | 11.372      |
+|  vgg11_bn       | 29.63       | 90.374      |
+|  vgg13          | 30.072      | 10.754      |
+|  vgg13_bn       | 28.414      | 9.626       |
+|  vgg16          | 28.408      | 9.618       |
+|  vgg16_bn       | 26.64       | 8.484       |
+|  vgg19          | 27.624      | 9.124       |
+|  vgg19_bn       | 25.782      | 8.158       |
 
 ### References
 
