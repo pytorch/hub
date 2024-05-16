@@ -66,7 +66,7 @@ print(f'Using {device} for inference')
 
 Load the model pretrained on ImageNet dataset.
 ```python
-resneXt = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_resneXt')
+resneXt = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_resneXt', trust_repo=True)
 utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_convnets_processing_utils')
 
 resneXt.eval().to(device)

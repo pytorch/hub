@@ -43,7 +43,7 @@ apt-get install -y libsndfile1
 Load the Tacotron2 model pre-trained on [LJ Speech dataset](https://keithito.com/LJ-Speech-Dataset/) and prepare it for inference:
 ```python
 import torch
-tacotron2 = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_tacotron2', model_math='fp16')
+tacotron2 = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_tacotron2', trust_repo=True, model_math='fp16')
 tacotron2 = tacotron2.to('cuda')
 tacotron2.eval()
 ```
