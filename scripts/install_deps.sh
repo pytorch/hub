@@ -20,3 +20,4 @@ pip install -q --upgrade google-api-python-client
 pip install pytorchvideo
 pip install -q prefetch_generator  # yolop
 pip install -q pretrainedmodels efficientnet_pytorch webcolors # hybridnets
+pip install -q networkx torch-geometric scikit-learn # SAG-ViT
