@@ -122,7 +122,7 @@ for uri, result in zip(uris, results):
 ```
 
 ### Details
-For detailed information on model input and output, training recipies, inference and performance visit:
+For detailed information on model input and output, training recipes, inference and performance visit:
 [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/GPUNet)
 
 ### References

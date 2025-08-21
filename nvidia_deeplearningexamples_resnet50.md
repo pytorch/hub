@@ -105,7 +105,7 @@ for uri, result in zip(uris, results):
 
 ### Details
 
-For detailed information on model input and output, training recipies, inference and performance visit:
+For detailed information on model input and output, training recipes, inference and performance visit:
 [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)
 and/or [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_50_v1_5_for_pytorch)
 

@@ -74,7 +74,7 @@ model, image_size = ofa_specialized_get("flops@595M_top1@80.0_finetune@75", pret
 model.eval()
 ```
 
-The model's prediction can be evalutaed by 
+The model's prediction can be evaluated by 
 ```python
 # Download an example image from pytorch website
 import urllib

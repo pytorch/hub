@@ -61,7 +61,7 @@ Furthermore, we provide a model for speech enhancement trained by [Sony Corporat
 
 * __`umxse`__ speech enhancement model is trained on the 28-speaker version of the [Voicebank+DEMAND corpus](https://datashare.is.ed.ac.uk/handle/10283/1942?show=full).
 
-All three models are also available as spectrogram (core) models, which take magnitude spectrogram inputs and ouput separated spectrograms.
+All three models are also available as spectrogram (core) models, which take magnitude spectrogram inputs and output separated spectrograms.
 These models can be loaded using `umxhq_spec`, `umx_spec` and `umxse_spec`.
 
 ### Details
@@ -77,4 +77,4 @@ pip install openunmix
 ### References
 
 - [Open-Unmix - A Reference Implementation for Music Source Separation](https://doi.org/10.21105/joss.01667)
-- [SigSep - Open Ressources for Music Separation](https://sigsep.github.io/)
+- [SigSep - Open Resources for Music Separation](https://sigsep.github.io/)

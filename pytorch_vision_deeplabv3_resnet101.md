@@ -74,7 +74,7 @@ To get the maximum prediction of each class, and then use it for a downstream ta
 Here's a small snippet that plots the predictions, with each color being assigned to each class (see the visualized image on the left).
 
 ```python
-# create a color pallette, selecting a color for each class
+# create a color palette, selecting a color for each class
 palette = torch.tensor([2 ** 25 - 1, 2 ** 15 - 1, 2 ** 21 - 1])
 colors = torch.as_tensor([i for i in range(21)])[:, None] * palette
 colors = (colors % 255).numpy().astype("uint8")

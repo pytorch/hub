@@ -41,7 +41,7 @@ In the example below:
 - HiFiGAN generates sound given the mel spectrogram
 - the output sound is saved in an 'audio.wav' file
 
-To run the example you need some extra python packages installed. These are needed for preprocessing of text and audio, as well as for display and input/output handling. Finally, for better performance of FastPitch model, we download the CMU pronounciation dictionary.
+To run the example you need some extra python packages installed. These are needed for preprocessing of text and audio, as well as for display and input/output handling. Finally, for better performance of the FastPitch model, we download the CMU pronunciation dictionary.
 ```bash
 apt-get update
 apt-get install -y libsndfile1 wget
@@ -99,7 +99,7 @@ Load text processor.
 tp = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_textprocessing_utils', cmudict_path="cmudict-0.7b", heteronyms_path="heteronyms")
 ```
 
-Set the text to be synthetized, prepare input and set additional generation parameters.
+Set the text to be synthesized, prepare input and set additional generation parameters.
 ```python
 text = "Say this smoothly, to prove you are not a robot."
 ```
@@ -136,7 +136,7 @@ plt.ylabel('frequency')
 _=plt.title('Spectrogram')
 ```
 
-Syntesize audio.
+Synthesize audio.
 ```python
 audio_numpy = audios[0].cpu().numpy()
 Audio(audio_numpy, rate=22050)
@@ -149,7 +149,7 @@ write("audio.wav", vocoder_train_setup['sampling_rate'], audio_numpy)
 ```
 
 ### Details
-For detailed information on model input and output, training recipies, inference and performance visit: [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/SpeechSynthesis/HiFiGAN) and/or [NGC](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/resources/fastpitch_pyt)
+For detailed information on model input and output, training recipes, inference and performance visit: [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/SpeechSynthesis/HiFiGAN) and/or [NGC](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/dle/resources/fastpitch_pyt)
 
 ### References
 

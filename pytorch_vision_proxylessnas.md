@@ -20,7 +20,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/ProxylessNAS
 ```python
 import torch
 target_platform = "proxyless_cpu"
-# proxyless_gpu, proxyless_mobile, proxyless_mobile14 are also avaliable.
+# proxyless_gpu, proxyless_mobile, proxyless_mobile14 are also available.
 model = torch.hub.load('mit-han-lab/ProxylessNAS', target_platform, pretrained=True)
 model.eval()
 ```
@@ -87,7 +87,7 @@ for i in range(top5_prob.size(0)):
 
 ProxylessNAS models are from the [ProxylessNAS: Direct Neural Architecture Search on Target Task and Hardware](https://arxiv.org/abs/1812.00332) paper.
 
-Conventionally, people tend to design *one efficient model* for *all hardware platforms*. But different hardware has different properties, for example, CPU has higher frequency and GPU is better at parallization. Therefore, instead of generalizing, we need to **specialize** CNN architectures for different hardware platforms. As shown in below, with similar accuracy, specialization offers free yet significant performance boost on all three platforms.
+Conventionally, people tend to design *one efficient model* for *all hardware platforms*. But different hardware has different properties, for example, CPU has higher frequency and GPU is better at parallelization. Therefore, instead of generalizing, we need to **specialize** CNN architectures for different hardware platforms. As shown in below, with similar accuracy, specialization offers free yet significant performance boost on all three platforms.
 
 | Model structure |  GPU Latency | CPU Latency | Mobile Latency
 | --------------- | ----------- | ----------- | ----------- |
