@@ -19,9 +19,9 @@ accelerator: "cuda-optional"
 import torch
 
 # These are the default parameters. They are written out for clarity. Currently no pretrained weights are available.
-model = torch.hub.load('sm00thix/unet', 'unet', pretrained=False, in_channels=3, out_channels=1, pad=True, bilinear=True, normalization=None)
+model = torch.hub.load('sm00thix/unet', 'unet', pretrained=False, in_channels=3, out_channels=1, pad=True, bilinear=True, normalization=None, depth=5)
 # or
-# model = torch.hub.load('sm00thix/unet', 'unet_bn', **kwargs) # Convenience function equivalent to torch.hub.load('sm00thix/unet', 'unet', normalization='bn', **kwargs)
+# model = torch.hub.load('sm00thix/unet', 'unet_bn', **kwargs) # Convenience function equivalent to torch.hub.load('sm00thix/unet', 'unet', normalization='bn' **kwargs)
 # or
 # model = torch.hub.load('sm00thix/unet', 'unet_ln', **kwargs) # Convenience function equivalent to torch.hub.load('sm00thix/unet', 'unet', normalization='ln', **kwargs)
 # or
@@ -34,6 +34,7 @@ model = torch.hub.load('sm00thix/unet', 'unet', pretrained=False, in_channels=3,
 This is an implementation of U-Net [[1]](#references). It comes with the following options for customization.
 
 1. Number of input and output channels
+
     `in_channels` is the number of channels in the input image.
     `out_channels` is the number of channels in the output image.
 2. Upsampling
@@ -46,8 +47,11 @@ This is an implementation of U-Net [[1]](#references). It comes with the followi
     1. `normalization = None`: Applies no normalization.
     2. `normalization = "bn"`: Applies batch normalization [[2]](#references).
     3. `normalization = "ln"`: Applies layer normalization [[3]](#references). A permutation of dimensions is performed before the layer to ensure normalization is applied over the channel dimension. Afterward, the dimensions are permuted back to their original order.
+5. Depth
 
-In particular, setting bilinear = False, pad = False, and normalization = None will yield the U-Net as originally designed. Generally, however, bilinear = True is recommended to avoid checkerboard artifacts.
+    `depth` is the The depth of the U-Net. This is the number of steps in the encoder and decoder paths. This is one less than the number of downsampling and upsampling blocks. The number of intermediate channels is 64*2**`depth`, i.e. [64, 128, 256, 512, 1024] for `depth` = 5.
+
+In particular, setting `bilinear = False`, `pad = False`, `normalization = None`, and `depth = 5` will yield the U-Net as originally designed. Generally, however, `bilinear = True` is recommended to avoid checkerboard artifacts.
 
 As in the original implementation, all weights are initialized by sampling from a Kaiming He Normal Distribution [[4]](#references), and all biases are initialized to zero. If Batch Normalization or Layer Normalization is used, the weights of those layers are initialized to one and their biases to zero.
 
