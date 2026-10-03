@@ -123,7 +123,7 @@ plt.show()
 
 ### Details
 For detailed information on model input and output,
-training recipies, inference and performance visit:
+training recipes, inference and performance visit:
 [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Detection/SSD)
 and/or [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:ssd_for_pytorch)
 

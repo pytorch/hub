@@ -31,7 +31,7 @@ The images have to be loaded in to a range of `[0, 1]` and then normalized using
 and `std = [0.229, 0.224, 0.225]`.
 
 The model returns an `OrderedDict` with two Tensors that are of the same height and width as the input Tensor, but with 21 classes.
-`output['out']` contains the semantic masks, and `output['aux']` contains the auxillary loss values per-pixel. In inference mode, `output['aux']` is not useful.
+`output['out']` contains the semantic masks, and `output['aux']` contains the auxiliary loss values per-pixel. In inference mode, `output['aux']` is not useful.
 So, `output['out']` is of shape `(N, 21, H, W)`. More documentation can be found [here](https://pytorch.org/vision/stable/models.html#object-detection-instance-segmentation-and-person-keypoint-detection).
 
 
@@ -73,7 +73,7 @@ To get the maximum prediction of each class, and then use it for a downstream ta
 Here's a small snippet that plots the predictions, with each color being assigned to each class (see the visualized image on the left).
 
 ```python
-# create a color pallette, selecting a color for each class
+# create a color palette, selecting a color for each class
 palette = torch.tensor([2 ** 25 - 1, 2 ** 15 - 1, 2 ** 21 - 1])
 colors = torch.as_tensor([i for i in range(21)])[:, None] * palette
 colors = (colors % 255).numpy().astype("uint8")
