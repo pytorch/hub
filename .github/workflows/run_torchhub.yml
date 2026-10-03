@@ -15,9 +15,9 @@ concurrency:
 
 jobs:
   torchub-job:
-    uses: pytorch/test-infra/.github/workflows/linux_job.yml@main
+    uses: pytorch/test-infra/.github/workflows/linux_job_v3.yml@main
     with:
-      runner: linux.g5.4xlarge.nvidia.gpu
+      runner: mt-l-x86aavx2-11-41-a10g
       repository: pytorch/hub
       gpu-arch-type: cuda
       gpu-arch-version: 11.6
